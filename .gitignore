@@ -4,3 +4,5 @@ venv
 userdata
 **/__pycache__
 .vscode
+models/paddleocr
+.npm-cache-check

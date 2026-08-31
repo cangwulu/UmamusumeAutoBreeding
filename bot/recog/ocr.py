@@ -1,4 +1,5 @@
 import cv2
+import os
 import re
 import paddleocr
 from difflib import SequenceMatcher
@@ -7,9 +8,35 @@ import time
 
 log = logger.get_logger(__name__)
 
-OCR_JP = paddleocr.PaddleOCR(lang="japan", show_log=False, use_angle_cls=False)
-OCR_CH = paddleocr.PaddleOCR(lang="ch", show_log=False, use_angle_cls=False)
-OCR_EN = paddleocr.PaddleOCR(lang="en", show_log=False, use_angle_cls=False)
+# Paddle 推理引擎在 Windows 下无法打开含中文等非 ASCII 字符的路径
+# (例如 C:\Users\路遥\.paddleocr\... 会报 "Cannot open file .../inference.pdmodel")，
+# 因此把 OCR 模型固定存放在项目内纯英文路径下，避免放到用户目录(~/.paddleocr)中。
+_MODEL_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "models", "paddleocr")
+
+OCR_JP = paddleocr.PaddleOCR(
+    lang="japan",
+    show_log=False,
+    use_angle_cls=False,
+    det_model_dir=os.path.join(_MODEL_ROOT, "det", "ml"),
+    rec_model_dir=os.path.join(_MODEL_ROOT, "rec", "japan"),
+    cls_model_dir=os.path.join(_MODEL_ROOT, "cls"),
+)
+OCR_CH = paddleocr.PaddleOCR(
+    lang="ch",
+    show_log=False,
+    use_angle_cls=False,
+    det_model_dir=os.path.join(_MODEL_ROOT, "det", "ch"),
+    rec_model_dir=os.path.join(_MODEL_ROOT, "rec", "ch"),
+    cls_model_dir=os.path.join(_MODEL_ROOT, "cls"),
+)
+OCR_EN = paddleocr.PaddleOCR(
+    lang="en",
+    show_log=False,
+    use_angle_cls=False,
+    det_model_dir=os.path.join(_MODEL_ROOT, "det", "en"),
+    rec_model_dir=os.path.join(_MODEL_ROOT, "rec", "en"),
+    cls_model_dir=os.path.join(_MODEL_ROOT, "cls"),
+)
 
 # ocr 文字识别图片
 def ocr(img, lang="ch"):
