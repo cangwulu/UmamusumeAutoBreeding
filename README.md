@@ -58,7 +58,7 @@
 ### 1. 下载
 
 ```bash
-git clone https://github.com/cangwulu/UmamusumeAutoTrainer.git
+git clone https://github.com/cangwulu/UmamusumeAutoTrainer
 cd UmamusumeAutoTrainer
 ```
 
