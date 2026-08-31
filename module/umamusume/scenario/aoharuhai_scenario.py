@@ -165,47 +165,25 @@ def detect_aoharu_train_arrow(support_card_icon):
     arrow_region = support_card_icon[arrow_region_y_start:arrow_region_y_end, 
                                      arrow_region_x_start:arrow_region_x_end]
     
-    # 定义箭头可能的颜色范围 (检查橙色)
-    orange_lower = [240, 100, 50]
-    orange_upper = [255, 180, 100]
-    
-    # 定义红色像素范围（用于检测感叹号）
-    red_lower = [180, 30,50]
-    red_upper = [255, 100, 150]
-    
-    # 计算橙色像素和红色像素的数量
-    orange_pixels = 0
-    red_pixels = 0
     total_pixels = arrow_region.shape[0] * arrow_region.shape[1]
-    
-    for y in range(arrow_region.shape[0]):
-        for x in range(arrow_region.shape[1]):
-            pixel = arrow_region[y, x]
-            
-            # 检测橙色像素
-            if (orange_lower[0] <= pixel[0] <= orange_upper[0] and
-                orange_lower[1] <= pixel[1] <= orange_upper[1] and
-                orange_lower[2] <= pixel[2] <= orange_upper[2]):
-                orange_pixels += 1
-            # 检测红色像素
-            elif (red_lower[0] <= pixel[0] <= red_upper[0] and
-                  red_lower[1] <= pixel[1] <= red_upper[1] and
-                  red_lower[2] <= pixel[2] <= red_upper[2]):
-                red_pixels += 1
-    
-    orange_ratio = orange_pixels / total_pixels if total_pixels > 0 else 0
-    red_ratio = red_pixels / total_pixels if total_pixels > 0 else 0
-    
-    has_arrow = False
-    
+    if total_pixels == 0:
+        return False
+
+    # 定义箭头可能的颜色范围 (检查橙色) / 红色像素范围（用于检测感叹号）
+    # 使用 cv2.inRange 向量化统计, 替代逐像素 Python 循环
+    orange_mask = cv2.inRange(arrow_region, (240, 100, 50), (255, 180, 100))
+    red_mask = cv2.inRange(arrow_region, (180, 30, 50), (255, 100, 150))
+
+    orange_ratio = cv2.countNonZero(orange_mask) / total_pixels
+    # 与旧逻辑(elif)保持一致: 同时命中橙色范围的像素不计入红色
+    red_only_mask = cv2.bitwise_and(red_mask, cv2.bitwise_not(orange_mask))
+    red_ratio = cv2.countNonZero(red_only_mask) / total_pixels
+
     # 首先排除感叹号：如果红色像素比例过高，判断为感叹号
     if red_ratio > 0.2:
-        has_arrow = False
+        return False
     # 如果橙色像素比例超过阈值
-    elif (orange_ratio > 0.05):
-        has_arrow = True
- 
-    return has_arrow
+    return orange_ratio > 0.05
 
 
 # 检测左下角青春杯训练值是否未满
@@ -225,24 +203,8 @@ def aoharu_train_not_full(support_card_icon) -> bool:
     if total_pixels == 0:
         return False
     
-    # 检测灰色
-    grey_lower = [100, 100, 100]
-    grey_upper = [150, 150, 150]
-    grey_pixels = 0
+    # 检测灰色(向量化)
+    grey_mask = cv2.inRange(avatar_region, (100, 100, 100), (150, 150, 150))
+    grey_ratio = cv2.countNonZero(grey_mask) / total_pixels
 
-    for y in range(avatar_region.shape[0]):
-        for x in range(avatar_region.shape[1]):
-            pixel = avatar_region[y, x]
-            if (grey_lower[0] <= pixel[0] <= grey_upper[0] and
-                grey_lower[1] <= pixel[1] <= grey_upper[1] and
-                grey_lower[2] <= pixel[2] <= grey_upper[2]):
-                grey_pixels += 1
-    
-    grey_ratio = grey_pixels / total_pixels
-    
-    if grey_ratio > 0.05:
-        status = True
-    else:
-        status = False
-    
-    return status
+    return grey_ratio > 0.05

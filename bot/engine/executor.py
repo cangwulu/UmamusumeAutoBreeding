@@ -19,8 +19,6 @@ from config import CONFIG
 
 log = logger.get_logger(__name__)
 
-debug = True
-
 
 def get_controller() -> U2AndroidController:
     return U2AndroidController()
@@ -29,8 +27,9 @@ def get_controller() -> U2AndroidController:
 class Executor:
     active = True
 
-    app_alive_check_counter = 5
-    app_alive_check_interval = 5
+    # 连续未识别到任何界面达到该次数时, 判定任务卡死并中止
+    # (每次循环约 0.5~1.5s, 60 次 ≈ 30~90 秒, 避免游戏加载/切屏时误判)
+    not_found_ui_max_count = 60
 
     detect_ui_results_write_lock = threading.Lock()
     detect_ui_results = []
@@ -111,6 +110,7 @@ class Executor:
             # 启动应用
             log.debug("启动："+manifest.app_package_name)
             ctx.ctrl.start_app(manifest.app_package_name)
+            not_found_ui_counter = 0
             while self.active:
                 if task.task_status == TaskStatus.TASK_STATUS_RUNNING:
                     ctx.current_screen = ctx.ctrl.get_screen()
@@ -121,6 +121,15 @@ class Executor:
                     ctx.prev_ui = ctx.current_ui
                     ctx.current_ui = self.detect_ui(ui_list, ctx.current_screen)
                     log.debug("current_ui:" + ctx.current_ui.ui_name)
+                    if ctx.current_ui == NOT_FOUND_UI:
+                        # 连续未识别到界面时累计, 超过阈值判定卡死并中止
+                        not_found_ui_counter += 1
+                        if not_found_ui_counter >= self.not_found_ui_max_count:
+                            log.error("连续 %d 次未识别到界面, 任务中止", not_found_ui_counter)
+                            task.end_task(TaskStatus.TASK_STATUS_FAILED, EndTaskReason.UI_NOT_FOUND)
+                            break
+                    else:
+                        not_found_ui_counter = 0
                     if before_hook is not None:
                         before_hook(ctx)
                     manifest.script(ctx)

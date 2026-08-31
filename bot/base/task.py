@@ -35,6 +35,7 @@ class EndTaskReason(Enum):
     SYSTEM_ERROR = "系统异常"
     SCENARIO_NOT_FOUND = "找不到育成剧本"
     UMAMUSUME_HALL_FULL = "名人堂优俊少女已满"
+    UI_NOT_FOUND = "长时间未识别到界面"
 
 
 class Task(metaclass=ABCMeta):
