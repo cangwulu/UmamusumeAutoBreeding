@@ -127,7 +127,8 @@ bot:
 
 ## 🗺️ 路线图 / TODO
 
-- [ ] **目标构筑（种马）策略落地**：填充 `target_build.py` 中 `TargetBuildPlanner` 的 `choose_training` / `choose_skills_to_learn` / `spec_met` / `evaluate_aptitude`，并接入 `cultivate.py` 主循环
+- [x] **目标构筑（种马）决策逻辑草稿**：`target_build.py` 已实现首版「纯逻辑决策核心」（`choose_training` / `choose_skills_to_learn` / `spec_met` / `evaluate_aptitude` / `next_action`），并复用 `chara_skills.suggest_not_to_learn()` 跳过马娘自带技能；带 `simulate` 子命令可离线演示（无需模拟器）。
+- [ ] **接入育成主循环**：把 `TargetBuildPlanner.run(ctx, spec)` 接到 `cultivate.py` 真实 ctx（读取属性/技能、操纵模拟器执行训练/学技能/休息），并按 `CultivateGoal.BUILD` 路由。
 - [ ] 将 `chara_skills.suggest_not_to_learn()` 接入技能学习循环，避免重复学习自带技能
 - [ ] 事件选项支持配置
 - [ ] 自动完成每日金币 / 支援点 / JJC
