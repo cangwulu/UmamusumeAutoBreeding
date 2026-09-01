@@ -1,0 +1,229 @@
+{
+  "meta": {
+    "source": "NGA 赛马娘综合攻略 + 用户提供的因子继承进阶攻略",
+    "desc": "游戏核心机制结构化数据：训练/心情/因子/巅峰杯商店/剧本策略",
+    "version": "2026-09-02"
+  },
+
+  "stats": {
+    "speed":       {"jp": "スピード", "desc": "所有马娘都很重要，越高越好"},
+    "stamina":     {"jp": "スタミナ", "desc": "可理解为HP，赛程越长需求越高，不够会失速"},
+    "power":       {"jp": "パワー",   "desc": "影响位置争夺、冲出马群、加速度"},
+    "guts":        {"jp": "根性",     "desc": "影响位置争夺、最终冲刺、耐力不足时速度"},
+    "wisdom":      {"jp": "賢さ",     "desc": "影响技能发动率，减少焦躁，影响巡航/冲刺/位置意识"}
+  },
+
+  "training": {
+    "speed":  {"primary": "speed",  "secondary": ["power"],          "skill_pt": "少量", "note": ""},
+    "stamina":{"primary": "stamina", "secondary": ["guts"],           "skill_pt": "少量", "note": ""},
+    "power":  {"primary": "power",   "secondary": ["stamina"],        "skill_pt": "少量", "note": ""},
+    "guts":   {"primary": "guts",    "secondary": ["power","speed"],  "skill_pt": "少量", "note": ""},
+    "wisdom": {"primary": "wisdom",  "secondary": ["speed"],          "skill_pt": "较多", "note": "回复少量体力"}
+  },
+
+  "mood": {
+    "绝好调": {"train_bonus": 0.20, "race_bonus": 0.04, "order": 5},
+    "好调":   {"train_bonus": 0.10, "race_bonus": 0.02, "order": 4},
+    "普通":   {"train_bonus": 0.00, "race_bonus": 0.00, "order": 3},
+    "不调":   {"train_bonus": -0.10,"race_bonus": -0.02,"order": 2},
+    "绝不调": {"train_bonus": -0.20,"race_bonus": -0.04,"order": 1}
+  },
+
+  "mood_up": {
+    "散步":     {"steps": 1, "stamina_recover": "少量", "note": "外出"},
+    "祈福":     {"steps": 1, "stamina_recover": "少量", "note": "外出，概率治愈不良效果"},
+    "唱K":      {"steps": 2, "stamina_recover": "无",   "note": "外出"},
+    "事件":     {"steps": "不定", "stamina_recover": "不定", "note": "如北黑固定事件/绿帽共同训练"},
+    "比赛优胜": {"steps": "概率", "stamina_recover": "无", "note": "比赛优胜后概率触发"}
+  },
+
+  "race_distance": {
+    "短距离": {"max": 1399, "jp": "短距離"},
+    "英里":   {"min": 1400, "max": 1799, "jp": "マイル"},
+    "中距离": {"min": 1800, "max": 2400, "jp": "中距離"},
+    "长距离": {"min": 2401, "jp": "長距離"}
+  },
+
+  "track_condition": {
+    "良场":   {"power_mod": 1.00, "stamina_mod": 1.00, "jp": "良"},
+    "稍重场": {"power_mod": 0.95, "stamina_mod": 1.05, "jp": "稍重"},
+    "重场":   {"power_mod": 0.90, "stamina_mod": 1.10, "jp": "重"},
+    "不良场": {"power_mod": 0.85, "stamina_mod": 1.15, "jp": "不良"}
+  },
+
+  "running_style": {
+    "逃马": {"jp": "逃げ", "desc": "全程领跑保持优势到最后", "tier": 1},
+    "先行": {"jp": "先行", "desc": "开局抢第一梯队，维持逃马之后，最后冲刺", "tier": 2},
+    "差马": {"jp": "差し", "desc": "第二梯队保存体力，最后突围冲刺", "tier": 3},
+    "追马": {"jp": "追込", "desc": "不抢位置，全程保持体力，最后1穿N", "tier": 4}
+  },
+
+  "factors": {
+    "blue": {
+      "name": "蓝色因子",
+      "desc": "属性因子，对应5种属性",
+      "stars": {
+        "3": {"value": 21, "note": "五维达到600有机会产出"},
+        "2": {"value": 12, "note": "第二三次继承有概率不继承"},
+        "1": {"value": 5,  "note": "第二三次继承有概率不继承"}
+      },
+      "inherit_rule": "继承对象及亲代都生效，理想9蓝；第一次继承固定给最大值，第二三次随机roll点"
+    },
+    "pink": {
+      "name": "粉色因子",
+      "desc": "适性因子，提供场地/距离/跑法适性改造",
+      "upgrade_cost": {"1_stage": 1, "2_stage": 4, "3_stage": 7, "4_stage": 10},
+      "max_initial": "A",
+      "inherit_rule": "开局固定触发，第二三次概率触发每次+1阶段",
+      "S_bonus": {
+        "距离": "提升速度",
+        "场地": "提升力量",
+        "跑法": "提升智力"
+      },
+      "note": "纯随机产出，无已知提升途径"
+    },
+    "green": {
+      "name": "绿色因子",
+      "desc": "固有技能因子，继承弱化版固有",
+      "discount": {"1": 0.10, "2": 0.20, "3": 0.30},
+      "inherit_rule": "育成初始必定继承亲代一次；只有3星马娘可产出",
+      "note": "产出与评价分有关但实际感受不到差距"
+    },
+    "white": {
+      "name": "白色因子",
+      "desc": "技能/赛场/剧本因子",
+      "types": {
+        "比赛因子": "提供技能打折+属性（部分只提供属性）",
+        "技能因子": "只提供技能打折",
+        "剧本因子": "提供属性（URA→速耐10-30，其他剧本不同）"
+      },
+      "inherit_rule": "第二三次继承时随机出现；评价分超SS时高星产出率大幅提升",
+      "note": "提高出现概率的方法是提高种马相性"
+    }
+  },
+
+  "inheritance_timing": [
+    {"timing": "育成开始时", "blue": "固定最大值", "green": "必定继承亲代一次", "pink": "固定触发", "white": "不触发"},
+    {"timing": "第二年3月后", "blue": "随机roll点", "green": "概率触发", "pink": "概率触发+1阶段", "white": "随机出现"},
+    {"timing": "第三年3月后", "blue": "随机roll点", "green": "概率触发", "pink": "概率触发+1阶段", "white": "随机出现"}
+  ],
+
+  "affinity_rules": {
+    "avoid": ["樱花进王", "乌拉拉", "丸善斯基"],
+    "same_race_bonus": "种马和父母打相同比赛可提升相性（仅G1/G2/G3，不含OP/Pre-OP/出道/URA；不同年份同名比赛不重复）",
+    "gold_medal_races": ["经典三冠", "春三冠", "秋三冠", "其他特殊联动G1"],
+    "tips": [
+      "养种马尽量多打G1比赛",
+      "打有特殊联动的比赛获金奖章",
+      "借好友种马当祖辈是最佳选择"
+    ]
+  },
+
+  "scenarios": {
+    "URA": {
+      "train_level_up": "每4次训练提升1级",
+      "inherent_upgrade": [
+        {"timing": "第三年2月后", "fans_need": 60000, "fans_need_dirt": 40000, "note": "情人节"},
+        {"timing": "第三年4月前", "fans_need": 70000, "fans_need_dirt": 60000, "condition": "理事长羁绊3格", "note": "粉丝感谢节"},
+        {"timing": "第三年12月前", "fans_need": 120000, "fans_need_dirt": 80000, "note": "圣诞节"}
+      ],
+      "summer_camp": "第二三年7月上-8月下各4回合，训练等级固定LV5",
+      "friend_card": "桐生院葵"
+    },
+    "青春杯": {
+      "train_level_up": "根据队伍属性评级提升",
+      "new_mechanics": ["组队赛", "青春特训", "青春爆魂", "青春杯特殊技能", "联动角色增益"],
+      "team_race_ranking": {
+        "21-30": 0, "16-20": 10, "10-15": 20, "6-9": 30, "1-5": 50
+      },
+      "soul_burst_skill_threshold": {
+        "0-3": "无", "4-6": "点火HINT1", "7-9": "点火HINT3",
+        "10-12": "燃烧HINT1", "13+": "燃烧HINT3"
+      },
+      "team_name_skills": {
+        "キャロッツ": "ノンストップガール",
+        "ハレノヒ・ランナーズ": "千里眼",
+        "HOP CHEERS": "マイルの支配者",
+        "ブルームス": "クールダウン",
+        "にんじんぷりん": "不屈の心"
+      },
+      "link_chars": ["米浴", "乌拉拉", "福来", "大树快车"],
+      "friend_card": "樫本理子(理事长代理)"
+    },
+    "巅峰杯": {
+      "train_level_up": "继承URA + 商店道具协助",
+      "new_mechanics": ["商店", "自由赛程", "劲敌", "巅峰杯决赛"],
+      "shop_refresh": "每6回合刷新，道具库存持续6回合；比赛随机刷新道具库存持续3回合",
+      "friend_card": "骏川缰绳(绿帽)"
+    }
+  },
+
+  "peak_cup_shop": {
+    "体力回复": [
+      {"name": "小体力药", "price": 35, "effect": "回复20体力"},
+      {"name": "中体力药", "price": 55, "effect": "回复40体力"},
+      {"name": "大体力药", "price": 75, "effect": "回复65体力"},
+      {"name": "绿汁", "price": 70, "effect": "回复100体力，心情降低1级"},
+      {"name": "体力上限药(小)", "price": 30, "effect": "体力最大值+4，回复5体力"},
+      {"name": "体力上限药(大)", "price": 50, "effect": "体力最大值+8"}
+    ],
+    "训练增益": [
+      {"name": "喇叭(小)", "price": 40, "effect": "4回合内训练收益+20%"},
+      {"name": "喇叭(中)", "price": 55, "effect": "3回合内训练收益+40%"},
+      {"name": "喇叭(大)", "price": 70, "effect": "2回合内训练收益+60%"},
+      {"name": "负重", "price": 50, "effect": "本回合训练消耗体力+20%，训练收益+50%"},
+      {"name": "训练等级提升", "price": 150, "effect": "对应训练等级+1"},
+      {"name": "御守", "price": 40, "effect": "本回合训练失败率降为0%"},
+      {"name": "哨子", "price": 20, "effect": "刷新支援卡配置"}
+    ],
+    "比赛增益": [
+      {"name": "蹄铁(小)", "price": 25, "effect": "本回合比赛收益+20%"},
+      {"name": "蹄铁(大)", "price": 40, "effect": "本回合比赛收益+35%"}
+    ],
+    "心情恢复": [
+      {"name": "心情药(小)", "price": 30, "effect": "心情提高1级"},
+      {"name": "心情药(大)", "price": 55, "effect": "心情提高2级"}
+    ],
+    "属性提升": [
+      {"name": "属性书(小)", "price": 10, "effect": "对应属性+3"},
+      {"name": "属性书(中)", "price": 15, "effect": "对应属性+7"},
+      {"name": "属性书(大)", "price": 30, "effect": "对应属性+15"}
+    ],
+    "羁绊提升": [
+      {"name": "BBQ", "price": 40, "effect": "全体支援卡羁绊+5"},
+      {"name": "猫罐头", "price": 10, "effect": "理事长羁绊+5"}
+    ],
+    "BUFF获得": [
+      {"name": "爱娇", "price": 150, "effect": "获得爱娇"},
+      {"name": "注目株", "price": 150, "effect": "获得注目株"},
+      {"name": "练习上手", "price": 150, "effect": "获得練習上手◯"},
+      {"name": "切れ者", "price": 280, "effect": "获得切れ者"}
+    ],
+    "DB解除": [
+      {"name": "全解", "price": 40, "effect": "解除全部DB"},
+      {"name": "单项解除", "price": 15, "effect": "解除指定DB"}
+    ]
+  },
+
+  "support_card_builds": {
+    "速力": {"cards": "2-3速卡+2力卡+友人", "target": "高速度+高力量"},
+    "速耐": {"cards": "2-3速卡+2耐卡+友人", "target": "高速度+高耐力（长距离）"},
+    "速智": {"cards": "2-3速卡+2-3智卡+友人", "target": "高速度+高智力"},
+    "闸马": {"cards": "特殊", "target": "关键妨害技能"},
+    "根性流": {"cards": "非主流", "target": "高评价马娘"}
+  },
+
+  "distance_build_recommendation": {
+    "短距离": ["速智", "速力"],
+    "英里":   ["速智", "速力"],
+    "中距离": ["速力", "速耐"],
+    "长距离": ["速耐"]
+  },
+
+  "fatigue_penalty": {
+    "consecutive_races": 3,
+    "zero_stamina_race": "心情下降/DB/削减属性",
+    "one_stamina_safe": true,
+    "year_end_exception": "每年最后一回合（有马回合）跑比赛不触发历战惩罚"
+  }
+}

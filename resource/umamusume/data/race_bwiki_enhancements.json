@@ -1,0 +1,696 @@
+{
+ "desc": "NGA 赛程数据对 race_bwiki.json 的字段补全建议",
+ "count": 115,
+ "items": [
+  {
+   "race_id": 3049,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4501,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4502,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4093,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4503,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4504,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 4099,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 2032,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 3060,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4510,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 3065,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 4513,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4516,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4517,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 4521,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 4523,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4524,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 4114,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4526,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 3004,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 3006,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 4002,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4007,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4014,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4020,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 4032,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 2006,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 2008,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 3018,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4027,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 2010,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 3023,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4035,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 1004,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 1005,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 2013,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 3016,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 2017,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4056,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4050,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 3030,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 4061,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 1012,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 4122,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 3046,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 2022,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 3053,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 3006,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 3054,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 2024,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 2025,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 2023,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4090,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 2027,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4095,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 4100,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 1014,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 1015,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 1017,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4104,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 1018,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 3067,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 3070,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4109,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4111,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4112,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 1023,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 3001,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 3002,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 4001,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4003,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 4006,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4010,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 2003,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 3007,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 4015,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 3013,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 3017,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 3019,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 3020,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 4021,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4026,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 2011,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 4030,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 1003,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 3025,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 3026,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4037,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 1006,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 3028,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4044,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4047,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 4049,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4058,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 3030,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 4061,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 1012,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 4122,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 3046,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 3053,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 3006,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 2025,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4090,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 2027,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4095,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 4100,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 1017,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4104,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 1018,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 3067,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 3070,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4109,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4111,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "外"
+  },
+  {
+   "race_id": 4112,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  },
+  {
+   "race_id": 1023,
+   "field": "lane",
+   "old_value": "",
+   "new_value": "内"
+  }
+ ]
+}
