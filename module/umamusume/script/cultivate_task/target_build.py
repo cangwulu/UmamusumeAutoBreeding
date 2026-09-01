@@ -59,6 +59,17 @@ class CultivateGoal(Enum):
 # 属性键统一用小写英文（对齐游戏内 speed/stamina/power/guts/wisdom）
 STAT_KEYS = ("speed", "stamina", "power", "guts", "wisdom")
 
+# stat 键 → 项目真实 UmaAttribute 字段名。
+# 注意：游戏通用词 guts/wisdom 在本项目代码里叫 will/intelligence，
+# 离线模拟无所谓，但 build_state_from_ctx 读真实 ctx 时务必映射正确。
+STAT_TO_ATTR = {
+    "speed": "speed",
+    "stamina": "stamina",
+    "power": "power",
+    "guts": "will",          # 毅力
+    "wisdom": "intelligence",  # 智力
+}
+
 # 适应性等级排序（用于比对当前等级是否达到要求）。空串/未知按最低处理。
 GRADE_RANK = {"": 0, "?": 0, "E": 1, "D": 2, "C": 3, "B": 4, "A": 5, "S": 6}
 
@@ -160,6 +171,45 @@ def _chara_skill_module():
         return None
 
 
+def build_state_from_ctx(ctx, chara: Optional[str] = None) -> Optional["BuildState"]:
+    """从真实 UmamusumeContext 构造 BuildState（接入 cultivate.py 时由钩子调用）。
+
+    只读、不操纵；任何字段缺失/异常都返回 None，让调用方安全回退到原流程。
+    用户侧 stat 键（guts/wisdom）会按 STAT_TO_ATTR 映射到真实字段（will/intelligence）。
+    """
+    try:
+        ti = ctx.cultivate_detail.turn_info
+        if ti is None:
+            return None
+        attr = ti.uma_attribute
+        if attr is None:
+            return None
+        stats = {}
+        for k in STAT_KEYS:
+            field_name = STAT_TO_ATTR.get(k, k)
+            stats[k] = int(getattr(attr, field_name, 0) or 0)
+        skill_points = int(getattr(attr, "skill_point", 0) or 0)
+        owned = []
+        try:
+            owned = list(getattr(ctx.cultivate_detail, "learned_skill_names", []) or [])
+        except Exception:
+            owned = []
+        aptitudes = {}
+        try:
+            aptitudes = dict(getattr(ctx.cultivate_detail, "aptitudes", {}) or {})
+        except Exception:
+            aptitudes = {}
+        return BuildState(
+            stats=stats,
+            owned_skills=owned,
+            aptitudes=aptitudes,
+            skill_points=skill_points,
+            turn=int(getattr(ti, "date", 0) or 0),
+        )
+    except Exception:
+        return None
+
+
 class TargetBuildPlanner:
     """按 BuildSpec 规划育成动作。
 
@@ -173,16 +223,18 @@ class TargetBuildPlanner:
     # ---- 对外主入口（给 cultivate.py 调用） ----
 
     def run(self, ctx, spec: Optional[BuildSpec] = None) -> None:
-        """执行一代目标构筑育成。
+        """执行一代目标构筑育成（高层编排器，可选）。
 
-        TODO（集成点）：循环读取 ctx.cultivate_detail 构造 BuildState，调用 next_action()
-        得到每回合动作，再操纵模拟器执行（训练 / 学技能 / 休息）。参考 cultivate.py 的
-        script_cultivate_main_menu 流程。当前仍是占位，避免在没有真实 ctx 时误执行。
+        首版已通过 cultivate.py 的 per-turn 钩子实现集成：每回合钩子调用
+        build_state_from_ctx(ctx) 读状态 → next_action() 出决策 → 写回
+        ctx.cultivate_detail.turn_info.turn_operation（训练/休息）或 learn_skill_list（学技能）。
+        本方法保留为可选的高层循环编排入口；当前仍抛 NotImplementedError，避免在没有
+        完整 ctx / 真实游戏会话时误执行。
         """
         spec = spec or self.spec
         if spec is None:
             raise ValueError("TargetBuildPlanner.run 需要一个 BuildSpec")
-        raise NotImplementedError("TargetBuildPlanner.run 待接入真实 ctx 与模拟器操纵")
+        raise NotImplementedError("TargetBuildPlanner.run 高层编排待实现（per-turn 钩子已可用）")
 
     # ---- 纯逻辑决策核心（可单测、可 CLI 演示） ----
 

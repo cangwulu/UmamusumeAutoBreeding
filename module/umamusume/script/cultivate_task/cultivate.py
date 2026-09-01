@@ -21,14 +21,13 @@ log = logger.get_logger(__name__)
 
 
 def script_cultivate_main_menu(ctx: UmamusumeContext):
-    # === TargetBuild 挂接点（默认关闭，保持原 RACE 流程）===
-    # 启用目标构筑模式时：若 ctx.cultivate_detail 带 goal == CultivateGoal.BUILD，
-    # 在此路由到 TargetBuildPlanner.run(ctx, spec)，由 target_build 按规格规划动作。
-    # 当前为占位，不影响现有竞技向育成：
-    # _goal = getattr(ctx.cultivate_detail, "goal", CultivateGoal.RACE)
-    # _strategy = select_cultivate_strategy(_goal)
-    # if _strategy is not None:
-    #     return _strategy.run(ctx, ...)
+    # === TargetBuild（目标构筑 / 种马）挂接配置 ===
+    # 默认关闭：不影响现有 RACE 竞技向育成。
+    # 要启用：把 TARGET_BUILD_ENABLED 置 True，并在 TARGET_BUILD_SPEC_NAME 填入
+    # target_build.BUILD_PRESETS 里你填写的那一代规格的键（如 "demo_gen3_speed"）。
+    # 同时让 ctx.cultivate_detail.goal == "build"（CultivateGoal.BUILD）。
+    TARGET_BUILD_ENABLED = False
+    TARGET_BUILD_SPEC_NAME = None
 
     img = ctx.current_screen
     current_date = parse_date(img, ctx)
@@ -49,6 +48,61 @@ def script_cultivate_main_menu(ctx: UmamusumeContext):
     # 解析主界面
     if not ctx.cultivate_detail.turn_info.parse_main_menu_finish:
         parse_cultivate_main_menu(ctx, img)
+
+    # === TargetBuild 每回合决策钩子（仅 BUILD 模式 + 显式启用时生效）===
+    # 在「主界面解析完成后」读真实状态，写回 turn_operation（训练/休息）或 learn_skill_list
+    # （学技能）。默认关闭；任何异常都回退到原 RACE 流程，绝不卡死育成。
+    if TARGET_BUILD_ENABLED and TARGET_BUILD_SPEC_NAME:
+        _goal = getattr(ctx.cultivate_detail, "goal", None)
+        if _goal is not None and str(getattr(_goal, "value", _goal)) == "build":
+            try:
+                from module.umamusume.script.cultivate_task.target_build import (
+                    BUILD_PRESETS, TargetBuildPlanner, build_state_from_ctx)
+                _spec = BUILD_PRESETS.get(TARGET_BUILD_SPEC_NAME)
+                _ti = ctx.cultivate_detail.turn_info
+                if _spec is not None and _ti is not None and _ti.turn_operation is None:
+                    _state = build_state_from_ctx(ctx, _spec.chara)
+                    if _state is not None:
+                        _planner = TargetBuildPlanner(_spec)
+                        _act = _planner.next_action(_state, _spec, _spec.chara)
+                        log.info("[target_build] 回合 %d 决策: %s", _state.turn, _act)
+                        if _act["type"] == "train":
+                            _tt = {
+                                "speed": TrainingType.TRAINING_TYPE_SPEED,
+                                "stamina": TrainingType.TRAINING_TYPE_STAMINA,
+                                "power": TrainingType.TRAINING_TYPE_POWER,
+                                "guts": TrainingType.TRAINING_TYPE_WILL,
+                                "wisdom": TrainingType.TRAINING_TYPE_INTELLIGENCE,
+                            }.get(_act["stat"])
+                            if _tt is not None:
+                                # 本回合练属性：清空 learn_skill_list 避免下方技能分支抢跑
+                                try:
+                                    ctx.cultivate_detail.learn_skill_list = []
+                                except Exception:
+                                    pass
+                                _ti.turn_operation = TurnOperation()
+                                _ti.turn_operation.turn_operation_type = (
+                                    TurnOperationType.TURN_OPERATION_TYPE_TRAINING)
+                                _ti.turn_operation.training_type = _tt
+                                return
+                        elif _act["type"] in ("rest", "done"):
+                            try:
+                                ctx.cultivate_detail.learn_skill_list = []
+                            except Exception:
+                                pass
+                            _ti.turn_operation = TurnOperation()
+                            _ti.turn_operation.turn_operation_type = (
+                                TurnOperationType.TURN_OPERATION_TYPE_REST)
+                            return
+                        elif _act["type"] == "learn":
+                            # 把目标技能喂给现有学技能机制（learn_skill_list: list[list[str]]）
+                            try:
+                                ctx.cultivate_detail.learn_skill_list = [list(_act["skills"])]
+                            except Exception:
+                                pass
+                            # 不 return：落到下方「技能点超阈值→学技能」分支触发学习
+            except Exception as _e:
+                log.warning("[target_build] 决策异常，回退原流程: %s", _e)
 
     has_extra_race = len([i for i in ctx.cultivate_detail.extra_race_list if str(i)[:2]
                           == str(ctx.cultivate_detail.turn_info.date)]) != 0

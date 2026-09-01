@@ -23,7 +23,7 @@
 | **技能排序** | `module/umamusume/asset/skill_order.py` | 基于 BWIKI 评价分对候选技能排序，供育成主循环贪心选技 |
 | **马娘自带技能查询** | `module/umamusume/asset/chara_skills.py` | 查询任意马娘的固有 / 觉醒 / 初始技能；`suggest_not_to_learn()` 可剔除已自带技能，避免白花技能点重复学习 |
 | **事件库与匹配** | `module/umamusume/asset/event_db.py` | 事件数据结构与匹配逻辑（基于 BWIKI 事件表构建） |
-| **目标构筑（种马）骨架** | `module/umamusume/script/cultivate_task/target_build.py` | **早期阶段**：按外部规划好的"规格"（技能 / 适应性 / 属性阈值）驱动育成的骨架，`BuildSpec` + `TargetBuildPlanner` 接口已就位，策略逻辑待填充 |
+| **目标构筑（种马）** | `module/umamusume/script/cultivate_task/target_build.py` | 按外部规划好的"规格"（技能 / 适应性 / 属性阈值）驱动育成；`BuildSpec` + `TargetBuildPlanner` 决策核心已实现，并已以"默认关闭的 per-turn 钩子"接入 `cultivate.py` 主循环 |
 
 ### 数据抓取脚本（`tools/`，不参与运行时）
 
@@ -61,7 +61,7 @@ UmamusumeAutoTrainer/
 │   ├── scenario/                       # 各剧本（URA / 青春杯 / 凯旋门）
 │   └── script/cultivate_task/          # 育成主循环
 │       ├── cultivate.py                # 主循环（含 target_build 挂接点，默认关闭）
-│       └── target_build.py             # 目标构筑骨架（早期）
+│       └── target_build.py             # 目标构筑（可按规格练马，默认关闭）
 ├── resource/umamusume/data/            # 运行时 JSON 数据
 ├── tools/                             # 一次性构建 / 抓取脚本（不参与运行时）
 └── docs/                              # 设计文档
@@ -128,7 +128,7 @@ bot:
 ## 🗺️ 路线图 / TODO
 
 - [x] **目标构筑（种马）决策逻辑草稿**：`target_build.py` 已实现首版「纯逻辑决策核心」（`choose_training` / `choose_skills_to_learn` / `spec_met` / `evaluate_aptitude` / `next_action`），并复用 `chara_skills.suggest_not_to_learn()` 跳过马娘自带技能；带 `simulate` 子命令可离线演示（无需模拟器）。
-- [ ] **接入育成主循环**：把 `TargetBuildPlanner.run(ctx, spec)` 接到 `cultivate.py` 真实 ctx（读取属性/技能、操纵模拟器执行训练/学技能/休息），并按 `CultivateGoal.BUILD` 路由。
+- [x] **接入育成主循环（默认关闭）**：`cultivate.py` 的 `script_cultivate_main_menu` 新增 per-turn 钩子——当 `TARGET_BUILD_ENABLED=True` 且 `ctx.cultivate_detail.goal=="build"` 时，调用 `build_state_from_ctx(ctx)` 读真实状态 → `next_action()` 决策 → 写回 `turn_operation`（训练/休息）或 `learn_skill_list`（学技能）。任何异常都回退原 RACE 流程。
 - [ ] 将 `chara_skills.suggest_not_to_learn()` 接入技能学习循环，避免重复学习自带技能
 - [ ] 事件选项支持配置
 - [ ] 自动完成每日金币 / 支援点 / JJC
