@@ -21,6 +21,8 @@ export default {
         return 'URA';
       } else if (this.task.detail?.scenario === 2) {
         return '青春杯';
+      } else if (this.task.detail?.scenario === 3) {
+        return '凯旋杯';
       }
       // Add more scenarios here as needed
       return '未知剧本';

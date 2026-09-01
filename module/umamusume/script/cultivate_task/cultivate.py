@@ -193,20 +193,42 @@ def script_scenario_select(ctx: UmamusumeContext):
     target_scenario = ctx.cultivate_detail.scenario.scenario_type()
     time.sleep(3) #如果网络非常差，这里可能会来不及等
 
-    for i in range(1, len(ScenarioType)):
+    # 剧本选择是轮播界面(每屏一个剧本详情页), 需要用点击右侧">"箭头切换, 滑动无效
+    for i in range(12):
         img = ctx.ctrl.get_screen(to_gray=True)
 
         if image_match(img, UI_SCENARIO[target_scenario]).find_match:
             log.info(f"找到目标育成剧本{ctx.cultivate_detail.scenario.scenario_name()}")
-            ctx.ctrl.click_by_point(TO_CULTIVATE_PREPARE_NEXT)
+            if target_scenario == ScenarioType.SCENARIO_TYPE_KAISEN:
+                # 凯旋门计划详情页的"继续"按钮位置与URA不同
+                ctx.ctrl.click_by_point(CULTIVATE_KAISEN_SCENARIO_DETAIL_CONTINUE)
+            else:
+                ctx.ctrl.click_by_point(TO_CULTIVATE_PREPARE_NEXT)
             return
 
-        log.debug(f"剧本不匹配, 查看下一个剧本")
-        ctx.ctrl.swipe(x1=400, y1=600, x2=500, y2=600, duration=300, name="swipe right")
+        log.debug(f"剧本不匹配, 点击下一个剧本")
+        ctx.ctrl.click_by_point(SCENARIO_SELECT_NEXT)
         time.sleep(1)
 
     log.error(f"找不到指定的剧本")
     ctx.task.end_task(TaskStatus.TASK_STATUS_FAILED, EndTaskReason.SCENARIO_NOT_FOUND)
+
+
+def script_kaisen_scenario_detail(ctx: UmamusumeContext):
+    # 凯旋门计划(凯旋杯)剧本详情页: 点击"继续"
+    time.sleep(2)
+    ctx.ctrl.click_by_point(CULTIVATE_KAISEN_SCENARIO_DETAIL_CONTINUE)
+
+
+def script_kaisen_mode_select(ctx: UmamusumeContext):
+    # 选择养成模式: 若配置为"挑战训练员技能考试"则先点该卡片, 再点"确定"
+    time.sleep(1)
+    kaisen_config = getattr(ctx.task.detail.scenario_config, "kaisen_config", None)
+    kaisen_mode = kaisen_config.kaisen_mode if kaisen_config is not None else 1
+    if kaisen_mode == 2:
+        ctx.ctrl.click_by_point(CULTIVATE_KAISEN_MODE_CHALLENGE)
+        time.sleep(0.5)
+    ctx.ctrl.click_by_point(CULTIVATE_KAISEN_MODE_CONFIRM)
 
 
 def script_umamusume_select(ctx: UmamusumeContext):
@@ -222,7 +244,7 @@ def script_support_card_select(ctx: UmamusumeContext):
     if image_match(img, REF_CULTIVATE_SUPPORT_CARD_EMPTY).find_match:
         ctx.ctrl.click_by_point(TO_FOLLOW_SUPPORT_CARD_SELECT)
         return
-    ctx.ctrl.click_by_point(TO_CULTIVATE_PREPARE_NEXT)
+    ctx.ctrl.click_by_point(CULTIVATE_START_TRAINING)
 
 
 def script_follow_support_card_select(ctx: UmamusumeContext):
@@ -509,13 +531,28 @@ def script_cultivate_learn_skill(ctx: UmamusumeContext):
 
     log.debug("当前技能状态：" + str(skill_list))
 
+    # 数据驱动排序：用 skill_db 的「综合分」在相同优先级桶内做细分排序。
+    # 不改变用户预设/默认优先级的先后，只在「同级」技能里按评分高低排；
+    # 评分缺失的技能落到 -1.0，排在该桶末尾（不影响既有选取逻辑）。
+    try:
+        from module.umamusume.asset.skill_order import composite_of
+        for _s in skill_list:
+            _s["_composite"] = composite_of(_s.get("skill_name", ""))
+    except Exception as _e:   # skill_db 缺失/加载失败时，安静回退到纯优先级
+        log.debug("技能评分排序不可用，维持原优先级：%s", _e)
+        for _s in skill_list:
+            _s["_composite"] = 0.0
+
     # 将金色技能和其后面的技能绑定
     for i in range(len(skill_list)):
         if i != (len(skill_list) - 1) and skill_list[i]["gold"] is True:
             skill_list[i]["subsequent_skill"] = skill_list[i + 1]["skill_name"]
 
-    # 按照优先级排列
-    skill_list = sorted(skill_list, key=lambda x: x["priority"])
+    # 按照优先级排列（同级内按综合分从高到低细分）
+    skill_list = sorted(
+        skill_list,
+        key=lambda x: (x["priority"], -float(x.get("_composite", 0.0))),
+    )
     # TODO: 暂时没办法处理一个技能可以点多次的情况
     img = ctx.ctrl.get_screen()
     total_skill_point_text = re.sub("\\D", "", ocr_line(img[400: 440, 490: 665]))
@@ -532,6 +569,12 @@ def script_cultivate_learn_skill(ctx: UmamusumeContext):
             break
         for j in range(len(skill_list)):
             if skill_list[j]["priority"] != i or skill_list[j]["available"] is False:
+                continue
+            # 减益技能（红技）跳过不学：BWIKI 评价分为负（如 -500），
+            # 与「未匹配的中性 -1.0」区分——只拦已识别的减益，不误伤未收录技能。
+            if float(skill_list[j].get("_composite", 0.0)) < -1.0:
+                log.debug("跳过减益技能：%s（综合分 %.0f）",
+                          skill_list[j]["skill_name"], skill_list[j]["_composite"])
                 continue
             if curr_point + skill_list[j]["skill_cost"] <= total_skill_point:
                 curr_point += skill_list[j]["skill_cost"]

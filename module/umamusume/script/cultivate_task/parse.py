@@ -52,6 +52,9 @@ def parse_date(img, ctx: UmamusumeContext) -> int:
         month_text = find_similar_text(date_text, DATE_MONTH)
 
     if month_text != DATE_MONTH[0]:
+        if year_text not in DATE_YEAR or month_text not in DATE_MONTH:
+            log.warning("日期解析失败: %s", date_text)
+            return -1
         date_id = DATE_YEAR.index(year_text) * 24 + DATE_MONTH.index(month_text)
     else:
         sub_img_turn_to_race = ctx.cultivate_detail.scenario.get_turn_to_race_img(img)

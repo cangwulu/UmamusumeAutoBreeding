@@ -9,6 +9,15 @@ CULTIVATE_FINAL_CHECK_START = ClickPoint(ClickPointType.CLICK_POINT_TYPE_COORDIN
 TO_FOLLOW_SUPPORT_CARD_SELECT = ClickPoint(ClickPointType.CLICK_POINT_TYPE_COORDINATE, None, Coordinate(570, 680), "借用支援卡")
 FOLLOW_SUPPORT_CARD_SELECT_REFRESH = ClickPoint(ClickPointType.CLICK_POINT_TYPE_COORDINATE, None, Coordinate(650, 1010), "借用支援卡-刷新")
 
+# 凯旋门计划(凯旋杯): 剧本详情页"继续" / 选择养成模式"确定" / 挑战训练员技能考试(坐标为估算, 待联调校准)
+CULTIVATE_KAISEN_SCENARIO_DETAIL_CONTINUE = ClickPoint(ClickPointType.CLICK_POINT_TYPE_COORDINATE, None, Coordinate(348, 1085), "凯旋门计划-继续", None)
+CULTIVATE_KAISEN_MODE_CONFIRM = ClickPoint(ClickPointType.CLICK_POINT_TYPE_COORDINATE, None, Coordinate(508, 1182), "选择养成模式-确定", None)
+CULTIVATE_KAISEN_MODE_CHALLENGE = ClickPoint(ClickPointType.CLICK_POINT_TYPE_COORDINATE, None, Coordinate(360, 480), "选择养成模式-挑战训练员技能考试", None)
+# 剧本选择轮播: 点击右侧 › 箭头切换下一本(滑动无效)
+SCENARIO_SELECT_NEXT = ClickPoint(ClickPointType.CLICK_POINT_TYPE_COORDINATE, None, Coordinate(695, 600), "剧本选择-下一页", None)
+# 支援卡选择/育成准备界面: "开始养成!"按钮
+CULTIVATE_START_TRAINING = ClickPoint(ClickPointType.CLICK_POINT_TYPE_COORDINATE, None, Coordinate(392, 1102), "开始养成", None)
+
 TO_TRAINING_SELECT = ClickPoint(ClickPointType.CLICK_POINT_TYPE_COORDINATE, None, Coordinate(355, 990), "前往训练选择", None)
 CULTIVATE_REST = ClickPoint(ClickPointType.CLICK_POINT_TYPE_COORDINATE, None, Coordinate(120, 995), "休息", None)
 CULTIVATE_SKILL_LEARN = ClickPoint(ClickPointType.CLICK_POINT_TYPE_COORDINATE, None, Coordinate(600, 987), "技能", None)
@@ -51,7 +60,7 @@ GOAL_ACHIEVE_CONFIRM = ClickPoint(ClickPointType.CLICK_POINT_TYPE_COORDINATE, No
 GOAL_FAIL_CONFIRM = ClickPoint(ClickPointType.CLICK_POINT_TYPE_COORDINATE, None, Coordinate(370,1190), "目标未达成-确认", None)
 NEXT_GOAL_CONFIRM = ClickPoint(ClickPointType.CLICK_POINT_TYPE_COORDINATE, None, Coordinate(360,1110), "下一个目标-确认", None)
 
-CULTIVATE_EXTEND_CONFIRM = ClickPoint(ClickPointType.CLICK_POINT_TYPE_COORDINATE, None, Coordinate(360,915), "因子继承-确认", None)
+CULTIVATE_EXTEND_CONFIRM = ClickPoint(ClickPointType.CLICK_POINT_TYPE_COORDINATE, None, Coordinate(349, 1078), "因子继承-确认", None)
 
 TRAINING_SELECT_SPEED = ClickPoint(ClickPointType.CLICK_POINT_TYPE_COORDINATE, None, Coordinate(105, 1085), "训练-速度", None)
 TRAINING_SELECT_STAMINA = ClickPoint(ClickPointType.CLICK_POINT_TYPE_COORDINATE, None, Coordinate(235, 1085), "训练-耐力", None)

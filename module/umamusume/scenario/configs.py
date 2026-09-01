@@ -41,11 +41,31 @@ class AoharuConfig:
             raise IndexError("轮次索引超出范围")
         return self.preliminary_round_selections[round_index]
     
+class KaisenConfig:
+    """凯旋杯(凯旋门 L'Arc)剧本配置.
+
+    A档: 占位结构, 具体配置项(远征策略等)待 B/C 档按实际机制补充。
+    所有字段可选, 缺失时使用默认值, 保证旧任务/预设兼容。
+    """
+
+    def __init__(self, config: dict = None):
+        if config is None:
+            config = {}
+        # 养成模式: 1=普通模式, 2=挑战训练员技能考试
+        self.kaisen_mode = config.get("kaisenMode", 1)
+        # TODO(C档): 按凯旋杯机制补充配置项, 例如:
+        # - 远征/海外训练相关开关
+        # - 凯旋门赏目标赛处理
+        # - シナリオリンク相关
+
 class ScenarioConfig:
     """ 所有场景的配置 """
     ura_config: UraConfig = None
     aoharu_config: AoharuConfig = None
+    kaisen_config: KaisenConfig = None
     
-    def __init__(self, ura_config: UraConfig = None, aoharu_config: AoharuConfig = None):
+    def __init__(self, ura_config: UraConfig = None, aoharu_config: AoharuConfig = None,
+                 kaisen_config: KaisenConfig = None):
         self.ura_config = ura_config
         self.aoharu_config = aoharu_config
+        self.kaisen_config = kaisen_config

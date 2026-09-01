@@ -17,6 +17,8 @@ script_dicts: Dict[UmamusumeTaskType, dict] = {
         INFO: script_info,
         MAIN_MENU: script_main_menu,
         CULTIVATE_SCENARIO_SELECT: script_scenario_select,
+        CULTIVATE_KAISEN_SCENARIO_DETAIL: script_kaisen_scenario_detail,
+        CULTIVATE_KAISEN_MODE_SELECT: script_kaisen_mode_select,
         CULTIVATE_UMAMUSUME_SELECT: script_umamusume_select,
         CULTIVATE_EXTEND_UMAMUSUME_SELECT: script_extend_umamusume_select,
         CULTIVATE_SUPPORT_CARD_SELECT: script_support_card_select,

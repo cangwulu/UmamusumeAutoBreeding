@@ -5,7 +5,7 @@ import time
 
 import croniter
 
-from bot.base.task import TaskStatus as TaskStatus, TaskExecuteMode, Task
+from bot.base.task import TaskStatus as TaskStatus, TaskExecuteMode, Task, EndTaskReason
 import bot.engine.executor as executor
 import bot.base.log as logger
 
@@ -28,6 +28,13 @@ class Scheduler:
             if v.task_id == task_id:
                 remove_idx = i
         if remove_idx != -1:
+            task = self.task_list[remove_idx]
+            # 若删除的是正在执行的任务, 标记为已取消,
+            # 使执行器(executor)的循环在下一轮退出, 停止对游戏的操作
+            if task.task_status == TaskStatus.TASK_STATUS_RUNNING:
+                task.task_status = TaskStatus.TASK_STATUS_CANCELED
+                task.end_task_reason = EndTaskReason.MANUAL_ABORTED
+                log.info("删除正在执行的任务，已请求停止脚本: " + task.task_id)
             del self.task_list[remove_idx]
             return True
         else:

@@ -3,7 +3,7 @@
     <div  class="modal-dialog modal-dialog-centered modal-xl">
       <div
         class="modal-content"
-        :class="{ 'dimmed': showAoharuConfigModal || showSupportCardSelectModal }"
+        :class="{ 'dimmed': showAoharuConfigModal || showSupportCardSelectModal || showKaisenConfigModal }"
       >
         <h5 class="modal-header">
           新建任务
@@ -29,6 +29,7 @@
                   <select v-model="selectedScenario" class="form-control" id="selectScenario">
                     <option :value="1">URA</option>
                     <option :value="2">青春杯</option>
+                    <option :value="3">凯旋杯</option>
                   </select>
                 </div>
               </div>
@@ -64,6 +65,14 @@
               <div class="col-4">
                 <div class="form-group">
                   <span class="btn auto-btn aoharu-btn-bg" style="width: 100%; background-color:#6c757d;" v-on:click="openAoharuConfigModal">青春杯配置</span>
+                </div>
+              </div>
+            </div>
+            <!-- 凯旋杯额外配置 -->
+            <div class="row" v-if="selectedScenario === 3">
+              <div class="col-4">
+                <div class="form-group">
+                  <span class="btn auto-btn" style="width: 100%; background-color:#6c757d;" v-on:click="openKaisenConfigModal">凯旋杯配置</span>
                 </div>
               </div>
             </div>
@@ -433,6 +442,12 @@
         :resetSkillEventWeightList="resetSkillEventWeightList"
         @confirm="handleUraConfigConfirm"
       ></UraConfigModal>
+      <!-- 凯旋杯配置弹窗 -->
+      <KaisenConfigModal
+        v-model:show="showKaisenConfigModal"
+        :kaisenMode="kaisenMode"
+        @confirm="handleKaisenConfigConfirm"
+      ></KaisenConfigModal>
       <!-- 支援卡选择弹窗 -->
       <SupportCardSelectModal
         v-model:show="showSupportCardSelectModal"
@@ -440,7 +455,7 @@
         @confirm="handleSupportCardConfirm"
       ></SupportCardSelectModal>
       <!-- 遮罩层，支持两种弹窗 -->
-      <div v-if="showAoharuConfigModal || showSupportCardSelectModal || showUraConfigModal" class="modal-backdrop-overlay" @click.stop></div>
+      <div v-if="showAoharuConfigModal || showSupportCardSelectModal || showUraConfigModal || showKaisenConfigModal" class="modal-backdrop-overlay" @click.stop></div>
       <!-- 通知 -->
       <div class="position-fixed" style="z-index: 5; right: 40%; width: 300px;">
         <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
@@ -465,6 +480,7 @@
 import SkillIcon from './SkillIcon.vue';
 import AoharuConfigModal from './AoharuConfigModal.vue';
 import UraConfigModal from './UraConfigModal.vue';
+import KaisenConfigModal from './KaisenConfigModal.vue';
 import SupportCardSelectModal from './SupportCardSelectModal.vue';
 
 export default {
@@ -473,6 +489,7 @@ export default {
     SkillIcon,
     AoharuConfigModal,
     UraConfigModal,
+    KaisenConfigModal,
     SupportCardSelectModal
   },
   data:function () {
@@ -849,6 +866,9 @@ export default {
       aoharuTeamNameSelection: 4,
       showAoharuConfigModal: false,
       showUraConfigModal: false,
+      // 凯旋杯配置
+      kaisenMode: 1, // 1=普通模式, 2=挑战训练员技能考试
+      showKaisenConfigModal: false,
       showSupportCardSelectModal: false,      
     }
   },
@@ -902,6 +922,16 @@ export default {
     },
     closeAoharuConfigModal: function(){
       this.showAoharuConfigModal = false;
+    },
+    openKaisenConfigModal: function(){
+      this.showKaisenConfigModal = true;
+    },
+    closeKaisenConfigModal: function(){
+      this.showKaisenConfigModal = false;
+    },
+    handleKaisenConfigConfirm: function(data) {
+      this.kaisenMode = data.kaisenMode;
+      this.showKaisenConfigModal = false;
     },
     handleUraConfigConfirm: function(data) {
       this.skillEventWeight = [...data.skillEventWeight];
@@ -960,6 +990,10 @@ export default {
           "aoharu_config": this.selectedScenario === 2 ? {
             "preliminaryRoundSelections": [...this.preliminaryRoundSelections],
             "aoharuTeamNameSelection": this.aoharuTeamNameSelection
+          } : null,
+          // 凯旋杯配置
+          "kaisen_config": this.selectedScenario === 3 ? {
+            "kaisenMode": this.kaisenMode
           } : null
         },
         cron_job_info:{},
@@ -1046,6 +1080,11 @@ export default {
         this.preliminaryRoundSelections = [2, 1, 1, 1];
         this.aoharuTeamNameSelection = 4;
       }
+      if ('kaisen_config' in this.presetsUse) {
+        this.kaisenMode = this.presetsUse.kaisen_config.kaisenMode || 1;
+      } else {
+        this.kaisenMode = 1;
+      }
       
     },
     getPresets: function(){
@@ -1090,6 +1129,11 @@ export default {
         preset.auharuhai_config = {
           preliminaryRoundSelections: [...this.preliminaryRoundSelections],
           aoharuTeamNameSelection: this.aoharuTeamNameSelection
+        };
+      } else if (this.selectedScenario === 3) {
+        // 凯旋杯配置
+        preset.kaisen_config = {
+          kaisenMode: this.kaisenMode
         };
       }
       for(let i = 0; i < this.skillPriorityNum; i++)

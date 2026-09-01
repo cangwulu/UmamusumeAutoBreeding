@@ -71,7 +71,8 @@ class Executor:
                          template.image_match_config.match_area.y1:template.image_match_config.match_area.y2,
                          template.image_match_config.match_area.x1:template.image_match_config.match_area.x2]
             if template.image_match_config.match_mode == ImageMatchMode.IMAGE_MATCH_MODE_TEMPLATE_MATCH:
-                if not template_match(sub_target, template.template_image).find_match:
+                if not template_match(sub_target, template.template_image,
+                                      template.image_match_config.match_accuracy).find_match:
                     result = False
                     break
             else:
@@ -81,7 +82,8 @@ class Executor:
                          template.image_match_config.match_area.y1:template.image_match_config.match_area.y2,
                          template.image_match_config.match_area.x1:template.image_match_config.match_area.x2]
             if template.image_match_config.match_mode == ImageMatchMode.IMAGE_MATCH_MODE_TEMPLATE_MATCH:
-                if template_match(sub_target, template.template_image).find_match:
+                if template_match(sub_target, template.template_image,
+                                  template.image_match_config.match_accuracy).find_match:
                     result = False
                     break
             else:
@@ -142,7 +144,8 @@ class Executor:
                 time.sleep(0.5)
         except Exception:
             task.end_task(TaskStatus.TASK_STATUS_FAILED, EndTaskReason.SYSTEM_ERROR)
-            traceback.print_exc()
+            # 同时写入日志文件, 便于排查
+            log.error("任务异常:\n" + traceback.format_exc())
         if not self.active:
             task.end_task(TaskStatus.TASK_STATUS_INTERRUPT, EndTaskReason.MANUAL_ABORTED)
         else:

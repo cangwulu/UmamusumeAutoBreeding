@@ -6,3 +6,5 @@ userdata
 .vscode
 models/paddleocr
 .npm-cache-check
+screenshots
+tools/.cache/

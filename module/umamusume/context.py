@@ -1,5 +1,5 @@
 from bot.base.context import BotContext
-from module.umamusume.scenario import base_scenario, ura_scenario, aoharuhai_scenario
+from module.umamusume.scenario import base_scenario, ura_scenario, aoharuhai_scenario, kaisen_scenario
 from module.umamusume.task import UmamusumeTask, UmamusumeTaskType
 from module.umamusume.define import *
 from module.umamusume.types import TurnInfo
@@ -76,6 +76,8 @@ def build_context(task: UmamusumeTask, ctrl) -> UmamusumeContext:
                 detail.scenario = ura_scenario.URAScenario()
             case ScenarioType.SCENARIO_TYPE_AOHARUHAI:
                 detail.scenario = aoharuhai_scenario.AoharuHaiScenario()
+            case ScenarioType.SCENARIO_TYPE_KAISEN:
+                detail.scenario = kaisen_scenario.KaisenScenario()
             case _: # 占位, 实际上不可能到达这里
                 log.error("未知的场景")
                 detail.scenario = None
