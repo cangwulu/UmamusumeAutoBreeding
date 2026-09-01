@@ -1,0 +1,8208 @@
+{
+ "source": "https://wiki.biligame.com/umamusume 简中赛马娘一览",
+ "updated": "2026-09-01",
+ "count": 139,
+ "characters": [
+  {
+   "card_name": "【特别追梦者】特别周",
+   "name": "特别周",
+   "growth": {
+    "speed": "0%",
+    "stamina": "20%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "10%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "C"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【雀跃♪维他命心拍】特别周",
+   "name": "特别周",
+   "growth": {
+    "speed": "0%",
+    "stamina": "10%",
+    "power": "10%",
+    "guts": "10%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "C"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【全国第一总大将】特别周",
+   "name": "特别周",
+   "growth": {
+    "speed": "10%",
+    "stamina": "10%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "10%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "C"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【无声无瑕】无声铃鹿",
+   "name": "无声铃鹿",
+   "growth": {
+    "speed": "20%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "10%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "D"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "E"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "A"
+     },
+     {
+      "item": "跟前",
+      "grade": "C"
+     },
+     {
+      "item": "居中",
+      "grade": "E"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【浪间翠玉】无声铃鹿",
+   "name": "无声铃鹿",
+   "growth": {
+    "speed": "15%",
+    "stamina": "15%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "D"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "E"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "A"
+     },
+     {
+      "item": "跟前",
+      "grade": "C"
+     },
+     {
+      "item": "居中",
+      "grade": "E"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【喜乐无边】东海帝王",
+   "name": "东海帝王",
+   "growth": {
+    "speed": "20%",
+    "stamina": "10%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "E"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "B"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "D"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "C"
+     },
+     {
+      "item": "后追",
+      "grade": "E"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【飞跃地平线】东海帝王",
+   "name": "东海帝王",
+   "growth": {
+    "speed": "10%",
+    "stamina": "10%",
+    "power": "0%",
+    "guts": "10%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "E"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "B"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "D"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "C"
+     },
+     {
+      "item": "后追",
+      "grade": "E"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【绯红方程式】丸善斯基",
+   "name": "丸善斯基",
+   "growth": {
+    "speed": "10%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "20%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "D"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "B"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "B"
+     },
+     {
+      "item": "长距离",
+      "grade": "C"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "A"
+     },
+     {
+      "item": "跟前",
+      "grade": "E"
+     },
+     {
+      "item": "居中",
+      "grade": "G"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【飞跃☆夏夜】丸善斯基",
+   "name": "丸善斯基",
+   "growth": {
+    "speed": "15%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "15%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "D"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "B"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "B"
+     },
+     {
+      "item": "长距离",
+      "grade": "C"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "A"
+     },
+     {
+      "item": "跟前",
+      "grade": "E"
+     },
+     {
+      "item": "居中",
+      "grade": "G"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【流星歌剧】富士奇石",
+   "name": "富士奇石",
+   "growth": {
+    "speed": "0%",
+    "stamina": "0%",
+    "power": "20%",
+    "guts": "0%",
+    "wisdom": "10%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "F"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "B"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "B"
+     },
+     {
+      "item": "长距离",
+      "grade": "E"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "C"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "C"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【胜利之星】富士奇石",
+   "name": "富士奇石",
+   "growth": {
+    "speed": "8%",
+    "stamina": "0%",
+    "power": "14%",
+    "guts": "0%",
+    "wisdom": "8%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "F"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "B"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "B"
+     },
+     {
+      "item": "长距离",
+      "grade": "E"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "C"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "C"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【星光跃动】小栗帽",
+   "name": "小栗帽",
+   "growth": {
+    "speed": "20%",
+    "stamina": "0%",
+    "power": "10%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "B"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "E"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "B"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "F"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "D"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【奇迹的胜利之星】小栗帽",
+   "name": "小栗帽",
+   "growth": {
+    "speed": "15%",
+    "stamina": "15%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "B"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "E"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "B"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "F"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "D"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【RUN！乱！发射！！】黄金船",
+   "name": "黄金船",
+   "growth": {
+    "speed": "0%",
+    "stamina": "0%",
+    "power": "20%",
+    "guts": "0%",
+    "wisdom": "10%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "B"
+     },
+     {
+      "item": "后追",
+      "grade": "A"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【La mode 564】黄金船",
+   "name": "黄金船",
+   "growth": {
+    "speed": "8%",
+    "stamina": "14%",
+    "power": "8%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "B"
+     },
+     {
+      "item": "后追",
+      "grade": "A"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【不会结冰的生命之水】伏特加",
+   "name": "伏特加",
+   "growth": {
+    "speed": "20%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "10%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "E"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "C"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "F"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【绯红的星月之夜】大和赤骥",
+   "name": "大和赤骥",
+   "growth": {
+    "speed": "20%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "10%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "B"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "A"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "E"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【狂野前线】大树快车",
+   "name": "大树快车",
+   "growth": {
+    "speed": "20%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "10%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "B"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "A"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "E"
+     },
+     {
+      "item": "长距离",
+      "grade": "G"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "C"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "E"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Bubblegum☆Memories】大树快车",
+   "name": "大树快车",
+   "growth": {
+    "speed": "0%",
+    "stamina": "0%",
+    "power": "30%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "B"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "A"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "E"
+     },
+     {
+      "item": "长距离",
+      "grade": "G"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "C"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "E"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【圣翠治愈师】草上飞",
+   "name": "草上飞",
+   "growth": {
+    "speed": "0%",
+    "stamina": "15%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "15%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "B"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "F"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "F"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【亚马逊青金石】菱亚马逊",
+   "name": "菱亚马逊",
+   "growth": {
+    "speed": "0%",
+    "stamina": "0%",
+    "power": "20%",
+    "guts": "10%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "E"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "D"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "B"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "C"
+     },
+     {
+      "item": "后追",
+      "grade": "A"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Hungry Veil】菱亚马逊",
+   "name": "菱亚马逊",
+   "growth": {
+    "speed": "10%",
+    "stamina": "0%",
+    "power": "10%",
+    "guts": "0%",
+    "wisdom": "10%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "E"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "D"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "B"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "C"
+     },
+     {
+      "item": "后追",
+      "grade": "A"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【优雅曲线】目白麦昆",
+   "name": "目白麦昆",
+   "growth": {
+    "speed": "0%",
+    "stamina": "20%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "10%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "E"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "F"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "B"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "D"
+     },
+     {
+      "item": "后追",
+      "grade": "F"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【天际尽头】目白麦昆",
+   "name": "目白麦昆",
+   "growth": {
+    "speed": "0%",
+    "stamina": "10%",
+    "power": "10%",
+    "guts": "0%",
+    "wisdom": "10%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "E"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "F"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "B"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "D"
+     },
+     {
+      "item": "后追",
+      "grade": "F"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【涟漪佳人】目白麦昆",
+   "name": "目白麦昆",
+   "growth": {
+    "speed": "8%",
+    "stamina": "8%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "14%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "E"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "F"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "B"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "D"
+     },
+     {
+      "item": "后追",
+      "grade": "F"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【羽蛇武斗家】神鹰",
+   "name": "神鹰",
+   "growth": {
+    "speed": "15%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "15%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "B"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "B"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "E"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "C"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【O sole suo！】好歌剧",
+   "name": "好歌剧",
+   "growth": {
+    "speed": "0%",
+    "stamina": "20%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "10%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "E"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "E"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "C"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【新春初晴·宝蓝绚烂】好歌剧",
+   "name": "好歌剧",
+   "growth": {
+    "speed": "14%",
+    "stamina": "8%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "8%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "E"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "E"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "C"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Maverick】成田白仁",
+   "name": "成田白仁",
+   "growth": {
+    "speed": "10%",
+    "stamina": "20%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "B"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "D"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【饿狼】成田白仁",
+   "name": "成田白仁",
+   "growth": {
+    "speed": "10%",
+    "stamina": "10%",
+    "power": "0%",
+    "guts": "10%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "B"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "D"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【皇帝】鲁道夫象征",
+   "name": "鲁道夫象征",
+   "growth": {
+    "speed": "0%",
+    "stamina": "20%",
+    "power": "0%",
+    "guts": "10%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "E"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "B"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "C"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【皓月下的神箭手】鲁道夫象征",
+   "name": "鲁道夫象征",
+   "growth": {
+    "speed": "8%",
+    "stamina": "14%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "8%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "E"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "B"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "C"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【橡木王冠】气槽",
+   "name": "气槽",
+   "growth": {
+    "speed": "10%",
+    "stamina": "0%",
+    "power": "10%",
+    "guts": "10%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "C"
+     },
+     {
+      "item": "英里",
+      "grade": "B"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "E"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "D"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【超级加急！全彩PP膜特殊加工】爱丽数码",
+   "name": "爱丽数码",
+   "growth": {
+    "speed": "8%",
+    "stamina": "8%",
+    "power": "7%",
+    "guts": "0%",
+    "wisdom": "7%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "A"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "G"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "B"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【爱丽♡僵尸】爱丽数码",
+   "name": "爱丽数码",
+   "growth": {
+    "speed": "7%",
+    "stamina": "7%",
+    "power": "8%",
+    "guts": "8%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "A"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "G"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "B"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【青云垂钓者】青云天空",
+   "name": "青云天空",
+   "growth": {
+    "speed": "0%",
+    "stamina": "10%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "20%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "A"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "D"
+     },
+     {
+      "item": "后追",
+      "grade": "E"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【星夜猫咪舞会】青云天空",
+   "name": "青云天空",
+   "growth": {
+    "speed": "8%",
+    "stamina": "0%",
+    "power": "8%",
+    "guts": "14%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "A"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "D"
+     },
+     {
+      "item": "后追",
+      "grade": "E"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【疾风迅雷】玉藻十字",
+   "name": "玉藻十字",
+   "growth": {
+    "speed": "0%",
+    "stamina": "20%",
+    "power": "10%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "F"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "E"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "A"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【轰鸣雷神】玉藻十字",
+   "name": "玉藻十字",
+   "growth": {
+    "speed": "14%",
+    "stamina": "8%",
+    "power": "0%",
+    "guts": "8%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "F"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "E"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "A"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Noble Seamair】美妙姿势",
+   "name": "美妙姿势",
+   "growth": {
+    "speed": "0%",
+    "stamina": "0%",
+    "power": "15%",
+    "guts": "0%",
+    "wisdom": "15%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "C"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "D"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "E"
+     },
+     {
+      "item": "后追",
+      "grade": "C"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Titania】美妙姿势",
+   "name": "美妙姿势",
+   "growth": {
+    "speed": "0%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "10%",
+    "wisdom": "20%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "C"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "D"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "E"
+     },
+     {
+      "item": "后追",
+      "grade": "C"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【pf.胜利公式】琵琶晨光",
+   "name": "琵琶晨光",
+   "growth": {
+    "speed": "0%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "10%",
+    "wisdom": "20%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "F"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "E"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "B"
+     },
+     {
+      "item": "后追",
+      "grade": "E"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【嫣红圣诞颂歌】琵琶晨光",
+   "name": "琵琶晨光",
+   "growth": {
+    "speed": "0%",
+    "stamina": "12%",
+    "power": "12%",
+    "guts": "0%",
+    "wisdom": "6%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "F"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "E"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "B"
+     },
+     {
+      "item": "后追",
+      "grade": "E"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【阳光花束】重炮",
+   "name": "重炮",
+   "growth": {
+    "speed": "10%",
+    "stamina": "10%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "10%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "E"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "D"
+     },
+     {
+      "item": "英里",
+      "grade": "D"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "A"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "B"
+     },
+     {
+      "item": "后追",
+      "grade": "B"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Creeping Black】曼城茶座",
+   "name": "曼城茶座",
+   "growth": {
+    "speed": "0%",
+    "stamina": "30%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "F"
+     },
+     {
+      "item": "中距离",
+      "grade": "B"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "C"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "C"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【MB-19890425】美浦波旁",
+   "name": "美浦波旁",
+   "growth": {
+    "speed": "0%",
+    "stamina": "20%",
+    "power": "10%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "C"
+     },
+     {
+      "item": "英里",
+      "grade": "B"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "B"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "A"
+     },
+     {
+      "item": "跟前",
+      "grade": "E"
+     },
+     {
+      "item": "居中",
+      "grade": "G"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【CODE：淋面装饰】美浦波旁",
+   "name": "美浦波旁",
+   "growth": {
+    "speed": "10%",
+    "stamina": "10%",
+    "power": "10%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "C"
+     },
+     {
+      "item": "英里",
+      "grade": "B"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "B"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "A"
+     },
+     {
+      "item": "跟前",
+      "grade": "E"
+     },
+     {
+      "item": "居中",
+      "grade": "G"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【玛格丽特拿铁】目白莱恩",
+   "name": "目白莱恩",
+   "growth": {
+    "speed": "20%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "10%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "E"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "B"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "F"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "F"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Buono☆时尚】菱曙",
+   "name": "菱曙",
+   "growth": {
+    "speed": "0%",
+    "stamina": "0%",
+    "power": "20%",
+    "guts": "10%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "F"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "A"
+     },
+     {
+      "item": "英里",
+      "grade": "B"
+     },
+     {
+      "item": "中距离",
+      "grade": "F"
+     },
+     {
+      "item": "长距离",
+      "grade": "G"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "B"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "C"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【可可爱爱的六出冰花】雪之美人",
+   "name": "雪之美人",
+   "growth": {
+    "speed": "10%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "20%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "B"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "D"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "E"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "C"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "F"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【玫瑰之梦】米浴",
+   "name": "米浴",
+   "growth": {
+    "speed": "0%",
+    "stamina": "10%",
+    "power": "0%",
+    "guts": "20%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "E"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "B"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "C"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Make up Vampire！】米浴",
+   "name": "米浴",
+   "growth": {
+    "speed": "0%",
+    "stamina": "15%",
+    "power": "15%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "E"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "B"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "C"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【全时狂欢】艾尼风神",
+   "name": "艾尼风神",
+   "growth": {
+    "speed": "15%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "15%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "C"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "A"
+     },
+     {
+      "item": "跟前",
+      "grade": "C"
+     },
+     {
+      "item": "居中",
+      "grade": "G"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【MELTY GIFT】艾尼风神",
+   "name": "艾尼风神",
+   "growth": {
+    "speed": "14%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "8%",
+    "wisdom": "8%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "C"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "A"
+     },
+     {
+      "item": "跟前",
+      "grade": "C"
+     },
+     {
+      "item": "居中",
+      "grade": "G"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Lunatic Lab】爱丽速子",
+   "name": "爱丽速子",
+   "growth": {
+    "speed": "8%",
+    "stamina": "0%",
+    "power": "8%",
+    "guts": "0%",
+    "wisdom": "14%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "D"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "B"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "E"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "B"
+     },
+     {
+      "item": "后追",
+      "grade": "F"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Starry Nocturne】爱慕织姬",
+   "name": "爱慕织姬",
+   "growth": {
+    "speed": "10%",
+    "stamina": "0%",
+    "power": "20%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "C"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "G"
+     },
+     {
+      "item": "居中",
+      "grade": "B"
+     },
+     {
+      "item": "后追",
+      "grade": "A"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【稻荷因缘江户紫】稻荷一",
+   "name": "稻荷一",
+   "growth": {
+    "speed": "0%",
+    "stamina": "10%",
+    "power": "20%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "A"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "B"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "B"
+     },
+     {
+      "item": "后追",
+      "grade": "A"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【梦之金原】稻荷一",
+   "name": "稻荷一",
+   "growth": {
+    "speed": "14%",
+    "stamina": "0%",
+    "power": "8%",
+    "guts": "0%",
+    "wisdom": "8%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "A"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "B"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "B"
+     },
+     {
+      "item": "后追",
+      "grade": "A"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【梦想传递员】胜利奖券",
+   "name": "胜利奖券",
+   "growth": {
+    "speed": "8%",
+    "stamina": "0%",
+    "power": "14%",
+    "guts": "8%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "F"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "B"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【unsigned】空中神宫",
+   "name": "空中神宫",
+   "growth": {
+    "speed": "0%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "30%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "E"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "C"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "A"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Meisterschaft】荣进闪耀",
+   "name": "荣进闪耀",
+   "growth": {
+    "speed": "0%",
+    "stamina": "0%",
+    "power": "10%",
+    "guts": "0%",
+    "wisdom": "20%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "F"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "C"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【精确无比·巧克力大师】荣进闪耀",
+   "name": "荣进闪耀",
+   "growth": {
+    "speed": "0%",
+    "stamina": "8%",
+    "power": "8%",
+    "guts": "0%",
+    "wisdom": "14%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "F"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "C"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【闪电少女】真机伶",
+   "name": "真机伶",
+   "growth": {
+    "speed": "10%",
+    "stamina": "0%",
+    "power": "20%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "F"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "A"
+     },
+     {
+      "item": "英里",
+      "grade": "D"
+     },
+     {
+      "item": "中距离",
+      "grade": "G"
+     },
+     {
+      "item": "长距离",
+      "grade": "G"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "B"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "E"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【朔月挚爱】真机伶",
+   "name": "真机伶",
+   "growth": {
+    "speed": "10%",
+    "stamina": "0%",
+    "power": "10%",
+    "guts": "0%",
+    "wisdom": "10%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "F"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "A"
+     },
+     {
+      "item": "英里",
+      "grade": "D"
+     },
+     {
+      "item": "中距离",
+      "grade": "G"
+     },
+     {
+      "item": "长距离",
+      "grade": "G"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "B"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "E"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【粉红公主】川上公主",
+   "name": "川上公主",
+   "growth": {
+    "speed": "0%",
+    "stamina": "0%",
+    "power": "10%",
+    "guts": "20%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "D"
+     },
+     {
+      "item": "英里",
+      "grade": "B"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "F"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "C"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "D"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【真我/1928】黄金城",
+   "name": "黄金城",
+   "growth": {
+    "speed": "0%",
+    "stamina": "0%",
+    "power": "10%",
+    "guts": "20%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "D"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "B"
+     },
+     {
+      "item": "长距离",
+      "grade": "B"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "F"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "F"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【秋樱舞娘】黄金城",
+   "name": "黄金城",
+   "growth": {
+    "speed": "8%",
+    "stamina": "0%",
+    "power": "8%",
+    "guts": "0%",
+    "wisdom": "14%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "D"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "B"
+     },
+     {
+      "item": "长距离",
+      "grade": "B"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "F"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "F"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【赤热☆队长】樱花进王",
+   "name": "樱花进王",
+   "growth": {
+    "speed": "14%",
+    "stamina": "0%",
+    "power": "8%",
+    "guts": "0%",
+    "wisdom": "8%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "A"
+     },
+     {
+      "item": "英里",
+      "grade": "B"
+     },
+     {
+      "item": "中距离",
+      "grade": "G"
+     },
+     {
+      "item": "长距离",
+      "grade": "G"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "A"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "F"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Rocket☆Star】采珠",
+   "name": "采珠",
+   "growth": {
+    "speed": "10%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "20%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "F"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "A"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "E"
+     },
+     {
+      "item": "长距离",
+      "grade": "G"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "C"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "B"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Wicked Punk】新光风",
+   "name": "新光风",
+   "growth": {
+    "speed": "10%",
+    "stamina": "0%",
+    "power": "10%",
+    "guts": "10%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "F"
+     },
+     {
+      "item": "泥地",
+      "grade": "A"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "C"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "B"
+     },
+     {
+      "item": "长距离",
+      "grade": "G"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "B"
+     },
+     {
+      "item": "后追",
+      "grade": "F"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【悬铃木魔女】东商变革",
+   "name": "东商变革",
+   "growth": {
+    "speed": "10%",
+    "stamina": "0%",
+    "power": "20%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "E"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "D"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "G"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "A"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【雪纺丝带木乃伊】超级溪流",
+   "name": "超级溪流",
+   "growth": {
+    "speed": "14%",
+    "stamina": "8%",
+    "power": "0%",
+    "guts": "8%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "G"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "D"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "B"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【绝对☆LOVE】醒目飞鹰",
+   "name": "醒目飞鹰",
+   "growth": {
+    "speed": "20%",
+    "stamina": "0%",
+    "power": "10%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "E"
+     },
+     {
+      "item": "泥地",
+      "grade": "A"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "B"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "E"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "A"
+     },
+     {
+      "item": "跟前",
+      "grade": "D"
+     },
+     {
+      "item": "居中",
+      "grade": "G"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【黄昏凯旋】醒目飞鹰",
+   "name": "醒目飞鹰",
+   "growth": {
+    "speed": "20%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "10%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "E"
+     },
+     {
+      "item": "泥地",
+      "grade": "A"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "B"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "E"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "A"
+     },
+     {
+      "item": "跟前",
+      "grade": "D"
+     },
+     {
+      "item": "居中",
+      "grade": "G"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Heroic Author】荒漠英雄",
+   "name": "荒漠英雄",
+   "growth": {
+    "speed": "0%",
+    "stamina": "10%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "20%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "E"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "E"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【潮流☆Joker】岛川乔丹",
+   "name": "岛川乔丹",
+   "growth": {
+    "speed": "10%",
+    "stamina": "0%",
+    "power": "10%",
+    "guts": "10%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "F"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "B"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "C"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "B"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Aurore☆Vacances】岛川乔丹",
+   "name": "岛川乔丹",
+   "growth": {
+    "speed": "8%",
+    "stamina": "8%",
+    "power": "14%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "F"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "B"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "C"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【死中求生】中山庆典",
+   "name": "中山庆典",
+   "growth": {
+    "speed": "10%",
+    "stamina": "10%",
+    "power": "10%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "B"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "D"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Nevertheless】成田大进",
+   "name": "成田大进",
+   "growth": {
+    "speed": "10%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "20%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "D"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "F"
+     },
+     {
+      "item": "居中",
+      "grade": "B"
+     },
+     {
+      "item": "后追",
+      "grade": "A"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【另类工程师】成田大进",
+   "name": "成田大进",
+   "growth": {
+    "speed": "0%",
+    "stamina": "8%",
+    "power": "0%",
+    "guts": "8%",
+    "wisdom": "14%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "D"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "F"
+     },
+     {
+      "item": "居中",
+      "grade": "B"
+     },
+     {
+      "item": "后追",
+      "grade": "A"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【叠瓣花蕾】西野花",
+   "name": "西野花",
+   "growth": {
+    "speed": "15%",
+    "stamina": "0%",
+    "power": "15%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "F"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "A"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "E"
+     },
+     {
+      "item": "长距离",
+      "grade": "G"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "F"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Sweet Juneberry】西野花",
+   "name": "西野花",
+   "growth": {
+    "speed": "10%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "20%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "F"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "A"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "E"
+     },
+     {
+      "item": "长距离",
+      "grade": "G"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "F"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【明媚新春♪樱花绽放】春乌菈菈",
+   "name": "春乌菈菈",
+   "growth": {
+    "speed": "0%",
+    "stamina": "0%",
+    "power": "20%",
+    "guts": "10%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "G"
+     },
+     {
+      "item": "泥地",
+      "grade": "A"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "A"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "G"
+     },
+     {
+      "item": "长距离",
+      "grade": "G"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "G"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "B"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【黑铁的壮志】青竹回忆",
+   "name": "青竹回忆",
+   "growth": {
+    "speed": "10%",
+    "stamina": "0%",
+    "power": "10%",
+    "guts": "10%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "D"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "A"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "C"
+     },
+     {
+      "item": "长距离",
+      "grade": "G"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "E"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "C"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Ultra☆Marine】青竹回忆",
+   "name": "青竹回忆",
+   "growth": {
+    "speed": "14%",
+    "stamina": "0%",
+    "power": "8%",
+    "guts": "8%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "D"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "A"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "C"
+     },
+     {
+      "item": "长距离",
+      "grade": "G"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "E"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "C"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【☆闪亮★心动☆雀跃∞美丽∞】美丽周日",
+   "name": "美丽周日",
+   "growth": {
+    "speed": "0%",
+    "stamina": "0%",
+    "power": "15%",
+    "guts": "0%",
+    "wisdom": "15%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "F"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "B"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "C"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【吉兆秋风】待兼福来",
+   "name": "待兼福来",
+   "growth": {
+    "speed": "0%",
+    "stamina": "10%",
+    "power": "0%",
+    "guts": "10%",
+    "wisdom": "10%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "F"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "F"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Clear Bliss】千明代表",
+   "name": "千明代表",
+   "growth": {
+    "speed": "10%",
+    "stamina": "10%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "10%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "B"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "E"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "A"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【苍蓝/怒涛】名将怒涛",
+   "name": "名将怒涛",
+   "growth": {
+    "speed": "0%",
+    "stamina": "20%",
+    "power": "0%",
+    "guts": "10%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "E"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "F"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "F"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "B"
+     },
+     {
+      "item": "后追",
+      "grade": "E"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Dot-o'-Lantern】名将怒涛",
+   "name": "名将怒涛",
+   "growth": {
+    "speed": "0%",
+    "stamina": "0%",
+    "power": "15%",
+    "guts": "0%",
+    "wisdom": "15%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "E"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "F"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "F"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "B"
+     },
+     {
+      "item": "后追",
+      "grade": "E"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【宛延曲线】目白多伯",
+   "name": "目白多伯",
+   "growth": {
+    "speed": "10%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "20%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "E"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "F"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "C"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【假日宝石蓝】目白多伯",
+   "name": "目白多伯",
+   "growth": {
+    "speed": "20%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "10%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "E"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "F"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "C"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【RUN＆WIN】优秀素质",
+   "name": "优秀素质",
+   "growth": {
+    "speed": "0%",
+    "stamina": "10%",
+    "power": "10%",
+    "guts": "0%",
+    "wisdom": "10%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "F"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "D"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【洁白傲气的激励之服】帝王光辉",
+   "name": "帝王光辉",
+   "growth": {
+    "speed": "10%",
+    "stamina": "0%",
+    "power": "10%",
+    "guts": "10%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "A"
+     },
+     {
+      "item": "英里",
+      "grade": "B"
+     },
+     {
+      "item": "中距离",
+      "grade": "B"
+     },
+     {
+      "item": "长距离",
+      "grade": "C"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "D"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【碧蓝湍流】待兼唐怀瑟",
+   "name": "待兼唐怀瑟",
+   "growth": {
+    "speed": "10%",
+    "stamina": "0%",
+    "power": "20%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "D"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "F"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "E"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Line Breakthrough】目白善信",
+   "name": "目白善信",
+   "growth": {
+    "speed": "10%",
+    "stamina": "10%",
+    "power": "0%",
+    "guts": "10%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "F"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "A"
+     },
+     {
+      "item": "跟前",
+      "grade": "E"
+     },
+     {
+      "item": "居中",
+      "grade": "F"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Fun☆Fun☆嗨翻天】大拓太阳神",
+   "name": "大拓太阳神",
+   "growth": {
+    "speed": "15%",
+    "stamina": "0%",
+    "power": "15%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "B"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "B"
+     },
+     {
+      "item": "长距离",
+      "grade": "E"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "A"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "G"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Natural Brilliance】里见光钻",
+   "name": "里见光钻",
+   "growth": {
+    "speed": "0%",
+    "stamina": "15%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "15%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "D"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【当红之星·荣兴之翠】里见光钻",
+   "name": "里见光钻",
+   "growth": {
+    "speed": "15%",
+    "stamina": "15%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "D"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【锦绣·溢彩盛典】北部玄驹",
+   "name": "北部玄驹",
+   "growth": {
+    "speed": "20%",
+    "stamina": "10%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "E"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "A"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "C"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【压轴主角·庆鹤之志】北部玄驹",
+   "name": "北部玄驹",
+   "growth": {
+    "speed": "10%",
+    "stamina": "0%",
+    "power": "10%",
+    "guts": "0%",
+    "wisdom": "10%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "E"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "A"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "C"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【举世无双·樱花耀夜】樱花千代王",
+   "name": "樱花千代王",
+   "growth": {
+    "speed": "10%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "10%",
+    "wisdom": "10%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "E"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "E"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "B"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "F"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Fleur Enneigée】樱花千代王",
+   "name": "樱花千代王",
+   "growth": {
+    "speed": "8%",
+    "stamina": "0%",
+    "power": "14%",
+    "guts": "0%",
+    "wisdom": "8%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "E"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "E"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "B"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "F"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Féroce】天狼星象征",
+   "name": "天狼星象征",
+   "growth": {
+    "speed": "0%",
+    "stamina": "0%",
+    "power": "10%",
+    "guts": "0%",
+    "wisdom": "20%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "B"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "C"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "E"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "C"
+     },
+     {
+      "item": "后追",
+      "grade": "E"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【墨绿柔线】目白雅丹",
+   "name": "目白雅丹",
+   "growth": {
+    "speed": "10%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "20%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "F"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "E"
+     },
+     {
+      "item": "英里",
+      "grade": "B"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "D"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "C"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "D"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Neige Émeraude】目白雅丹",
+   "name": "目白雅丹",
+   "growth": {
+    "speed": "8%",
+    "stamina": "8%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "14%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "F"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "E"
+     },
+     {
+      "item": "英里",
+      "grade": "B"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "D"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "C"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "D"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【四白流星之袭】八重无敌",
+   "name": "八重无敌",
+   "growth": {
+    "speed": "0%",
+    "stamina": "0%",
+    "power": "20%",
+    "guts": "10%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "E"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "B"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "E"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "F"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【砺光韧线】目白光明",
+   "name": "目白光明",
+   "growth": {
+    "speed": "0%",
+    "stamina": "14%",
+    "power": "0%",
+    "guts": "8%",
+    "wisdom": "8%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "D"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "A"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Saisir le rêve】樱花桂冠",
+   "name": "樱花桂冠",
+   "growth": {
+    "speed": "0%",
+    "stamina": "20%",
+    "power": "10%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "E"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "B"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【The Proud Road】成田路",
+   "name": "成田路",
+   "growth": {
+    "speed": "20%",
+    "stamina": "10%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "F"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "B"
+     },
+     {
+      "item": "后追",
+      "grade": "D"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Fluttertail Spirit】山人西风",
+   "name": "山人西风",
+   "growth": {
+    "speed": "10%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "10%",
+    "wisdom": "10%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "D"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "B"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "G"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "E"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "C"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Onyx Soldier】克里斯象征",
+   "name": "克里斯象征",
+   "growth": {
+    "speed": "0%",
+    "stamina": "15%",
+    "power": "15%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "E"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "D"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【雷霆加身】谷水琴蕾",
+   "name": "谷水琴蕾",
+   "growth": {
+    "speed": "0%",
+    "stamina": "0%",
+    "power": "30%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "F"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "F"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "D"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "A"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【华丽红玉】第一红宝",
+   "name": "第一红宝",
+   "growth": {
+    "speed": "0%",
+    "stamina": "0%",
+    "power": "20%",
+    "guts": "0%",
+    "wisdom": "10%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "A"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "C"
+     },
+     {
+      "item": "长距离",
+      "grade": "G"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "E"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "A"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Flare】阿斯顿真弓",
+   "name": "阿斯顿真弓",
+   "growth": {
+    "speed": "20%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "10%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "A"
+     },
+     {
+      "item": "英里",
+      "grade": "B"
+     },
+     {
+      "item": "中距离",
+      "grade": "G"
+     },
+     {
+      "item": "长距离",
+      "grade": "G"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "A"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "G"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【阴阳八卦☆开运服】小林历奇",
+   "name": "小林历奇",
+   "growth": {
+    "speed": "0%",
+    "stamina": "0%",
+    "power": "10%",
+    "guts": "0%",
+    "wisdom": "20%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "F"
+     },
+     {
+      "item": "泥地",
+      "grade": "A"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "C"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "G"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "A"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "C"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【星辉之航】北幸樽前",
+   "name": "北幸樽前",
+   "growth": {
+    "speed": "10%",
+    "stamina": "10%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "10%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "G"
+     },
+     {
+      "item": "泥地",
+      "grade": "A"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "E"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "B"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "G"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Butterfly Sting】奇锐骏",
+   "name": "奇锐骏",
+   "growth": {
+    "speed": "0%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "15%",
+    "wisdom": "15%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "G"
+     },
+     {
+      "item": "泥地",
+      "grade": "A"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "D"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "E"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "C"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "C"
+     },
+     {
+      "item": "后追",
+      "grade": "E"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【登龙之顶】葛城荣主",
+   "name": "葛城荣主",
+   "growth": {
+    "speed": "10%",
+    "stamina": "0%",
+    "power": "10%",
+    "guts": "10%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "E"
+     },
+     {
+      "item": "英里",
+      "grade": "B"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "B"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "A"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "E"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Universe-Naut】新宇宙",
+   "name": "新宇宙",
+   "growth": {
+    "speed": "0%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "30%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "B"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "B"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "F"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "C"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【奇迹装点！】菱奇宝",
+   "name": "菱奇宝",
+   "growth": {
+    "speed": "7%",
+    "stamina": "8%",
+    "power": "7%",
+    "guts": "8%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "G"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "C"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "B"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【赤色纷争】黄金船",
+   "name": "黄金船",
+   "growth": {
+    "speed": "0%",
+    "stamina": "20%",
+    "power": "10%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "B"
+     },
+     {
+      "item": "后追",
+      "grade": "A"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【极速狂飙】伏特加",
+   "name": "伏特加",
+   "growth": {
+    "speed": "10%",
+    "stamina": "0%",
+    "power": "20%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "F"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "C"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "F"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【蔚蓝顶点】大和赤骥",
+   "name": "大和赤骥",
+   "growth": {
+    "speed": "10%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "20%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "B"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "A"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "E"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【穿岩绀蓝】草上飞",
+   "name": "草上飞",
+   "growth": {
+    "speed": "20%",
+    "stamina": "0%",
+    "power": "10%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "B"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "F"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "F"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【小鹰☆Número 1】神鹰",
+   "name": "神鹰",
+   "growth": {
+    "speed": "20%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "10%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "B"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "B"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "E"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "C"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【女帝之路】气槽",
+   "name": "气槽",
+   "growth": {
+    "speed": "10%",
+    "stamina": "0%",
+    "power": "20%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "C"
+     },
+     {
+      "item": "英里",
+      "grade": "B"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "E"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "D"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【竞争☆领域】重炮",
+   "name": "重炮",
+   "growth": {
+    "speed": "0%",
+    "stamina": "20%",
+    "power": "0%",
+    "guts": "10%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "E"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "D"
+     },
+     {
+      "item": "英里",
+      "grade": "D"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "A"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "B"
+     },
+     {
+      "item": "后追",
+      "grade": "B"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【潺潺溪流】超级溪流",
+   "name": "超级溪流",
+   "growth": {
+    "speed": "0%",
+    "stamina": "10%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "20%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "G"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "D"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "B"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【跌跌撞撞向前冲】待兼唐怀瑟",
+   "name": "待兼唐怀瑟",
+   "growth": {
+    "speed": "0%",
+    "stamina": "20%",
+    "power": "0%",
+    "guts": "10%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "D"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "F"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "E"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【一往无前】目白莱恩",
+   "name": "目白莱恩",
+   "growth": {
+    "speed": "0%",
+    "stamina": "0%",
+    "power": "20%",
+    "guts": "0%",
+    "wisdom": "10%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "E"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "B"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "F"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "F"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【tach-nology】爱丽速子",
+   "name": "爱丽速子",
+   "growth": {
+    "speed": "20%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "10%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "D"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "B"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "E"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "B"
+     },
+     {
+      "item": "后追",
+      "grade": "F"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【Go To Winning！】胜利奖券",
+   "name": "胜利奖券",
+   "growth": {
+    "speed": "0%",
+    "stamina": "10%",
+    "power": "20%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "F"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "B"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【樱花，前进！】樱花进王",
+   "name": "樱花进王",
+   "growth": {
+    "speed": "20%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "10%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "A"
+     },
+     {
+      "item": "英里",
+      "grade": "B"
+     },
+     {
+      "item": "中距离",
+      "grade": "G"
+     },
+     {
+      "item": "长距离",
+      "grade": "G"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "A"
+     },
+     {
+      "item": "跟前",
+      "grade": "A"
+     },
+     {
+      "item": "居中",
+      "grade": "F"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【乌菈菈一等奖♪】春乌菈菈",
+   "name": "春乌菈菈",
+   "growth": {
+    "speed": "0%",
+    "stamina": "0%",
+    "power": "10%",
+    "guts": "20%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "G"
+     },
+     {
+      "item": "泥地",
+      "grade": "A"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "A"
+     },
+     {
+      "item": "英里",
+      "grade": "B"
+     },
+     {
+      "item": "中距离",
+      "grade": "G"
+     },
+     {
+      "item": "长距离",
+      "grade": "G"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "G"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "B"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【运气高升☆祈福运来】待兼福来",
+   "name": "待兼福来",
+   "growth": {
+    "speed": "0%",
+    "stamina": "20%",
+    "power": "10%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "F"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "F"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "F"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【绯青缎带】优秀素质",
+   "name": "优秀素质",
+   "growth": {
+    "speed": "0%",
+    "stamina": "0%",
+    "power": "20%",
+    "guts": "0%",
+    "wisdom": "10%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "C"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "A"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "F"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "D"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【翠玉之王】帝王光辉",
+   "name": "帝王光辉",
+   "growth": {
+    "speed": "0%",
+    "stamina": "0%",
+    "power": "20%",
+    "guts": "10%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "G"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "A"
+     },
+     {
+      "item": "英里",
+      "grade": "B"
+     },
+     {
+      "item": "中距离",
+      "grade": "B"
+     },
+     {
+      "item": "长距离",
+      "grade": "C"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "G"
+     },
+     {
+      "item": "跟前",
+      "grade": "B"
+     },
+     {
+      "item": "居中",
+      "grade": "A"
+     },
+     {
+      "item": "后追",
+      "grade": "D"
+     }
+    ]
+   }
+  },
+  {
+   "card_name": "【狂奔！涡轮引擎】双涡轮",
+   "name": "双涡轮",
+   "growth": {
+    "speed": "30%",
+    "stamina": "0%",
+    "power": "0%",
+    "guts": "0%",
+    "wisdom": "0%"
+   },
+   "adapt": {
+    "场地适应性": [
+     {
+      "item": "草地",
+      "grade": "A"
+     },
+     {
+      "item": "泥地",
+      "grade": "F"
+     }
+    ],
+    "距离适应性": [
+     {
+      "item": "短距离",
+      "grade": "G"
+     },
+     {
+      "item": "英里",
+      "grade": "A"
+     },
+     {
+      "item": "中距离",
+      "grade": "A"
+     },
+     {
+      "item": "长距离",
+      "grade": "E"
+     }
+    ],
+    "跑法适应性": [
+     {
+      "item": "领跑",
+      "grade": "A"
+     },
+     {
+      "item": "跟前",
+      "grade": "G"
+     },
+     {
+      "item": "居中",
+      "grade": "G"
+     },
+     {
+      "item": "后追",
+      "grade": "G"
+     }
+    ]
+   }
+  }
+ ]
+}
