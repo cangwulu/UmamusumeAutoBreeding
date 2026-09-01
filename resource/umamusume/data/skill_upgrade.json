@@ -1,0 +1,8186 @@
+{
+ "meta": {
+  "source": "BWIKI 简中评分计算器",
+  "url": "https://wiki.biligame.com/umamusume/简中评分计算器",
+  "built": "2026-09-02",
+  "skill_count": 561,
+  "group_count": 287,
+  "multi_member_groups": 217,
+  "type_semantics": {
+   "1": "基础(○)",
+   "2": "升级(◎)",
+   "3": "上位(金技)",
+   "-1": "负面(×，紫色)"
+  },
+  "note": "评分计算器中勾选升级/上位版本会自动禁用同组下位版本；special=1 的技能不吃适性倍率（评价分×1）"
+ },
+ "groups": [
+  {
+   "group_id": 20001,
+   "members": [
+    {
+     "id": 200013,
+     "name": "顺时针×",
+     "jp": "顺时针×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 50,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200012,
+     "name": "顺时针○",
+     "jp": "顺时针○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200011,
+     "name": "顺时针◎",
+     "jp": "顺时针◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200014,
+     "name": "顺时针恶煞",
+     "jp": "顺时针恶煞",
+     "condition": "通用",
+     "score": 461,
+     "pt": 330,
+     "type": 3,
+     "type_name": "上位",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20002,
+   "members": [
+    {
+     "id": 200023,
+     "name": "逆时针×",
+     "jp": "逆时针×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 50,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200022,
+     "name": "逆时针○",
+     "jp": "逆时针○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200021,
+     "name": "逆时针◎",
+     "jp": "逆时针◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20003,
+   "members": [
+    {
+     "id": 200033,
+     "name": "东京赛场×",
+     "jp": "东京赛场×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 50,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200032,
+     "name": "东京赛场○",
+     "jp": "东京赛场○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200031,
+     "name": "东京赛场◎",
+     "jp": "东京赛场◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20004,
+   "members": [
+    {
+     "id": 200043,
+     "name": "中山赛场×",
+     "jp": "中山赛场×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 50,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200042,
+     "name": "中山赛场○",
+     "jp": "中山赛场○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200041,
+     "name": "中山赛场◎",
+     "jp": "中山赛场◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20005,
+   "members": [
+    {
+     "id": 200053,
+     "name": "阪神赛场×",
+     "jp": "阪神赛场×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 50,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200052,
+     "name": "阪神赛场○",
+     "jp": "阪神赛场○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200051,
+     "name": "阪神赛场◎",
+     "jp": "阪神赛场◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20006,
+   "members": [
+    {
+     "id": 200063,
+     "name": "京都赛场×",
+     "jp": "京都赛场×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 50,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200062,
+     "name": "京都赛场○",
+     "jp": "京都赛场○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200061,
+     "name": "京都赛场◎",
+     "jp": "京都赛场◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200064,
+     "name": "淀之奇才",
+     "jp": "淀之奇才",
+     "condition": "通用",
+     "score": 461,
+     "pt": 330,
+     "type": 3,
+     "type_name": "上位",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20007,
+   "members": [
+    {
+     "id": 200073,
+     "name": "中京赛场×",
+     "jp": "中京赛场×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 50,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200072,
+     "name": "中京赛场○",
+     "jp": "中京赛场○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200071,
+     "name": "中京赛场◎",
+     "jp": "中京赛场◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20008,
+   "members": [
+    {
+     "id": 200083,
+     "name": "札幌赛场×",
+     "jp": "札幌赛场×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 40,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200082,
+     "name": "札幌赛场○",
+     "jp": "札幌赛场○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 70,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200081,
+     "name": "札幌赛场◎",
+     "jp": "札幌赛场◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 160,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20009,
+   "members": [
+    {
+     "id": 200093,
+     "name": "函馆赛场×",
+     "jp": "函馆赛场×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 40,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200092,
+     "name": "函馆赛场○",
+     "jp": "函馆赛场○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 70,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200091,
+     "name": "函馆赛场◎",
+     "jp": "函馆赛场◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 160,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20010,
+   "members": [
+    {
+     "id": 200103,
+     "name": "松浪赛场×",
+     "jp": "松浪赛场×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 40,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200102,
+     "name": "松浪赛场○",
+     "jp": "松浪赛场○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 70,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200101,
+     "name": "松浪赛场◎",
+     "jp": "松浪赛场◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 160,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20011,
+   "members": [
+    {
+     "id": 200113,
+     "name": "新潟赛场×",
+     "jp": "新潟赛场×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 40,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200112,
+     "name": "新潟赛场○",
+     "jp": "新潟赛场○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 70,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200111,
+     "name": "新潟赛场◎",
+     "jp": "新潟赛场◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 160,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20012,
+   "members": [
+    {
+     "id": 200123,
+     "name": "小仓赛场×",
+     "jp": "小仓赛场×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 40,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200122,
+     "name": "小仓赛场○",
+     "jp": "小仓赛场○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 70,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200121,
+     "name": "小仓赛场◎",
+     "jp": "小仓赛场◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 160,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20013,
+   "members": [
+    {
+     "id": 200133,
+     "name": "标准距离×",
+     "jp": "标准距离×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 50,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200132,
+     "name": "标准距离○",
+     "jp": "标准距离○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200131,
+     "name": "标准距离◎",
+     "jp": "标准距离◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20014,
+   "members": [
+    {
+     "id": 200143,
+     "name": "非标准距离×",
+     "jp": "非标准距离×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 50,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200142,
+     "name": "非标准距离○",
+     "jp": "非标准距离○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200141,
+     "name": "非标准距离◎",
+     "jp": "非标准距离◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20015,
+   "members": [
+    {
+     "id": 200153,
+     "name": "良场地×",
+     "jp": "良场地×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 50,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200152,
+     "name": "良场地○",
+     "jp": "良场地○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200151,
+     "name": "良场地◎",
+     "jp": "良场地◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200154,
+     "name": "良场地恶煞",
+     "jp": "良场地恶煞",
+     "condition": "通用",
+     "score": 461,
+     "pt": 330,
+     "type": 3,
+     "type_name": "上位",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20016,
+   "members": [
+    {
+     "id": 200163,
+     "name": "路况不佳×",
+     "jp": "路况不佳×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 50,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200162,
+     "name": "路况不佳○",
+     "jp": "路况不佳○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200161,
+     "name": "路况不佳◎",
+     "jp": "路况不佳◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200164,
+     "name": "不佳路况恶煞",
+     "jp": "不佳路况恶煞",
+     "condition": "通用",
+     "score": 461,
+     "pt": 330,
+     "type": 3,
+     "type_name": "上位",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20017,
+   "members": [
+    {
+     "id": 200173,
+     "name": "春季优俊少女×",
+     "jp": "春季优俊少女×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 50,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200172,
+     "name": "春季优俊少女○",
+     "jp": "春季优俊少女○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200171,
+     "name": "春季优俊少女◎",
+     "jp": "春季优俊少女◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200174,
+     "name": "春初暖风",
+     "jp": "春初暖风",
+     "condition": "通用",
+     "score": 461,
+     "pt": 330,
+     "type": 3,
+     "type_name": "上位",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20018,
+   "members": [
+    {
+     "id": 200183,
+     "name": "夏季优俊少女×",
+     "jp": "夏季优俊少女×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 50,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200182,
+     "name": "夏季优俊少女○",
+     "jp": "夏季优俊少女○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200181,
+     "name": "夏季优俊少女◎",
+     "jp": "夏季优俊少女◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200184,
+     "name": "初夏疾风",
+     "jp": "初夏疾风",
+     "condition": "通用",
+     "score": 461,
+     "pt": 330,
+     "type": 3,
+     "type_name": "上位",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20019,
+   "members": [
+    {
+     "id": 200193,
+     "name": "秋季优俊少女×",
+     "jp": "秋季优俊少女×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 50,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200192,
+     "name": "秋季优俊少女○",
+     "jp": "秋季优俊少女○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200191,
+     "name": "秋季优俊少女◎",
+     "jp": "秋季优俊少女◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200194,
+     "name": "秋初强风",
+     "jp": "秋初强风",
+     "condition": "通用",
+     "score": 461,
+     "pt": 330,
+     "type": 3,
+     "type_name": "上位",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20020,
+   "members": [
+    {
+     "id": 200203,
+     "name": "冬季优俊少女×",
+     "jp": "冬季优俊少女×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 50,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200202,
+     "name": "冬季优俊少女○",
+     "jp": "冬季优俊少女○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200201,
+     "name": "冬季优俊少女◎",
+     "jp": "冬季优俊少女◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20021,
+   "members": [
+    {
+     "id": 200212,
+     "name": "晴天○",
+     "jp": "晴天○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200211,
+     "name": "晴天◎",
+     "jp": "晴天◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20022,
+   "members": [
+    {
+     "id": 200222,
+     "name": "阴天○",
+     "jp": "阴天○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200221,
+     "name": "阴天◎",
+     "jp": "阴天◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20023,
+   "members": [
+    {
+     "id": 200233,
+     "name": "雨天×",
+     "jp": "雨天×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 50,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200232,
+     "name": "雨天○",
+     "jp": "雨天○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200231,
+     "name": "雨天◎",
+     "jp": "雨天◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20024,
+   "members": [
+    {
+     "id": 200242,
+     "name": "雪天○",
+     "jp": "雪天○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200241,
+     "name": "雪天◎",
+     "jp": "雪天◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20025,
+   "members": [
+    {
+     "id": 200253,
+     "name": "不擅长内道",
+     "jp": "不擅长内道",
+     "condition": "通用",
+     "score": -129,
+     "pt": 50,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200252,
+     "name": "擅长内道○",
+     "jp": "擅长内道○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200251,
+     "name": "擅长内道◎",
+     "jp": "擅长内道◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20026,
+   "members": [
+    {
+     "id": 200263,
+     "name": "不擅长外道",
+     "jp": "不擅长外道",
+     "condition": "通用",
+     "score": -129,
+     "pt": 50,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200262,
+     "name": "擅长外道○",
+     "jp": "擅长外道○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200261,
+     "name": "擅长外道◎",
+     "jp": "擅长外道◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20027,
+   "members": [
+    {
+     "id": 200272,
+     "name": "独行侠○",
+     "jp": "独行侠○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200271,
+     "name": "独行侠◎",
+     "jp": "独行侠◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20028,
+   "members": [
+    {
+     "id": 200283,
+     "name": "畏缩不前",
+     "jp": "畏缩不前",
+     "condition": "通用",
+     "score": -129,
+     "pt": 50,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200282,
+     "name": "对抗意识○",
+     "jp": "对抗意识○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200281,
+     "name": "对抗意识◎",
+     "jp": "对抗意识◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20029,
+   "members": [
+    {
+     "id": 200292,
+     "name": "彻底盯紧○",
+     "jp": "彻底盯紧○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200291,
+     "name": "彻底盯紧◎",
+     "jp": "彻底盯紧◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20030,
+   "members": [
+    {
+     "id": 200302,
+     "name": "伏兵○",
+     "jp": "伏兵○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200301,
+     "name": "伏兵◎",
+     "jp": "伏兵◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20031,
+   "members": [
+    {
+     "id": 200311,
+     "name": "不擅长一级赛事",
+     "jp": "不擅长一级赛事",
+     "condition": "通用",
+     "score": -129,
+     "pt": 50,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20032,
+   "members": [
+    {
+     "id": 200321,
+     "name": "胆小鬼",
+     "jp": "胆小鬼",
+     "condition": "通用",
+     "score": -129,
+     "pt": 50,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20033,
+   "members": [
+    {
+     "id": 200333,
+     "name": "弯道能手×",
+     "jp": "弯道能手×",
+     "condition": "通用",
+     "score": -262,
+     "pt": 100,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200332,
+     "name": "弯道能手○",
+     "jp": "弯道能手○",
+     "condition": "通用",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200331,
+     "name": "弧线大师",
+     "jp": "弧线大师",
+     "condition": "通用",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20034,
+   "members": [
+    {
+     "id": 200343,
+     "name": "弯道加速×",
+     "jp": "弯道加速×",
+     "condition": "通用",
+     "score": -262,
+     "pt": 100,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200342,
+     "name": "弯道加速○",
+     "jp": "弯道加速○",
+     "condition": "通用",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200341,
+     "name": "曲线行家",
+     "jp": "曲线行家",
+     "condition": "通用",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20035,
+   "members": [
+    {
+     "id": 200353,
+     "name": "弯道恢复×",
+     "jp": "弯道恢复×",
+     "condition": "通用",
+     "score": -262,
+     "pt": 100,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200352,
+     "name": "弯道恢复○",
+     "jp": "弯道恢复○",
+     "condition": "通用",
+     "score": 217,
+     "pt": 170,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    },
+    {
+     "id": 200351,
+     "name": "圆弧艺术家",
+     "jp": "圆弧艺术家",
+     "condition": "通用",
+     "score": 508,
+     "pt": 340,
+     "type": 2,
+     "type_name": "升级",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20036,
+   "members": [
+    {
+     "id": 200362,
+     "name": "直线能手",
+     "jp": "直线能手",
+     "condition": "通用",
+     "score": 217,
+     "pt": 170,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200361,
+     "name": "迅疾如风",
+     "jp": "迅疾如风",
+     "condition": "通用",
+     "score": 508,
+     "pt": 340,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20037,
+   "members": [
+    {
+     "id": 200372,
+     "name": "直线加速",
+     "jp": "直线加速",
+     "condition": "通用",
+     "score": 217,
+     "pt": 170,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200371,
+     "name": "一阵狂风",
+     "jp": "一阵狂风",
+     "condition": "通用",
+     "score": 508,
+     "pt": 340,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20038,
+   "members": [
+    {
+     "id": 200382,
+     "name": "直线恢复",
+     "jp": "直线恢复",
+     "condition": "通用",
+     "score": 217,
+     "pt": 170,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    },
+    {
+     "id": 200381,
+     "name": "喘口气",
+     "jp": "喘口气",
+     "condition": "通用",
+     "score": 508,
+     "pt": 340,
+     "type": 2,
+     "type_name": "升级",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20039,
+   "members": [
+    {
+     "id": 200391,
+     "name": "不擅长坡道",
+     "jp": "不擅长坡道",
+     "condition": "通用",
+     "score": -262,
+     "pt": 100,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20040,
+   "members": [
+    {
+     "id": 200401,
+     "name": "厌恶队伍",
+     "jp": "厌恶队伍",
+     "condition": "通用",
+     "score": -262,
+     "pt": 100,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20041,
+   "members": [
+    {
+     "id": 200411,
+     "name": "容易放弃",
+     "jp": "容易放弃",
+     "condition": "通用",
+     "score": -262,
+     "pt": 100,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20042,
+   "members": [
+    {
+     "id": 200421,
+     "name": "容易大意",
+     "jp": "容易大意",
+     "condition": "通用",
+     "score": -262,
+     "pt": 100,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20043,
+   "members": [
+    {
+     "id": 200433,
+     "name": "起跑困难",
+     "jp": "起跑困难",
+     "condition": "通用",
+     "score": -174,
+     "pt": 70,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200433,
+     "name": "起跑困难",
+     "jp": "起跑困难",
+     "condition": "通用",
+     "score": -174,
+     "pt": 70,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200432,
+     "name": "专注力",
+     "jp": "专注力",
+     "condition": "通用",
+     "score": 129,
+     "pt": 140,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200431,
+     "name": "专心一意",
+     "jp": "专心一意",
+     "condition": "通用",
+     "score": 394,
+     "pt": 280,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20044,
+   "members": [
+    {
+     "id": 200442,
+     "name": "隐身衣",
+     "jp": "隐身衣",
+     "condition": "通用",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    },
+    {
+     "id": 200441,
+     "name": "钢铁意志",
+     "jp": "钢铁意志",
+     "condition": "通用",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20045,
+   "members": [
+    {
+     "id": 200452,
+     "name": "位置感",
+     "jp": "位置感",
+     "condition": "通用",
+     "score": 129,
+     "pt": 120,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200451,
+     "name": "人气舞娘",
+     "jp": "人气舞娘",
+     "condition": "通用",
+     "score": 334,
+     "pt": 240,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20046,
+   "members": [
+    {
+     "id": 200462,
+     "name": "加快步伐",
+     "jp": "加快步伐",
+     "condition": "通用",
+     "score": 217,
+     "pt": 170,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200461,
+     "name": "兴奋起来了！",
+     "jp": "兴奋起来了！",
+     "condition": "通用",
+     "score": 508,
+     "pt": 340,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20047,
+   "members": [
+    {
+     "id": 200472,
+     "name": "保持步伐",
+     "jp": "保持步伐",
+     "condition": "通用",
+     "score": 217,
+     "pt": 170,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    },
+    {
+     "id": 200471,
+     "name": "不屈之心",
+     "jp": "不屈之心",
+     "condition": "通用",
+     "score": 508,
+     "pt": 340,
+     "type": 2,
+     "type_name": "升级",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20048,
+   "members": [
+    {
+     "id": 200482,
+     "name": "临危不乱",
+     "jp": "临危不乱",
+     "condition": "通用",
+     "score": 217,
+     "pt": 170,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    },
+    {
+     "id": 200481,
+     "name": "耳边风",
+     "jp": "耳边风",
+     "condition": "通用",
+     "score": 508,
+     "pt": 340,
+     "type": 2,
+     "type_name": "升级",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20049,
+   "members": [
+    {
+     "id": 200492,
+     "name": "回避失速优俊少女",
+     "jp": "回避失速优俊少女",
+     "condition": "通用",
+     "score": 174,
+     "pt": 150,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200491,
+     "name": "不停步的女孩",
+     "jp": "不停步的女孩",
+     "condition": "通用",
+     "score": 394,
+     "pt": 300,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20050,
+   "members": [
+    {
+     "id": 200502,
+     "name": "临机应变",
+     "jp": "临机应变",
+     "condition": "通用",
+     "score": 129,
+     "pt": 120,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200501,
+     "name": "赛道的魔术师",
+     "jp": "赛道的魔术师",
+     "condition": "通用",
+     "score": 334,
+     "pt": 240,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20051,
+   "members": [
+    {
+     "id": 200512,
+     "name": "最后冲刺",
+     "jp": "最后冲刺",
+     "condition": "通用",
+     "score": 217,
+     "pt": 170,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200511,
+     "name": "全神贯注",
+     "jp": "全神贯注",
+     "condition": "通用",
+     "score": 508,
+     "pt": 340,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20052,
+   "members": [
+    {
+     "id": 200521,
+     "name": "竹篮打水",
+     "jp": "竹篮打水",
+     "condition": "通用",
+     "score": -262,
+     "pt": 100,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20053,
+   "members": [
+    {
+     "id": 200532,
+     "name": "抢先",
+     "jp": "抢先",
+     "condition": "领跑",
+     "score": 217,
+     "pt": 120,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200531,
+     "name": "先发制人",
+     "jp": "先发制人",
+     "condition": "领跑",
+     "score": 334,
+     "pt": 240,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20054,
+   "members": [
+    {
+     "id": 200542,
+     "name": "疾步",
+     "jp": "疾步",
+     "condition": "领跑",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200541,
+     "name": "逃脱术",
+     "jp": "逃脱术",
+     "condition": "领跑",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20055,
+   "members": [
+    {
+     "id": 200552,
+     "name": "准备压制",
+     "jp": "准备压制",
+     "condition": "领跑",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200551,
+     "name": "逃亡者",
+     "jp": "逃亡者",
+     "condition": "领跑",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20056,
+   "members": [
+    {
+     "id": 200562,
+     "name": "保留体力",
+     "jp": "保留体力",
+     "condition": "跟前",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    },
+    {
+     "id": 200561,
+     "name": "游刃有余",
+     "jp": "游刃有余",
+     "condition": "跟前",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20057,
+   "members": [
+    {
+     "id": 200572,
+     "name": "稳步紧追",
+     "jp": "稳步紧追",
+     "condition": "跟前",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    },
+    {
+     "id": 200571,
+     "name": "比赛策略家",
+     "jp": "比赛策略家",
+     "condition": "跟前",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20058,
+   "members": [
+    {
+     "id": 200582,
+     "name": "准备突围",
+     "jp": "准备突围",
+     "condition": "跟前",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200581,
+     "name": "速度之星",
+     "jp": "速度之星",
+     "condition": "跟前",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20059,
+   "members": [
+    {
+     "id": 200592,
+     "name": "向前抢位",
+     "jp": "向前抢位",
+     "condition": "居中",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200591,
+     "name": "迅速果断",
+     "jp": "迅速果断",
+     "condition": "居中",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20060,
+   "members": [
+    {
+     "id": 200602,
+     "name": "超越架势",
+     "jp": "超越架势",
+     "condition": "居中",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200601,
+     "name": "换乘能手",
+     "jp": "换乘能手",
+     "condition": "居中",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20061,
+   "members": [
+    {
+     "id": 200612,
+     "name": "准备外道超越",
+     "jp": "准备外道超越",
+     "condition": "居中",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200611,
+     "name": "登天之龙",
+     "jp": "登天之龙",
+     "condition": "居中",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20062,
+   "members": [
+    {
+     "id": 200622,
+     "name": "后方待机",
+     "jp": "后方待机",
+     "condition": "后追",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    },
+    {
+     "id": 200621,
+     "name": "沉睡的狮子",
+     "jp": "沉睡的狮子",
+     "condition": "后追",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20063,
+   "members": [
+    {
+     "id": 200632,
+     "name": "超群冲刺",
+     "jp": "超群冲刺",
+     "condition": "后追",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200631,
+     "name": "疾风怒涛",
+     "jp": "疾风怒涛",
+     "condition": "后追",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20064,
+   "members": [
+    {
+     "id": 200642,
+     "name": "一鼓作气",
+     "jp": "一鼓作气",
+     "condition": "后追",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200641,
+     "name": "迫近的暗影",
+     "jp": "迫近的暗影",
+     "condition": "后追",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20065,
+   "members": [
+    {
+     "id": 200652,
+     "name": "短途齿轮",
+     "jp": "短途齿轮",
+     "condition": "短距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200651,
+     "name": "短途涡轮",
+     "jp": "短途涡轮",
+     "condition": "短距离",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20066,
+   "members": [
+    {
+     "id": 200662,
+     "name": "观望",
+     "jp": "观望",
+     "condition": "短距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20067,
+   "members": [
+    {
+     "id": 200672,
+     "name": "逼近",
+     "jp": "逼近",
+     "condition": "短距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200671,
+     "name": "电击光辉",
+     "jp": "电击光辉",
+     "condition": "短距离",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20068,
+   "members": [
+    {
+     "id": 200682,
+     "name": "积极行动",
+     "jp": "积极行动",
+     "condition": "英里",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200681,
+     "name": "英里统治者",
+     "jp": "英里统治者",
+     "condition": "英里",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20069,
+   "members": [
+    {
+     "id": 200692,
+     "name": "窥视展开",
+     "jp": "窥视展开",
+     "condition": "英里",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    },
+    {
+     "id": 200691,
+     "name": "慧眼",
+     "jp": "慧眼",
+     "condition": "英里",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20070,
+   "members": [
+    {
+     "id": 200702,
+     "name": "上升气流",
+     "jp": "上升气流",
+     "condition": "英里",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200701,
+     "name": "奋力一搏",
+     "jp": "奋力一搏",
+     "condition": "英里",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20071,
+   "members": [
+    {
+     "id": 200712,
+     "name": "前途似锦",
+     "jp": "前途似锦",
+     "condition": "中距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    },
+    {
+     "id": 200711,
+     "name": "开拓者",
+     "jp": "开拓者",
+     "condition": "中距离",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20072,
+   "members": [
+    {
+     "id": 200722,
+     "name": "加快节奏",
+     "jp": "加快节奏",
+     "condition": "中距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200721,
+     "name": "绝妙韵律",
+     "jp": "绝妙韵律",
+     "condition": "中距离",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20073,
+   "members": [
+    {
+     "id": 200732,
+     "name": "紧追不舍",
+     "jp": "紧追不舍",
+     "condition": "中距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200731,
+     "name": "对胜利的执念",
+     "jp": "对胜利的执念",
+     "condition": "中距离",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20074,
+   "members": [
+    {
+     "id": 200742,
+     "name": "深呼吸",
+     "jp": "深呼吸",
+     "condition": "长距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    },
+    {
+     "id": 200741,
+     "name": "冷却",
+     "jp": "冷却",
+     "condition": "长距离",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20075,
+   "members": [
+    {
+     "id": 200752,
+     "name": "弯里横",
+     "jp": "弯里横",
+     "condition": "长距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200751,
+     "name": "内侧体验",
+     "jp": "内侧体验",
+     "condition": "长距离",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20076,
+   "members": [
+    {
+     "id": 200762,
+     "name": "大胃储备",
+     "jp": "大胃储备",
+     "condition": "长距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    },
+    {
+     "id": 200761,
+     "name": "破釜沉舟",
+     "jp": "破釜沉舟",
+     "condition": "长距离",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20077,
+   "members": [
+    {
+     "id": 200771,
+     "name": "诡计（前）",
+     "jp": "诡计（前）",
+     "condition": "通用",
+     "score": 217,
+     "pt": 140,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    },
+    {
+     "id": 200772,
+     "name": "吸睛诡计",
+     "jp": "吸睛诡计",
+     "condition": "通用",
+     "score": 508,
+     "pt": 280,
+     "type": 2,
+     "type_name": "升级",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20078,
+   "members": [
+    {
+     "id": 200781,
+     "name": "诡计（后）",
+     "jp": "诡计（后）",
+     "condition": "通用",
+     "score": 217,
+     "pt": 140,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20079,
+   "members": [
+    {
+     "id": 200791,
+     "name": "领跑对策",
+     "jp": "领跑对策",
+     "condition": "通用",
+     "score": 174,
+     "pt": 130,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20080,
+   "members": [
+    {
+     "id": 200801,
+     "name": "跟前对策",
+     "jp": "跟前对策",
+     "condition": "通用",
+     "score": 174,
+     "pt": 130,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20081,
+   "members": [
+    {
+     "id": 200811,
+     "name": "居中对策",
+     "jp": "居中对策",
+     "condition": "通用",
+     "score": 174,
+     "pt": 130,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20082,
+   "members": [
+    {
+     "id": 200821,
+     "name": "后追对策",
+     "jp": "后追对策",
+     "condition": "通用",
+     "score": 174,
+     "pt": 130,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20083,
+   "members": [
+    {
+     "id": 200831,
+     "name": "领跑牵制",
+     "jp": "领跑牵制",
+     "condition": "通用",
+     "score": 217,
+     "pt": 130,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20084,
+   "members": [
+    {
+     "id": 200841,
+     "name": "领跑焦躁",
+     "jp": "领跑焦躁",
+     "condition": "通用",
+     "score": 217,
+     "pt": 130,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20085,
+   "members": [
+    {
+     "id": 200851,
+     "name": "领跑踌躇",
+     "jp": "领跑踌躇",
+     "condition": "通用",
+     "score": 217,
+     "pt": 130,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20086,
+   "members": [
+    {
+     "id": 200861,
+     "name": "跟前牵制",
+     "jp": "跟前牵制",
+     "condition": "通用",
+     "score": 217,
+     "pt": 130,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20087,
+   "members": [
+    {
+     "id": 200871,
+     "name": "跟前焦躁",
+     "jp": "跟前焦躁",
+     "condition": "通用",
+     "score": 217,
+     "pt": 130,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20088,
+   "members": [
+    {
+     "id": 200881,
+     "name": "跟前踌躇",
+     "jp": "跟前踌躇",
+     "condition": "通用",
+     "score": 217,
+     "pt": 130,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20089,
+   "members": [
+    {
+     "id": 200891,
+     "name": "居中牵制",
+     "jp": "居中牵制",
+     "condition": "通用",
+     "score": 217,
+     "pt": 130,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20090,
+   "members": [
+    {
+     "id": 200901,
+     "name": "居中焦躁",
+     "jp": "居中焦躁",
+     "condition": "通用",
+     "score": 217,
+     "pt": 130,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20091,
+   "members": [
+    {
+     "id": 200911,
+     "name": "居中踌躇",
+     "jp": "居中踌躇",
+     "condition": "通用",
+     "score": 217,
+     "pt": 130,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20092,
+   "members": [
+    {
+     "id": 200921,
+     "name": "后追牵制",
+     "jp": "后追牵制",
+     "condition": "通用",
+     "score": 217,
+     "pt": 130,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20093,
+   "members": [
+    {
+     "id": 200931,
+     "name": "后追焦躁",
+     "jp": "后追焦躁",
+     "condition": "通用",
+     "score": 217,
+     "pt": 130,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20094,
+   "members": [
+    {
+     "id": 200941,
+     "name": "后追踌躇",
+     "jp": "后追踌躇",
+     "condition": "通用",
+     "score": 217,
+     "pt": 130,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20095,
+   "members": [
+    {
+     "id": 200953,
+     "name": "大井赛场×",
+     "jp": "大井赛场×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 50,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 200952,
+     "name": "大井赛场○",
+     "jp": "大井赛场○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 200951,
+     "name": "大井赛场◎",
+     "jp": "大井赛场◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20096,
+   "members": [
+    {
+     "id": 200962,
+     "name": "短距离直线○",
+     "jp": "短距离直线○",
+     "condition": "短距离",
+     "score": 217,
+     "pt": 100,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200961,
+     "name": "短距离直线◎",
+     "jp": "短距离直线◎",
+     "condition": "短距离",
+     "score": 262,
+     "pt": 210,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200963,
+     "name": "紫电一闪",
+     "jp": "紫电一闪",
+     "condition": "短距离",
+     "score": 508,
+     "pt": 360,
+     "type": 3,
+     "type_name": "上位",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20097,
+   "members": [
+    {
+     "id": 200972,
+     "name": "短距离弯道○",
+     "jp": "短距离弯道○",
+     "condition": "短距离",
+     "score": 217,
+     "pt": 100,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200971,
+     "name": "短距离弯道◎",
+     "jp": "短距离弯道◎",
+     "condition": "短距离",
+     "score": 262,
+     "pt": 210,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20098,
+   "members": [
+    {
+     "id": 200982,
+     "name": "遥遥领先",
+     "jp": "遥遥领先",
+     "condition": "短距离",
+     "score": 262,
+     "pt": 170,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200981,
+     "name": "压倒性领先",
+     "jp": "压倒性领先",
+     "condition": "短距离",
+     "score": 508,
+     "pt": 340,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20099,
+   "members": [
+    {
+     "id": 200992,
+     "name": "善后措施",
+     "jp": "善后措施",
+     "condition": "短距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 200991,
+     "name": "X计划",
+     "jp": "X计划",
+     "condition": "短距离",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20100,
+   "members": [
+    {
+     "id": 201002,
+     "name": "准备冲刺",
+     "jp": "准备冲刺",
+     "condition": "短距离",
+     "score": 174,
+     "pt": 140,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201001,
+     "name": "万事俱备！",
+     "jp": "万事俱备！",
+     "condition": "短距离",
+     "score": 394,
+     "pt": 280,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20101,
+   "members": [
+    {
+     "id": 201012,
+     "name": "钉牢后方",
+     "jp": "钉牢后方",
+     "condition": "短距离",
+     "score": 262,
+     "pt": 170,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    },
+    {
+     "id": 201011,
+     "name": "迷魂术",
+     "jp": "迷魂术",
+     "condition": "短距离",
+     "score": 508,
+     "pt": 340,
+     "type": 2,
+     "type_name": "升级",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20102,
+   "members": [
+    {
+     "id": 201022,
+     "name": "禁止抢先",
+     "jp": "禁止抢先",
+     "condition": "短距离",
+     "score": 262,
+     "pt": 170,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    },
+    {
+     "id": 201021,
+     "name": "逃亡禁令",
+     "jp": "逃亡禁令",
+     "condition": "短距离",
+     "score": 508,
+     "pt": 340,
+     "type": 2,
+     "type_name": "升级",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20103,
+   "members": [
+    {
+     "id": 201032,
+     "name": "英里直线○",
+     "jp": "英里直线○",
+     "condition": "英里",
+     "score": 217,
+     "pt": 100,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201031,
+     "name": "英里直线◎",
+     "jp": "英里直线◎",
+     "condition": "英里",
+     "score": 262,
+     "pt": 210,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20104,
+   "members": [
+    {
+     "id": 201042,
+     "name": "英里弯道○",
+     "jp": "英里弯道○",
+     "condition": "英里",
+     "score": 217,
+     "pt": 100,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201041,
+     "name": "英里弯道◎",
+     "jp": "英里弯道◎",
+     "condition": "英里",
+     "score": 262,
+     "pt": 210,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201043,
+     "name": "豪风圆刃",
+     "jp": "豪风圆刃",
+     "condition": "英里",
+     "score": 508,
+     "pt": 360,
+     "type": 3,
+     "type_name": "上位",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20105,
+   "members": [
+    {
+     "id": 201052,
+     "name": "变速",
+     "jp": "变速",
+     "condition": "英里",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201051,
+     "name": "换挡",
+     "jp": "换挡",
+     "condition": "英里",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20106,
+   "members": [
+    {
+     "id": 201062,
+     "name": "加快速度",
+     "jp": "加快速度",
+     "condition": "英里",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201061,
+     "name": "马力全开！",
+     "jp": "马力全开！",
+     "condition": "英里",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20107,
+   "members": [
+    {
+     "id": 201072,
+     "name": "要强",
+     "jp": "要强",
+     "condition": "英里",
+     "score": 217,
+     "pt": 120,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201071,
+     "name": "大姐头气质",
+     "jp": "大姐头气质",
+     "condition": "英里",
+     "score": 334,
+     "pt": 240,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20108,
+   "members": [
+    {
+     "id": 201082,
+     "name": "吞噬速度",
+     "jp": "吞噬速度",
+     "condition": "英里",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    },
+    {
+     "id": 201081,
+     "name": "掠夺速度",
+     "jp": "掠夺速度",
+     "condition": "英里",
+     "score": 461,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20109,
+   "members": [
+    {
+     "id": 201092,
+     "name": "布局",
+     "jp": "布局",
+     "condition": "英里",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    },
+    {
+     "id": 201091,
+     "name": "布阵",
+     "jp": "布阵",
+     "condition": "英里",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20110,
+   "members": [
+    {
+     "id": 201102,
+     "name": "中距离直线○",
+     "jp": "中距离直线○",
+     "condition": "中距离",
+     "score": 217,
+     "pt": 100,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201101,
+     "name": "中距离直线◎",
+     "jp": "中距离直线◎",
+     "condition": "中距离",
+     "score": 262,
+     "pt": 210,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201103,
+     "name": "瞬息万变",
+     "jp": "瞬息万变",
+     "condition": "中距离",
+     "score": 508,
+     "pt": 360,
+     "type": 3,
+     "type_name": "上位",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20111,
+   "members": [
+    {
+     "id": 201112,
+     "name": "中距离弯道○",
+     "jp": "中距离弯道○",
+     "condition": "中距离",
+     "score": 217,
+     "pt": 100,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201111,
+     "name": "中距离弯道◎",
+     "jp": "中距离弯道◎",
+     "condition": "中距离",
+     "score": 262,
+     "pt": 210,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201113,
+     "name": "光芒圆刃",
+     "jp": "光芒圆刃",
+     "condition": "中距离",
+     "score": 508,
+     "pt": 360,
+     "type": 3,
+     "type_name": "上位",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20112,
+   "members": [
+    {
+     "id": 201122,
+     "name": "鹰眼",
+     "jp": "鹰眼",
+     "condition": "中距离",
+     "score": 129,
+     "pt": 110,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201121,
+     "name": "千里眼",
+     "jp": "千里眼",
+     "condition": "中距离",
+     "score": 334,
+     "pt": 220,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20113,
+   "members": [
+    {
+     "id": 201132,
+     "name": "闪电步伐",
+     "jp": "闪电步伐",
+     "condition": "中距离",
+     "score": 174,
+     "pt": 140,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201131,
+     "name": "闪光步伐",
+     "jp": "闪光步伐",
+     "condition": "中距离",
+     "score": 394,
+     "pt": 280,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20114,
+   "members": [
+    {
+     "id": 201142,
+     "name": "轻盈步伐",
+     "jp": "轻盈步伐",
+     "condition": "中距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    },
+    {
+     "id": 201141,
+     "name": "神迹步伐",
+     "jp": "神迹步伐",
+     "condition": "中距离",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20115,
+   "members": [
+    {
+     "id": 201152,
+     "name": "束缚",
+     "jp": "束缚",
+     "condition": "中距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    },
+    {
+     "id": 201151,
+     "name": "独占力",
+     "jp": "独占力",
+     "condition": "中距离",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20116,
+   "members": [
+    {
+     "id": 201162,
+     "name": "低语",
+     "jp": "低语",
+     "condition": "中距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    },
+    {
+     "id": 201161,
+     "name": "魅惑低语",
+     "jp": "魅惑低语",
+     "condition": "中距离",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20117,
+   "members": [
+    {
+     "id": 201172,
+     "name": "长距离直线○",
+     "jp": "长距离直线○",
+     "condition": "长距离",
+     "score": 217,
+     "pt": 100,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201171,
+     "name": "长距离直线◎",
+     "jp": "长距离直线◎",
+     "condition": "长距离",
+     "score": 262,
+     "pt": 210,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201173,
+     "name": "烈风一闪",
+     "jp": "烈风一闪",
+     "condition": "长距离",
+     "score": 508,
+     "pt": 360,
+     "type": 3,
+     "type_name": "上位",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20118,
+   "members": [
+    {
+     "id": 201182,
+     "name": "长距离弯道○",
+     "jp": "长距离弯道○",
+     "condition": "长距离",
+     "score": 217,
+     "pt": 100,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201181,
+     "name": "长距离弯道◎",
+     "jp": "长距离弯道◎",
+     "condition": "长距离",
+     "score": 262,
+     "pt": 210,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20119,
+   "members": [
+    {
+     "id": 201192,
+     "name": "保持领先",
+     "jp": "保持领先",
+     "condition": "长距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201191,
+     "name": "领头心得",
+     "jp": "领头心得",
+     "condition": "长距离",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20120,
+   "members": [
+    {
+     "id": 201202,
+     "name": "赶超能手",
+     "jp": "赶超能手",
+     "condition": "长距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    },
+    {
+     "id": 201201,
+     "name": "VIP熟客",
+     "jp": "VIP熟客",
+     "condition": "长距离",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20121,
+   "members": [
+    {
+     "id": 201212,
+     "name": "追击",
+     "jp": "追击",
+     "condition": "长距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201211,
+     "name": "怒涛般的追击",
+     "jp": "怒涛般的追击",
+     "condition": "长距离",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20122,
+   "members": [
+    {
+     "id": 201222,
+     "name": "吞噬体力",
+     "jp": "吞噬体力",
+     "condition": "长距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    },
+    {
+     "id": 201221,
+     "name": "掠夺体力",
+     "jp": "掠夺体力",
+     "condition": "长距离",
+     "score": 461,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20123,
+   "members": [
+    {
+     "id": 201232,
+     "name": "障眼法",
+     "jp": "障眼法",
+     "condition": "长距离",
+     "score": 129,
+     "pt": 110,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    },
+    {
+     "id": 201231,
+     "name": "奇术师",
+     "jp": "奇术师",
+     "condition": "长距离",
+     "score": 334,
+     "pt": 220,
+     "type": 2,
+     "type_name": "升级",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20124,
+   "members": [
+    {
+     "id": 201242,
+     "name": "领跑直线○",
+     "jp": "领跑直线○",
+     "condition": "领跑",
+     "score": 217,
+     "pt": 130,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201241,
+     "name": "领跑直线◎",
+     "jp": "领跑直线◎",
+     "condition": "领跑",
+     "score": 262,
+     "pt": 270,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20125,
+   "members": [
+    {
+     "id": 201252,
+     "name": "领跑弯道○",
+     "jp": "领跑弯道○",
+     "condition": "领跑",
+     "score": 217,
+     "pt": 130,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201251,
+     "name": "领跑弯道◎",
+     "jp": "领跑弯道◎",
+     "condition": "领跑",
+     "score": 262,
+     "pt": 270,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201253,
+     "name": "阵风圆刃",
+     "jp": "阵风圆刃",
+     "condition": "领跑",
+     "score": 508,
+     "pt": 420,
+     "type": 3,
+     "type_name": "上位",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20126,
+   "members": [
+    {
+     "id": 201262,
+     "name": "危险回避",
+     "jp": "危险回避",
+     "condition": "领跑",
+     "score": 129,
+     "pt": 110,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201261,
+     "name": "第六感",
+     "jp": "第六感",
+     "condition": "领跑",
+     "score": 334,
+     "pt": 220,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20127,
+   "members": [
+    {
+     "id": 201272,
+     "name": "领跑的骄傲",
+     "jp": "领跑的骄傲",
+     "condition": "领跑",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201271,
+     "name": "领跑者",
+     "jp": "领跑者",
+     "condition": "领跑",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20128,
+   "members": [
+    {
+     "id": 201282,
+     "name": "随势而动",
+     "jp": "随势而动",
+     "condition": "领跑",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    },
+    {
+     "id": 201281,
+     "name": "活泼优俊少女",
+     "jp": "活泼优俊少女",
+     "condition": "领跑",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20129,
+   "members": [
+    {
+     "id": 201292,
+     "name": "第二支箭",
+     "jp": "第二支箭",
+     "condition": "领跑",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201291,
+     "name": "再度燃烧",
+     "jp": "再度燃烧",
+     "condition": "领跑",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20130,
+   "members": [
+    {
+     "id": 201302,
+     "name": "重新开始",
+     "jp": "重新开始",
+     "condition": "领跑",
+     "score": 217,
+     "pt": 130,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20131,
+   "members": [
+    {
+     "id": 201312,
+     "name": "跟前直线○",
+     "jp": "跟前直线○",
+     "condition": "跟前",
+     "score": 217,
+     "pt": 130,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201311,
+     "name": "跟前直线◎",
+     "jp": "跟前直线◎",
+     "condition": "跟前",
+     "score": 262,
+     "pt": 270,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20132,
+   "members": [
+    {
+     "id": 201322,
+     "name": "跟前弯道○",
+     "jp": "跟前弯道○",
+     "condition": "跟前",
+     "score": 217,
+     "pt": 130,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201321,
+     "name": "跟前弯道◎",
+     "jp": "跟前弯道◎",
+     "condition": "跟前",
+     "score": 262,
+     "pt": 270,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20133,
+   "members": [
+    {
+     "id": 201332,
+     "name": "轻巧舞步",
+     "jp": "轻巧舞步",
+     "condition": "跟前",
+     "score": 217,
+     "pt": 120,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201331,
+     "name": "技巧派",
+     "jp": "技巧派",
+     "condition": "跟前",
+     "score": 334,
+     "pt": 240,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20134,
+   "members": [
+    {
+     "id": 201342,
+     "name": "直线下坡",
+     "jp": "直线下坡",
+     "condition": "跟前",
+     "score": 217,
+     "pt": 120,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201341,
+     "name": "决心的直线下坡",
+     "jp": "决心的直线下坡",
+     "condition": "跟前",
+     "score": 334,
+     "pt": 240,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20135,
+   "members": [
+    {
+     "id": 201352,
+     "name": "营养补给",
+     "jp": "营养补给",
+     "condition": "跟前",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    },
+    {
+     "id": 201351,
+     "name": "大胃王",
+     "jp": "大胃王",
+     "condition": "跟前",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20136,
+   "members": [
+    {
+     "id": 201362,
+     "name": "重振旗鼓",
+     "jp": "重振旗鼓",
+     "condition": "跟前",
+     "score": 217,
+     "pt": 120,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201361,
+     "name": "不屈的精神",
+     "jp": "不屈的精神",
+     "condition": "跟前",
+     "score": 334,
+     "pt": 240,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20137,
+   "members": [
+    {
+     "id": 201372,
+     "name": "干扰",
+     "jp": "干扰",
+     "condition": "跟前",
+     "score": 85,
+     "pt": 110,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    },
+    {
+     "id": 201371,
+     "name": "迷惑干扰",
+     "jp": "迷惑干扰",
+     "condition": "跟前",
+     "score": 334,
+     "pt": 220,
+     "type": 2,
+     "type_name": "升级",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20138,
+   "members": [
+    {
+     "id": 201382,
+     "name": "居中直线○",
+     "jp": "居中直线○",
+     "condition": "居中",
+     "score": 217,
+     "pt": 130,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201381,
+     "name": "居中直线◎",
+     "jp": "居中直线◎",
+     "condition": "居中",
+     "score": 262,
+     "pt": 270,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201383,
+     "name": "锐脚一闪",
+     "jp": "锐脚一闪",
+     "condition": "居中",
+     "score": 508,
+     "pt": 420,
+     "type": 3,
+     "type_name": "上位",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20139,
+   "members": [
+    {
+     "id": 201392,
+     "name": "居中弯道○",
+     "jp": "居中弯道○",
+     "condition": "居中",
+     "score": 217,
+     "pt": 130,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201391,
+     "name": "居中弯道◎",
+     "jp": "居中弯道◎",
+     "condition": "居中",
+     "score": 262,
+     "pt": 270,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201393,
+     "name": "锐脚圆刃",
+     "jp": "锐脚圆刃",
+     "condition": "居中",
+     "score": 508,
+     "pt": 420,
+     "type": 3,
+     "type_name": "上位",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20140,
+   "members": [
+    {
+     "id": 201402,
+     "name": "努力者",
+     "jp": "努力者",
+     "condition": "居中",
+     "score": 217,
+     "pt": 120,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201401,
+     "name": "努力家",
+     "jp": "努力家",
+     "condition": "居中",
+     "score": 334,
+     "pt": 240,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20141,
+   "members": [
+    {
+     "id": 201412,
+     "name": "十万马力",
+     "jp": "十万马力",
+     "condition": "居中",
+     "score": 217,
+     "pt": 120,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201411,
+     "name": "百万马力",
+     "jp": "百万马力",
+     "condition": "居中",
+     "score": 334,
+     "pt": 240,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20142,
+   "members": [
+    {
+     "id": 201422,
+     "name": "稍作休息",
+     "jp": "稍作休息",
+     "condition": "居中",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    },
+    {
+     "id": 201421,
+     "name": "放松",
+     "jp": "放松",
+     "condition": "居中",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20143,
+   "members": [
+    {
+     "id": 201432,
+     "name": "观察能力",
+     "jp": "观察能力",
+     "condition": "居中",
+     "score": 85,
+     "pt": 120,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201431,
+     "name": "大局观",
+     "jp": "大局观",
+     "condition": "居中",
+     "score": 334,
+     "pt": 240,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20144,
+   "members": [
+    {
+     "id": 201442,
+     "name": "锐利目光",
+     "jp": "锐利目光",
+     "condition": "居中",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    },
+    {
+     "id": 201441,
+     "name": "紧盯八方",
+     "jp": "紧盯八方",
+     "condition": "居中",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20145,
+   "members": [
+    {
+     "id": 201452,
+     "name": "后追直线○",
+     "jp": "后追直线○",
+     "condition": "后追",
+     "score": 217,
+     "pt": 130,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201451,
+     "name": "后追直线◎",
+     "jp": "后追直线◎",
+     "condition": "后追",
+     "score": 262,
+     "pt": 270,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201453,
+     "name": "月影一闪",
+     "jp": "月影一闪",
+     "condition": "后追",
+     "score": 508,
+     "pt": 420,
+     "type": 3,
+     "type_name": "上位",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20146,
+   "members": [
+    {
+     "id": 201462,
+     "name": "后追弯道○",
+     "jp": "后追弯道○",
+     "condition": "后追",
+     "score": 217,
+     "pt": 130,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201461,
+     "name": "后追弯道◎",
+     "jp": "后追弯道◎",
+     "condition": "后追",
+     "score": 262,
+     "pt": 270,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20147,
+   "members": [
+    {
+     "id": 201472,
+     "name": "看穿",
+     "jp": "看穿",
+     "condition": "后追",
+     "score": 85,
+     "pt": 110,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201471,
+     "name": "视野良好！没有异常！",
+     "jp": "视野良好！没有异常！",
+     "condition": "后追",
+     "score": 334,
+     "pt": 220,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20148,
+   "members": [
+    {
+     "id": 201482,
+     "name": "放学后的乐趣",
+     "jp": "放学后的乐趣",
+     "condition": "后追",
+     "score": 217,
+     "pt": 170,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    },
+    {
+     "id": 201481,
+     "name": "放学后的专家",
+     "jp": "放学后的专家",
+     "condition": "后追",
+     "score": 508,
+     "pt": 340,
+     "type": 2,
+     "type_name": "升级",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20149,
+   "members": [
+    {
+     "id": 201492,
+     "name": "冷静",
+     "jp": "冷静",
+     "condition": "后追",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    },
+    {
+     "id": 201491,
+     "name": "沉着冷静",
+     "jp": "沉着冷静",
+     "condition": "后追",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20150,
+   "members": [
+    {
+     "id": 201502,
+     "name": "策士",
+     "jp": "策士",
+     "condition": "后追",
+     "score": 85,
+     "pt": 110,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201501,
+     "name": "知天命者",
+     "jp": "知天命者",
+     "condition": "后追",
+     "score": 334,
+     "pt": 220,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20151,
+   "members": [
+    {
+     "id": 201512,
+     "name": "视线",
+     "jp": "视线",
+     "condition": "后追",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    },
+    {
+     "id": 201511,
+     "name": "炙热视线",
+     "jp": "炙热视线",
+     "condition": "后追",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20152,
+   "members": [
+    {
+     "id": 201522,
+     "name": "领跑诀窍○",
+     "jp": "领跑诀窍○",
+     "condition": "领跑",
+     "score": 174,
+     "pt": 110,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 201521,
+     "name": "领跑诀窍◎",
+     "jp": "领跑诀窍◎",
+     "condition": "领跑",
+     "score": 217,
+     "pt": 240,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20153,
+   "members": [
+    {
+     "id": 201532,
+     "name": "跟前诀窍○",
+     "jp": "跟前诀窍○",
+     "condition": "跟前",
+     "score": 174,
+     "pt": 110,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 201531,
+     "name": "跟前诀窍◎",
+     "jp": "跟前诀窍◎",
+     "condition": "跟前",
+     "score": 217,
+     "pt": 240,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20154,
+   "members": [
+    {
+     "id": 201542,
+     "name": "居中诀窍○",
+     "jp": "居中诀窍○",
+     "condition": "居中",
+     "score": 174,
+     "pt": 110,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 201541,
+     "name": "居中诀窍◎",
+     "jp": "居中诀窍◎",
+     "condition": "居中",
+     "score": 217,
+     "pt": 240,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20155,
+   "members": [
+    {
+     "id": 201552,
+     "name": "后追诀窍○",
+     "jp": "后追诀窍○",
+     "condition": "后追",
+     "score": 174,
+     "pt": 110,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 201551,
+     "name": "后追诀窍◎",
+     "jp": "后追诀窍◎",
+     "condition": "后追",
+     "score": 217,
+     "pt": 240,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20156,
+   "members": [
+    {
+     "id": 201562,
+     "name": "幸运7",
+     "jp": "幸运7",
+     "condition": "通用",
+     "score": 174,
+     "pt": 110,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 201561,
+     "name": "超级幸运7",
+     "jp": "超级幸运7",
+     "condition": "通用",
+     "score": 334,
+     "pt": 220,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20157,
+   "members": [
+    {
+     "id": 201571,
+     "name": "777",
+     "jp": "777",
+     "condition": "通用",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20158,
+   "members": [
+    {
+     "id": 201581,
+     "name": "登山家",
+     "jp": "登山家",
+     "condition": "通用",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20159,
+   "members": [
+    {
+     "id": 201591,
+     "name": "优俊少女爱好者",
+     "jp": "优俊少女爱好者",
+     "condition": "通用",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201592,
+     "name": "优俊少女狂热粉",
+     "jp": "优俊少女狂热粉",
+     "condition": "通用",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20160,
+   "members": [
+    {
+     "id": 201601,
+     "name": "打基础",
+     "jp": "打基础",
+     "condition": "通用",
+     "score": 217,
+     "pt": 100,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201602,
+     "name": "磐石之势",
+     "jp": "磐石之势",
+     "condition": "通用",
+     "score": 508,
+     "pt": 280,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20161,
+   "members": [
+    {
+     "id": 201611,
+     "name": "翘尾巴",
+     "jp": "翘尾巴",
+     "condition": "通用",
+     "score": 217,
+     "pt": 100,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201612,
+     "name": "尾巴跃龙门",
+     "jp": "尾巴跃龙门",
+     "condition": "通用",
+     "score": 508,
+     "pt": 280,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20162,
+   "members": [
+    {
+     "id": 201621,
+     "name": "竭尽全力",
+     "jp": "竭尽全力",
+     "condition": "通用",
+     "score": 217,
+     "pt": 100,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20163,
+   "members": [
+    {
+     "id": 201631,
+     "name": "共鸣",
+     "jp": "共鸣",
+     "condition": "通用",
+     "score": 129,
+     "pt": 70,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20164,
+   "members": [
+    {
+     "id": 201641,
+     "name": "孤狼",
+     "jp": "孤狼",
+     "condition": "通用",
+     "score": 129,
+     "pt": 70,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20165,
+   "members": [
+    {
+     "id": 201651,
+     "name": "尾流",
+     "jp": "尾流",
+     "condition": "通用",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201652,
+     "name": "抢到好位置了！",
+     "jp": "抢到好位置了！",
+     "condition": "通用",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20166,
+   "members": [
+    {
+     "id": 201661,
+     "name": "游戏到此为止！",
+     "jp": "游戏到此为止！",
+     "condition": "通用",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201662,
+     "name": "先走一步！",
+     "jp": "先走一步！",
+     "condition": "通用",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20167,
+   "members": [
+    {
+     "id": 201672,
+     "name": "人气股",
+     "jp": "人气股",
+     "condition": "泥地",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 1
+    },
+    {
+     "id": 201671,
+     "name": "热度飙升！",
+     "jp": "热度飙升！",
+     "condition": "泥地",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 1
+    }
+   ]
+  },
+  {
+   "group_id": 20168,
+   "members": [
+    {
+     "id": 201682,
+     "name": "瞄准前排",
+     "jp": "瞄准前排",
+     "condition": "泥地",
+     "score": 174,
+     "pt": 140,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201681,
+     "name": "目标最前排！",
+     "jp": "目标最前排！",
+     "condition": "泥地",
+     "score": 394,
+     "pt": 280,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20169,
+   "members": [
+    {
+     "id": 201692,
+     "name": "平静的呼吸",
+     "jp": "平静的呼吸",
+     "condition": "居中",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    },
+    {
+     "id": 201691,
+     "name": "潜伏状态",
+     "jp": "潜伏状态",
+     "condition": "居中",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20170,
+   "members": [
+    {
+     "id": 201702,
+     "name": "不遗余力",
+     "jp": "不遗余力",
+     "condition": "中距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201701,
+     "name": "拼死决心",
+     "jp": "拼死决心",
+     "condition": "中距离",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20180,
+   "members": [
+    {
+     "id": 201801,
+     "name": "指甲开裂",
+     "jp": "指甲开裂",
+     "condition": "通用",
+     "score": -129,
+     "pt": 50,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20190,
+   "members": [
+    {
+     "id": 201902,
+     "name": "正面较量",
+     "jp": "正面较量",
+     "condition": "跟前",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 201901,
+     "name": "短兵相接",
+     "jp": "短兵相接",
+     "condition": "跟前",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20200,
+   "members": [
+    {
+     "id": 202002,
+     "name": "适应沙尘",
+     "jp": "适应沙尘",
+     "condition": "泥地",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    },
+    {
+     "id": 202001,
+     "name": "沙尘行家",
+     "jp": "沙尘行家",
+     "condition": "泥地",
+     "score": 508,
+     "pt": 380,
+     "type": 2,
+     "type_name": "升级",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20201,
+   "members": [
+    {
+     "id": 202012,
+     "name": "影打",
+     "jp": "影打",
+     "condition": "长距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202011,
+     "name": "真打",
+     "jp": "真打",
+     "condition": "长距离",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20202,
+   "members": [
+    {
+     "id": 202022,
+     "name": "率先发力",
+     "jp": "率先发力",
+     "condition": "后追",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202021,
+     "name": "强攻策略",
+     "jp": "强攻策略",
+     "condition": "后追",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20203,
+   "members": [
+    {
+     "id": 202032,
+     "name": "可疑的战术",
+     "jp": "可疑的战术",
+     "condition": "通用",
+     "score": 129,
+     "pt": 120,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202031,
+     "name": "孤注一掷",
+     "jp": "孤注一掷",
+     "condition": "通用",
+     "score": 334,
+     "pt": 240,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20204,
+   "members": [
+    {
+     "id": 202042,
+     "name": "轻快的步伐",
+     "jp": "轻快的步伐",
+     "condition": "短距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202041,
+     "name": "气势冲天",
+     "jp": "气势冲天",
+     "condition": "短距离",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20205,
+   "members": [
+    {
+     "id": 202051,
+     "name": "大差距领跑",
+     "jp": "大差距领跑",
+     "condition": "领跑",
+     "score": 370,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20206,
+   "members": [
+    {
+     "id": 202061,
+     "name": "全国第一的优俊少女",
+     "jp": "全国第一的优俊少女",
+     "condition": "长距离",
+     "score": 508,
+     "pt": 360,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20207,
+   "members": [
+    {
+     "id": 202072,
+     "name": "我行我素",
+     "jp": "我行我素",
+     "condition": "长距离",
+     "score": 217,
+     "pt": 170,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    },
+    {
+     "id": 202071,
+     "name": "泰然自若",
+     "jp": "泰然自若",
+     "condition": "长距离",
+     "score": 508,
+     "pt": 340,
+     "type": 2,
+     "type_name": "升级",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20208,
+   "members": [
+    {
+     "id": 202082,
+     "name": "一线胜机",
+     "jp": "一线胜机",
+     "condition": "中距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202081,
+     "name": "起死回生",
+     "jp": "起死回生",
+     "condition": "中距离",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20209,
+   "members": [
+    {
+     "id": 202092,
+     "name": "斗争心",
+     "jp": "斗争心",
+     "condition": "中距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202091,
+     "name": "气焰万丈",
+     "jp": "气焰万丈",
+     "condition": "中距离",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20210,
+   "members": [
+    {
+     "id": 202102,
+     "name": "积极向前",
+     "jp": "积极向前",
+     "condition": "中距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202101,
+     "name": "情绪高涨",
+     "jp": "情绪高涨",
+     "condition": "中距离",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20211,
+   "members": [
+    {
+     "id": 202112,
+     "name": "气势十足",
+     "jp": "气势十足",
+     "condition": "英里",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202111,
+     "name": "破竹之势",
+     "jp": "破竹之势",
+     "condition": "英里",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20212,
+   "members": [
+    {
+     "id": 202122,
+     "name": "无畏之心",
+     "jp": "无畏之心",
+     "condition": "居中",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202121,
+     "name": "大胆无畏",
+     "jp": "大胆无畏",
+     "condition": "居中",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20213,
+   "members": [
+    {
+     "id": 202132,
+     "name": "倾注气魄",
+     "jp": "倾注气魄",
+     "condition": "中距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202131,
+     "name": "狂暴旋风",
+     "jp": "狂暴旋风",
+     "condition": "中距离",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20214,
+   "members": [
+    {
+     "id": 202141,
+     "name": "不要对我指手画脚！！",
+     "jp": "不要对我指手画脚！！",
+     "condition": "通用",
+     "score": -174,
+     "pt": 0,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20215,
+   "members": [
+    {
+     "id": 202152,
+     "name": "马力全开",
+     "jp": "马力全开",
+     "condition": "居中",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202151,
+     "name": "勇往直前",
+     "jp": "勇往直前",
+     "condition": "居中",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20216,
+   "members": [
+    {
+     "id": 202161,
+     "name": "自制力",
+     "jp": "自制力",
+     "condition": "通用",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20217,
+   "members": [
+    {
+     "id": 202172,
+     "name": "下坡能手",
+     "jp": "下坡能手",
+     "condition": "通用",
+     "score": 217,
+     "pt": 170,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202171,
+     "name": "顶级的下坡选手",
+     "jp": "顶级的下坡选手",
+     "condition": "通用",
+     "score": 508,
+     "pt": 340,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20218,
+   "members": [
+    {
+     "id": 202181,
+     "name": "99 Problems",
+     "jp": "99 Problems",
+     "condition": "通用",
+     "score": -174,
+     "pt": 0,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20219,
+   "members": [
+    {
+     "id": 202192,
+     "name": "滴水不漏",
+     "jp": "滴水不漏",
+     "condition": "长距离, 跟前",
+     "score": 217,
+     "pt": 170,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    },
+    {
+     "id": 202191,
+     "name": "专心致志",
+     "jp": "专心致志",
+     "condition": "长距离, 跟前",
+     "score": 508,
+     "pt": 340,
+     "type": 2,
+     "type_name": "升级",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20220,
+   "members": [
+    {
+     "id": 202203,
+     "name": "川崎赛场×",
+     "jp": "川崎赛场×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 40,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 202202,
+     "name": "川崎赛场○",
+     "jp": "川崎赛场○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 70,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 202201,
+     "name": "川崎赛场◎",
+     "jp": "川崎赛场◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 160,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20221,
+   "members": [
+    {
+     "id": 202213,
+     "name": "船桥赛场×",
+     "jp": "船桥赛场×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 40,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 202212,
+     "name": "船桥赛场○",
+     "jp": "船桥赛场○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 70,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 202211,
+     "name": "船桥赛场◎",
+     "jp": "船桥赛场◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 160,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20222,
+   "members": [
+    {
+     "id": 202223,
+     "name": "盛冈赛场×",
+     "jp": "盛冈赛场×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 40,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 202222,
+     "name": "盛冈赛场○",
+     "jp": "盛冈赛场○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 70,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 202221,
+     "name": "盛冈赛场◎",
+     "jp": "盛冈赛场◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 160,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20223,
+   "members": [
+    {
+     "id": 202233,
+     "name": "夜间赛×",
+     "jp": "夜间赛×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 40,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 202232,
+     "name": "夜间赛○",
+     "jp": "夜间赛○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 70,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 202231,
+     "name": "夜间赛◎",
+     "jp": "夜间赛◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 160,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20224,
+   "members": [
+    {
+     "id": 202243,
+     "name": "急弯×",
+     "jp": "急弯×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 40,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 202242,
+     "name": "急弯○",
+     "jp": "急弯○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 70,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 202241,
+     "name": "急弯◎",
+     "jp": "急弯◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 160,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20225,
+   "members": [
+    {
+     "id": 202253,
+     "name": "交流重赏×",
+     "jp": "交流重赏×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 40,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 202252,
+     "name": "交流重赏○",
+     "jp": "交流重赏○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 70,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 202251,
+     "name": "交流重赏◎",
+     "jp": "交流重赏◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 160,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20226,
+   "members": [
+    {
+     "id": 202262,
+     "name": "光明的征兆",
+     "jp": "光明的征兆",
+     "condition": "泥地",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202261,
+     "name": "胜利的机运",
+     "jp": "胜利的机运",
+     "condition": "泥地",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20227,
+   "members": [
+    {
+     "id": 202272,
+     "name": "重整旗鼓",
+     "jp": "重整旗鼓",
+     "condition": "泥地",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202271,
+     "name": "卷土重来",
+     "jp": "卷土重来",
+     "condition": "泥地",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20228,
+   "members": [
+    {
+     "id": 202282,
+     "name": "猛冲",
+     "jp": "猛冲",
+     "condition": "泥地",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202281,
+     "name": "全速前进！",
+     "jp": "全速前进！",
+     "condition": "泥地",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20229,
+   "members": [
+    {
+     "id": 202292,
+     "name": "思路清晰",
+     "jp": "思路清晰",
+     "condition": "泥地",
+     "score": 217,
+     "pt": 150,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202291,
+     "name": "明镜止水",
+     "jp": "明镜止水",
+     "condition": "泥地",
+     "score": 508,
+     "pt": 300,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20230,
+   "members": [
+    {
+     "id": 202303,
+     "name": "沙浴×",
+     "jp": "沙浴×",
+     "condition": "泥地",
+     "score": -262,
+     "pt": 100,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 202302,
+     "name": "沙浴○",
+     "jp": "沙浴○",
+     "condition": "泥地",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202301,
+     "name": "优雅的沙浴",
+     "jp": "优雅的沙浴",
+     "condition": "泥地",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20231,
+   "members": [
+    {
+     "id": 202312,
+     "name": "干劲十足",
+     "jp": "干劲十足",
+     "condition": "泥地",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202311,
+     "name": "目标中心位！",
+     "jp": "目标中心位！",
+     "condition": "泥地",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20232,
+   "members": [
+    {
+     "id": 202322,
+     "name": "急速上升",
+     "jp": "急速上升",
+     "condition": "泥地",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202321,
+     "name": "狂奔模式！",
+     "jp": "狂奔模式！",
+     "condition": "泥地",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20233,
+   "members": [
+    {
+     "id": 202332,
+     "name": "擅长迈步",
+     "jp": "擅长迈步",
+     "condition": "泥地",
+     "score": 174,
+     "pt": 120,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 202331,
+     "name": "超群的迈步",
+     "jp": "超群的迈步",
+     "condition": "泥地",
+     "score": 461,
+     "pt": 240,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20234,
+   "members": [
+    {
+     "id": 202344,
+     "name": "玩泥巴×",
+     "jp": "玩泥巴×",
+     "condition": "泥地",
+     "score": -129,
+     "pt": 50,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 202343,
+     "name": "玩泥巴○",
+     "jp": "玩泥巴○",
+     "condition": "泥地",
+     "score": 129,
+     "pt": 90,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 202342,
+     "name": "玩泥巴◎",
+     "jp": "玩泥巴◎",
+     "condition": "泥地",
+     "score": 174,
+     "pt": 200,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 202341,
+     "name": "泥巴大师",
+     "jp": "泥巴大师",
+     "condition": "泥地",
+     "score": 461,
+     "pt": 330,
+     "type": 3,
+     "type_name": "上位",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20235,
+   "members": [
+    {
+     "id": 202352,
+     "name": "扬尘",
+     "jp": "扬尘",
+     "condition": "泥地",
+     "score": 174,
+     "pt": 120,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    },
+    {
+     "id": 202351,
+     "name": "泥地上的舞姬",
+     "jp": "泥地上的舞姬",
+     "condition": "泥地",
+     "score": 461,
+     "pt": 240,
+     "type": 2,
+     "type_name": "升级",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20236,
+   "members": [
+    {
+     "id": 202362,
+     "name": "压迫感",
+     "jp": "压迫感",
+     "condition": "泥地",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "红色",
+     "special": 0
+    },
+    {
+     "id": 202361,
+     "name": "大意轻敌",
+     "jp": "大意轻敌",
+     "condition": "泥地",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "红色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20237,
+   "members": [
+    {
+     "id": 202372,
+     "name": "进攻姿态",
+     "jp": "进攻姿态",
+     "condition": "跟前",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202371,
+     "name": "势不可挡",
+     "jp": "势不可挡",
+     "condition": "跟前",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20238,
+   "members": [
+    {
+     "id": 202382,
+     "name": "破局之策",
+     "jp": "破局之策",
+     "condition": "后追",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202381,
+     "name": "突破",
+     "jp": "突破",
+     "condition": "后追",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20239,
+   "members": [
+    {
+     "id": 202392,
+     "name": "拼尽全力",
+     "jp": "拼尽全力",
+     "condition": "领跑",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202391,
+     "name": "输出1000%！",
+     "jp": "输出1000%！",
+     "condition": "领跑",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20240,
+   "members": [
+    {
+     "id": 202402,
+     "name": "飞跃而上",
+     "jp": "飞跃而上",
+     "condition": "短距离, 英里",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202401,
+     "name": "电光石火",
+     "jp": "电光石火",
+     "condition": "短距离, 英里",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20241,
+   "members": [
+    {
+     "id": 202412,
+     "name": "上进心",
+     "jp": "上进心",
+     "condition": "跟前",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202411,
+     "name": "风云之志",
+     "jp": "风云之志",
+     "condition": "跟前",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20242,
+   "members": [
+    {
+     "id": 202422,
+     "name": "不顾一切",
+     "jp": "不顾一切",
+     "condition": "长距离, 居中",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202421,
+     "name": "浑然忘我",
+     "jp": "浑然忘我",
+     "condition": "长距离, 居中",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20243,
+   "members": [
+    {
+     "id": 202432,
+     "name": "步伐稳健",
+     "jp": "步伐稳健",
+     "condition": "中距离, 跟前",
+     "score": 217,
+     "pt": 170,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202431,
+     "name": "气势如虹",
+     "jp": "气势如虹",
+     "condition": "中距离, 跟前",
+     "score": 508,
+     "pt": 340,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20244,
+   "members": [
+    {
+     "id": 202442,
+     "name": "投机取巧",
+     "jp": "投机取巧",
+     "condition": "通用",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 202441,
+     "name": "博弈者",
+     "jp": "博弈者",
+     "condition": "通用",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20245,
+   "members": [
+    {
+     "id": 202452,
+     "name": "锐利脚步",
+     "jp": "锐利脚步",
+     "condition": "居中",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202451,
+     "name": "最高档位",
+     "jp": "最高档位",
+     "condition": "居中",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20246,
+   "members": [
+    {
+     "id": 202462,
+     "name": "坚韧不拔",
+     "jp": "坚韧不拔",
+     "condition": "领跑",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202461,
+     "name": "绝影",
+     "jp": "绝影",
+     "condition": "领跑",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20247,
+   "members": [
+    {
+     "id": 202472,
+     "name": "紧追不放",
+     "jp": "紧追不放",
+     "condition": "跟前, 居中",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202471,
+     "name": "猛追",
+     "jp": "猛追",
+     "condition": "跟前, 居中",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20248,
+   "members": [
+    {
+     "id": 202482,
+     "name": "大展身手",
+     "jp": "大展身手",
+     "condition": "长距离, 跟前",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202481,
+     "name": "怪物",
+     "jp": "怪物",
+     "condition": "长距离, 跟前",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20249,
+   "members": [
+    {
+     "id": 202492,
+     "name": "犀利步伐",
+     "jp": "犀利步伐",
+     "condition": "后追",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202491,
+     "name": "超群的犀利步伐",
+     "jp": "超群的犀利步伐",
+     "condition": "后追",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20250,
+   "members": [
+    {
+     "id": 202502,
+     "name": "不计后果",
+     "jp": "不计后果",
+     "condition": "英里",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202501,
+     "name": "奋不顾身",
+     "jp": "奋不顾身",
+     "condition": "英里",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20251,
+   "members": [
+    {
+     "id": 202511,
+     "name": "妈呀我人气第一耶",
+     "jp": "妈呀我人气第一耶",
+     "condition": "通用",
+     "score": -174,
+     "pt": 0,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20252,
+   "members": [
+    {
+     "id": 202522,
+     "name": "特立独行",
+     "jp": "特立独行",
+     "condition": "中距离, 长距离",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202521,
+     "name": "天衣无缝",
+     "jp": "天衣无缝",
+     "condition": "中距离, 长距离",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20253,
+   "members": [
+    {
+     "id": 202532,
+     "name": "优雅步伐",
+     "jp": "优雅步伐",
+     "condition": "英里, 中距离",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202531,
+     "name": "建立优势",
+     "jp": "建立优势",
+     "condition": "英里, 中距离",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20254,
+   "members": [
+    {
+     "id": 202542,
+     "name": "压力",
+     "jp": "压力",
+     "condition": "居中",
+     "score": 217,
+     "pt": 190,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202541,
+     "name": "威风堂堂",
+     "jp": "威风堂堂",
+     "condition": "居中",
+     "score": 508,
+     "pt": 380,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20255,
+   "members": [
+    {
+     "id": 202552,
+     "name": "快速",
+     "jp": "快速",
+     "condition": "通用",
+     "score": 263,
+     "pt": 200,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202551,
+     "name": "神速",
+     "jp": "神速",
+     "condition": "通用",
+     "score": 633,
+     "pt": 400,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20256,
+   "members": [
+    {
+     "id": 202562,
+     "name": "锁定",
+     "jp": "锁定",
+     "condition": "长距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202561,
+     "name": "一击必中",
+     "jp": "一击必中",
+     "condition": "长距离",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20257,
+   "members": [
+    {
+     "id": 202571,
+     "name": "开拓未来的奇迹",
+     "jp": "开拓未来的奇迹",
+     "condition": "短距离",
+     "score": 508,
+     "pt": 0,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20258,
+   "members": [
+    {
+     "id": 202582,
+     "name": "目不斜视",
+     "jp": "目不斜视",
+     "condition": "长距离",
+     "score": 263,
+     "pt": 200,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    },
+    {
+     "id": 202581,
+     "name": "超越脱兔",
+     "jp": "超越脱兔",
+     "condition": "长距离",
+     "score": 633,
+     "pt": 400,
+     "type": 2,
+     "type_name": "升级",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20259,
+   "members": [
+    {
+     "id": 202592,
+     "name": "十万火急",
+     "jp": "十万火急",
+     "condition": "居中, 长距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202591,
+     "name": "一气呵成",
+     "jp": "一气呵成",
+     "condition": "居中, 长距离",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20260,
+   "members": [
+    {
+     "id": 202602,
+     "name": "点火",
+     "jp": "点火",
+     "condition": "中距离",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202601,
+     "name": "冷发光",
+     "jp": "冷发光",
+     "condition": "中距离",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20261,
+   "members": [
+    {
+     "id": 202612,
+     "name": "满溢的热情",
+     "jp": "满溢的热情",
+     "condition": "居中",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20262,
+   "members": [
+    {
+     "id": 202622,
+     "name": "开始行动",
+     "jp": "开始行动",
+     "condition": "居中",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202621,
+     "name": "突击之魂",
+     "jp": "突击之魂",
+     "condition": "居中",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20264,
+   "members": [
+    {
+     "id": 202642,
+     "name": "始于足下",
+     "jp": "始于足下",
+     "condition": "居中",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202641,
+     "name": "千里之行",
+     "jp": "千里之行",
+     "condition": "居中",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20265,
+   "members": [
+    {
+     "id": 202652,
+     "name": "自信十足",
+     "jp": "自信十足",
+     "condition": "英里, 中距离",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 202651,
+     "name": "云蒸龙变",
+     "jp": "云蒸龙变",
+     "condition": "英里, 中距离",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20266,
+   "members": [
+    {
+     "id": 202662,
+     "name": "翻涌的热情",
+     "jp": "翻涌的热情",
+     "condition": "中距离, 长距离",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202661,
+     "name": "激昂的心跳",
+     "jp": "激昂的心跳",
+     "condition": "中距离, 长距离",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20267,
+   "members": [
+    {
+     "id": 202672,
+     "name": "心情雀跃",
+     "jp": "心情雀跃",
+     "condition": "英里",
+     "score": 217,
+     "pt": 160,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202671,
+     "name": "斗志高昂",
+     "jp": "斗志高昂",
+     "condition": "英里",
+     "score": 508,
+     "pt": 320,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20268,
+   "members": [
+    {
+     "id": 202682,
+     "name": "情绪提升",
+     "jp": "情绪提升",
+     "condition": "长距离",
+     "score": 263,
+     "pt": 200,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202681,
+     "name": "情绪☆嗨爆↑",
+     "jp": "情绪☆嗨爆↑",
+     "condition": "长距离",
+     "score": 633,
+     "pt": 400,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20269,
+   "members": [
+    {
+     "id": 202692,
+     "name": "拔得头筹",
+     "jp": "拔得头筹",
+     "condition": "中距离",
+     "score": 217,
+     "pt": 120,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202691,
+     "name": "奔向最前方！",
+     "jp": "奔向最前方！",
+     "condition": "中距离",
+     "score": 334,
+     "pt": 240,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20270,
+   "members": [
+    {
+     "id": 202702,
+     "name": "探求心",
+     "jp": "探求心",
+     "condition": "跟前, 中距离",
+     "score": 174,
+     "pt": 120,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 202701,
+     "name": "奇点",
+     "jp": "奇点",
+     "condition": "跟前, 中距离",
+     "score": 461,
+     "pt": 240,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20271,
+   "members": [
+    {
+     "id": 202712,
+     "name": "关键一步",
+     "jp": "关键一步",
+     "condition": "跟前, 居中",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202711,
+     "name": "将军",
+     "jp": "将军",
+     "condition": "跟前, 居中",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20272,
+   "members": [
+    {
+     "id": 202722,
+     "name": "坚定之心",
+     "jp": "坚定之心",
+     "condition": "通用",
+     "score": 217,
+     "pt": 180,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 202721,
+     "name": "永不言弃",
+     "jp": "永不言弃",
+     "condition": "通用",
+     "score": 508,
+     "pt": 360,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 20273,
+   "members": [
+    {
+     "id": 202733,
+     "name": "隆尚赛场×",
+     "jp": "隆尚赛场×",
+     "condition": "通用",
+     "score": -129,
+     "pt": 40,
+     "type": -1,
+     "type_name": "负面",
+     "color": "紫色",
+     "special": 0
+    },
+    {
+     "id": 202732,
+     "name": "隆尚赛场○",
+     "jp": "隆尚赛场○",
+     "condition": "通用",
+     "score": 129,
+     "pt": 70,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 202731,
+     "name": "隆尚赛场◎",
+     "jp": "隆尚赛场◎",
+     "condition": "通用",
+     "score": 174,
+     "pt": 160,
+     "type": 2,
+     "type_name": "升级",
+     "color": "绿色",
+     "special": 0
+    },
+    {
+     "id": 202734,
+     "name": "隆尚奇才",
+     "jp": "隆尚奇才",
+     "condition": "通用",
+     "score": 461,
+     "pt": 290,
+     "type": 3,
+     "type_name": "上位",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 21001,
+   "members": [
+    {
+     "id": 210012,
+     "name": "点燃青春·速",
+     "jp": "点燃青春·速",
+     "condition": "通用",
+     "score": 263,
+     "pt": 200,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 210011,
+     "name": "燃烧青春·速",
+     "jp": "燃烧青春·速",
+     "condition": "通用",
+     "score": 633,
+     "pt": 400,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 21002,
+   "members": [
+    {
+     "id": 210022,
+     "name": "点燃青春·耐",
+     "jp": "点燃青春·耐",
+     "condition": "通用",
+     "score": 263,
+     "pt": 200,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    },
+    {
+     "id": 210021,
+     "name": "燃烧青春·耐",
+     "jp": "燃烧青春·耐",
+     "condition": "通用",
+     "score": 633,
+     "pt": 400,
+     "type": 2,
+     "type_name": "升级",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 21003,
+   "members": [
+    {
+     "id": 210032,
+     "name": "点燃青春·力",
+     "jp": "点燃青春·力",
+     "condition": "通用",
+     "score": 263,
+     "pt": 200,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 210031,
+     "name": "燃烧青春·力",
+     "jp": "燃烧青春·力",
+     "condition": "通用",
+     "score": 633,
+     "pt": 400,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 21004,
+   "members": [
+    {
+     "id": 210042,
+     "name": "点燃青春·毅",
+     "jp": "点燃青春·毅",
+     "condition": "通用",
+     "score": 263,
+     "pt": 200,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 210041,
+     "name": "燃烧青春·毅",
+     "jp": "燃烧青春·毅",
+     "condition": "通用",
+     "score": 633,
+     "pt": 400,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 21005,
+   "members": [
+    {
+     "id": 210052,
+     "name": "点燃青春·智",
+     "jp": "点燃青春·智",
+     "condition": "通用",
+     "score": 263,
+     "pt": 200,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 210051,
+     "name": "燃烧青春·智",
+     "jp": "燃烧青春·智",
+     "condition": "通用",
+     "score": 633,
+     "pt": 400,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 21006,
+   "members": [
+    {
+     "id": 210062,
+     "name": "闪耀之星",
+     "jp": "闪耀之星",
+     "condition": "通用",
+     "score": 263,
+     "pt": 200,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 210061,
+     "name": "启明星",
+     "jp": "启明星",
+     "condition": "通用",
+     "score": 633,
+     "pt": 400,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 21007,
+   "members": [
+    {
+     "id": 210072,
+     "name": "追梦途中",
+     "jp": "追梦途中",
+     "condition": "通用",
+     "score": 263,
+     "pt": 200,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 210071,
+     "name": "想与你一同取胜",
+     "jp": "想与你一同取胜",
+     "condition": "通用",
+     "score": 633,
+     "pt": 400,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 21008,
+   "members": [
+    {
+     "id": 210082,
+     "name": "专注前方",
+     "jp": "专注前方",
+     "condition": "通用",
+     "score": 263,
+     "pt": 200,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 210081,
+     "name": "超越极限",
+     "jp": "超越极限",
+     "condition": "通用",
+     "score": 633,
+     "pt": 400,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 21009,
+   "members": [
+    {
+     "id": 210091,
+     "name": "比赛的真谛·速",
+     "jp": "比赛的真谛·速",
+     "condition": "通用",
+     "score": 174,
+     "pt": 150,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 21010,
+   "members": [
+    {
+     "id": 210101,
+     "name": "比赛的真谛·耐",
+     "jp": "比赛的真谛·耐",
+     "condition": "通用",
+     "score": 174,
+     "pt": 150,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 21011,
+   "members": [
+    {
+     "id": 210111,
+     "name": "比赛的真谛·力",
+     "jp": "比赛的真谛·力",
+     "condition": "通用",
+     "score": 174,
+     "pt": 150,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 21012,
+   "members": [
+    {
+     "id": 210121,
+     "name": "比赛的真谛·毅",
+     "jp": "比赛的真谛·毅",
+     "condition": "通用",
+     "score": 174,
+     "pt": 150,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 21013,
+   "members": [
+    {
+     "id": 210131,
+     "name": "比赛的真谛·智",
+     "jp": "比赛的真谛·智",
+     "condition": "通用",
+     "score": 174,
+     "pt": 150,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 21014,
+   "members": [
+    {
+     "id": 210141,
+     "name": "比赛的真谛·心",
+     "jp": "比赛的真谛·心",
+     "condition": "通用",
+     "score": 174,
+     "pt": 150,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 21026,
+   "members": [
+    {
+     "id": 210262,
+     "name": "阳之庇佑",
+     "jp": "阳之庇佑",
+     "condition": "通用",
+     "score": 263,
+     "pt": 200,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 210261,
+     "name": "太阳的睿智",
+     "jp": "太阳的睿智",
+     "condition": "通用",
+     "score": 633,
+     "pt": 400,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 21027,
+   "members": [
+    {
+     "id": 210272,
+     "name": "海之庇佑",
+     "jp": "海之庇佑",
+     "condition": "通用",
+     "score": 263,
+     "pt": 200,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 210271,
+     "name": "大海的睿智",
+     "jp": "大海的睿智",
+     "condition": "通用",
+     "score": 633,
+     "pt": 400,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 21028,
+   "members": [
+    {
+     "id": 210282,
+     "name": "地之庇佑",
+     "jp": "地之庇佑",
+     "condition": "通用",
+     "score": 263,
+     "pt": 200,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 210281,
+     "name": "大地的睿智",
+     "jp": "大地的睿智",
+     "condition": "通用",
+     "score": 633,
+     "pt": 400,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 21029,
+   "members": [
+    {
+     "id": 210292,
+     "name": "背负信念",
+     "jp": "背负信念",
+     "condition": "通用",
+     "score": 263,
+     "pt": 200,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    },
+    {
+     "id": 210291,
+     "name": "巅峰之梦",
+     "jp": "巅峰之梦",
+     "condition": "通用",
+     "score": 633,
+     "pt": 400,
+     "type": 2,
+     "type_name": "升级",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 30003,
+   "members": [
+    {
+     "id": 300031,
+     "name": "追寻向往的景色",
+     "jp": "追寻向往的景色",
+     "condition": "通用",
+     "score": 0,
+     "pt": 0,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 30004,
+   "members": [
+    {
+     "id": 300041,
+     "name": "担忧不断蔓延",
+     "jp": "担忧不断蔓延",
+     "condition": "通用",
+     "score": 0,
+     "pt": 0,
+     "type": 1,
+     "type_name": "基础",
+     "color": "紫色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 30005,
+   "members": [
+    {
+     "id": 300051,
+     "name": "忧虑愈现",
+     "jp": "忧虑愈现",
+     "condition": "通用",
+     "score": 0,
+     "pt": 0,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 30006,
+   "members": [
+    {
+     "id": 300061,
+     "name": "梦幻般的奔跑",
+     "jp": "梦幻般的奔跑",
+     "condition": "通用",
+     "score": 0,
+     "pt": 0,
+     "type": 1,
+     "type_name": "基础",
+     "color": "黄色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 30007,
+   "members": [
+    {
+     "id": 300071,
+     "name": "展现探求未知的奔跑吧",
+     "jp": "展现探求未知的奔跑吧",
+     "condition": "通用",
+     "score": 0,
+     "pt": 0,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 30008,
+   "members": [
+    {
+     "id": 300081,
+     "name": "天灵灵～祈祷飞奔！",
+     "jp": "天灵灵～祈祷飞奔！",
+     "condition": "通用",
+     "score": 0,
+     "pt": 0,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 30009,
+   "members": [
+    {
+     "id": 300091,
+     "name": "亦敌亦友",
+     "jp": "亦敌亦友",
+     "condition": "通用",
+     "score": 0,
+     "pt": 0,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 30010,
+   "members": [
+    {
+     "id": 300101,
+     "name": "憧憬的助威",
+     "jp": "憧憬的助威",
+     "condition": "通用",
+     "score": 0,
+     "pt": 0,
+     "type": 1,
+     "type_name": "基础",
+     "color": "蓝色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 30011,
+   "members": [
+    {
+     "id": 300111,
+     "name": "昂首挺胸的德比优俊少女",
+     "jp": "昂首挺胸的德比优俊少女",
+     "condition": "通用",
+     "score": 0,
+     "pt": 0,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 30012,
+   "members": [
+    {
+     "id": 300121,
+     "name": "身为队伍的一员",
+     "jp": "身为队伍的一员",
+     "condition": "通用",
+     "score": 0,
+     "pt": 0,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 100001,
+   "members": [
+    {
+     "id": 1000011,
+     "name": "嘉年华加成",
+     "jp": "嘉年华加成",
+     "condition": "活动",
+     "score": 0,
+     "pt": 0,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 110001,
+   "members": [
+    {
+     "id": 1100011,
+     "name": "超级贪玩",
+     "jp": "超级贪玩",
+     "condition": "通用",
+     "score": -500,
+     "pt": 0,
+     "type": 1,
+     "type_name": "基础",
+     "color": "紫色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 120001,
+   "members": [
+    {
+     "id": 1200011,
+     "name": "寄托于中距离比赛的信念",
+     "jp": "寄托于中距离比赛的信念",
+     "condition": "通用",
+     "score": 508,
+     "pt": 0,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 120002,
+   "members": [
+    {
+     "id": 1200021,
+     "name": "寄托于长距离比赛的信念",
+     "jp": "寄托于长距离比赛的信念",
+     "condition": "通用",
+     "score": 508,
+     "pt": 0,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 120003,
+   "members": [
+    {
+     "id": 1200031,
+     "name": "寄托于英里比赛的信念",
+     "jp": "寄托于英里比赛的信念",
+     "condition": "通用",
+     "score": 508,
+     "pt": 0,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 120004,
+   "members": [
+    {
+     "id": 1200041,
+     "name": "寄托于短距离比赛的信念",
+     "jp": "寄托于短距离比赛的信念",
+     "condition": "通用",
+     "score": 508,
+     "pt": 0,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 120005,
+   "members": [
+    {
+     "id": 1200051,
+     "name": "寄托于泥地比赛的信念",
+     "jp": "寄托于泥地比赛的信念",
+     "condition": "通用",
+     "score": 508,
+     "pt": 0,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 130001,
+   "members": [
+    {
+     "id": 1300011,
+     "name": "豪情英雄",
+     "jp": "豪情英雄",
+     "condition": "通用",
+     "score": 0,
+     "pt": 0,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 130002,
+   "members": [
+    {
+     "id": 1300021,
+     "name": "晴天英雄",
+     "jp": "晴天英雄",
+     "condition": "通用",
+     "score": 0,
+     "pt": 0,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 130003,
+   "members": [
+    {
+     "id": 1300031,
+     "name": "雨中英雄",
+     "jp": "雨中英雄",
+     "condition": "通用",
+     "score": 0,
+     "pt": 0,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 130004,
+   "members": [
+    {
+     "id": 1300041,
+     "name": "内道英雄",
+     "jp": "内道英雄",
+     "condition": "通用",
+     "score": 0,
+     "pt": 0,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 130005,
+   "members": [
+    {
+     "id": 1300051,
+     "name": "外道英雄",
+     "jp": "外道英雄",
+     "condition": "通用",
+     "score": 0,
+     "pt": 0,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 130006,
+   "members": [
+    {
+     "id": 1300061,
+     "name": "合作英雄",
+     "jp": "合作英雄",
+     "condition": "通用",
+     "score": 0,
+     "pt": 0,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  },
+  {
+   "group_id": 130007,
+   "members": [
+    {
+     "id": 1300071,
+     "name": "冲刺英雄",
+     "jp": "冲刺英雄",
+     "condition": "通用",
+     "score": 0,
+     "pt": 0,
+     "type": 1,
+     "type_name": "基础",
+     "color": "绿色",
+     "special": 0
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,3523 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<title>赛马娘简中服 比赛图鉴（313 场）</title>
+<style>
+body { font-family: "Microsoft YaHei", "Segoe UI", sans-serif; margin: 0;
+  background: #f5f6fa; color: #2c2c34; }
+header { position: sticky; top: 0; z-index: 10; background: #fff;
+  padding: 10px 18px; box-shadow: 0 1px 6px rgba(0,0,0,.08); }
+h1 { font-size: 17px; margin: 4px 0 8px; }
+.filters { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.chip { border: 1px solid #d0d3e0; border-radius: 14px; padding: 3px 12px;
+  font-size: 13px; cursor: pointer; background: #fff; user-select: none; }
+.chip.on { background: #4a6cf7; color: #fff; border-color: #4a6cf7; }
+#q { border: 1px solid #d0d3e0; border-radius: 14px; padding: 4px 12px;
+  font-size: 13px; width: 200px; outline: none; }
+#count { font-size: 12px; color: #8a8f9e; margin-left: 8px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 12px; padding: 16px 18px; }
+.card { background: #fff; border-radius: 10px; overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,.07); transition: transform .12s; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(0,0,0,.12); }
+.banner img { width: 100%; display: block; background: #eee; }
+.banner .noimg { display: block; height: 60px; line-height: 60px; text-align: center;
+  color: #aaa; background: #eee; }
+.info { padding: 8px 12px 10px; }
+.title { font-size: 15px; font-weight: 700; }
+.g { display: inline-block; border-radius: 4px; font-size: 11px; padding: 1px 5px;
+  margin-right: 4px; vertical-align: 1px; color: #fff; }
+.g-G1 { background: #e8a000; } .g-G2 { background: #d05a5a; }
+.g-G3 { background: #4a7fd0; } .g-OP { background: #4caf7d; }
+.g-PreOP { background: #8a8f9e; }
+.sub { font-size: 11px; color: #9aa0ae; margin-top: 2px; min-height: 14px; }
+.meta { font-size: 12.5px; color: #4c5566; margin-top: 4px; }
+.detail { font-size: 12px; color: #8a8f9e; margin-top: 2px; }
+.note { font-size: 11.5px; color: #b07c2a; margin-top: 3px; }
+</style></head><body>
+<header>
+  <h1>赛马娘简中服 · 比赛图鉴 <small style="font-weight:400;color:#8a8f9e">（译名以 BWIKI「简中比赛」为准 · 数据源 race_bwiki.json）</small></h1>
+  <div class="filters">
+    <input id="q" placeholder="搜索比赛名 / 旧译名 / 日文名">
+    <span id="grade-filters"><span class="chip" data-f="grade" data-v="G1">G1</span><span class="chip" data-f="grade" data-v="G2">G2</span><span class="chip" data-f="grade" data-v="G3">G3</span><span class="chip" data-f="grade" data-v="OP">OP</span><span class="chip" data-f="grade" data-v="Pre-OP">Pre-OP</span></span>
+    <span id="course-filters"><span class="chip" data-f="course" data-v="短距离">短距离</span><span class="chip" data-f="course" data-v="英里赛">英里赛</span><span class="chip" data-f="course" data-v="中距离">中距离</span><span class="chip" data-f="course" data-v="长距离">长距离</span></span>
+    <span id="count"></span>
+  </div>
+  <div class="filters" style="margin-top:6px">
+    <span id="venue-filters"><span class="chip" data-f="venue" data-v="东京">东京</span><span class="chip" data-f="venue" data-v="中京">中京</span><span class="chip" data-f="venue" data-v="中山">中山</span><span class="chip" data-f="venue" data-v="京都">京都</span><span class="chip" data-f="venue" data-v="函馆">函馆</span><span class="chip" data-f="venue" data-v="大井">大井</span><span class="chip" data-f="venue" data-v="小仓">小仓</span><span class="chip" data-f="venue" data-v="川崎">川崎</span><span class="chip" data-f="venue" data-v="新潟">新潟</span><span class="chip" data-f="venue" data-v="札幌">札幌</span><span class="chip" data-f="venue" data-v="盛岡">盛岡</span><span class="chip" data-f="venue" data-v="福岛">福岛</span><span class="chip" data-f="venue" data-v="船橋">船橋</span><span class="chip" data-f="venue" data-v="阪神">阪神</span></span>
+  </div>
+</header>
+<div class="grid" id="grid"><div class="card" data-grade="G1" data-venue="阪神"
+     data-course="英里赛" data-name="阪神初级少女杯赛" data-alias="阪神两岁雌马大赛"
+     data-jp="阪神ジュベナイルフィリーズ">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1021.png" alt="阪神初级少女杯赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 阪神初级少女杯赛</div>
+    <div class="sub">阪神两岁雌马大赛 / 阪神ジュベナイルフィリーズ</div>
+    <div class="meta">阪神 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第一年12月前 · 粉丝 +6500 / 需 1000 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G1" data-venue="阪神"
+     data-course="英里赛" data-name="朝日杯未来锦标赛" data-alias="朝日杯未来锦标"
+     data-jp="朝日杯フューチュリティステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1022.png" alt="朝日杯未来锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 朝日杯未来锦标赛</div>
+    <div class="sub">朝日杯未来锦标 / 朝日杯フューチュリティステークス</div>
+    <div class="meta">阪神 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第一年12月前 · 粉丝 +7000 / 需 1000 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G1" data-venue="中山"
+     data-course="中距离" data-name="希望锦标赛" data-alias="希望锦标"
+     data-jp="ホープフルステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1024.png" alt="希望锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 希望锦标赛</div>
+    <div class="sub">希望锦标 / ホープフルステークス</div>
+    <div class="meta">中山 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第一年12月后 · 粉丝 +7000 / 需 1000 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="G1" data-venue="川崎"
+     data-course="英里赛" data-name="全日本少年优骏" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1108.png" alt="全日本少年优骏"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 全日本少年优骏</div>
+    <div class="sub"></div>
+    <div class="meta">川崎 · 泥地 1600m · 英里赛 · 左</div>
+    <div class="detail">第一年12月后 · 粉丝 +4200 / 需 1000 · 智力</div>
+    
+  </div>
+</div><div class="card" data-grade="G1" data-venue="阪神"
+     data-course="英里赛" data-name="樱花奖" data-alias="樱花赏"
+     data-jp="桜花賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1004.png" alt="樱花奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 樱花奖</div>
+    <div class="sub">樱花赏 / 桜花賞</div>
+    <div class="meta">阪神 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第二年4月前 · 粉丝 +10500 / 需 4500 · 力量</div>
+    <div class="note">八大竞赛, 三后冠</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="中山"
+     data-course="中距离" data-name="皋月奖" data-alias="皋月赏"
+     data-jp="皐月賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1005.png" alt="皋月奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 皋月奖</div>
+    <div class="sub">皋月赏 / 皐月賞</div>
+    <div class="meta">中山 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第二年4月前 · 粉丝 +11000 / 需 4500 · 速度</div>
+    <div class="note">八大竞赛, 经典三冠</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="东京"
+     data-course="中距离" data-name="皐月賞（东京）" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1028.png" alt="皐月賞（东京）"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 皐月賞（东京）</div>
+    <div class="sub"></div>
+    <div class="meta">东京 · 草地 2000m · 中距离 · 左</div>
+    <div class="detail">第二年4月前 (仅限对应马目标) · 粉丝 +11000 / 需 4500</div>
+    <div class="note">クラシック三冠, 八大競走</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="东京"
+     data-course="英里赛" data-name="广播协会英里杯" data-alias="NHK英里杯"
+     data-jp="NHKマイルカップ">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1007.png" alt="广播协会英里杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 广播协会英里杯</div>
+    <div class="sub">NHK英里杯 / NHKマイルカップ</div>
+    <div class="meta">东京 · 草地 1600m · 英里赛 · 左</div>
+    <div class="detail">第二年5月前 · 粉丝 +10500 / 需 5000 · 耐力、毅力</div>
+    
+  </div>
+</div><div class="card" data-grade="G1" data-venue="东京"
+     data-course="中距离" data-name="奥克斯" data-alias="优骏牝马（日本橡树大赛）"
+     data-jp="オークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1009.png" alt="奥克斯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 奥克斯</div>
+    <div class="sub">优骏牝马（日本橡树大赛） / オークス</div>
+    <div class="meta">东京 · 草地 2400m · 中距离 · 左</div>
+    <div class="detail">第二年5月后 · 粉丝 +11000 / 需 6000</div>
+    <div class="note">八大竞赛, 三后冠</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="东京"
+     data-course="中距离" data-name="东京优骏（全国德比）" data-alias="东京优骏（日本德比）"
+     data-jp="東京優駿（日本ダービー）">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1010.png" alt="东京优骏（全国德比）"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 东京优骏（全国德比）</div>
+    <div class="sub">东京优骏（日本德比） / 東京優駿（日本ダービー）</div>
+    <div class="meta">东京 · 草地 2400m · 中距离 · 左</div>
+    <div class="detail">第二年5月后 · 粉丝 +20000 / 需 6000</div>
+    <div class="note">八大竞赛, 经典三冠</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="东京"
+     data-course="英里赛" data-name="东京英里赛" data-alias="安田纪念赛"
+     data-jp="安田記念">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1011.png" alt="东京英里赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 东京英里赛</div>
+    <div class="sub">安田纪念赛 / 安田記念</div>
+    <div class="meta">东京 · 草地 1600m · 英里赛 · 左</div>
+    <div class="detail">第二年6月前、第三年6月前 · 粉丝 +13000 / 需 15000 · 耐力、毅力</div>
+    <div class="note">春季英里赛</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="阪神"
+     data-course="中距离" data-name="宝冢纪念" data-alias="宝冢纪念赛"
+     data-jp="宝塚記念">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1012.png" alt="宝冢纪念"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 宝冢纪念</div>
+    <div class="sub">宝冢纪念赛 / 宝塚記念</div>
+    <div class="meta">阪神 · 草地 2200m · 中距离 · 右</div>
+    <div class="detail">第二年6月后、第三年6月后 · 粉丝 +15000 / 需 20000 · 速度</div>
+    <div class="note">春大奖赛, 春季高级三冠</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="大井"
+     data-course="中距离" data-name="全国泥地德比" data-alias="日本泥地德比"
+     data-jp="ジャパンダートダービー">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1102.png" alt="全国泥地德比"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 全国泥地德比</div>
+    <div class="sub">日本泥地德比 / ジャパンダートダービー</div>
+    <div class="meta">大井 · 泥地 2000m · 中距离 · 右</div>
+    <div class="detail">第二年7月前 · 粉丝 +4500 / 需 4000 · 耐力</div>
+    <div class="note">2024年起更名为日本泥地经典赛并调整比赛时间（对应游戏内第二年10月前）</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="中山"
+     data-course="短距离" data-name="短途者锦标赛" data-alias="短途马锦标"
+     data-jp="スプリンターズステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1013.png" alt="短途者锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 短途者锦标赛</div>
+    <div class="sub">短途马锦标 / スプリンターズステークス</div>
+    <div class="meta">中山 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第二年9月后、第三年9月后 · 粉丝 +13000 / 需 15000</div>
+    <div class="note">秋短距离赛</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="新潟"
+     data-course="短距离" data-name="短途马锦标（新潟）" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1032.png" alt="短途马锦标（新潟）"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 短途马锦标（新潟）</div>
+    <div class="sub"></div>
+    <div class="meta">新潟 · 草地 1200m · 短距离 · 左</div>
+    <div class="detail">第二年9月后(仅限对应马目标) · 粉丝 +13000 / 需 15000</div>
+    <div class="note">秋短距离赛</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="盛岡"
+     data-course="英里赛" data-name="英里冠军赛南部杯" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1110.png" alt="英里冠军赛南部杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 英里冠军赛南部杯</div>
+    <div class="sub"></div>
+    <div class="meta">盛岡 · 泥地 1600m · 英里赛 · 左</div>
+    <div class="detail">第二年10月前、第三年10月前 · 粉丝 +6000 / 需 12000 · 耐力、智力</div>
+    
+  </div>
+</div><div class="card" data-grade="G1" data-venue="京都"
+     data-course="中距离" data-name="秋华奖" data-alias="秋华赏"
+     data-jp="秋華賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1014.png" alt="秋华奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 秋华奖</div>
+    <div class="sub">秋华赏 / 秋華賞</div>
+    <div class="meta">京都 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第二年10月后 · 粉丝 +10000 / 需 7500 · 力量</div>
+    <div class="note">三后冠</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="京都"
+     data-course="长距离" data-name="菊花奖" data-alias="菊花赏"
+     data-jp="菊花賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1015.png" alt="菊花奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 菊花奖</div>
+    <div class="sub">菊花赏 / 菊花賞</div>
+    <div class="meta">京都 · 草地 3000m · 长距离 · 右</div>
+    <div class="detail">第二年10月后 · 粉丝 +12000 / 需 7500 · 力量、智力</div>
+    <div class="note">八大竞赛, 经典三冠</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="东京"
+     data-course="中距离" data-name="天王奖（秋）" data-alias="秋季天皇赏"
+     data-jp="天皇賞（秋）">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1016.png" alt="天王奖（秋）"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 天王奖（秋）</div>
+    <div class="sub">秋季天皇赏 / 天皇賞（秋）</div>
+    <div class="meta">东京 · 草地 2000m · 中距离 · 左</div>
+    <div class="detail">第二年10月后、第三年10月后 · 粉丝 +15000 / 需 20000</div>
+    <div class="note">八大竞赛, 秋季高级三冠, 天王连霸</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="中山"
+     data-course="中距离" data-name="秋季天皇赏（中山）" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1029.png" alt="秋季天皇赏（中山）"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 秋季天皇赏（中山）</div>
+    <div class="sub"></div>
+    <div class="meta">中山 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第二年10月后(仅限对应马目标) · 粉丝 +15000 / 需 20000 · 速度</div>
+    <div class="note">秋シニア三冠, 八大競走</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="京都"
+     data-course="中距离" data-name="伊丽莎白女王杯" data-alias="伊丽莎白二世女皇杯"
+     data-jp="エリザベス女王杯">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1017.png" alt="伊丽莎白女王杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 伊丽莎白女王杯</div>
+    <div class="sub">伊丽莎白二世女皇杯 / エリザベス女王杯</div>
+    <div class="meta">京都 · 草地 2200m · 中距离 · 右</div>
+    <div class="detail">第二年11月前、第三年11月前 · 粉丝 +10500 / 需 10000 · 速度</div>
+    <div class="note">女王杯连霸</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="大井"
+     data-course="英里赛" data-name="全国育成杯女士经典赛" data-alias="JBC雌马经典赛/日本育马场杯雌马经典赛"
+     data-jp="JBCレディスクラシック">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1103.png" alt="全国育成杯女士经典赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 全国育成杯女士经典赛</div>
+    <div class="sub">JBC雌马经典赛/日本育马场杯雌马经典赛 / JBCレディスクラシック</div>
+    <div class="meta">大井 · 泥地 1800m · 英里赛 · 右</div>
+    <div class="detail">第二年11月前、第三年11月前 · 粉丝 +4100 / 需 12000 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G1" data-venue="大井"
+     data-course="短距离" data-name="全国育成杯短途赛" data-alias="JBC短途赛/日本育马场杯短途赛"
+     data-jp="JBCスプリント">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1104.png" alt="全国育成杯短途赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 全国育成杯短途赛</div>
+    <div class="sub">JBC短途赛/日本育马场杯短途赛 / JBCスプリント</div>
+    <div class="meta">大井 · 泥地 1200m · 短距离 · 右</div>
+    <div class="detail">第二年11月前、第三年11月前 · 粉丝 +6000 / 需 12000 · 毅力、智力</div>
+    
+  </div>
+</div><div class="card" data-grade="G1" data-venue="大井"
+     data-course="中距离" data-name="全国育成杯经典赛" data-alias="JBC经典赛/日本育马场经典赛"
+     data-jp="JBCクラシック">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1105.png" alt="全国育成杯经典赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 全国育成杯经典赛</div>
+    <div class="sub">JBC经典赛/日本育马场经典赛 / JBCクラシック</div>
+    <div class="meta">大井 · 泥地 2000m · 中距离 · 右</div>
+    <div class="detail">第二年11月前、第三年11月前 · 粉丝 +8000 / 需 12000 · 耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="G1" data-venue="川崎"
+     data-course="英里赛" data-name="JBC雌马经典赛(川崎)" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1111.png" alt="JBC雌马经典赛(川崎)"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> JBC雌马经典赛(川崎)</div>
+    <div class="sub"></div>
+    <div class="meta">川崎 · 泥地 1600m · 英里赛 · 左</div>
+    <div class="detail">第二年11月前、第三年11月前 · 粉丝 +4100 / 需 12000 · 智力</div>
+    
+  </div>
+</div><div class="card" data-grade="G1" data-venue="川崎"
+     data-course="短距离" data-name="JBC短途赛(川崎)" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1112.png" alt="JBC短途赛(川崎)"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> JBC短途赛(川崎)</div>
+    <div class="sub"></div>
+    <div class="meta">川崎 · 泥地 1400m · 短距离 · 左</div>
+    <div class="detail">第二年11月前、第三年11月前 · 粉丝 +6000 / 需 12000 · 智力</div>
+    
+  </div>
+</div><div class="card" data-grade="G1" data-venue="川崎"
+     data-course="中距离" data-name="JBC经典赛(川崎)" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1113.png" alt="JBC经典赛(川崎)"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> JBC经典赛(川崎)</div>
+    <div class="sub"></div>
+    <div class="meta">川崎 · 泥地 2100m · 中距离 · 左</div>
+    <div class="detail">第二年11月前、第三年11月前 · 粉丝 +8000 / 需 12000 · 耐力、智力</div>
+    
+  </div>
+</div><div class="card" data-grade="G1" data-venue="船橋"
+     data-course="英里赛" data-name="JBC雌马经典赛(船橋)" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1114.png" alt="JBC雌马经典赛(船橋)"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> JBC雌马经典赛(船橋)</div>
+    <div class="sub"></div>
+    <div class="meta">船橋 · 泥地 1600m · 英里赛 · 左</div>
+    <div class="detail">第二年11月前、第三年11月前 · 粉丝 +4100 / 需 12000</div>
+    
+  </div>
+</div><div class="card" data-grade="G1" data-venue="船橋"
+     data-course="短距离" data-name="JBC短途赛(船橋)" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1115.png" alt="JBC短途赛(船橋)"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> JBC短途赛(船橋)</div>
+    <div class="sub"></div>
+    <div class="meta">船橋 · 泥地 1000m · 短距离 · 左</div>
+    <div class="detail">第二年11月前、第三年11月前 · 粉丝 +6000 / 需 12000 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="G1" data-venue="船橋"
+     data-course="英里赛" data-name="JBC经典赛(船橋)" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1116.png" alt="JBC经典赛(船橋)"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> JBC经典赛(船橋)</div>
+    <div class="sub"></div>
+    <div class="meta">船橋 · 泥地 1800m · 英里赛 · 左</div>
+    <div class="detail">第二年11月前、第三年11月前 · 粉丝 +8000 / 需 12000</div>
+    
+  </div>
+</div><div class="card" data-grade="G1" data-venue="盛岡"
+     data-course="英里赛" data-name="JBC雌马经典赛(盛岡)" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1117.png" alt="JBC雌马经典赛(盛岡)"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> JBC雌马经典赛(盛岡)</div>
+    <div class="sub"></div>
+    <div class="meta">盛岡 · 泥地 1800m · 英里赛 · 左</div>
+    <div class="detail">第二年11月前、第三年11月前 · 粉丝 +4100 / 需 12000 · 耐力、智力</div>
+    
+  </div>
+</div><div class="card" data-grade="G1" data-venue="盛岡"
+     data-course="短距离" data-name="JBC短途赛(盛岡)" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1118.png" alt="JBC短途赛(盛岡)"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> JBC短途赛(盛岡)</div>
+    <div class="sub"></div>
+    <div class="meta">盛岡 · 泥地 1200m · 短距离 · 左</div>
+    <div class="detail">第二年11月前、第三年11月前 · 粉丝 +6000 / 需 12000 · 耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="G1" data-venue="盛岡"
+     data-course="中距离" data-name="JBC经典赛(盛岡)" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1119.png" alt="JBC经典赛(盛岡)"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> JBC经典赛(盛岡)</div>
+    <div class="sub"></div>
+    <div class="meta">盛岡 · 泥地 2000m · 中距离 · 左</div>
+    <div class="detail">第二年11月前、第三年11月前 · 粉丝 +8000 / 需 12000 · 耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="G1" data-venue="京都"
+     data-course="英里赛" data-name="英里冠军赛" data-alias=""
+     data-jp="マイルチャンピオンシップ">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1018.png" alt="英里冠军赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 英里冠军赛</div>
+    <div class="sub"> / マイルチャンピオンシップ</div>
+    <div class="meta">京都 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第二年11月后、第三年11月后 · 粉丝 +11000 / 需 15000 · 速度</div>
+    <div class="note">秋季英里赛</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="东京"
+     data-course="中距离" data-name="全国杯" data-alias="日本杯"
+     data-jp="ジャパンカップ">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1019.png" alt="全国杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 全国杯</div>
+    <div class="sub">日本杯 / ジャパンカップ</div>
+    <div class="meta">东京 · 草地 2400m · 中距离 · 左</div>
+    <div class="detail">第二年11月后、第三年11月后 · 粉丝 +30000 / 需 25000</div>
+    <div class="note">秋季高级三冠</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="中京"
+     data-course="英里赛" data-name="全国冠军杯" data-alias="冠军杯"
+     data-jp="チャンピオンズカップ">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1020.png" alt="全国冠军杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 全国冠军杯</div>
+    <div class="sub">冠军杯 / チャンピオンズカップ</div>
+    <div class="meta">中京 · 泥地 1800m · 英里赛 · 左</div>
+    <div class="detail">第二年12月前、第三年12月前 · 粉丝 +10000 / 需 12000 · 耐力</div>
+    <div class="note">秋泥地赛</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="中山"
+     data-course="长距离" data-name="中山大奖赛" data-alias="有马纪念赛"
+     data-jp="有馬記念">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1023.png" alt="中山大奖赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 中山大奖赛</div>
+    <div class="sub">有马纪念赛 / 有馬記念</div>
+    <div class="meta">中山 · 草地 2500m · 长距离 · 右</div>
+    <div class="detail">第二年12月后、第三年12月后 · 粉丝 +30000 / 需 25000 · 耐力、毅力</div>
+    <div class="note">秋大奖赛, 八大竞赛, 秋季高级三冠</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="大井"
+     data-course="中距离" data-name="东京盛典赛" data-alias="东京大赏赛"
+     data-jp="東京大賞典">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1106.png" alt="东京盛典赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 东京盛典赛</div>
+    <div class="sub">东京大赏赛 / 東京大賞典</div>
+    <div class="meta">大井 · 泥地 2000m · 中距离 · 右</div>
+    <div class="detail">第二年12月后、第三年12月后 · 粉丝 +8000 / 需 12000 · 耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="G1" data-venue="川崎"
+     data-course="中距离" data-name="川崎纪念赛" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1107.png" alt="川崎纪念赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 川崎纪念赛</div>
+    <div class="sub"></div>
+    <div class="meta">川崎 · 泥地 2100m · 中距离 · 左</div>
+    <div class="detail">第三年2月前 · 粉丝 +6000 / 需 12000 · 耐力、智力</div>
+    <div class="note">2024年起调整比赛时间（对应游戏内第三年4月前）</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="东京"
+     data-course="英里赛" data-name="二月锦标赛" data-alias=""
+     data-jp="フェブラリーステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1001.png" alt="二月锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 二月锦标赛</div>
+    <div class="sub"> / フェブラリーステークス</div>
+    <div class="meta">东京 · 泥地 1600m · 英里赛 · 左</div>
+    <div class="detail">第三年2月后 · 粉丝 +10000 / 需 12000 · 速度、耐力</div>
+    <div class="note">春泥地赛</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="中京"
+     data-course="短距离" data-name="中京短途赛" data-alias="高松宫纪念赛"
+     data-jp="高松宮記念">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1002.png" alt="中京短途赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 中京短途赛</div>
+    <div class="sub">高松宫纪念赛 / 高松宮記念</div>
+    <div class="meta">中京 · 草地 1200m · 短距离 · 左</div>
+    <div class="detail">第三年3月后 · 粉丝 +13000 / 需 15000</div>
+    <div class="note">春短距离赛</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="阪神"
+     data-course="中距离" data-name="大阪杯" data-alias=""
+     data-jp="大阪杯">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1003.png" alt="大阪杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 大阪杯</div>
+    <div class="sub"> / 大阪杯</div>
+    <div class="meta">阪神 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第三年3月后 · 粉丝 +13500 / 需 20000 · 毅力</div>
+    <div class="note">春季高级三冠</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="京都"
+     data-course="长距离" data-name="天王奖（春）" data-alias="春季天皇赏"
+     data-jp="天皇賞（春）">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1006.png" alt="天王奖（春）"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 天王奖（春）</div>
+    <div class="sub">春季天皇赏 / 天皇賞（春）</div>
+    <div class="meta">京都 · 草地 3200m · 长距离 · 右</div>
+    <div class="detail">第三年4月后 · 粉丝 +15000 / 需 20000</div>
+    <div class="note">八大竞赛, 春季高级三冠, 天王连霸</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="阪神"
+     data-course="长距离" data-name="天王奖春（阪神）" data-alias="春季天皇赏（阪神）"
+     data-jp="天皇賞春（阪神）">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1027.png" alt="天王奖春（阪神）"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 天王奖春（阪神）</div>
+    <div class="sub">春季天皇赏（阪神） / 天皇賞春（阪神）</div>
+    <div class="meta">阪神 · 草地 3200m · 长距离 · 右</div>
+    <div class="detail">第三年4月后(仅限对应马目标) · 粉丝 +15000 / 需 20000</div>
+    <div class="note">八大竞赛, 春季高级三冠</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="东京"
+     data-course="英里赛" data-name="维多利亚英里赛" data-alias=""
+     data-jp="ヴィクトリアマイル">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1008.png" alt="维多利亚英里赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 维多利亚英里赛</div>
+    <div class="sub"> / ヴィクトリアマイル</div>
+    <div class="meta">东京 · 草地 1600m · 英里赛 · 左</div>
+    <div class="detail">第三年5月前 · 粉丝 +10500 / 需 10000 · 耐力、毅力</div>
+    <div class="note">女王杯连霸</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="船橋"
+     data-course="英里赛" data-name="柏市纪念赛" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1109.png" alt="柏市纪念赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 柏市纪念赛</div>
+    <div class="sub"></div>
+    <div class="meta">船橋 · 泥地 1600m · 英里赛 · 左</div>
+    <div class="detail">第三年5月前 · 粉丝 +8000 / 需 12000</div>
+    
+  </div>
+</div><div class="card" data-grade="G1" data-venue="京都"
+     data-course="中距离" data-name="宝冢纪念（京都）" data-alias="宝冢纪念赛（京都）"
+     data-jp="宝塚記念（京都）">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1025.png" alt="宝冢纪念（京都）"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 宝冢纪念（京都）</div>
+    <div class="sub">宝冢纪念赛（京都） / 宝塚記念（京都）</div>
+    <div class="meta">京都 · 草地 2200m · 中距离 · 右</div>
+    <div class="detail">第三年6月后(仅限对应马目标) · 粉丝 +15000 / 需 20000 · 速度</div>
+    <div class="note">春大奖赛, 春季高级三冠</div>
+  </div>
+</div><div class="card" data-grade="G1" data-venue="大井"
+     data-course="中距离" data-name="帝王奖" data-alias="帝王赏"
+     data-jp="帝王賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1101.png" alt="帝王奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 帝王奖</div>
+    <div class="sub">帝王赏 / 帝王賞</div>
+    <div class="meta">大井 · 泥地 2000m · 中距离 · 右</div>
+    <div class="detail">第三年6月后 · 粉丝 +6000 / 需 12000 · 耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="G1" data-venue="东京"
+     data-course="英里赛" data-name="英里冠军赛南部杯（东京）" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1030.png" alt="英里冠军赛南部杯（东京）"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 英里冠军赛南部杯（东京）</div>
+    <div class="sub"></div>
+    <div class="meta">东京 · 泥地 1600m · 英里赛 · 左</div>
+    <div class="detail">第三年10月前 (仅限对应马目标) · 粉丝 +6000 / 需 12000 · 速度、耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="G1" data-venue="中山"
+     data-course="中距离" data-name="日本杯（中山）" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/1031.png" alt="日本杯（中山）"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G1">G1</span> 日本杯（中山）</div>
+    <div class="sub"></div>
+    <div class="meta">中山 · 草地 2200m · 中距离 · 右</div>
+    <div class="detail">第三年11月后(仅限对应马目标) · 粉丝 +30000 / 需 25000 · 耐力、毅力</div>
+    <div class="note">秋季高级三冠</div>
+  </div>
+</div><div class="card" data-grade="G2" data-venue="东京"
+     data-course="短距离" data-name="京王杯初级锦标赛" data-alias="京王杯少年锦标"
+     data-jp="京王杯ジュニアステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2030.png" alt="京王杯初级锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 京王杯初级锦标赛</div>
+    <div class="sub">京王杯少年锦标 / 京王杯ジュニアステークス</div>
+    <div class="meta">东京 · 草地 1400m · 短距离 · 左</div>
+    <div class="detail">第一年11月前 · 粉丝 +3800 / 需 375 · 耐力、力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="京都"
+     data-course="英里赛" data-name="每日杯初级锦标赛" data-alias="每日杯少年锦标"
+     data-jp="デイリー杯ジュニアステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2032.png" alt="每日杯初级锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 每日杯初级锦标赛</div>
+    <div class="sub">每日杯少年锦标 / デイリー杯ジュニアステークス</div>
+    <div class="meta">京都 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第一年11月前 · 粉丝 +3800 / 需 375 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="中山"
+     data-course="中距离" data-name="弥生奖" data-alias="弥生赏"
+     data-jp="弥生賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2006.png" alt="弥生奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 弥生奖</div>
+    <div class="sub">弥生赏 / 弥生賞</div>
+    <div class="meta">中山 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第二年3月前 · 粉丝 +5400 / 需 1750 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="阪神"
+     data-course="短距离" data-name="少女竞技赛" data-alias="报知杯雌马赛"
+     data-jp="フィリーズレビュー">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2008.png" alt="少女竞技赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 少女竞技赛</div>
+    <div class="sub">报知杯雌马赛 / フィリーズレビュー</div>
+    <div class="meta">阪神 · 草地 1400m · 短距离 · 右</div>
+    <div class="detail">第二年3月前 · 粉丝 +5200 / 需 1750</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="阪神"
+     data-course="英里赛" data-name="郁金香奖" data-alias="郁金香赏"
+     data-jp="チューリップ賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3018.png" alt="郁金香奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 郁金香奖</div>
+    <div class="sub">郁金香赏 / チューリップ賞</div>
+    <div class="meta">阪神 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第二年3月前 · 粉丝 +5200 / 需 1750 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="中山"
+     data-course="英里赛" data-name="春季锦标赛" data-alias="春季锦标"
+     data-jp="スプリングステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2010.png" alt="春季锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 春季锦标赛</div>
+    <div class="sub">春季锦标 / スプリングステークス</div>
+    <div class="meta">中山 · 草地 1800m · 英里赛 · 右</div>
+    <div class="detail">第二年3月后 · 粉丝 +5400 / 需 1750</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="中山"
+     data-course="英里赛" data-name="无翼鸟杯" data-alias="新西兰优胜杯"
+     data-jp="ニュージーランドトロフィー">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2013.png" alt="无翼鸟杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 无翼鸟杯</div>
+    <div class="sub">新西兰优胜杯 / ニュージーランドトロフィー</div>
+    <div class="meta">中山 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第二年4月前 · 粉丝 +5400 / 需 1750 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="东京"
+     data-course="中距离" data-name="芙洛拉锦标赛" data-alias="芙罗拉锦标/费洛拉锦标"
+     data-jp="フローラステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2015.png" alt="芙洛拉锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 芙洛拉锦标赛</div>
+    <div class="sub">芙罗拉锦标/费洛拉锦标 / フローラステークス</div>
+    <div class="meta">东京 · 草地 2000m · 中距离 · 左</div>
+    <div class="detail">第二年4月后 · 粉丝 +5200 / 需 1750</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="东京"
+     data-course="中距离" data-name="青叶奖" data-alias="青叶赏"
+     data-jp="青葉賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2016.png" alt="青叶奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 青叶奖</div>
+    <div class="sub">青叶赏 / 青葉賞</div>
+    <div class="meta">东京 · 草地 2400m · 中距离 · 左</div>
+    <div class="detail">第二年4月后 · 粉丝 +5400 / 需 1800</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="京都"
+     data-course="中距离" data-name="京都新闻杯" data-alias="京都报杯"
+     data-jp="京都新聞杯">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2017.png" alt="京都新闻杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 京都新闻杯</div>
+    <div class="sub">京都报杯 / 京都新聞杯</div>
+    <div class="meta">京都 · 草地 2200m · 中距离 · 右</div>
+    <div class="detail">第二年5月前 · 粉丝 +5400 / 需 1750 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="川崎"
+     data-course="中距离" data-name="关东橡树" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2039.png" alt="关东橡树"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 关东橡树</div>
+    <div class="sub"></div>
+    <div class="meta">川崎 · 泥地 2100m · 中距离 · 左</div>
+    <div class="detail">第二年6月前 · 粉丝 +3500 / 需 1800 · 耐力、智力</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="札幌"
+     data-course="中距离" data-name="札幌纪念" data-alias="札幌纪念赛"
+     data-jp="札幌記念">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2020.png" alt="札幌纪念"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 札幌纪念</div>
+    <div class="sub">札幌纪念赛 / 札幌記念</div>
+    <div class="meta">札幌 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第二年8月后、第三年8月后 · 粉丝 +7000 / 需 2000 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="阪神"
+     data-course="短距离" data-name="人马锦标赛" data-alias="人马锦标"
+     data-jp="セントウルステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2021.png" alt="人马锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 人马锦标赛</div>
+    <div class="sub">人马锦标 / セントウルステークス</div>
+    <div class="meta">阪神 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第二年9月前、第三年9月前 · 粉丝 +5900 / 需 1900</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="阪神"
+     data-course="英里赛" data-name="玫瑰锦标赛" data-alias="玫瑰锦标"
+     data-jp="ローズステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2022.png" alt="玫瑰锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 玫瑰锦标赛</div>
+    <div class="sub">玫瑰锦标 / ローズステークス</div>
+    <div class="meta">阪神 · 草地 1800m · 英里赛 · 右</div>
+    <div class="detail">第二年9月前 · 粉丝 +5200 / 需 1750 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="中山"
+     data-course="中距离" data-name="圣光纪念" data-alias="圣列特纪念赛"
+     data-jp="セントライト記念">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2023.png" alt="圣光纪念"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 圣光纪念</div>
+    <div class="sub">圣列特纪念赛 / セントライト記念</div>
+    <div class="meta">中山 · 草地 2200m · 中距离 · 右</div>
+    <div class="detail">第二年9月后 · 粉丝 +5400 / 需 1750 · 耐力、毅力</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="阪神"
+     data-course="中距离" data-name="神户新闻杯" data-alias=""
+     data-jp="神戸新聞杯">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2024.png" alt="神户新闻杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 神户新闻杯</div>
+    <div class="sub"> / 神戸新聞杯</div>
+    <div class="meta">阪神 · 草地 2400m · 中距离 · 右</div>
+    <div class="detail">第二年9月后 · 粉丝 +5400 / 需 1750 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="中山"
+     data-course="中距离" data-name="全国邀请赛" data-alias="产经赏开放赛"
+     data-jp="オールカマー">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2025.png" alt="全国邀请赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 全国邀请赛</div>
+    <div class="sub">产经赏开放赛 / オールカマー</div>
+    <div class="meta">中山 · 草地 2200m · 中距离 · 右</div>
+    <div class="detail">第二年9月后、第三年9月后 · 粉丝 +6700 / 需 2000 · 耐力、毅力</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="船橋"
+     data-course="英里赛" data-name="山茶花电视台杯" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2041.png" alt="山茶花电视台杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 山茶花电视台杯</div>
+    <div class="sub"></div>
+    <div class="meta">船橋 · 泥地 1800m · 英里赛 · 左</div>
+    <div class="detail">第二年9月后、第三年9月后 · 粉丝 +3200 / 需 1800</div>
+    <div class="note">实际名称为日本电视台杯（日本テレビ盃）</div>
+  </div>
+</div><div class="card" data-grade="G2" data-venue="东京"
+     data-course="英里赛" data-name="每日王冠" data-alias="每日王冠赛"
+     data-jp="毎日王冠">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2026.png" alt="每日王冠"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 每日王冠</div>
+    <div class="sub">每日王冠赛 / 毎日王冠</div>
+    <div class="meta">东京 · 草地 1800m · 英里赛 · 左</div>
+    <div class="detail">第二年10月前、第三年10月前 · 粉丝 +6700 / 需 2000 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="京都"
+     data-course="中距离" data-name="京都盛典赛" data-alias="京都大赏典"
+     data-jp="京都大賞典">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2027.png" alt="京都盛典赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 京都盛典赛</div>
+    <div class="sub">京都大赏典 / 京都大賞典</div>
+    <div class="meta">京都 · 草地 2400m · 中距离 · 右</div>
+    <div class="detail">第二年10月前、第三年10月前 · 粉丝 +6700 / 需 2000 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="东京"
+     data-course="英里赛" data-name="府中优俊少女锦标赛" data-alias="府中赛马娘锦标"
+     data-jp="府中ウマ娘ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2028.png" alt="府中优俊少女锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 府中优俊少女锦标赛</div>
+    <div class="sub">府中赛马娘锦标 / 府中ウマ娘ステークス</div>
+    <div class="meta">东京 · 草地 1800m · 英里赛 · 左</div>
+    <div class="detail">第二年10月前、第三年10月前 · 粉丝 +5500 / 需 1800 · 速度</div>
+    <div class="note">原全称为爱尔兰杯府中牝马锦标（アイルランドトロフィー府中牝馬ステークス），现实中自2025年起只保留爱尔兰杯名称（アイルランドトロフィー），人鱼锦标另行更名为府中牝马锦标</div>
+  </div>
+</div><div class="card" data-grade="G2" data-venue="大井"
+     data-course="英里赛" data-name="雌马预赛" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2036.png" alt="雌马预赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 雌马预赛</div>
+    <div class="sub"></div>
+    <div class="meta">大井 · 泥地 1800m · 英里赛 · 右</div>
+    <div class="detail">第二年10月前、第三年10月前 · 粉丝 +3100 / 需 1800 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="大井"
+     data-course="短距离" data-name="东京杯" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2037.png" alt="东京杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 东京杯</div>
+    <div class="sub"></div>
+    <div class="meta">大井 · 泥地 1200m · 短距离 · 右</div>
+    <div class="detail">第二年10月前、第三年10月前 · 粉丝 +3500 / 需 1800 · 毅力、智力</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="京都"
+     data-course="短距离" data-name="天鹅锦标赛" data-alias="天鹅锦标"
+     data-jp="スワンステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2029.png" alt="天鹅锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 天鹅锦标赛</div>
+    <div class="sub">天鹅锦标 / スワンステークス</div>
+    <div class="meta">京都 · 草地 1400m · 短距离 · 右</div>
+    <div class="detail">第二年10月后、第三年10月后 · 粉丝 +5900 / 需 1900</div>
+    <div class="note">现实中自2025年起变更为对应游戏中的第二年10月前、第三年10月前</div>
+  </div>
+</div><div class="card" data-grade="G2" data-venue="东京"
+     data-course="英里赛" data-name="富士锦标赛" data-alias="富士锦标"
+     data-jp="富士ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3058.png" alt="富士锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 富士锦标赛</div>
+    <div class="sub">富士锦标 / 富士ステークス</div>
+    <div class="meta">东京 · 草地 1600m · 英里赛 · 左</div>
+    <div class="detail">第二年10月后、第三年10月后 · 粉丝 +5900 / 需 1900 · 耐力、毅力</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="东京"
+     data-course="长距离" data-name="白银杯" data-alias="阿根廷共和国杯"
+     data-jp="アルゼンチン共和国杯">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2031.png" alt="白银杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 白银杯</div>
+    <div class="sub">阿根廷共和国杯 / アルゼンチン共和国杯</div>
+    <div class="meta">东京 · 草地 2500m · 长距离 · 左</div>
+    <div class="detail">第二年11月前、第三年11月前 · 粉丝 +5700 / 需 1900 · 耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="中山"
+     data-course="长距离" data-name="长途锦标赛" data-alias="长途锦标"
+     data-jp="ステイヤーズステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2033.png" alt="长途锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 长途锦标赛</div>
+    <div class="sub">长途锦标 / ステイヤーズステークス</div>
+    <div class="meta">中山 · 草地 3600m · 长距离 · 右</div>
+    <div class="detail">第二年12月前、第三年12月前 · 粉丝 +6200 / 需 2000 · 耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="阪神"
+     data-course="短距离" data-name="阪神杯" data-alias=""
+     data-jp="阪神カップ">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2034.png" alt="阪神杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 阪神杯</div>
+    <div class="sub"> / 阪神カップ</div>
+    <div class="meta">阪神 · 草地 1400m · 短距离 · 右</div>
+    <div class="detail">第二年12月后、第三年12月后 · 粉丝 +6700 / 需 2000</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="京都"
+     data-course="中距离" data-name="日经新春杯" data-alias=""
+     data-jp="日経新春杯">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2001.png" alt="日经新春杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 日经新春杯</div>
+    <div class="sub"> / 日経新春杯</div>
+    <div class="meta">京都 · 草地 2400m · 中距离 · 右</div>
+    <div class="detail">第三年1月前 · 粉丝 +5700 / 需 1800 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="中京"
+     data-course="英里赛" data-name="东海锦标赛" data-alias=""
+     data-jp="東海ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2002.png" alt="东海锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 东海锦标赛</div>
+    <div class="sub"> / 東海ステークス</div>
+    <div class="meta">中京 · 泥地 1800m · 英里赛 · 左</div>
+    <div class="detail">第三年1月后 · 粉丝 +5500 / 需 1800 · 耐力</div>
+    <div class="note">现实中自2025年起与南河三锦标(プロキオンステークス)互换名称，等级变为GIII, 开赛时间变为对应游戏时间的第二年7月后和第三年7月后，距离变为1400米</div>
+  </div>
+</div><div class="card" data-grade="G2" data-venue="中山"
+     data-course="中距离" data-name="合众国交流杯" data-alias="美国赛马会杯"
+     data-jp="アメリカJCC">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2003.png" alt="合众国交流杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 合众国交流杯</div>
+    <div class="sub">美国赛马会杯 / アメリカJCC</div>
+    <div class="meta">中山 · 草地 2200m · 中距离 · 右</div>
+    <div class="detail">第三年1月后 · 粉丝 +6200 / 需 1900 · 耐力、毅力</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="京都"
+     data-course="中距离" data-name="京都纪念" data-alias="京都纪念赛"
+     data-jp="京都記念">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2004.png" alt="京都纪念"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 京都纪念</div>
+    <div class="sub">京都纪念赛 / 京都記念</div>
+    <div class="meta">京都 · 草地 2200m · 中距离 · 右</div>
+    <div class="detail">第三年2月前 · 粉丝 +6200 / 需 1900 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="中山"
+     data-course="英里赛" data-name="中山纪念" data-alias="中山纪念赛"
+     data-jp="中山記念">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2005.png" alt="中山纪念"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 中山纪念</div>
+    <div class="sub">中山纪念赛 / 中山記念</div>
+    <div class="meta">中山 · 草地 1800m · 英里赛 · 右</div>
+    <div class="detail">第三年2月后 · 粉丝 +6700 / 需 1900</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="中京"
+     data-course="中距离" data-name="金鯱奖" data-alias="金鯱赏"
+     data-jp="金鯱賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2007.png" alt="金鯱奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 金鯱奖</div>
+    <div class="sub">金鯱赏 / 金鯱賞</div>
+    <div class="meta">中京 · 草地 2000m · 中距离 · 左</div>
+    <div class="detail">第三年3月前 · 粉丝 +6700 / 需 2000</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="川崎"
+     data-course="中距离" data-name="女皇杯" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2038.png" alt="女皇杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 女皇杯</div>
+    <div class="sub"></div>
+    <div class="meta">川崎 · 泥地 2100m · 中距离 · 左</div>
+    <div class="detail">第三年3月前 · 粉丝 +3500 / 需 1800 · 耐力、智力</div>
+    <div class="note">现实中自2024年起调整比赛时间（对应游戏内第三年5月前）</div>
+  </div>
+</div><div class="card" data-grade="G2" data-venue="阪神"
+     data-course="长距离" data-name="阪神盛典赛" data-alias="阪神大赏典"
+     data-jp="阪神大賞典">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2009.png" alt="阪神盛典赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 阪神盛典赛</div>
+    <div class="sub">阪神大赏典 / 阪神大賞典</div>
+    <div class="meta">阪神 · 草地 3000m · 长距离 · 右</div>
+    <div class="detail">第三年3月后 · 粉丝 +6700 / 需 2000 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="中山"
+     data-course="长距离" data-name="日经奖" data-alias="日经赏"
+     data-jp="日経賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2011.png" alt="日经奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 日经奖</div>
+    <div class="sub">日经赏 / 日経賞</div>
+    <div class="meta">中山 · 草地 2500m · 长距离 · 右</div>
+    <div class="detail">第三年3月后 · 粉丝 +6700 / 需 2000 · 耐力、毅力</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="船橋"
+     data-course="中距离" data-name="大尾光纪念赛" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2040.png" alt="大尾光纪念赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 大尾光纪念赛</div>
+    <div class="sub"></div>
+    <div class="meta">船橋 · 泥地 2400m · 中距离 · 左</div>
+    <div class="detail">第三年3月后 · 粉丝 +3200 / 需 1800 · 耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="阪神"
+     data-course="英里赛" data-name="阪神优俊少女锦标赛" data-alias="阪神赛马娘锦标"
+     data-jp="阪神ウマ娘ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2012.png" alt="阪神优俊少女锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 阪神优俊少女锦标赛</div>
+    <div class="sub">阪神赛马娘锦标 / 阪神ウマ娘ステークス</div>
+    <div class="meta">阪神 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第三年4月前 · 粉丝 +5500 / 需 1800 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="京都"
+     data-course="英里赛" data-name="英里杯" data-alias="英里赛马杯"
+     data-jp="マイラーズカップ">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2014.png" alt="英里杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 英里杯</div>
+    <div class="sub">英里赛马杯 / マイラーズカップ</div>
+    <div class="meta">京都 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第三年4月后 · 粉丝 +5900 / 需 1900 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="东京"
+     data-course="短距离" data-name="京王杯春季杯" data-alias=""
+     data-jp="京王杯スプリングカップ">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2018.png" alt="京王杯春季杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 京王杯春季杯</div>
+    <div class="sub"> / 京王杯スプリングカップ</div>
+    <div class="meta">东京 · 草地 1400m · 短距离 · 左</div>
+    <div class="detail">第三年5月前 · 粉丝 +5900 / 需 1900 · 耐力、力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G2" data-venue="东京"
+     data-course="长距离" data-name="目黑纪念" data-alias="目黑纪念赛"
+     data-jp="目黒記念">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/2019.png" alt="目黑纪念"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G2">G2</span> 目黑纪念</div>
+    <div class="sub">目黑纪念赛 / 目黒記念</div>
+    <div class="meta">东京 · 草地 2500m · 长距离 · 左</div>
+    <div class="detail">第三年5月后 · 粉丝 +5700 / 需 1800 · 耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="函馆"
+     data-course="短距离" data-name="函馆初级锦标赛" data-alias="函馆少年锦标"
+     data-jp="函館ジュニアステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3041.png" alt="函馆初级锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 函馆初级锦标赛</div>
+    <div class="sub">函馆少年锦标 / 函館ジュニアステークス</div>
+    <div class="meta">函馆 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第一年7月后 · 粉丝 +3100 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="新潟"
+     data-course="英里赛" data-name="新潟初级锦标赛" data-alias="新潟少年锦标"
+     data-jp="新潟ジュニアステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3049.png" alt="新潟初级锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 新潟初级锦标赛</div>
+    <div class="sub">新潟少年锦标 / 新潟ジュニアステークス</div>
+    <div class="meta">新潟 · 草地 1600m · 英里赛 · 左</div>
+    <div class="detail">第一年8月后 · 粉丝 +3100 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="札幌"
+     data-course="英里赛" data-name="札幌初级锦标赛" data-alias="札幌少年锦标"
+     data-jp="札幌ジュニアステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3051.png" alt="札幌初级锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 札幌初级锦标赛</div>
+    <div class="sub">札幌少年锦标 / 札幌ジュニアステークス</div>
+    <div class="meta">札幌 · 草地 1800m · 英里赛 · 右</div>
+    <div class="detail">第一年9月前 · 粉丝 +3100 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="小仓"
+     data-course="短距离" data-name="小仓初级锦标赛" data-alias="小仓少年锦标"
+     data-jp="小倉ジュニアステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3052.png" alt="小仓初级锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 小仓初级锦标赛</div>
+    <div class="sub">小仓少年锦标 / 小倉ジュニアステークス</div>
+    <div class="meta">小仓 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第一年9月前 · 粉丝 +3100 / 需 350 · 速度</div>
+    <div class="note">现实赛事自2025年迁移至中京赛马场举办，并更名为中京2岁锦标，时间接近于第一年8月后，长度变为1400米</div>
+  </div>
+</div><div class="card" data-grade="G3" data-venue="东京"
+     data-course="英里赛" data-name="沙漠皇家杯" data-alias="沙特阿拉伯皇家杯"
+     data-jp="サウジアラビアロイヤルカップ">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3057.png" alt="沙漠皇家杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 沙漠皇家杯</div>
+    <div class="sub">沙特阿拉伯皇家杯 / サウジアラビアロイヤルカップ</div>
+    <div class="meta">东京 · 草地 1600m · 英里赛 · 左</div>
+    <div class="detail">第一年10月前 · 粉丝 +3300 / 需 350 · 耐力、毅力</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="东京"
+     data-course="英里赛" data-name="阿耳忒弥斯锦标赛" data-alias="阿尔忒弥斯锦标"
+     data-jp="アルテミスステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3059.png" alt="阿耳忒弥斯锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 阿耳忒弥斯锦标赛</div>
+    <div class="sub">阿尔忒弥斯锦标 / アルテミスステークス</div>
+    <div class="meta">东京 · 草地 1600m · 英里赛 · 左</div>
+    <div class="detail">第一年10月后 · 粉丝 +2900 / 需 350 · 耐力、毅力</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="京都"
+     data-course="短距离" data-name="幻想锦标赛" data-alias="“幻想”锦标"
+     data-jp="ファンタジーステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3060.png" alt="幻想锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 幻想锦标赛</div>
+    <div class="sub">“幻想”锦标 / ファンタジーステークス</div>
+    <div class="meta">京都 · 草地 1400m · 短距离 · 右</div>
+    <div class="detail">第一年11月前 · 粉丝 +2900 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="东京"
+     data-course="英里赛" data-name="东京体育杯初级锦标赛" data-alias="东京体育杯少年锦标"
+     data-jp="東京スポーツ杯ジュニアステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3064.png" alt="东京体育杯初级锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 东京体育杯初级锦标赛</div>
+    <div class="sub">东京体育杯少年锦标 / 東京スポーツ杯ジュニアステークス</div>
+    <div class="meta">东京 · 草地 1800m · 英里赛 · 左</div>
+    <div class="detail">第一年11月后 · 粉丝 +3300 / 需 350 · 速度</div>
+    <div class="note">现实中自2021年起升格GII</div>
+  </div>
+</div><div class="card" data-grade="G3" data-venue="京都"
+     data-course="中距离" data-name="京都初级锦标赛" data-alias="京都少年锦标"
+     data-jp="京都ジュニアステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3065.png" alt="京都初级锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 京都初级锦标赛</div>
+    <div class="sub">京都少年锦标 / 京都ジュニアステークス</div>
+    <div class="meta">京都 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第一年11月后 · 粉丝 +3300 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="京都"
+     data-course="英里赛" data-name="神赞纪念" data-alias="新山纪念赛"
+     data-jp="シンザン記念">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3003.png" alt="神赞纪念"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 神赞纪念</div>
+    <div class="sub">新山纪念赛 / シンザン記念</div>
+    <div class="meta">京都 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第二年1月前 · 粉丝 +3800 / 需 1000 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="中山"
+     data-course="英里赛" data-name="精灵锦标赛" data-alias="仙女锦标"
+     data-jp="フェアリーステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3004.png" alt="精灵锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 精灵锦标赛</div>
+    <div class="sub">仙女锦标 / フェアリーステークス</div>
+    <div class="meta">中山 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第二年1月前 · 粉丝 +3500 / 需 750 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="中山"
+     data-course="中距离" data-name="京成杯" data-alias=""
+     data-jp="京成杯">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3006.png" alt="京成杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 京成杯</div>
+    <div class="sub"> / 京成杯</div>
+    <div class="meta">中山 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第二年1月前 · 粉丝 +3800 / 需 1000 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="京都"
+     data-course="英里赛" data-name="如月奖" data-alias="如月赏"
+     data-jp="きさらぎ賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3009.png" alt="如月奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 如月奖</div>
+    <div class="sub">如月赏 / きさらぎ賞</div>
+    <div class="meta">京都 · 草地 1800m · 英里赛 · 右</div>
+    <div class="detail">第二年2月前 · 粉丝 +3800 / 需 1000</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="东京"
+     data-course="英里赛" data-name="女王杯" data-alias=""
+     data-jp="クイーンカップ">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3011.png" alt="女王杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 女王杯</div>
+    <div class="sub"> / クイーンカップ</div>
+    <div class="meta">东京 · 草地 1600m · 英里赛 · 左</div>
+    <div class="detail">第二年2月前 · 粉丝 +3500 / 需 750 · 耐力、毅力</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="东京"
+     data-course="英里赛" data-name="共同通信杯" data-alias=""
+     data-jp="共同通信杯">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3012.png" alt="共同通信杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 共同通信杯</div>
+    <div class="sub"> / 共同通信杯</div>
+    <div class="meta">东京 · 草地 1800m · 英里赛 · 左</div>
+    <div class="detail">第二年2月前 · 粉丝 +3800 / 需 1000 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="中京"
+     data-course="短距离" data-name="游隼锦标赛" data-alias="猎鹰锦标"
+     data-jp="ファルコンステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3021.png" alt="游隼锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 游隼锦标赛</div>
+    <div class="sub">猎鹰锦标 / ファルコンステークス</div>
+    <div class="meta">中京 · 草地 1400m · 短距离 · 左</div>
+    <div class="detail">第二年3月后 · 粉丝 +3800 / 需 1250</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="中山"
+     data-course="英里赛" data-name="百花杯" data-alias=""
+     data-jp="フラワーカップ">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3022.png" alt="百花杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 百花杯</div>
+    <div class="sub"> / フラワーカップ</div>
+    <div class="meta">中山 · 草地 1800m · 英里赛 · 右</div>
+    <div class="detail">第二年3月后 · 粉丝 +3500 / 需 750</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="阪神"
+     data-course="英里赛" data-name="每日杯" data-alias="毎日杯"
+     data-jp="毎日杯">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3023.png" alt="每日杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 每日杯</div>
+    <div class="sub">毎日杯 / 毎日杯</div>
+    <div class="meta">阪神 · 草地 1800m · 英里赛 · 右</div>
+    <div class="detail">第二年3月后 · 粉丝 +3800 / 需 1250 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="阪神"
+     data-course="英里赛" data-name="阿灵顿杯" data-alias=""
+     data-jp="アーリントンカップ">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3016.png" alt="阿灵顿杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 阿灵顿杯</div>
+    <div class="sub"> / アーリントンカップ</div>
+    <div class="meta">阪神 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第二年4月前 · 粉丝 +3800 / 需 1250 · 力量</div>
+    <div class="note">现实中自2025年起更名为丘吉尔园杯（チャーチルダウンズカップ）</div>
+  </div>
+</div><div class="card" data-grade="G3" data-venue="船橋"
+     data-course="英里赛" data-name="海洋杯" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3074.png" alt="海洋杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 海洋杯</div>
+    <div class="sub"></div>
+    <div class="meta">船橋 · 泥地 1600m · 英里赛 · 左</div>
+    <div class="detail">第二年4月前、第三年4月前 · 粉丝 +2500 / 需 1000</div>
+    <div class="note">2024年起距离调整为1800m并调整比赛时间（对应游戏内第二年9月下）</div>
+  </div>
+</div><div class="card" data-grade="G3" data-venue="京都"
+     data-course="短距离" data-name="葵锦标赛" data-alias="“葵”锦标"
+     data-jp="葵ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4050.png" alt="葵锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 葵锦标赛</div>
+    <div class="sub">“葵”锦标 / 葵ステークス</div>
+    <div class="meta">京都 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第二年5月后 · 粉丝 +3800 / 需 1250</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="阪神"
+     data-course="中距离" data-name="鸣尾纪念" data-alias="鸣尾纪念赛"
+     data-jp="鳴尾記念">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3030.png" alt="鸣尾纪念"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 鸣尾纪念</div>
+    <div class="sub">鸣尾纪念赛 / 鳴尾記念</div>
+    <div class="meta">阪神 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第二年6月前、第三年6月前 · 粉丝 +4100 / 需 1500 · 毅力</div>
+    <div class="note">现实中自2025年起变更为游戏时间第二年12月前，第三年12月前，长度变更为1800米</div>
+  </div>
+</div><div class="card" data-grade="G3" data-venue="阪神"
+     data-course="中距离" data-name="人鱼锦标赛" data-alias="人鱼锦标"
+     data-jp="マーメイドステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3031.png" alt="人鱼锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 人鱼锦标赛</div>
+    <div class="sub">人鱼锦标 / マーメイドステークス</div>
+    <div class="meta">阪神 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第二年6月前、第三年6月前 · 粉丝 +3600 / 需 1000 · 毅力</div>
+    <div class="note">现实中自2025年起更名为府中牝马锦标，迁移至东京举办，距离变为1800米</div>
+  </div>
+</div><div class="card" data-grade="G3" data-venue="东京"
+     data-course="英里赛" data-name="叶森杯" data-alias=""
+     data-jp="エプソムカップ">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3032.png" alt="叶森杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 叶森杯</div>
+    <div class="sub"> / エプソムカップ</div>
+    <div class="meta">东京 · 草地 1800m · 英里赛 · 左</div>
+    <div class="detail">第二年6月前、第三年6月前 · 粉丝 +4100 / 需 1500 · 速度</div>
+    <div class="note">现实中自2025年起变更为游戏时间第三年5月前</div>
+  </div>
+</div><div class="card" data-grade="G3" data-venue="东京"
+     data-course="英里赛" data-name="独角兽锦标赛" data-alias="独角兽锦标"
+     data-jp="ユニコーンステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3033.png" alt="独角兽锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 独角兽锦标赛</div>
+    <div class="sub">独角兽锦标 / ユニコーンステークス</div>
+    <div class="meta">东京 · 泥地 1600m · 英里赛 · 左</div>
+    <div class="detail">第二年6月后 · 粉丝 +3500 / 需 750 · 速度、耐力</div>
+    <div class="note">2024年起成为新设泥地三冠第二关东京德比前哨战并调整比赛时间（对应游戏内第二年4月后）</div>
+  </div>
+</div><div class="card" data-grade="G3" data-venue="函馆"
+     data-course="短距离" data-name="函馆短途锦标赛" data-alias="函馆短程锦标"
+     data-jp="函館スプリントステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3034.png" alt="函馆短途锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 函馆短途锦标赛</div>
+    <div class="sub">函馆短程锦标 / 函館スプリントステークス</div>
+    <div class="meta">函馆 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第二年6月后、第三年6月后 · 粉丝 +3900 / 需 1250</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="中京"
+     data-course="短距离" data-name="中部广播奖" data-alias="CBC赏"
+     data-jp="CBC賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3035.png" alt="中部广播奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 中部广播奖</div>
+    <div class="sub">CBC赏 / CBC賞</div>
+    <div class="meta">中京 · 草地 1200m · 短距离 · 左</div>
+    <div class="detail">第二年7月前、第三年7月前 · 粉丝 +3900 / 需 1250</div>
+    <div class="note">现实中自2025年起，开赛时间变更为对应游戏时间的第二年8月前、第三年8月前</div>
+  </div>
+</div><div class="card" data-grade="G3" data-venue="福岛"
+     data-course="英里赛" data-name="日经广播奖" data-alias="日经广播赏"
+     data-jp="ラジオNIKKEI賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3036.png" alt="日经广播奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 日经广播奖</div>
+    <div class="sub">日经广播赏 / ラジオNIKKEI賞</div>
+    <div class="meta">福岛 · 草地 1800m · 英里赛 · 右</div>
+    <div class="detail">第二年7月前 · 粉丝 +3800 / 需 1250 · 耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="中京"
+     data-course="短距离" data-name="南河三锦标赛" data-alias="南河三锦标"
+     data-jp="プロキオンステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3037.png" alt="南河三锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 南河三锦标赛</div>
+    <div class="sub">南河三锦标 / プロキオンステークス</div>
+    <div class="meta">中京 · 泥地 1400m · 短距离 · 左</div>
+    <div class="detail">第二年7月前、第三年7月前 · 粉丝 +3600 / 需 1000</div>
+    <div class="note">现实中自2025年起与东海锦标(東海ステークス)互换名称，等级变为GII, 开赛时间变为对应游戏时间的第三年1月后，长度变为1800米</div>
+  </div>
+</div><div class="card" data-grade="G3" data-venue="福岛"
+     data-course="中距离" data-name="七夕奖" data-alias="七夕赏"
+     data-jp="七夕賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3038.png" alt="七夕奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 七夕奖</div>
+    <div class="sub">七夕赏 / 七夕賞</div>
+    <div class="meta">福岛 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第二年7月前、第三年7月前 · 粉丝 +4100 / 需 1500 · 耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="函馆"
+     data-course="中距离" data-name="函馆纪念" data-alias="函馆纪念赛"
+     data-jp="函館記念">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3039.png" alt="函馆纪念"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 函馆纪念</div>
+    <div class="sub">函馆纪念赛 / 函館記念</div>
+    <div class="meta">函馆 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第二年7月前、第三年7月前 · 粉丝 +4100 / 需 1500 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="川崎"
+     data-course="英里赛" data-name="闪光雌马杯" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3073.png" alt="闪光雌马杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 闪光雌马杯</div>
+    <div class="sub"></div>
+    <div class="meta">川崎 · 泥地 1600m · 英里赛 · 左</div>
+    <div class="detail">第二年7月前、第三年7月前 · 粉丝 +2500 / 需 1000 · 智力</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="中京"
+     data-course="英里赛" data-name="中京纪念" data-alias="中京纪念赛"
+     data-jp="中京記念">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3040.png" alt="中京纪念"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 中京纪念</div>
+    <div class="sub">中京纪念赛 / 中京記念</div>
+    <div class="meta">中京 · 草地 1600m · 英里赛 · 左</div>
+    <div class="detail">第二年7月后、第三年7月后 · 粉丝 +3900 / 需 1250 · 速度</div>
+    <div class="note">现实中自2025年起，开赛时间变更为对应游戏时间的第二年8月后、第三年8月后</div>
+  </div>
+</div><div class="card" data-grade="G3" data-venue="新潟"
+     data-course="短距离" data-name="朱鹭夏季冲刺赛" data-alias="朱鹮夏季短跑赛"
+     data-jp="アイビスサマーダッシュ">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3042.png" alt="朱鹭夏季冲刺赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 朱鹭夏季冲刺赛</div>
+    <div class="sub">朱鹮夏季短跑赛 / アイビスサマーダッシュ</div>
+    <div class="meta">新潟 · 草地 1000m · 短距离 · 直线</div>
+    <div class="detail">第二年7月后、第三年7月后 · 粉丝 +3900 / 需 1250 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="札幌"
+     data-course="英里赛" data-name="皇后锦标赛" data-alias="皇后锦标"
+     data-jp="クイーンステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3043.png" alt="皇后锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 皇后锦标赛</div>
+    <div class="sub">皇后锦标 / クイーンステークス</div>
+    <div class="meta">札幌 · 草地 1800m · 英里赛 · 右</div>
+    <div class="detail">第二年7月后、第三年7月后 · 粉丝 +3600 / 需 1000</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="盛岡"
+     data-course="中距离" data-name="水星杯" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3076.png" alt="水星杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 水星杯</div>
+    <div class="sub"></div>
+    <div class="meta">盛岡 · 泥地 2000m · 中距离 · 左</div>
+    <div class="detail">第二年7月后、第三年7月后 · 粉丝 +2300 / 需 1000 · 耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="小仓"
+     data-course="中距离" data-name="小仓纪念" data-alias="小仓纪念赛"
+     data-jp="小倉記念">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3044.png" alt="小仓纪念"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 小仓纪念</div>
+    <div class="sub">小仓纪念赛 / 小倉記念</div>
+    <div class="meta">小仓 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第二年8月前、第三年8月前 · 粉丝 +4100 / 需 1500 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="新潟"
+     data-course="英里赛" data-name="猎豹锦标赛" data-alias=""
+     data-jp="レパードステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3045.png" alt="猎豹锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 猎豹锦标赛</div>
+    <div class="sub"> / レパードステークス</div>
+    <div class="meta">新潟 · 泥地 1800m · 英里赛 · 左</div>
+    <div class="detail">第二年8月前 · 粉丝 +4000 / 需 1250 · 智力</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="新潟"
+     data-course="英里赛" data-name="关屋纪念" data-alias="关屋纪念赛"
+     data-jp="関屋記念">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3046.png" alt="关屋纪念"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 关屋纪念</div>
+    <div class="sub">关屋纪念赛 / 関屋記念</div>
+    <div class="meta">新潟 · 草地 1600m · 英里赛 · 左</div>
+    <div class="detail">第二年8月前、第三年8月前 · 粉丝 +3900 / 需 1250</div>
+    <div class="note">现实中自2025年起开赛时间更接近于第二年7月后和第三年7月后</div>
+  </div>
+</div><div class="card" data-grade="G3" data-venue="札幌"
+     data-course="英里赛" data-name="榆木锦标赛" data-alias="榆树锦标赛"
+     data-jp="エルムステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3047.png" alt="榆木锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 榆木锦标赛</div>
+    <div class="sub">榆树锦标赛 / エルムステークス</div>
+    <div class="meta">札幌 · 泥地 1700m · 英里赛 · 右</div>
+    <div class="detail">第二年8月前、第三年8月前 · 粉丝 +3600 / 需 1000 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="小仓"
+     data-course="短距离" data-name="北九州纪念" data-alias="北九州纪念赛"
+     data-jp="北九州記念">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3048.png" alt="北九州纪念"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 北九州纪念</div>
+    <div class="sub">北九州纪念赛 / 北九州記念</div>
+    <div class="meta">小仓 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第二年8月后、第三年8月后 · 粉丝 +3900 / 需 1250 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="札幌"
+     data-course="短距离" data-name="科尼杯" data-alias="基兰杯"
+     data-jp="キーンランドカップ">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3050.png" alt="科尼杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 科尼杯</div>
+    <div class="sub">基兰杯 / キーンランドカップ</div>
+    <div class="meta">札幌 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第二年8月后、第三年8月后 · 粉丝 +4100 / 需 1500</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="盛岡"
+     data-course="短距离" data-name="星团杯" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3077.png" alt="星团杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 星团杯</div>
+    <div class="sub"></div>
+    <div class="meta">盛岡 · 泥地 1200m · 短距离 · 左</div>
+    <div class="detail">第二年8月后、第三年8月后 · 粉丝 +2300 / 需 1000 · 耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="新潟"
+     data-course="中距离" data-name="新潟纪念" data-alias="新潟纪念赛"
+     data-jp="新潟記念">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3053.png" alt="新潟纪念"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 新潟纪念</div>
+    <div class="sub">新潟纪念赛 / 新潟記念</div>
+    <div class="meta">新潟 · 草地 2000m · 中距离 · 左</div>
+    <div class="detail">第二年9月前、第三年9月前 · 粉丝 +4100 / 需 1500 · 耐力、力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="中山"
+     data-course="中距离" data-name="紫苑锦标赛" data-alias="紫苑锦标"
+     data-jp="紫苑ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3054.png" alt="紫苑锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 紫苑锦标赛</div>
+    <div class="sub">紫苑锦标 / 紫苑ステークス</div>
+    <div class="meta">中山 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第二年9月前 · 粉丝 +3500 / 需 1000 · 速度</div>
+    <div class="note">现实中自2023年起升格GⅡ</div>
+  </div>
+</div><div class="card" data-grade="G3" data-venue="中山"
+     data-course="英里赛" data-name="京成杯秋季让磅赛" data-alias="京城杯秋季让磅赛"
+     data-jp="京成杯オータムハンデキャップ">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3055.png" alt="京成杯秋季让磅赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 京成杯秋季让磅赛</div>
+    <div class="sub">京城杯秋季让磅赛 / 京成杯オータムハンデキャップ</div>
+    <div class="meta">中山 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第二年9月前、第三年9月前 · 粉丝 +3900 / 需 1250 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="阪神"
+     data-course="中距离" data-name="天狼星锦标赛" data-alias="天狼星锦标"
+     data-jp="シリウスステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3056.png" alt="天狼星锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 天狼星锦标赛</div>
+    <div class="sub">天狼星锦标 / シリウスステークス</div>
+    <div class="meta">阪神 · 泥地 2000m · 中距离 · 右</div>
+    <div class="detail">第二年9月后、第三年9月后 · 粉丝 +3600 / 需 1000 · 耐力、力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="京都"
+     data-course="英里赛" data-name="都城锦标赛" data-alias="京城锦标"
+     data-jp="みやこステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3061.png" alt="都城锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 都城锦标赛</div>
+    <div class="sub">京城锦标 / みやこステークス</div>
+    <div class="meta">京都 · 泥地 1800m · 英里赛 · 右</div>
+    <div class="detail">第二年11月前、第三年11月前 · 粉丝 +3800 / 需 750</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="东京"
+     data-course="英里赛" data-name="武藏野锦标赛" data-alias="武藏野锦标"
+     data-jp="武蔵野ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3062.png" alt="武藏野锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 武藏野锦标赛</div>
+    <div class="sub">武藏野锦标 / 武蔵野ステークス</div>
+    <div class="meta">东京 · 泥地 1600m · 英里赛 · 左</div>
+    <div class="detail">第二年11月前、第三年11月前 · 粉丝 +3800 / 需 1250 · 速度、耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="福岛"
+     data-course="中距离" data-name="松浪纪念" data-alias="福岛纪念赛"
+     data-jp="福島記念">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3063.png" alt="松浪纪念"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 松浪纪念</div>
+    <div class="sub">福岛纪念赛 / 福島記念</div>
+    <div class="meta">福岛 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第二年11月前、第三年11月前 · 粉丝 +4100 / 需 1500 · 耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="京都"
+     data-course="短距离" data-name="京阪杯" data-alias=""
+     data-jp="京阪杯">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3066.png" alt="京阪杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 京阪杯</div>
+    <div class="sub"> / 京阪杯</div>
+    <div class="meta">京都 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第二年11月后、第三年11月后 · 粉丝 +3900 / 需 1250</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="阪神"
+     data-course="中距离" data-name="挑战杯" data-alias=""
+     data-jp="チャレンジカップ">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3067.png" alt="挑战杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 挑战杯</div>
+    <div class="sub"> / チャレンジカップ</div>
+    <div class="meta">阪神 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第二年12月前、第三年12月前 · 粉丝 +4100 / 需 1500 · 毅力</div>
+    <div class="note">现实中自2025年起迁移至游戏时间第二年9月前和第三年9月前</div>
+  </div>
+</div><div class="card" data-grade="G3" data-venue="中京"
+     data-course="中距离" data-name="中日新闻杯" data-alias="中日报杯"
+     data-jp="中日新聞杯">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3068.png" alt="中日新闻杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 中日新闻杯</div>
+    <div class="sub">中日报杯 / 中日新聞杯</div>
+    <div class="meta">中京 · 草地 2000m · 中距离 · 左</div>
+    <div class="detail">第二年12月前、第三年12月前 · 粉丝 +4100 / 需 1500</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="中山"
+     data-course="短距离" data-name="五车二锦标赛" data-alias="五车二锦标"
+     data-jp="カペラステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3069.png" alt="五车二锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 五车二锦标赛</div>
+    <div class="sub">五车二锦标 / カペラステークス</div>
+    <div class="meta">中山 · 泥地 1200m · 短距离 · 右</div>
+    <div class="detail">第二年12月前、第三年12月前 · 粉丝 +3600 / 需 1000 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="中山"
+     data-course="英里赛" data-name="绿松石锦标赛" data-alias="绿松石锦标"
+     data-jp="ターコイズステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3070.png" alt="绿松石锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 绿松石锦标赛</div>
+    <div class="sub">绿松石锦标 / ターコイズステークス</div>
+    <div class="meta">中山 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第二年12月前、第三年12月前 · 粉丝 +3600 / 需 1000 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="船橋"
+     data-course="英里赛" data-name="女王赏" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3075.png" alt="女王赏"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 女王赏</div>
+    <div class="sub"></div>
+    <div class="meta">船橋 · 泥地 1800m · 英里赛 · 左</div>
+    <div class="detail">第二年12月前、第三年12月前 · 粉丝 +2100 / 需 1000</div>
+    <div class="note">2024年起调整比赛时间（对应游戏内第三年2月上）</div>
+  </div>
+</div><div class="card" data-grade="G3" data-venue="京都"
+     data-course="英里赛" data-name="京都金杯" data-alias="京都金杯赛"
+     data-jp="京都金杯">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3001.png" alt="京都金杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 京都金杯</div>
+    <div class="sub">京都金杯赛 / 京都金杯</div>
+    <div class="meta">京都 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第三年1月前 · 粉丝 +4100 / 需 1500 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="中山"
+     data-course="中距离" data-name="中山金杯" data-alias="中山金杯赛"
+     data-jp="中山金杯">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3002.png" alt="中山金杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 中山金杯</div>
+    <div class="sub">中山金杯赛 / 中山金杯</div>
+    <div class="meta">中山 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第三年1月前 · 粉丝 +4100 / 需 1500 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="中京"
+     data-course="中距离" data-name="爱知杯" data-alias=""
+     data-jp="愛知杯">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3005.png" alt="爱知杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 爱知杯</div>
+    <div class="sub"> / 愛知杯</div>
+    <div class="meta">中京 · 草地 2000m · 中距离 · 左</div>
+    <div class="detail">第三年1月前 · 粉丝 +3600 / 需 750</div>
+    <div class="note">现实中自2025年起固定在小仓举办，并更名为小仓牝马锦标（小倉牝馬ステークス）</div>
+  </div>
+</div><div class="card" data-grade="G3" data-venue="京都"
+     data-course="短距离" data-name="丝绸之路锦标赛" data-alias="丝绸之路锦标"
+     data-jp="シルクロードステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3007.png" alt="丝绸之路锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 丝绸之路锦标赛</div>
+    <div class="sub">丝绸之路锦标 / シルクロードステークス</div>
+    <div class="meta">京都 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第三年1月后 · 粉丝 +3900 / 需 1250</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="东京"
+     data-course="短距离" data-name="根岸锦标赛" data-alias=""
+     data-jp="根岸ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3008.png" alt="根岸锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 根岸锦标赛</div>
+    <div class="sub"> / 根岸ステークス</div>
+    <div class="meta">东京 · 泥地 1400m · 短距离 · 左</div>
+    <div class="detail">第三年1月后 · 粉丝 +3800 / 需 1000 · 耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="大井"
+     data-course="英里赛" data-name="TCK女王杯/东京城市赛马女王杯" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3071.png" alt="TCK女王杯/东京城市赛马女王杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> TCK女王杯/东京城市赛马女王杯</div>
+    <div class="sub"></div>
+    <div class="meta">大井 · 泥地 1800m · 英里赛 · 右</div>
+    <div class="detail">第三年1月后 · 粉丝 +2200 / 需 1000 · 力量</div>
+    <div class="note">2024年起迁移至兵库园田赛马场并更名为兵库女王杯</div>
+  </div>
+</div><div class="card" data-grade="G3" data-venue="东京"
+     data-course="英里赛" data-name="东京新闻杯" data-alias="东京报杯"
+     data-jp="東京新聞杯">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3010.png" alt="东京新闻杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 东京新闻杯</div>
+    <div class="sub">东京报杯 / 東京新聞杯</div>
+    <div class="meta">东京 · 草地 1600m · 英里赛 · 左</div>
+    <div class="detail">第三年2月前 · 粉丝 +3900 / 需 1250 · 耐力、毅力</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="京都"
+     data-course="短距离" data-name="京都优俊少女锦标赛" data-alias="京都赛马娘锦标"
+     data-jp="京都ウマ娘ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3013.png" alt="京都优俊少女锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 京都优俊少女锦标赛</div>
+    <div class="sub">京都赛马娘锦标 / 京都ウマ娘ステークス</div>
+    <div class="meta">京都 · 草地 1400m · 短距离 · 右</div>
+    <div class="detail">第三年2月后 · 粉丝 +3600 / 需 750</div>
+    <div class="note">现实中自2025年起更名为爱知杯（原爱知杯更名为小仓牝马锦标），时间变更为第三年3月后</div>
+  </div>
+</div><div class="card" data-grade="G3" data-venue="东京"
+     data-course="长距离" data-name="钻石锦标赛" data-alias="钻石锦标"
+     data-jp="ダイヤモンドステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3014.png" alt="钻石锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 钻石锦标赛</div>
+    <div class="sub">钻石锦标 / ダイヤモンドステークス</div>
+    <div class="meta">东京 · 草地 3400m · 长距离 · 左</div>
+    <div class="detail">第三年2月后 · 粉丝 +4100 / 需 1500</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="小仓"
+     data-course="英里赛" data-name="小仓盛典赛" data-alias="小仓大赏典"
+     data-jp="小倉大賞典">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3015.png" alt="小仓盛典赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 小仓盛典赛</div>
+    <div class="sub">小仓大赏典 / 小倉大賞典</div>
+    <div class="meta">小仓 · 草地 1800m · 英里赛 · 右</div>
+    <div class="detail">第三年2月后 · 粉丝 +4100 / 需 1500</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="阪神"
+     data-course="短距离" data-name="阪急杯" data-alias=""
+     data-jp="阪急杯">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3017.png" alt="阪急杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 阪急杯</div>
+    <div class="sub"> / 阪急杯</div>
+    <div class="meta">阪神 · 草地 1400m · 短距离 · 右</div>
+    <div class="detail">第三年2月后 · 粉丝 +4100 / 需 1500</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="中山"
+     data-course="短距离" data-name="海洋锦标赛" data-alias=""
+     data-jp="オーシャンステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3019.png" alt="海洋锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 海洋锦标赛</div>
+    <div class="sub"> / オーシャンステークス</div>
+    <div class="meta">中山 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第三年3月前 · 粉丝 +4100 / 需 1500</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="中山"
+     data-course="英里赛" data-name="中山优俊少女锦标赛" data-alias="中山赛马娘锦标"
+     data-jp="中山ウマ娘ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3020.png" alt="中山优俊少女锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 中山优俊少女锦标赛</div>
+    <div class="sub">中山赛马娘锦标 / 中山ウマ娘ステークス</div>
+    <div class="meta">中山 · 草地 1800m · 英里赛 · 右</div>
+    <div class="detail">第三年3月前 · 粉丝 +3600 / 需 1000</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="中山"
+     data-course="英里赛" data-name="三月锦标赛" data-alias="三月锦标"
+     data-jp="マーチステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3024.png" alt="三月锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 三月锦标赛</div>
+    <div class="sub">三月锦标 / マーチステークス</div>
+    <div class="meta">中山 · 泥地 1800m · 英里赛 · 右</div>
+    <div class="detail">第三年3月后 · 粉丝 +3600 / 需 1000 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="中山"
+     data-course="英里赛" data-name="德比伯爵挑战赛" data-alias="德比伯爵挑战杯"
+     data-jp="ダービー卿チャレンジトロフィー">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3025.png" alt="德比伯爵挑战赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 德比伯爵挑战赛</div>
+    <div class="sub">德比伯爵挑战杯 / ダービー卿チャレンジトロフィー</div>
+    <div class="meta">中山 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第三年4月前 · 粉丝 +3900 / 需 1250 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="阪神"
+     data-course="英里赛" data-name="心宿二锦标赛" data-alias="天蝎锦标"
+     data-jp="アンタレスステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3026.png" alt="心宿二锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 心宿二锦标赛</div>
+    <div class="sub">天蝎锦标 / アンタレスステークス</div>
+    <div class="meta">阪神 · 泥地 1800m · 英里赛 · 右</div>
+    <div class="detail">第三年4月前 · 粉丝 +3600 / 需 1000</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="福岛"
+     data-course="英里赛" data-name="松浪优俊少女锦标赛" data-alias="福岛赛马娘锦标"
+     data-jp="福島ウマ娘ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3027.png" alt="松浪优俊少女锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 松浪优俊少女锦标赛</div>
+    <div class="sub">福岛赛马娘锦标 / 福島ウマ娘ステークス</div>
+    <div class="meta">福岛 · 草地 1800m · 英里赛 · 右</div>
+    <div class="detail">第三年4月后 · 粉丝 +3800 / 需 1250 · 耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="大井"
+     data-course="短距离" data-name="东京短途锦标" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3072.png" alt="东京短途锦标"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 东京短途锦标</div>
+    <div class="sub"></div>
+    <div class="meta">大井 · 泥地 1200m · 短距离 · 右</div>
+    <div class="detail">第三年4月后 · 粉丝 +2700 / 需 1000 · 毅力、智力</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="新潟"
+     data-course="中距离" data-name="新潟盛典赛" data-alias="新潟大赏典"
+     data-jp="新潟大賞典">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3028.png" alt="新潟盛典赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 新潟盛典赛</div>
+    <div class="sub">新潟大赏典 / 新潟大賞典</div>
+    <div class="meta">新潟 · 草地 2000m · 中距离 · 左</div>
+    <div class="detail">第三年5月前 · 粉丝 +4100 / 需 1500 · 耐力、力量</div>
+    
+  </div>
+</div><div class="card" data-grade="G3" data-venue="京都"
+     data-course="中距离" data-name="平安锦标赛" data-alias="平安锦标"
+     data-jp="平安ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/3029.png" alt="平安锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-G3">G3</span> 平安锦标赛</div>
+    <div class="sub">平安锦标 / 平安ステークス</div>
+    <div class="meta">京都 · 泥地 1900m · 中距离 · 右</div>
+    <div class="detail">第三年5月后 · 粉丝 +3600 / 需 1000</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="中京"
+     data-course="英里赛" data-name="中京初级锦标赛" data-alias="中京少年锦标"
+     data-jp="中京ジュニアステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4068.png" alt="中京初级锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 中京初级锦标赛</div>
+    <div class="sub">中京少年锦标 / 中京ジュニアステークス</div>
+    <div class="meta">中京 · 草地 1600m · 英里赛 · 左</div>
+    <div class="detail">第一年7月后 · 粉丝 +1600 / 需 350 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="新潟"
+     data-course="短距离" data-name="大丽花奖" data-alias="大丽花赏"
+     data-jp="ダリア賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4070.png" alt="大丽花奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 大丽花奖</div>
+    <div class="sub">大丽花赏 / ダリア賞</div>
+    <div class="meta">新潟 · 草地 1400m · 短距离 · 左</div>
+    <div class="detail">第一年8月前 · 粉丝 +1600 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="小仓"
+     data-course="短距离" data-name="凤凰奖" data-alias="凤凰赏"
+     data-jp="フェニックス賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4074.png" alt="凤凰奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 凤凰奖</div>
+    <div class="sub">凤凰赏 / フェニックス賞</div>
+    <div class="meta">小仓 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第一年8月前 · 粉丝 +1600 / 需 350 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="札幌"
+     data-course="英里赛" data-name="波斯菊奖" data-alias="秋英赏"
+     data-jp="コスモス賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4075.png" alt="波斯菊奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 波斯菊奖</div>
+    <div class="sub">秋英赏 / コスモス賞</div>
+    <div class="meta">札幌 · 草地 1800m · 英里赛 · 右</div>
+    <div class="detail">第一年8月前 · 粉丝 +1600 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="札幌"
+     data-course="短距离" data-name="三叶草奖" data-alias="三叶草赏"
+     data-jp="クローバー賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4077.png" alt="三叶草奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 三叶草奖</div>
+    <div class="sub">三叶草赏 / クローバー賞</div>
+    <div class="meta">札幌 · 草地 1500m · 短距离 · 右</div>
+    <div class="detail">第一年8月后 · 粉丝 +1600 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="札幌"
+     data-course="短距离" data-name="铃兰奖" data-alias="铃兰赏"
+     data-jp="すずらん賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4083.png" alt="铃兰奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 铃兰奖</div>
+    <div class="sub">铃兰赏 / すずらん賞</div>
+    <div class="meta">札幌 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第一年9月前 · 粉丝 +1600 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="阪神"
+     data-course="英里赛" data-name="野路菊锦标赛" data-alias="野路菊锦标"
+     data-jp="野路菊ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4085.png" alt="野路菊锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 野路菊锦标赛</div>
+    <div class="sub">野路菊锦标 / 野路菊ステークス</div>
+    <div class="meta">阪神 · 草地 1800m · 英里赛 · 右</div>
+    <div class="detail">第一年9月前 · 粉丝 +1600 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="阪神"
+     data-course="短距离" data-name="桔梗锦标赛" data-alias="桔梗锦标"
+     data-jp="ききょうステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4087.png" alt="桔梗锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 桔梗锦标赛</div>
+    <div class="sub">桔梗锦标 / ききょうステークス</div>
+    <div class="meta">阪神 · 草地 1400m · 短距离 · 右</div>
+    <div class="detail">第一年9月后 · 粉丝 +1600 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="中山"
+     data-course="中距离" data-name="芙蓉锦标赛" data-alias="芙蓉锦标"
+     data-jp="芙蓉ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4088.png" alt="芙蓉锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 芙蓉锦标赛</div>
+    <div class="sub">芙蓉锦标 / 芙蓉ステークス</div>
+    <div class="meta">中山 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第一年9月后 · 粉丝 +1600 / 需 350 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="中山"
+     data-course="短距离" data-name="美人蕉锦标赛" data-alias="美人蕉锦标"
+     data-jp="カンナステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4089.png" alt="美人蕉锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 美人蕉锦标赛</div>
+    <div class="sub">美人蕉锦标 / カンナステークス</div>
+    <div class="meta">中山 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第一年9月后 · 粉丝 +1600 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="京都"
+     data-course="短距离" data-name="红叶锦标赛" data-alias="红叶锦标"
+     data-jp="もみじステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4093.png" alt="红叶锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 红叶锦标赛</div>
+    <div class="sub">红叶锦标 / もみじステークス</div>
+    <div class="meta">京都 · 草地 1400m · 短距离 · 右</div>
+    <div class="detail">第一年10月前 · 粉丝 +1600 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="东京"
+     data-course="英里赛" data-name="常春藤锦标赛" data-alias="常春藤锦标"
+     data-jp="アイビーステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4096.png" alt="常春藤锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 常春藤锦标赛</div>
+    <div class="sub">常春藤锦标 / アイビーステークス</div>
+    <div class="meta">东京 · 草地 1800m · 英里赛 · 左</div>
+    <div class="detail">第一年10月后 · 粉丝 +1700 / 需 350 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="京都"
+     data-course="英里赛" data-name="萩锦标赛" data-alias="胡枝子锦标"
+     data-jp="萩ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4099.png" alt="萩锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 萩锦标赛</div>
+    <div class="sub">胡枝子锦标 / 萩ステークス</div>
+    <div class="meta">京都 · 草地 1800m · 英里赛 · 右</div>
+    <div class="detail">第一年10月后 · 粉丝 +1700 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="福岛"
+     data-course="短距离" data-name="松浪初级锦标赛" data-alias="福岛少年锦标"
+     data-jp="福島ジュニアステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4103.png" alt="松浪初级锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 松浪初级锦标赛</div>
+    <div class="sub">福岛少年锦标 / 福島ジュニアステークス</div>
+    <div class="meta">福岛 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第一年11月前 · 粉丝 +1600 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="中山"
+     data-course="短距离" data-name="圣诞玫瑰锦标赛" data-alias="圣诞蔷薇锦标"
+     data-jp="クリスマスローズステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4114.png" alt="圣诞玫瑰锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 圣诞玫瑰锦标赛</div>
+    <div class="sub">圣诞蔷薇锦标 / クリスマスローズステークス</div>
+    <div class="meta">中山 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第一年12月后 · 粉丝 +1600 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="中山"
+     data-course="英里赛" data-name="初级杯" data-alias="少年杯"
+     data-jp="ジュニアカップ">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4002.png" alt="初级杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 初级杯</div>
+    <div class="sub">少年杯 / ジュニアカップ</div>
+    <div class="meta">中山 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第二年1月前 · 粉丝 +2000 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="京都"
+     data-course="短距离" data-name="红梅锦标赛" data-alias="红梅锦标"
+     data-jp="紅梅ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4007.png" alt="红梅锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 红梅锦标赛</div>
+    <div class="sub">红梅锦标 / 紅梅ステークス</div>
+    <div class="meta">京都 · 草地 1400m · 短距离 · 右</div>
+    <div class="detail">第二年1月前 · 粉丝 +2000 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="京都"
+     data-course="中距离" data-name="若驹锦标赛" data-alias="青年骏马锦标"
+     data-jp="若駒ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4009.png" alt="若驹锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 若驹锦标赛</div>
+    <div class="sub">青年骏马锦标 / 若駒ステークス</div>
+    <div class="meta">京都 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第二年1月后 · 粉丝 +2000 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="东京"
+     data-course="短距离" data-name="藏红花锦标赛" data-alias="藏红花锦标"
+     data-jp="クロッカスステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4012.png" alt="藏红花锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 藏红花锦标赛</div>
+    <div class="sub">藏红花锦标 / クロッカスステークス</div>
+    <div class="meta">东京 · 草地 1400m · 短距离 · 左</div>
+    <div class="detail">第二年1月后 · 粉丝 +2000 / 需 350 · 耐力、力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="京都"
+     data-course="英里赛" data-name="妖精锦标赛" data-alias="小妖精锦标"
+     data-jp="エルフィンステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4014.png" alt="妖精锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 妖精锦标赛</div>
+    <div class="sub">小妖精锦标 / エルフィンステークス</div>
+    <div class="meta">京都 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第二年2月前 · 粉丝 +2000 / 需 350 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="东京"
+     data-course="英里赛" data-name="风信子锦标赛" data-alias="风信子锦标"
+     data-jp="ヒヤシンスステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4018.png" alt="风信子锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 风信子锦标赛</div>
+    <div class="sub">风信子锦标 / ヒヤシンスステークス</div>
+    <div class="meta">东京 · 泥地 1600m · 英里赛 · 左</div>
+    <div class="detail">第二年2月后 · 粉丝 +1900 / 需 350 · 速度、耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="阪神"
+     data-course="中距离" data-name="堇菜锦标赛" data-alias="堇锦标"
+     data-jp="すみれステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4020.png" alt="堇菜锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 堇菜锦标赛</div>
+    <div class="sub">堇锦标 / すみれステークス</div>
+    <div class="meta">阪神 · 草地 2200m · 中距离 · 右</div>
+    <div class="detail">第二年2月后 · 粉丝 +2000 / 需 350 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="阪神"
+     data-course="短距离" data-name="木春菊锦标赛" data-alias="木茼蒿锦标"
+     data-jp="マーガレットステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4032.png" alt="木春菊锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 木春菊锦标赛</div>
+    <div class="sub">木茼蒿锦标 / マーガレットステークス</div>
+    <div class="meta">阪神 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第二年2月后 · 粉丝 +2000 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="中山"
+     data-course="英里赛" data-name="银莲花锦标赛" data-alias="银莲花锦标"
+     data-jp="アネモネステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4024.png" alt="银莲花锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 银莲花锦标赛</div>
+    <div class="sub">银莲花锦标 / アネモネステークス</div>
+    <div class="meta">中山 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第二年3月前 · 粉丝 +2000 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="中京"
+     data-course="短距离" data-name="升龙锦标赛" data-alias="升龙锦标"
+     data-jp="昇竜ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4025.png" alt="升龙锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 升龙锦标赛</div>
+    <div class="sub">升龙锦标 / 昇竜ステークス</div>
+    <div class="meta">中京 · 草地 1400m · 短距离 · 左</div>
+    <div class="detail">第二年3月前 · 粉丝 +1800 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="阪神"
+     data-course="中距离" data-name="若叶锦标赛" data-alias="新叶锦标"
+     data-jp="若葉ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4027.png" alt="若叶锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 若叶锦标赛</div>
+    <div class="sub">新叶锦标 / 若葉ステークス</div>
+    <div class="meta">阪神 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第二年3月后 · 粉丝 +2000 / 需 350 · 毅力</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="中山"
+     data-course="英里赛" data-name="伏龙锦标赛" data-alias="卧龙锦标"
+     data-jp="伏竜ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4033.png" alt="伏龙锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 伏龙锦标赛</div>
+    <div class="sub">卧龙锦标 / 伏竜ステークス</div>
+    <div class="meta">中山 · 泥地 1800m · 英里赛 · 右</div>
+    <div class="detail">第二年4月前 · 粉丝 +1800 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="阪神"
+     data-course="中距离" data-name="勿忘草奖" data-alias="勿忘草赏"
+     data-jp="忘れな草賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4035.png" alt="勿忘草奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 勿忘草奖</div>
+    <div class="sub">勿忘草赏 / 忘れな草賞</div>
+    <div class="meta">阪神 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第二年4月前 · 粉丝 +2000 / 需 350 · 毅力</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="京都"
+     data-course="短距离" data-name="橘锦标赛" data-alias="“橘”锦标"
+     data-jp="橘ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4039.png" alt="橘锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 橘锦标赛</div>
+    <div class="sub">“橘”锦标 / 橘ステークス</div>
+    <div class="meta">京都 · 草地 1400m · 短距离 · 右</div>
+    <div class="detail">第二年4月后 · 粉丝 +2000 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="京都"
+     data-course="短距离" data-name="端午锦标赛" data-alias="端午锦标"
+     data-jp="端午ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4042.png" alt="端午锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 端午锦标赛</div>
+    <div class="sub">端午锦标 / 端午ステークス</div>
+    <div class="meta">京都 · 草地 1400m · 短距离 · 右</div>
+    <div class="detail">第二年4月后 · 粉丝 +1800 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="东京"
+     data-course="英里赛" data-name="香豌豆锦标赛" data-alias="香豌豆锦标"
+     data-jp="スイートピーステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4043.png" alt="香豌豆锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 香豌豆锦标赛</div>
+    <div class="sub">香豌豆锦标 / スイートピーステークス</div>
+    <div class="meta">东京 · 草地 1800m · 英里赛 · 左</div>
+    <div class="detail">第二年4月后 · 粉丝 +2000 / 需 350 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="东京"
+     data-course="中距离" data-name="主角锦标赛" data-alias="主角锦标"
+     data-jp="プリンシパルステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4045.png" alt="主角锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 主角锦标赛</div>
+    <div class="sub">主角锦标 / プリンシパルステークス</div>
+    <div class="meta">东京 · 草地 2000m · 中距离 · 左</div>
+    <div class="detail">第二年5月前 · 粉丝 +2000 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="东京"
+     data-course="英里赛" data-name="青龙锦标赛" data-alias="青龙锦标"
+     data-jp="青竜ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4052.png" alt="青龙锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 青龙锦标赛</div>
+    <div class="sub">青龙锦标 / 青竜ステークス</div>
+    <div class="meta">东京 · 草地 1600m · 英里赛 · 左</div>
+    <div class="detail">第二年5月前 · 粉丝 +1800 / 需 350 · 速度、耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="京都"
+     data-course="英里赛" data-name="凤雏锦标赛" data-alias="凤雏锦标"
+     data-jp="鳳雛ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4054.png" alt="凤雏锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 凤雏锦标赛</div>
+    <div class="sub">凤雏锦标 / 鳳雛ステークス</div>
+    <div class="meta">京都 · 泥地 1800m · 英里赛 · 右</div>
+    <div class="detail">第二年5月后 · 粉丝 +1900 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="京都"
+     data-course="英里赛" data-name="白百合锦标赛" data-alias="白百合锦标"
+     data-jp="白百合ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4056.png" alt="白百合锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 白百合锦标赛</div>
+    <div class="sub">白百合锦标 / 白百合ステークス</div>
+    <div class="meta">京都 · 草地 1800m · 英里赛 · 右</div>
+    <div class="detail">第二年5月后 · 粉丝 +2000 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="阪神"
+     data-course="短距离" data-name="天保山锦标赛" data-alias="天保山锦标"
+     data-jp="天保山ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4060.png" alt="天保山锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 天保山锦标赛</div>
+    <div class="sub">天保山锦标 / 天保山ステークス</div>
+    <div class="meta">阪神 · 泥地 1400m · 短距离 · 右</div>
+    <div class="detail">第二年6月前、第三年6月前 · 粉丝 +2200 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="东京"
+     data-course="中距离" data-name="斯雷普尼尔锦标赛" data-alias="斯雷普尼尔锦标"
+     data-jp="スレイプニルステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4120.png" alt="斯雷普尼尔锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 斯雷普尼尔锦标赛</div>
+    <div class="sub">斯雷普尼尔锦标 / スレイプニルステークス</div>
+    <div class="meta">东京 · 泥地 2100m · 中距离 · 左</div>
+    <div class="detail">第二年6月前、第三年6月前 · 粉丝 +2200 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="东京"
+     data-course="英里赛" data-name="汗血宝马锦标赛" data-alias="阿哈尔捷金锦标"
+     data-jp="アハルテケステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4059.png" alt="汗血宝马锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 汗血宝马锦标赛</div>
+    <div class="sub">阿哈尔捷金锦标 / アハルテケステークス</div>
+    <div class="meta">东京 · 泥地 1600m · 英里赛 · 左</div>
+    <div class="detail">第二年6月后、第三年6月后 · 粉丝 +2200 / 需 350 · 速度、耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="阪神"
+     data-course="英里赛" data-name="米子锦标赛" data-alias="米子锦标"
+     data-jp="米子ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4061.png" alt="米子锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 米子锦标赛</div>
+    <div class="sub">米子锦标 / 米子ステークス</div>
+    <div class="meta">阪神 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第二年6月后、第三年6月后 · 粉丝 +2500 / 需 350 · 力量</div>
+    <div class="note">现实中自2025年起更名为苍鹭锦标(しらさぎステークス)，并申请GIII</div>
+  </div>
+</div><div class="card" data-grade="OP" data-venue="函馆"
+     data-course="英里赛" data-name="大沼锦标赛" data-alias="大沼锦标"
+     data-jp="大沼ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4062.png" alt="大沼锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 大沼锦标赛</div>
+    <div class="sub">大沼锦标 / 大沼ステークス</div>
+    <div class="meta">函馆 · 泥地 1700m · 英里赛 · 右</div>
+    <div class="detail">第二年6月后、第三年6月后 · 粉丝 +2300 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="东京"
+     data-course="短距离" data-name="天堂锦标赛" data-alias="乐园锦标"
+     data-jp="パラダイスステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4063.png" alt="天堂锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 天堂锦标赛</div>
+    <div class="sub">乐园锦标 / パラダイスステークス</div>
+    <div class="meta">东京 · 草地 1400m · 短距离 · 左</div>
+    <div class="detail">第二年6月后、第三年6月后 · 粉丝 +2500 / 需 350 · 耐力、力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="阪神"
+     data-course="英里赛" data-name="三宫锦标赛" data-alias="三宫锦标"
+     data-jp="三宮ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4121.png" alt="三宫锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 三宫锦标赛</div>
+    <div class="sub">三宫锦标 / 三宮ステークス</div>
+    <div class="meta">阪神 · 泥地 1800m · 英里赛 · 右</div>
+    <div class="detail">第二年6月后、第三年6月后 · 粉丝 +2200 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="函馆"
+     data-course="英里赛" data-name="巴奖" data-alias="巴赏"
+     data-jp="巴賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4064.png" alt="巴奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 巴奖</div>
+    <div class="sub">巴赏 / 巴賞</div>
+    <div class="meta">函馆 · 草地 1800m · 英里赛 · 右</div>
+    <div class="detail">第二年7月前、第三年7月前 · 粉丝 +2400 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="函馆"
+     data-course="英里赛" data-name="海之锦标赛" data-alias="海滨锦标"
+     data-jp="マリーンステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4065.png" alt="海之锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 海之锦标赛</div>
+    <div class="sub">海滨锦标 / マリーンステークス</div>
+    <div class="meta">函馆 · 草地 1700m · 英里赛 · 右</div>
+    <div class="detail">第二年7月前、第三年7月前 · 粉丝 +2200 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="中京"
+     data-course="英里赛" data-name="名铁杯" data-alias=""
+     data-jp="名鉄杯">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4066.png" alt="名铁杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 名铁杯</div>
+    <div class="sub"> / 名鉄杯</div>
+    <div class="meta">中京 · 泥地 1800m · 英里赛 · 左</div>
+    <div class="detail">第二年7月前、第三年7月前 · 粉丝 +2300 / 需 350 · 耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="福岛"
+     data-course="短距离" data-name="松浪电视公开赛" data-alias="福岛电视台公开赛"
+     data-jp="福島テレビオープン">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4069.png" alt="松浪电视公开赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 松浪电视公开赛</div>
+    <div class="sub">福岛电视台公开赛 / 福島テレビオープン</div>
+    <div class="meta">福岛 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第二年7月后、第三年7月后 · 粉丝 +2300 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="札幌"
+     data-course="长距离" data-name="札幌日经公开赛" data-alias=""
+     data-jp="札幌日経オープン">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4071.png" alt="札幌日经公开赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 札幌日经公开赛</div>
+    <div class="sub"> / 札幌日経オープン</div>
+    <div class="meta">札幌 · 草地 2600m · 长距离 · 右</div>
+    <div class="detail">第二年8月前、第三年8月前 · 粉丝 +2600 / 需 350 · 耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="札幌"
+     data-course="短距离" data-name="UHB奖" data-alias="UHB赏"
+     data-jp="UHB賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4072.png" alt="UHB奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> UHB奖</div>
+    <div class="sub">UHB赏 / UHB賞</div>
+    <div class="meta">札幌 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第二年8月前、第三年8月前 · 粉丝 +2300 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="小仓"
+     data-course="英里赛" data-name="阿苏锦标赛" data-alias="阿苏锦标"
+     data-jp="阿蘇ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4073.png" alt="阿苏锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 阿苏锦标赛</div>
+    <div class="sub">阿苏锦标 / 阿蘇ステークス</div>
+    <div class="meta">小仓 · 泥地 1700m · 英里赛 · 右</div>
+    <div class="detail">第二年8月前、第三年8月前 · 粉丝 +2200 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="新潟"
+     data-course="英里赛" data-name="关越锦标" data-alias=""
+     data-jp="">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4122.png" alt="关越锦标"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 关越锦标</div>
+    <div class="sub"></div>
+    <div class="meta">新潟 · 草地 1700m · 英里赛 · 左</div>
+    <div class="detail">第二年8月前、第三年8月前 · 粉丝 +2400 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="新潟"
+     data-course="英里赛" data-name="NST奖" data-alias="NST赏"
+     data-jp="NST賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4076.png" alt="NST奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> NST奖</div>
+    <div class="sub">NST赏 / NST賞</div>
+    <div class="meta">新潟 · 泥地 1800m · 英里赛 · 左</div>
+    <div class="detail">第二年8月后、第三年8月后 · 粉丝 +2200 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="新潟"
+     data-course="短距离" data-name="BSN奖" data-alias="BSN赏"
+     data-jp="BSN賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4079.png" alt="BSN奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> BSN奖</div>
+    <div class="sub">BSN赏 / BSN賞</div>
+    <div class="meta">新潟 · 泥地 1200m · 短距离 · 左</div>
+    <div class="detail">第二年8月后、第三年8月后 · 粉丝 +2300 / 需 350 · 智力</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="小仓"
+     data-course="英里赛" data-name="小仓日经公开赛" data-alias=""
+     data-jp="小倉日経オープン">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4080.png" alt="小仓日经公开赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 小仓日经公开赛</div>
+    <div class="sub"> / 小倉日経オープン</div>
+    <div class="meta">小仓 · 草地 1800m · 英里赛 · 右</div>
+    <div class="detail">第二年8月后、第三年8月后 · 粉丝 +2400 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="新潟"
+     data-course="短距离" data-name="朱鹭锦标赛" data-alias="朱鹮锦标"
+     data-jp="朱鷺ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4081.png" alt="朱鹭锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 朱鹭锦标赛</div>
+    <div class="sub">朱鹮锦标 / 朱鷺ステークス</div>
+    <div class="meta">新潟 · 草地 1400m · 短距离 · 左</div>
+    <div class="detail">第二年8月后、第三年8月后 · 粉丝 +2500 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="札幌"
+     data-course="长距离" data-name="丹顶锦标赛" data-alias="丹顶鹤锦标"
+     data-jp="丹頂ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4082.png" alt="丹顶锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 丹顶锦标赛</div>
+    <div class="sub">丹顶鹤锦标 / 丹頂ステークス</div>
+    <div class="meta">札幌 · 草地 2600m · 长距离 · 右</div>
+    <div class="detail">第二年9月前、第三年9月前 · 粉丝 +2400 / 需 350 · 耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="阪神"
+     data-course="短距离" data-name="危宿三锦标赛" data-alias="危宿三锦标"
+     data-jp="エニフステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4084.png" alt="危宿三锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 危宿三锦标赛</div>
+    <div class="sub">危宿三锦标 / エニフステークス</div>
+    <div class="meta">阪神 · 草地 1400m · 短距离 · 右</div>
+    <div class="detail">第二年9月前、第三年9月前 · 粉丝 +2300 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="中山"
+     data-course="英里赛" data-name="日本广播奖" data-alias="日本广播赏"
+     data-jp="ラジオ日本賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4086.png" alt="日本广播奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 日本广播奖</div>
+    <div class="sub">日本广播赏 / ラジオ日本賞</div>
+    <div class="meta">中山 · 草地 1800m · 英里赛 · 右</div>
+    <div class="detail">第二年9月前、第三年9月前 · 粉丝 +2200 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="阪神"
+     data-course="英里赛" data-name="港湾人工岛锦标赛" data-alias="神户人工岛锦标"
+     data-jp="ポートアイランドステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4090.png" alt="港湾人工岛锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 港湾人工岛锦标赛</div>
+    <div class="sub">神户人工岛锦标 / ポートアイランドステークス</div>
+    <div class="meta">阪神 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第二年9月后、第三年9月后 · 粉丝 +2500 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="中山"
+     data-course="短距离" data-name="长月锦标赛" data-alias="长月锦标"
+     data-jp="ながつきステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4123.png" alt="长月锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 长月锦标赛</div>
+    <div class="sub">长月锦标 / ながつきステークス</div>
+    <div class="meta">中山 · 泥地 1200m · 短距离 · 右</div>
+    <div class="detail">第二年9月后、第三年9月后 · 粉丝 +2200 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="京都"
+     data-course="短距离" data-name="蛋白石锦标赛" data-alias="蛋白石锦标"
+     data-jp="オパールステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4091.png" alt="蛋白石锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 蛋白石锦标赛</div>
+    <div class="sub">蛋白石锦标 / オパールステークス</div>
+    <div class="meta">京都 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第二年10月前、第三年10月前 · 粉丝 +2500 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="东京"
+     data-course="短距离" data-name="绿色频道杯" data-alias=""
+     data-jp="グリーンチャンネルカップ">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4092.png" alt="绿色频道杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 绿色频道杯</div>
+    <div class="sub"> / グリーンチャンネルカップ</div>
+    <div class="meta">东京 · 泥地 1400m · 短距离 · 左</div>
+    <div class="detail">第二年10月前、第三年10月前 · 粉丝 +2300 / 需 350 · 耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="东京"
+     data-course="中距离" data-name="十月锦标赛" data-alias="十月锦标"
+     data-jp="オクトーバーステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4094.png" alt="十月锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 十月锦标赛</div>
+    <div class="sub">十月锦标 / オクトーバーステークス</div>
+    <div class="meta">东京 · 草地 2000m · 中距离 · 左</div>
+    <div class="detail">第二年10月前、第三年10月前 · 粉丝 +2600 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="新潟"
+     data-course="短距离" data-name="信越锦标赛" data-alias="信越锦标"
+     data-jp="信越ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4095.png" alt="信越锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 信越锦标赛</div>
+    <div class="sub">信越锦标 / 信越ステークス</div>
+    <div class="meta">新潟 · 草地 1400m · 短距离 · 左</div>
+    <div class="detail">第二年10月前、第三年10月前 · 粉丝 +2500 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="京都"
+     data-course="英里赛" data-name="太秦锦标赛" data-alias="太秦锦标"
+     data-jp="太秦ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4124.png" alt="太秦锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 太秦锦标赛</div>
+    <div class="sub">太秦锦标 / 太秦ステークス</div>
+    <div class="meta">京都 · 泥地 1800m · 英里赛 · 右</div>
+    <div class="detail">第二年10月前、第三年10月前 · 粉丝 +2200 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="京都"
+     data-course="短距离" data-name="室町锦标赛" data-alias="室町锦标"
+     data-jp="室町ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4097.png" alt="室町锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 室町锦标赛</div>
+    <div class="sub">室町锦标 / 室町ステークス</div>
+    <div class="meta">京都 · 泥地 1200m · 短距离 · 右</div>
+    <div class="detail">第二年10月后、第三年10月后 · 粉丝 +2200 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="东京"
+     data-course="中距离" data-name="巴西杯" data-alias=""
+     data-jp="ブラジルカップ">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4098.png" alt="巴西杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 巴西杯</div>
+    <div class="sub"> / ブラジルカップ</div>
+    <div class="meta">东京 · 泥地 2100m · 中距离 · 左</div>
+    <div class="detail">第二年10月后、第三年10月后 · 粉丝 +2300 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="京都"
+     data-course="英里赛" data-name="仙后座锦标赛" data-alias="仙后座锦标"
+     data-jp="カシオペアステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4100.png" alt="仙后座锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 仙后座锦标赛</div>
+    <div class="sub">仙后座锦标 / カシオペアステークス</div>
+    <div class="meta">京都 · 草地 1800m · 英里赛 · 右</div>
+    <div class="detail">第二年10月后、第三年10月后 · 粉丝 +2600 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="新潟"
+     data-course="短距离" data-name="光明秋季冲刺赛" data-alias="光速秋季短跑赛"
+     data-jp="ルミエールオータムダッシュ">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4101.png" alt="光明秋季冲刺赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 光明秋季冲刺赛</div>
+    <div class="sub">光速秋季短跑赛 / ルミエールオータムダッシュ</div>
+    <div class="meta">新潟 · 草地 1000m · 短距离 · 直线</div>
+    <div class="detail">第二年10月后、第三年10月后 · 粉丝 +2500 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="东京"
+     data-course="短距离" data-name="黄金杯" data-alias=""
+     data-jp="オーロカップ">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4102.png" alt="黄金杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 黄金杯</div>
+    <div class="sub"> / オーロカップ</div>
+    <div class="meta">东京 · 草地 1400m · 短距离 · 左</div>
+    <div class="detail">第二年11月前、第三年11月前 · 粉丝 +2500 / 需 350 · 耐力、力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="京都"
+     data-course="中距离" data-name="仙女座锦标赛" data-alias="仙女座锦标"
+     data-jp="アンドロメダステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4104.png" alt="仙女座锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 仙女座锦标赛</div>
+    <div class="sub">仙女座锦标 / アンドロメダステークス</div>
+    <div class="meta">京都 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第二年11月后、第三年11月后 · 粉丝 +2600 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="东京"
+     data-course="短距离" data-name="霜月锦标赛" data-alias="霜月锦标"
+     data-jp="霜月ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4105.png" alt="霜月锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 霜月锦标赛</div>
+    <div class="sub">霜月锦标 / 霜月ステークス</div>
+    <div class="meta">东京 · 泥地 1400m · 短距离 · 左</div>
+    <div class="detail">第二年11月后、第三年11月后 · 粉丝 +2200 / 需 350 · 耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="福岛"
+     data-course="英里赛" data-name="松浪民友杯" data-alias="福岛民友杯"
+     data-jp="福島民友カップ">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4106.png" alt="松浪民友杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 松浪民友杯</div>
+    <div class="sub">福岛民友杯 / 福島民友カップ</div>
+    <div class="meta">福岛 · 泥地 1700m · 英里赛 · 右</div>
+    <div class="detail">第二年11月后、第三年11月后 · 粉丝 +2300 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="东京"
+     data-course="英里赛" data-name="首都锦标赛" data-alias="首都锦标"
+     data-jp="キャピタルステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4107.png" alt="首都锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 首都锦标赛</div>
+    <div class="sub">首都锦标 / キャピタルステークス</div>
+    <div class="meta">东京 · 草地 1600m · 英里赛 · 左</div>
+    <div class="detail">第二年11月后、第三年11月后 · 粉丝 +2500 / 需 350 · 耐力、毅力</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="京都"
+     data-course="短距离" data-name="秋叶锦标赛" data-alias="秋叶锦标"
+     data-jp="オータムリーフステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4108.png" alt="秋叶锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 秋叶锦标赛</div>
+    <div class="sub">秋叶锦标 / オータムリーフステークス</div>
+    <div class="meta">京都 · 泥地 1200m · 短距离 · 右</div>
+    <div class="detail">第二年11月后、第三年11月后 · 粉丝 +2200 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="中山"
+     data-course="短距离" data-name="青金石锦标赛" data-alias="青金石锦标"
+     data-jp="ラピスラズリステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4109.png" alt="青金石锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 青金石锦标赛</div>
+    <div class="sub">青金石锦标 / ラピスラズリステークス</div>
+    <div class="meta">中山 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第二年12月前、第三年12月前 · 粉丝 +2500 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="中山"
+     data-course="英里赛" data-name="师走锦标赛" data-alias="师走锦标"
+     data-jp="師走ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4110.png" alt="师走锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 师走锦标赛</div>
+    <div class="sub">师走锦标 / 師走ステークス</div>
+    <div class="meta">中山 · 泥地 1800m · 英里赛 · 右</div>
+    <div class="detail">第二年12月前、第三年12月前 · 粉丝 +2300 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="阪神"
+     data-course="英里赛" data-name="参宿七锦标赛" data-alias="参宿七锦标"
+     data-jp="リゲルステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4111.png" alt="参宿七锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 参宿七锦标赛</div>
+    <div class="sub">参宿七锦标 / リゲルステークス</div>
+    <div class="meta">阪神 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第二年12月前、第三年12月前 · 粉丝 +2500 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="阪神"
+     data-course="短距离" data-name="坦桑石锦标赛" data-alias="坦桑石锦标"
+     data-jp="タンザナイトステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4112.png" alt="坦桑石锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 坦桑石锦标赛</div>
+    <div class="sub">坦桑石锦标 / タンザナイトステークス</div>
+    <div class="meta">阪神 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第二年12月前、第三年12月前 · 粉丝 +2300 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="中山"
+     data-course="英里赛" data-name="十二月锦标赛" data-alias="十二月锦标"
+     data-jp="ディセンバーステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4113.png" alt="十二月锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 十二月锦标赛</div>
+    <div class="sub">十二月锦标 / ディセンバーステークス</div>
+    <div class="meta">中山 · 草地 1800m · 英里赛 · 右</div>
+    <div class="detail">第二年12月前、第三年12月前 · 粉丝 +2600 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="阪神"
+     data-course="短距离" data-name="银河锦标赛" data-alias="银河锦标"
+     data-jp="ギャラクシーステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4115.png" alt="银河锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 银河锦标赛</div>
+    <div class="sub">银河锦标 / ギャラクシーステークス</div>
+    <div class="meta">阪神 · 泥地 1400m · 短距离 · 右</div>
+    <div class="detail">第二年12月后、第三年12月后 · 粉丝 +2200 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="阪神"
+     data-course="英里赛" data-name="参宿四锦标赛" data-alias="参宿四锦标"
+     data-jp="ベテルギウスステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4116.png" alt="参宿四锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 参宿四锦标赛</div>
+    <div class="sub">参宿四锦标 / ベテルギウスステークス</div>
+    <div class="meta">阪神 · 泥地 1800m · 英里赛 · 右</div>
+    <div class="detail">第二年12月后、第三年12月后 · 粉丝 +2200 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="京都"
+     data-course="长距离" data-name="万叶锦标赛" data-alias="万叶锦标"
+     data-jp="万葉ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4001.png" alt="万叶锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 万叶锦标赛</div>
+    <div class="sub">万叶锦标 / 万葉ステークス</div>
+    <div class="meta">京都 · 草地 3000m · 长距离 · 右</div>
+    <div class="detail">第三年1月前 · 粉丝 +2400 / 需 350 · 力量、智力</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="京都"
+     data-course="短距离" data-name="淀短途锦标赛" data-alias="淀短距离锦标"
+     data-jp="淀短距離ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4003.png" alt="淀短途锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 淀短途锦标赛</div>
+    <div class="sub">淀短距离锦标 / 淀短距離ステークス</div>
+    <div class="meta">京都 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第三年1月前 · 粉丝 +2500 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="中山"
+     data-course="英里赛" data-name="北河三锦标赛" data-alias="北河三锦标"
+     data-jp="ポルックスステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4004.png" alt="北河三锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 北河三锦标赛</div>
+    <div class="sub">北河三锦标 / ポルックスステークス</div>
+    <div class="meta">中山 · 泥地 1800m · 英里赛 · 右</div>
+    <div class="detail">第三年1月前 · 粉丝 +2200 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="中山"
+     data-course="短距离" data-name="一月锦标赛" data-alias="一月锦标"
+     data-jp="ジャニュアリーステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4005.png" alt="一月锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 一月锦标赛</div>
+    <div class="sub">一月锦标 / ジャニュアリーステークス</div>
+    <div class="meta">中山 · 泥地 1200m · 短距离 · 右</div>
+    <div class="detail">第三年1月前 · 粉丝 +2200 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="中山"
+     data-course="英里赛" data-name="新年锦标赛" data-alias="新年锦标"
+     data-jp="ニューイヤーステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4006.png" alt="新年锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 新年锦标赛</div>
+    <div class="sub">新年锦标 / ニューイヤーステークス</div>
+    <div class="meta">中山 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第三年1月前 · 粉丝 +2500 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="中山"
+     data-course="短距离" data-name="红宝石锦标赛" data-alias="红宝石锦标"
+     data-jp="カーバンクルステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4010.png" alt="红宝石锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 红宝石锦标赛</div>
+    <div class="sub">红宝石锦标 / カーバンクルステークス</div>
+    <div class="meta">中山 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第三年1月前 · 粉丝 +2300 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="京都"
+     data-course="短距离" data-name="昴宿锦标赛" data-alias="昴宿锦标"
+     data-jp="すばるステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4008.png" alt="昴宿锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 昴宿锦标赛</div>
+    <div class="sub">昴宿锦标 / すばるステークス</div>
+    <div class="meta">京都 · 泥地 1400m · 短距离 · 右</div>
+    <div class="detail">第三年1月后 · 粉丝 +2300 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="东京"
+     data-course="中距离" data-name="白富士锦标赛" data-alias="白富士锦标"
+     data-jp="白富士ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4011.png" alt="白富士锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 白富士锦标赛</div>
+    <div class="sub">白富士锦标 / 白富士ステークス</div>
+    <div class="meta">东京 · 草地 2000m · 中距离 · 左</div>
+    <div class="detail">第三年1月后 · 粉丝 +2600 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="京都"
+     data-course="短距离" data-name="大和锦标赛" data-alias="大和锦标"
+     data-jp="大和ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4013.png" alt="大和锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 大和锦标赛</div>
+    <div class="sub">大和锦标 / 大和ステークス</div>
+    <div class="meta">京都 · 泥地 1200m · 短距离 · 右</div>
+    <div class="detail">第三年2月前 · 粉丝 +2200 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="京都"
+     data-course="英里赛" data-name="洛阳锦标赛" data-alias="洛阳锦标"
+     data-jp="洛陽ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4015.png" alt="洛阳锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 洛阳锦标赛</div>
+    <div class="sub">洛阳锦标 / 洛陽ステークス</div>
+    <div class="meta">京都 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第三年2月前 · 粉丝 +2500 / 需 350 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="京都"
+     data-course="中距离" data-name="毕宿五锦标赛" data-alias="毕宿五锦标"
+     data-jp="アルデバランステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4016.png" alt="毕宿五锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 毕宿五锦标赛</div>
+    <div class="sub">毕宿五锦标 / アルデバランステークス</div>
+    <div class="meta">京都 · 泥地 1900m · 中距离 · 右</div>
+    <div class="detail">第三年2月前 · 粉丝 +2200 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="东京"
+     data-course="短距离" data-name="情人节锦标赛" data-alias="情人节锦标"
+     data-jp="バレンタインステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4017.png" alt="情人节锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 情人节锦标赛</div>
+    <div class="sub">情人节锦标 / バレンタインステークス</div>
+    <div class="meta">东京 · 泥地 1400m · 短距离 · 左</div>
+    <div class="detail">第三年2月前 · 粉丝 +2200 / 需 350 · 耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="中山"
+     data-course="英里赛" data-name="总武锦标赛" data-alias="总武锦标"
+     data-jp="総武ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4019.png" alt="总武锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 总武锦标赛</div>
+    <div class="sub">总武锦标 / 総武ステークス</div>
+    <div class="meta">中山 · 泥地 1800m · 英里赛 · 右</div>
+    <div class="detail">第三年2月后 · 粉丝 +2200 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="小仓"
+     data-course="短距离" data-name="北九州短距离锦标赛" data-alias="北九州短距离锦标"
+     data-jp="北九州短距離ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4118.png" alt="北九州短距离锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 北九州短距离锦标赛</div>
+    <div class="sub">北九州短距离锦标 / 北九州短距離ステークス</div>
+    <div class="meta">小仓 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第三年2月后 · 粉丝 +2300 / 需 350 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="阪神"
+     data-course="英里赛" data-name="大阪城锦标赛" data-alias="大阪城锦标"
+     data-jp="大阪城ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4021.png" alt="大阪城锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 大阪城锦标赛</div>
+    <div class="sub">大阪城锦标 / 大阪城ステークス</div>
+    <div class="meta">阪神 · 草地 1800m · 英里赛 · 右</div>
+    <div class="detail">第三年3月前 · 粉丝 +2600 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="阪神"
+     data-course="短距离" data-name="北极星锦标赛" data-alias="北极星锦标"
+     data-jp="ポラリスステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4022.png" alt="北极星锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 北极星锦标赛</div>
+    <div class="sub">北极星锦标 / ポラリスステークス</div>
+    <div class="meta">阪神 · 泥地 1400m · 短距离 · 右</div>
+    <div class="detail">第三年3月前 · 粉丝 +2200 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="阪神"
+     data-course="中距离" data-name="仁川锦标赛" data-alias="仁川锦标"
+     data-jp="仁川ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4023.png" alt="仁川锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 仁川锦标赛</div>
+    <div class="sub">仁川锦标 / 仁川ステークス</div>
+    <div class="meta">阪神 · 泥地 2000m · 中距离 · 右</div>
+    <div class="detail">第三年3月前 · 粉丝 +2300 / 需 350 · 耐力、力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="中山"
+     data-course="英里赛" data-name="东风锦标赛" data-alias="东风锦标"
+     data-jp="東風ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4026.png" alt="东风锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 东风锦标赛</div>
+    <div class="sub">东风锦标 / 東風ステークス</div>
+    <div class="meta">中山 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第三年3月前 · 粉丝 +2500 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="中山"
+     data-course="短距离" data-name="千叶锦标赛" data-alias="千叶锦标"
+     data-jp="千葉ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4028.png" alt="千叶锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 千叶锦标赛</div>
+    <div class="sub">千叶锦标 / 千葉ステークス</div>
+    <div class="meta">中山 · 泥地 1200m · 短距离 · 右</div>
+    <div class="detail">第三年3月后 · 粉丝 +2200 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="阪神"
+     data-course="英里赛" data-name="六甲锦标赛" data-alias="六甲锦标"
+     data-jp="六甲ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4030.png" alt="六甲锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 六甲锦标赛</div>
+    <div class="sub">六甲锦标 / 六甲ステークス</div>
+    <div class="meta">阪神 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第三年3月后 · 粉丝 +2500 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="阪神"
+     data-course="短距离" data-name="珊瑚锦标赛" data-alias="珊瑚锦标"
+     data-jp="コーラルステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4031.png" alt="珊瑚锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 珊瑚锦标赛</div>
+    <div class="sub">珊瑚锦标 / コーラルステークス</div>
+    <div class="meta">阪神 · 泥地 1400m · 短距离 · 右</div>
+    <div class="detail">第三年4月前 · 粉丝 +2300 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="中山"
+     data-course="短距离" data-name="京叶锦标赛" data-alias="京叶锦标"
+     data-jp="京葉ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4036.png" alt="京叶锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 京叶锦标赛</div>
+    <div class="sub">京叶锦标 / 京葉ステークス</div>
+    <div class="meta">中山 · 泥地 1200m · 短距离 · 右</div>
+    <div class="detail">第三年4月前 · 粉丝 +2300 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="中山"
+     data-course="短距离" data-name="春雷锦标赛" data-alias="春雷锦标"
+     data-jp="春雷ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4037.png" alt="春雷锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 春雷锦标赛</div>
+    <div class="sub">春雷锦标 / 春雷ステークス</div>
+    <div class="meta">中山 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第三年4月前 · 粉丝 +2500 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="福岛"
+     data-course="中距离" data-name="松浪民报杯" data-alias="福岛民报杯"
+     data-jp="福島民報杯">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4038.png" alt="松浪民报杯"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 松浪民报杯</div>
+    <div class="sub">福岛民报杯 / 福島民報杯</div>
+    <div class="meta">福岛 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第三年4月前 · 粉丝 +2600 / 需 350 · 耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="福岛"
+     data-course="英里赛" data-name="吾妻小富士锦标赛" data-alias="吾妻小富士锦标"
+     data-jp="吾妻小富士ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4119.png" alt="吾妻小富士锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 吾妻小富士锦标赛</div>
+    <div class="sub">吾妻小富士锦标 / 吾妻小富士ステークス</div>
+    <div class="meta">福岛 · 泥地 1700m · 英里赛 · 右</div>
+    <div class="detail">第三年4月前 · 粉丝 +2200 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="东京"
+     data-course="英里赛" data-name="绿洲锦标赛" data-alias="绿洲锦标"
+     data-jp="オアシスステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4040.png" alt="绿洲锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 绿洲锦标赛</div>
+    <div class="sub">绿洲锦标 / オアシスステークス</div>
+    <div class="meta">东京 · 泥地 1600m · 英里赛 · 左</div>
+    <div class="detail">第三年4月后 · 粉丝 +2300 / 需 350 · 速度、耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="京都"
+     data-course="短距离" data-name="天王山锦标赛" data-alias="天王山锦标"
+     data-jp="天王山ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4041.png" alt="天王山锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 天王山锦标赛</div>
+    <div class="sub">天王山锦标 / 天王山ステークス</div>
+    <div class="meta">京都 · 泥地 1200m · 短距离 · 右</div>
+    <div class="detail">第三年4月后 · 粉丝 +2200 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="新潟"
+     data-course="英里赛" data-name="谷川岳锦标赛" data-alias="谷川岳锦标"
+     data-jp="谷川岳ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4044.png" alt="谷川岳锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 谷川岳锦标赛</div>
+    <div class="sub">谷川岳锦标 / 谷川岳ステークス</div>
+    <div class="meta">新潟 · 草地 1600m · 英里赛 · 左</div>
+    <div class="detail">第三年5月前 · 粉丝 +2500 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="东京"
+     data-course="中距离" data-name="大都会锦标赛" data-alias="大都市锦标"
+     data-jp="メトロポリタンステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4046.png" alt="大都会锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 大都会锦标赛</div>
+    <div class="sub">大都市锦标 / メトロポリタンステークス</div>
+    <div class="meta">东京 · 草地 2400m · 中距离 · 左</div>
+    <div class="detail">第三年5月前 · 粉丝 +2600 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="京都"
+     data-course="短距离" data-name="鞍马锦标赛" data-alias="鞍马锦标"
+     data-jp="鞍馬ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4047.png" alt="鞍马锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 鞍马锦标赛</div>
+    <div class="sub">鞍马锦标 / 鞍馬ステークス</div>
+    <div class="meta">京都 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第三年5月前 · 粉丝 +2300 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="东京"
+     data-course="中距离" data-name="钻辉锦标赛" data-alias="“卓越”锦标"
+     data-jp="ブリリアントステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4048.png" alt="钻辉锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 钻辉锦标赛</div>
+    <div class="sub">“卓越”锦标 / ブリリアントステークス</div>
+    <div class="meta">东京 · 泥地 2100m · 中距离 · 左</div>
+    <div class="detail">第三年5月前 · 粉丝 +2300 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="京都"
+     data-course="英里赛" data-name="都大路锦标赛" data-alias="京城大道锦标"
+     data-jp="都大路ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4049.png" alt="都大路锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 都大路锦标赛</div>
+    <div class="sub">京城大道锦标 / 都大路ステークス</div>
+    <div class="meta">京都 · 草地 1800m · 英里赛 · 右</div>
+    <div class="detail">第三年5月前 · 粉丝 +2600 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="京都"
+     data-course="短距离" data-name="栗东锦标赛" data-alias="栗东锦标"
+     data-jp="栗東ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4051.png" alt="栗东锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 栗东锦标赛</div>
+    <div class="sub">栗东锦标 / 栗東ステークス</div>
+    <div class="meta">京都 · 泥地 1400m · 短距离 · 右</div>
+    <div class="detail">第三年5月前 · 粉丝 +2300 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="东京"
+     data-course="英里赛" data-name="五月锦标赛" data-alias="五月锦标"
+     data-jp="メイステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4053.png" alt="五月锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 五月锦标赛</div>
+    <div class="sub">五月锦标 / メイステークス</div>
+    <div class="meta">东京 · 草地 1800m · 英里赛 · 左</div>
+    <div class="detail">第三年5月后 · 粉丝 +2400 / 需 350 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="新潟"
+     data-course="短距离" data-name="韦驮天锦标赛" data-alias="韦驮天锦标"
+     data-jp="韋駄天ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4055.png" alt="韦驮天锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 韦驮天锦标赛</div>
+    <div class="sub">韦驮天锦标 / 韋駄天ステークス</div>
+    <div class="meta">新潟 · 草地 1000m · 短距离 · 直线</div>
+    <div class="detail">第三年5月后 · 粉丝 +2300 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="东京"
+     data-course="短距离" data-name="榉锦标赛" data-alias="榉树锦标"
+     data-jp="欅ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4057.png" alt="榉锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 榉锦标赛</div>
+    <div class="sub">榉树锦标 / 欅ステークス</div>
+    <div class="meta">东京 · 泥地 1400m · 短距离 · 左</div>
+    <div class="detail">第三年5月后 · 粉丝 +2200 / 需 350 · 耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="京都"
+     data-course="短距离" data-name="安土城锦标赛" data-alias="安土城锦标"
+     data-jp="安土城ステークス">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4058.png" alt="安土城锦标赛"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 安土城锦标赛</div>
+    <div class="sub">安土城锦标 / 安土城ステークス</div>
+    <div class="meta">京都 · 草地 1400m · 短距离 · 右</div>
+    <div class="detail">第三年5月后 · 粉丝 +2500 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="OP" data-venue="小仓"
+     data-course="短距离" data-name="向日葵奖" data-alias="向日葵赏"
+     data-jp="ひまわり賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4078.png" alt="向日葵奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-OP">OP</span> 向日葵奖</div>
+    <div class="sub">向日葵赏 / ひまわり賞</div>
+    <div class="meta">小仓 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">时间未知 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="Pre-OP" data-venue="中山"
+     data-course="英里赛" data-name="紫菀奖" data-alias="翠菊赏"
+     data-jp="アスター賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4501.png" alt="紫菀奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-PreOP">Pre-OP</span> 紫菀奖</div>
+    <div class="sub">翠菊赏 / アスター賞</div>
+    <div class="meta">中山 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第一年9月前 · 粉丝 +1000 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="Pre-OP" data-venue="中山"
+     data-course="英里赛" data-name="番红花奖" data-alias="番红花赏"
+     data-jp="サフラン賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4502.png" alt="番红花奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-PreOP">Pre-OP</span> 番红花奖</div>
+    <div class="sub">番红花赏 / サフラン賞</div>
+    <div class="meta">中山 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第一年9月后 · 粉丝 +1000 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="Pre-OP" data-venue="京都"
+     data-course="短距离" data-name="龙胆奖" data-alias="龙胆赏"
+     data-jp="りんどう賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4503.png" alt="龙胆奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-PreOP">Pre-OP</span> 龙胆奖</div>
+    <div class="sub">龙胆赏 / りんどう賞</div>
+    <div class="meta">京都 · 草地 1400m · 短距离 · 右</div>
+    <div class="detail">第一年10月前 · 粉丝 +1000 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="Pre-OP" data-venue="京都"
+     data-course="中距离" data-name="紫菊奖" data-alias="紫菊赏"
+     data-jp="紫菊賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4504.png" alt="紫菊奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-PreOP">Pre-OP</span> 紫菊奖</div>
+    <div class="sub">紫菊赏 / 紫菊賞</div>
+    <div class="meta">京都 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第一年10月前 · 粉丝 +1000 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="Pre-OP" data-venue="东京"
+     data-course="英里赛" data-name="悬铃木奖" data-alias="悬铃木赏"
+     data-jp="プラタナス賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4505.png" alt="悬铃木奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-PreOP">Pre-OP</span> 悬铃木奖</div>
+    <div class="sub">悬铃木赏 / プラタナス賞</div>
+    <div class="meta">东京 · 泥地 1600m · 英里赛 · 左</div>
+    <div class="detail">第一年10月前 · 粉丝 +1000 / 需 350 · 速度、耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="Pre-OP" data-venue="京都"
+     data-course="短距离" data-name="瞿麦奖" data-alias="石竹赏"
+     data-jp="なでしこ賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4506.png" alt="瞿麦奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-PreOP">Pre-OP</span> 瞿麦奖</div>
+    <div class="sub">石竹赏 / なでしこ賞</div>
+    <div class="meta">京都 · 泥地 1400m · 短距离 · 右</div>
+    <div class="detail">第一年10月后 · 粉丝 +1000 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="Pre-OP" data-venue="东京"
+     data-course="中距离" data-name="百日草特别奖" data-alias="百日草特别赛"
+     data-jp="百日草特別">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4507.png" alt="百日草特别奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-PreOP">Pre-OP</span> 百日草特别奖</div>
+    <div class="sub">百日草特别赛 / 百日草特別</div>
+    <div class="meta">东京 · 草地 2000m · 中距离 · 左</div>
+    <div class="detail">第一年11月前 · 粉丝 +1000 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="Pre-OP" data-venue="福岛"
+     data-course="英里赛" data-name="金桂特别奖" data-alias="金木犀特别赛"
+     data-jp="きんもくせい特別">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4508.png" alt="金桂特别奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-PreOP">Pre-OP</span> 金桂特别奖</div>
+    <div class="sub">金木犀特别赛 / きんもくせい特別</div>
+    <div class="meta">福岛 · 草地 1800m · 英里赛 · 右</div>
+    <div class="detail">第一年11月前 · 粉丝 +1000 / 需 350 · 耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="Pre-OP" data-venue="东京"
+     data-course="短距离" data-name="酢浆草奖" data-alias="酢浆草赏"
+     data-jp="オキザリス賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4509.png" alt="酢浆草奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-PreOP">Pre-OP</span> 酢浆草奖</div>
+    <div class="sub">酢浆草赏 / オキザリス賞</div>
+    <div class="meta">东京 · 泥地 1400m · 短距离 · 左</div>
+    <div class="detail">第一年11月前 · 粉丝 +1000 / 需 350 · 耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="Pre-OP" data-venue="京都"
+     data-course="中距离" data-name="黄菊奖" data-alias="黄菊赏"
+     data-jp="黄菊賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4510.png" alt="黄菊奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-PreOP">Pre-OP</span> 黄菊奖</div>
+    <div class="sub">黄菊赏 / 黄菊賞</div>
+    <div class="meta">京都 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第一年11月前 · 粉丝 +1000 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="Pre-OP" data-venue="京都"
+     data-course="英里赛" data-name="细叶冬青奖" data-alias="喙冬青赏"
+     data-jp="もちの木賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4511.png" alt="细叶冬青奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-PreOP">Pre-OP</span> 细叶冬青奖</div>
+    <div class="sub">喙冬青赏 / もちの木賞</div>
+    <div class="meta">京都 · 泥地 1800m · 英里赛 · 右</div>
+    <div class="detail">第一年11月后 · 粉丝 +1000 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="Pre-OP" data-venue="东京"
+     data-course="英里赛" data-name="赤松奖" data-alias="赤松赏"
+     data-jp="赤松賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4512.png" alt="赤松奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-PreOP">Pre-OP</span> 赤松奖</div>
+    <div class="sub">赤松赏 / 赤松賞</div>
+    <div class="meta">东京 · 草地 1600m · 英里赛 · 左</div>
+    <div class="detail">第一年11月后 · 粉丝 +1000 / 需 350 · 耐力、毅力</div>
+    
+  </div>
+</div><div class="card" data-grade="Pre-OP" data-venue="京都"
+     data-course="短距离" data-name="秋明菊奖" data-alias="秋牡丹赏"
+     data-jp="秋明菊賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4513.png" alt="秋明菊奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-PreOP">Pre-OP</span> 秋明菊奖</div>
+    <div class="sub">秋牡丹赏 / 秋明菊賞</div>
+    <div class="meta">京都 · 草地 1400m · 短距离 · 右</div>
+    <div class="detail">第一年11月后 · 粉丝 +1000 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="Pre-OP" data-venue="东京"
+     data-course="英里赛" data-name="卡特兰奖" data-alias="卡特兰赏"
+     data-jp="カトレア賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4514.png" alt="卡特兰奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-PreOP">Pre-OP</span> 卡特兰奖</div>
+    <div class="sub">卡特兰赏 / カトレア賞</div>
+    <div class="meta">东京 · 泥地 1600m · 英里赛 · 左</div>
+    <div class="detail">第一年11月后 · 粉丝 +1000 / 需 350 · 速度、耐力</div>
+    
+  </div>
+</div><div class="card" data-grade="Pre-OP" data-venue="东京"
+     data-course="英里赛" data-name="秋海棠奖" data-alias="秋海棠赏"
+     data-jp="ベゴニア賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4515.png" alt="秋海棠奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-PreOP">Pre-OP</span> 秋海棠奖</div>
+    <div class="sub">秋海棠赏 / ベゴニア賞</div>
+    <div class="meta">东京 · 草地 1600m · 英里赛 · 左</div>
+    <div class="detail">第一年11月后 · 粉丝 +1000 / 需 350 · 耐力、毅力</div>
+    
+  </div>
+</div><div class="card" data-grade="Pre-OP" data-venue="京都"
+     data-course="英里赛" data-name="白菊奖" data-alias="白菊赏"
+     data-jp="白菊賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4516.png" alt="白菊奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-PreOP">Pre-OP</span> 白菊奖</div>
+    <div class="sub">白菊赏 / 白菊賞</div>
+    <div class="meta">京都 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第一年11月后 · 粉丝 +1000 / 需 350 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="Pre-OP" data-venue="中山"
+     data-course="中距离" data-name="叶牡丹奖" data-alias="叶牡丹赏"
+     data-jp="葉牡丹賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4517.png" alt="叶牡丹奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-PreOP">Pre-OP</span> 叶牡丹奖</div>
+    <div class="sub">叶牡丹赏 / 葉牡丹賞</div>
+    <div class="meta">中山 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第一年11月后 · 粉丝 +1000 / 需 350 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="Pre-OP" data-venue="中京"
+     data-course="英里赛" data-name="金松奖" data-alias="金松赏"
+     data-jp="こうやまき賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4518.png" alt="金松奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-PreOP">Pre-OP</span> 金松奖</div>
+    <div class="sub">金松赏 / こうやまき賞</div>
+    <div class="meta">中京 · 草地 1600m · 英里赛 · 左</div>
+    <div class="detail">第一年11月后 · 粉丝 +1000 / 需 350 · 速度</div>
+    
+  </div>
+</div><div class="card" data-grade="Pre-OP" data-venue="阪神"
+     data-course="短距离" data-name="朱砂根奖" data-alias="朱砂根赏"
+     data-jp="万両賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4519.png" alt="朱砂根奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-PreOP">Pre-OP</span> 朱砂根奖</div>
+    <div class="sub">朱砂根赏 / 万両賞</div>
+    <div class="meta">阪神 · 草地 1400m · 短距离 · 右</div>
+    <div class="detail">第一年12月前 · 粉丝 +1000 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="Pre-OP" data-venue="中山"
+     data-course="短距离" data-name="黑松奖" data-alias="黑松赏"
+     data-jp="黒松賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4520.png" alt="黑松奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-PreOP">Pre-OP</span> 黑松奖</div>
+    <div class="sub">黑松赏 / 黒松賞</div>
+    <div class="meta">中山 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第一年12月前 · 粉丝 +1000 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="Pre-OP" data-venue="阪神"
+     data-course="中距离" data-name="石楠花奖" data-alias="欧石楠赏"
+     data-jp="エリカ賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4521.png" alt="石楠花奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-PreOP">Pre-OP</span> 石楠花奖</div>
+    <div class="sub">欧石楠赏 / エリカ賞</div>
+    <div class="meta">阪神 · 草地 2000m · 中距离 · 右</div>
+    <div class="detail">第一年12月前 · 粉丝 +1000 / 需 350 · 毅力</div>
+    
+  </div>
+</div><div class="card" data-grade="Pre-OP" data-venue="中京"
+     data-course="短距离" data-name="橐吾奖" data-alias="大吴风草赏"
+     data-jp="つわぶき賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4522.png" alt="橐吾奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-PreOP">Pre-OP</span> 橐吾奖</div>
+    <div class="sub">大吴风草赏 / つわぶき賞</div>
+    <div class="meta">中京 · 草地 1400m · 短距离 · 左</div>
+    <div class="detail">第一年12月前 · 粉丝 +1000 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="Pre-OP" data-venue="中山"
+     data-course="英里赛" data-name="柊树奖" data-alias="刺桂赏"
+     data-jp="ひいらぎ賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4523.png" alt="柊树奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-PreOP">Pre-OP</span> 柊树奖</div>
+    <div class="sub">刺桂赏 / ひいらぎ賞</div>
+    <div class="meta">中山 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第一年12月前 · 粉丝 +1000 / 需 350 · 力量</div>
+    
+  </div>
+</div><div class="card" data-grade="Pre-OP" data-venue="阪神"
+     data-course="短距离" data-name="山茶花奖" data-alias="茶梅赏"
+     data-jp="さざんか賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4524.png" alt="山茶花奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-PreOP">Pre-OP</span> 山茶花奖</div>
+    <div class="sub">茶梅赏 / さざんか賞</div>
+    <div class="meta">阪神 · 草地 1200m · 短距离 · 右</div>
+    <div class="detail">第一年12月前 · 粉丝 +1000 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="Pre-OP" data-venue="中京"
+     data-course="短距离" data-name="寒椿奖" data-alias="寒山茶赏"
+     data-jp="寒椿賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4525.png" alt="寒椿奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-PreOP">Pre-OP</span> 寒椿奖</div>
+    <div class="sub">寒山茶赏 / 寒椿賞</div>
+    <div class="meta">中京 · 泥地 1400m · 短距离 · 左</div>
+    <div class="detail">第一年12月前 · 粉丝 +1000 / 需 350</div>
+    
+  </div>
+</div><div class="card" data-grade="Pre-OP" data-venue="阪神"
+     data-course="英里赛" data-name="草珊瑚奖" data-alias="草珊瑚赏"
+     data-jp="千両賞">
+  <div class="banner"><img loading="lazy" src="../resource/umamusume/data/race_imgs/4526.png" alt="草珊瑚奖"></div>
+  <div class="info">
+    <div class="title"><span class="g g-PreOP">Pre-OP</span> 草珊瑚奖</div>
+    <div class="sub">草珊瑚赏 / 千両賞</div>
+    <div class="meta">阪神 · 草地 1600m · 英里赛 · 右</div>
+    <div class="detail">第一年12月后 · 粉丝 +1000 / 需 350 · 力量</div>
+    
+  </div>
+</div></div>
+<script>
+const sel = {grade: new Set(), venue: new Set(), course: new Set()};
+document.querySelectorAll('.chip').forEach(c => {
+  c.onclick = () => {
+    const s = sel[c.dataset.f];
+    if (s.has(c.dataset.v)) { s.delete(c.dataset.v); c.classList.remove('on'); }
+    else { s.add(c.dataset.v); c.classList.add('on'); }
+    apply();
+  };
+});
+document.getElementById('q').oninput = apply;
+function apply() {
+  const q = document.getElementById('q').value.trim();
+  let n = 0;
+  document.querySelectorAll('.card').forEach(el => {
+    let ok = true;
+    if (sel.grade.size && !sel.grade.has(el.dataset.grade)) ok = false;
+    if (ok && sel.venue.size && !sel.venue.has(el.dataset.venue)) ok = false;
+    if (ok && sel.course.size && !sel.course.has(el.dataset.course)) ok = false;
+    if (ok && q) {
+      const hay = el.dataset.name + '|' + el.dataset.alias + '|' + el.dataset.jp;
+      ok = hay.includes(q);
+    }
+    el.style.display = ok ? '' : 'none';
+    if (ok) n++;
+  });
+  document.getElementById('count').textContent = n + ' / 313 场';
+}
+apply();
+</script>
+</body></html>
