@@ -1,14 +1,16 @@
 # UmamusumeAutoTrainer
 
-> 国服 / 简体中文版《闪耀！优俊少女》自动育成工具。
-> 本仓库在 [shiokaze/UmamusumeAutoTrainer](https://github.com/shiokaze/UmamusumeAutoTrainer) 基础上持续维护，并新增了**数据资产层**与**目标构筑（种马）骨架**等能力。
+> 国服 / 简体中文版《闪耀！优俊少女》（赛马娘）自动育成工具。
+> 本仓库是 [shiokaze/UmamusumeAutoTrainer](https://github.com/shiokaze/UmamusumeAutoTrainer) 的衍生品，在原有自动育成能力之上，新增了**数据资产层**与**目标构筑（种马）骨架**。
+
+> 当前维护仓库：https://github.com/cangwulu/UmamusumeAutoBreeding
 
 ---
 
 ## 📌 关于本项目
 
-- **原项目**：[shiokaze/UmamusumeAutoTrainer](https://github.com/shiokaze/UmamusumeAutoTrainer)，作者 [@shiokaze](https://github.com/shiokaze)
-- **本仓库定位**：在原项目基础上扩展数据资产、技能/事件查询与目标构筑能力，作为可长期演进的独立项目维护。
+- **上游原项目**：[shiokaze/UmamusumeAutoTrainer](https://github.com/shiokaze/UmamusumeAutoTrainer)，作者 [@shiokaze](https://github.com/shiokaze)
+- **本仓库定位**：基于上游持续演进的独立项目，重点扩展**数据资产**（BWIKI 技能 / 事件 / 马娘数据、马娘自带技能查询）与**目标构筑（种马）**能力，作为可长期维护的项目存在。
 - ⚠️ 目前仅支持**国服 / 简体中文版**，不支持其他版本（含国际服）。
 
 ---
@@ -17,20 +19,28 @@
 
 | 模块 | 文件 | 说明 |
 |------|------|------|
-| **BWIKI 数据资产层** | `resource/umamusume/data/*.json` | 从 BWIKI 抓取的权威数据：技能速查表（1000 条，含评价分）、巅峰杯事件（161 个）、马娘形态（139 个，成长率+适应性）、马娘→自带技能归属库（130 角色） |
+| **BWIKI 数据资产层** | `resource/umamusume/data/*.json` | 从 BWIKI 抓取的权威数据：技能速查表（1000 条，含评价分）、巅峰杯事件（161 个）、马娘形态（139 个，成长率 + 适应性）、马娘 → 自带技能归属库（130 角色） |
 | **技能排序** | `module/umamusume/asset/skill_order.py` | 基于 BWIKI 评价分对候选技能排序，供育成主循环贪心选技 |
-| **马娘自带技能查询** | `module/umamusume/asset/chara_skills.py` | 查询任意马娘的固有/觉醒/初始技能；`suggest_not_to_learn()` 可剔除马娘已自带技能，避免白花技能点重复学习 |
+| **马娘自带技能查询** | `module/umamusume/asset/chara_skills.py` | 查询任意马娘的固有 / 觉醒 / 初始技能；`suggest_not_to_learn()` 可剔除已自带技能，避免白花技能点重复学习 |
 | **事件库与匹配** | `module/umamusume/asset/event_db.py` | 事件数据结构与匹配逻辑（基于 BWIKI 事件表构建） |
-| **目标构筑（种马）骨架** | `module/umamusume/script/cultivate_task/target_build.py` | **早期阶段**：按外部规划好的"规格"（技能/适应性/属性阈值）驱动育成的骨架，`BuildSpec` + `TargetBuildPlanner` 接口已就位，策略逻辑待填充 |
+| **目标构筑（种马）骨架** | `module/umamusume/script/cultivate_task/target_build.py` | **早期阶段**：按外部规划好的"规格"（技能 / 适应性 / 属性阈值）驱动育成的骨架，`BuildSpec` + `TargetBuildPlanner` 接口已就位，策略逻辑待填充 |
 
-### 数据抓取脚本（`tools/`）
+### 数据抓取脚本（`tools/`，不参与运行时）
 
-不参与运行时，仅用于重建/更新数据资产：
+仅用于重建 / 更新数据资产：
 
 - `fetch_bwiki_skills.py` — 抓取 BWIKI 技能速查表（`#jn-json` 容器）
 - `fetch_bwiki_extra.py` — 抓取事件 / 马娘 HTML 表格（`--no-chars` / `--no-events` 可跳过）
-- `build_chara_skills.py` — 由 pretty-derby `db.json` + `zh_CN.json` 构建马娘→技能归属库
+- `build_chara_skills.py` — 由 pretty-derby `db.json` + `zh_CN.json` 构建马娘 → 技能归属库
 - `build_event_db.py` / `fetch_upstream.py` — 事件库构建 / 上游同步
+
+---
+
+## 📖 术语说明：本文的「种马」
+
+本仓库提到的"养种马 / 种马"，指**你在外部育成模拟器 / 配种规划器上推理出的"每一代目标马娘规格"（技能 / 适应性 / 属性阈值）**，由程序按规格自动操纵模拟器练出来。
+
+它**不是**游戏内的繁殖 / 因子继承机制。对应代码模块为 `target_build.py`（目标构筑），命名刻意不使用 `breeding` / `inherit`，以便日后留给真正的游戏内繁殖功能。
 
 ---
 
@@ -64,7 +74,7 @@ UmamusumeAutoTrainer/
 ### 1. 下载
 
 ```bash
-git clone <本仓库地址>
+git clone https://github.com/cangwulu/UmamusumeAutoBreeding.git
 cd UmamusumeAutoTrainer
 ```
 
@@ -111,7 +121,7 @@ bot:
 5. 不推荐携带友人卡（暂无友人卡专属策略）
 6. 启动脚本时处于主菜单或任意育成界面
 
-异常排查与常见问题见[原仓库说明](https://github.com/shiokaze/UmamusumeAutoTrainer)对应章节。
+异常排查与常见问题见[上游原仓库说明](https://github.com/shiokaze/UmamusumeAutoTrainer)对应章节。
 
 ---
 
@@ -128,11 +138,12 @@ bot:
 
 ## 📜 许可证与版权声明
 
-本项目是基于 [shiokaze/UmamusumeAutoTrainer](https://github.com/shiokaze/UmamusumeAutoTrainer) 的衍生作品。
+本项目是 [shiokaze/UmamusumeAutoTrainer](https://github.com/shiokaze/UmamusumeAutoTrainer) 的**衍生作品（fork）**。
 
-- **原项目**未指定开源许可证，原作者 [@shiokaze](https://github.com/shiokaze) 保留原始代码的所有权利。
-- **本仓库新增代码与修改**采用 [MIT License](LICENSE) 开源协议。
-- 使用本项目代码请尊重原作者贡献，并在衍生作品中保留本声明。
+- **上游原项目**：作者 [@shiokaze](https://github.com/shiokaze)。上游**未指定开源许可证**，其原始代码的所有权利由原作者保留。
+- **本仓库新增与修改的代码**：采用 [MIT License](LICENSE) 开源协议。
+- **使用与再分发**：基于本仓库进行二次开发或再分发时，请保留本声明，就新增部分遵守 MIT 协议，并尊重上游原作者 @shiokaze 的贡献与权利。
+- **数据来源**：[BWIKI（biligame 赛马娘 wiki）](https://wiki.biligame.com/umamusume)、[pretty-derby db](https://github.com/uma-meow/pretty-derby)。游戏内容版权归 Cygames / 哔哩哔哩所有。
 
 ---
 
@@ -140,8 +151,8 @@ bot:
 
 欢迎提交 Issue 与 Pull Request。
 
-- 原作者：[@shiokaze](https://github.com/shiokaze)
-- 数据来源：[BWIKI（biligame 赛马娘 wiki）](https://wiki.biligame.com/umamusume)、[pretty-derby db](https://github.com/uma-meow/pretty-derby)
+- 上游原作者：[@shiokaze](https://github.com/shiokaze)
+- 当前维护仓库：[@cangwulu/UmamusumeAutoBreeding](https://github.com/cangwulu/UmamusumeAutoBreeding)
 
 ---
 
