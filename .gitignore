@@ -8,3 +8,4 @@ models/paddleocr
 .npm-cache-check
 screenshots
 tools/.cache/
+.workbuddy/

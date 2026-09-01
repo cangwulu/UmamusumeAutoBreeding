@@ -12,10 +12,24 @@ from module.umamusume.script.cultivate_task.const import SKILL_LEARN_PRIORITY_LI
 from module.umamusume.script.cultivate_task.event.manifest import get_event_choice
 from module.umamusume.script.cultivate_task.parse import *
 
+# 目标构筑育成（TargetBuild）挂接：按用户在别处规划好的「种马」规格练马。
+# 模块本身不依赖 bot，可独立 import；具体策略逻辑见 target_build.py。
+from module.umamusume.script.cultivate_task.target_build import (
+    CultivateGoal, select_cultivate_strategy)
+
 log = logger.get_logger(__name__)
 
 
 def script_cultivate_main_menu(ctx: UmamusumeContext):
+    # === TargetBuild 挂接点（默认关闭，保持原 RACE 流程）===
+    # 启用目标构筑模式时：若 ctx.cultivate_detail 带 goal == CultivateGoal.BUILD，
+    # 在此路由到 TargetBuildPlanner.run(ctx, spec)，由 target_build 按规格规划动作。
+    # 当前为占位，不影响现有竞技向育成：
+    # _goal = getattr(ctx.cultivate_detail, "goal", CultivateGoal.RACE)
+    # _strategy = select_cultivate_strategy(_goal)
+    # if _strategy is not None:
+    #     return _strategy.run(ctx, ...)
+
     img = ctx.current_screen
     current_date = parse_date(img, ctx)
     if current_date == -1:
