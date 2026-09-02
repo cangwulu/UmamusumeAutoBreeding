@@ -58,3 +58,138 @@ def check(directory: str = DEFAULT_INVENTORY) -> Dict[str, object]:
         "missing_files": missing,
         "problems": problems,
     }
+
+
+# ============ CSV 行级读写（Web 点选页用, 保留用户备注等其它列） ============
+
+CHAR_HEADER = ["形态名", "角色名", "拥有", "星级", "觉醒", "备注"]  # 拥有的确切表头前缀
+CARD_HEADER = ["卡名", "关联马娘", "类型", "稀有度", "拥有", "突破", "等级", "备注"]
+
+
+def _read_csv_rows(path: str) -> list:
+    """读回原始行(list[list]), 处理 BOM。"""
+    import csv
+    with open(path, "r", encoding="utf-8-sig", newline="") as f:
+        return list(csv.reader(f))
+
+
+def _write_csv_rows(path: str, rows: list) -> None:
+    import csv
+    with open(path, "w", encoding="utf-8-sig", newline="") as f:
+        w = csv.writer(f)
+        for row in rows:
+            w.writerow(row)
+
+
+def read_state(directory: str = DEFAULT_INVENTORY) -> Dict[str, object]:
+    """读库存三表为 JSON 友好结构(供网页渲染), 每项附图片文件名(img 可为空)。"""
+    rows = _read_csv_rows(os.path.join(directory, "my_characters.csv"))
+    header = rows[0] if rows else []
+    # 定位列（按表头名, 容错顺序）
+    def col(name, default):
+        for i, h in enumerate(header):
+            if name in h:
+                return i
+        return default
+    ci_form, ci_role = col("形态名", 0), col("角色名", 1)
+    ci_own, ci_star, ci_awk = col("拥有", 2), col("星级", 3), col("觉醒", 4)
+    ci_note = col("备注", 5)
+    characters = []
+    for r in rows[1:]:
+        if len(r) < 2:
+            continue
+        characters.append({
+            "idx": len(characters), "form": r[ci_form].strip(),
+            "role": r[ci_role].strip(),
+            "own": (r[ci_own].strip() if len(r) > ci_own else "") == "1",
+            "star": _clean_int(r, ci_star), "awaken": _clean_int(r, ci_awk),
+            "note": (r[ci_note].strip() if len(r) > ci_note else ""),
+        })
+
+    rows = _read_csv_rows(os.path.join(directory, "my_support_cards.csv"))
+    header = rows[0] if rows else []
+    def col2(name, default):
+        for i, h in enumerate(header):
+            if name in h:
+                return i
+        return default
+    k_name, k_role = col2("卡名", 0), col2("关联马娘", 1)
+    k_type, k_rar = col2("类型", 2), col2("稀有度", 3)
+    k_own, k_awk, k_lv = col2("拥有", 4), col2("突破", 5), col2("等级", 6)
+    cards = []
+    for r in rows[1:]:
+        if not r or not r[0].strip():
+            continue
+        cards.append({
+            "idx": len(cards), "name": r[k_name].strip(),
+            "role": (r[k_role].strip() if len(r) > k_role else ""),
+            "ctype": (r[k_type].strip() if len(r) > k_type else ""),
+            "rarity": (r[k_rar].strip() if len(r) > k_rar else ""),
+            "own": (r[k_own].strip() if len(r) > k_own else "") == "1",
+            "awaken": _clean_int(r, k_awk), "level": _clean_int(r, k_lv),
+        })
+
+    return {"characters": characters, "cards": cards}
+
+
+def apply_updates(char_updates: list, card_updates: list,
+                  directory: str = DEFAULT_INVENTORY) -> Dict[str, int]:
+    """按 idx 更新 拥有/星级/觉醒(马娘) 与 拥有/突破/等级(卡)。
+
+    只改指定列, 其余(备注/角色名等)原样保留。
+    """
+    n = {"characters": 0, "cards": 0}
+    if char_updates:
+        rows = _read_csv_rows(os.path.join(directory, "my_characters.csv"))
+        header = rows[0] if rows else []
+        ci_own, ci_star, ci_awk = 2, 3, 4
+        for i, h in enumerate(header):
+            if "拥有" in h:
+                ci_own = i
+            elif "星级" in h:
+                ci_star = i
+            elif "觉醒" in h:
+                ci_awk = i
+        for u in char_updates:
+            idx = int(u.get("idx", -1))
+            row_idx = idx + 1  # 跳过表头
+            if 0 <= idx < len(rows) - 1:
+                r = rows[row_idx]
+                while len(r) <= max(ci_own, ci_star, ci_awk):
+                    r.append("")
+                r[ci_own] = "1" if u.get("own") else ""
+                r[ci_star] = str(u.get("star", "")) if u.get("own") else ""
+                r[ci_awk] = str(u.get("awaken", "")) if u.get("own") else ""
+                n["characters"] += 1
+        _write_csv_rows(os.path.join(directory, "my_characters.csv"), rows)
+
+    if card_updates:
+        rows = _read_csv_rows(os.path.join(directory, "my_support_cards.csv"))
+        header = rows[0] if rows else []
+        k_own, k_awk, k_lv = 4, 5, 6
+        for i, h in enumerate(header):
+            if "拥有" in h:
+                k_own = i
+            elif "突破" in h:
+                k_awk = i
+            elif "等级" in h:
+                k_lv = i
+        for u in card_updates:
+            idx = int(u.get("idx", -1))
+            if 0 <= idx < len(rows) - 1:
+                r = rows[idx + 1]
+                while len(r) <= max(k_own, k_awk, k_lv):
+                    r.append("")
+                r[k_own] = "1" if u.get("own") else ""
+                r[k_awk] = str(u.get("awaken", "")) if u.get("own") else ""
+                r[k_lv] = str(u.get("level", "")) if u.get("own") else ""
+                n["cards"] += 1
+        _write_csv_rows(os.path.join(directory, "my_support_cards.csv"), rows)
+    return n
+
+
+def _clean_int(r, i) -> int:
+    try:
+        return int(r[i].strip()) if len(r) > i and r[i].strip() else 0
+    except Exception:
+        return 0

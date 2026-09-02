@@ -64,6 +64,14 @@ async def get_index():
     })
 
 
+# ===== M1 规划闭环 Web API（库存点选/大赛登记/规划）+ 图片静态 =====
+# 注意: 必须注册在下方 catch-all 静态兜底路由之前, 否则 /api/* 会被兜底抢走
+from module.umamusume.planning import web_api as _plan_web_api  # noqa: E402
+
+server.include_router(_plan_web_api.router)
+server.include_router(_plan_web_api.media_router, prefix="/media")
+
+
 # public 目录的绝对根，兜底路由只允许服务该目录内的文件（防 ../ 路径穿越）
 PUBLIC_ROOT = os.path.realpath("public")
 

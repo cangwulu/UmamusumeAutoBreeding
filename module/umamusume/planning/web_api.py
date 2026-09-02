@@ -1,0 +1,252 @@
+# -*- coding: utf-8 -*-
+"""库存点选 + 大赛登记 + 规划 的 Web API (FastAPI router, 供 planning.html 使用).
+
+端点半览:
+  GET  /api/inventory        库存全量(state) —— 含图片文件名
+  POST /api/inventory        按 idx 批量更新 拥有/星级/觉醒(卡:突破/等级)
+  GET  /api/cup              已登记大赛情报 (未登记返回 null)
+  POST /api/cup              保存大赛情报 (支持 --race 式比赛名查证)
+  GET  /api/races?q=xxx      比赛名候选
+  POST /api/plan             运行规划 -> 返回摘要 + 报告路径
+  GET  /media/chara/{file}   马娘头像静态
+  GET  /media/card/{file}    协助卡卡面静态
+"""
+
+import json
+import os
+import sys
+from typing import List
+
+from fastapi import APIRouter, HTTPException
+from fastapi.responses import FileResponse, JSONResponse
+from pydantic import BaseModel
+
+_PKG_DIR = os.path.dirname(os.path.abspath(__file__))
+_PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(_PKG_DIR)))
+if _PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, _PROJECT_ROOT)
+
+from module.umamusume.planning import inventory as inv_svc
+from module.umamusume.planning import planner as plan_svc
+from module.umamusume.planning.cup_info import (CONDITIONS, DIRECTIONS,
+                                                DEFAULT_CUP_FILE, STYLES,
+                                                SURFACES, WEATHERS, CupInfo)
+
+router = APIRouter(prefix="/api")
+
+# ---------- 图片文件名 -> URL 映射（启动时读 manifest, 失败静默降级无图） ----------
+_CHARA_IMG_DIR = os.path.join(_PROJECT_ROOT, "resource", "umamusume", "chara_icon")
+_CARD_IMG_DIR = os.path.join(_PROJECT_ROOT, "resource", "umamusume", "support_card_img")
+
+
+def _load_chara_img_map() -> dict:
+    """形态名 -> 图标文件名。按 manifest.roles[角色].images 与 CSV 形态顺序对齐。"""
+    try:
+        with open(os.path.join(_PROJECT_ROOT, "resource", "umamusume",
+                               "chara_icon_manifest.json"), encoding="utf-8") as f:
+            man = json.load(f)
+    except Exception:
+        return {}
+    out = {}
+    # 建立 角色 -> [(形态名?, 文件)]：manifest 无形态名, 由 CSV 顺序对齐, 故此处只存角色 images
+    for role, info in man.get("roles", {}).items():
+        imgs = info.get("images") or []
+        if imgs:
+            out[role] = imgs
+    return out
+
+
+def _load_card_img_map() -> dict:
+    """卡名(含【】) -> 图片文件名。manifest 精确映射。"""
+    try:
+        with open(os.path.join(_PROJECT_ROOT, "resource", "umamusume",
+                               "support_card_img_manifest.json"), encoding="utf-8") as f:
+            man = json.load(f)
+    except Exception:
+        return {}
+    out = {}
+    for name, path in man.get("cards", {}).items():
+        out[name] = os.path.basename(path)
+    return out
+
+
+_CHARA_ROLE_IMGS = _load_chara_img_map()
+_CARD_IMG = _load_card_img_map()
+
+
+def _decorate(state: dict) -> dict:
+    """给 state 的每项附 img 字段(文件名, 可空)。"""
+    role_count = {}
+    for c in state.get("characters", []):
+        role = c["role"]
+        imgs = _CHARA_ROLE_IMGS.get(role) or []
+        i = role_count.get(role, 0)
+        role_count[role] = i + 1
+        c["img"] = os.path.basename(imgs[i]) if i < len(imgs) else (os.path.basename(imgs[0]) if imgs else "")
+    for c in state.get("cards", []):
+        c["img"] = _CARD_IMG.get(c["name"], "")
+    return state
+
+
+# ---------- 模型 ----------
+class CharaUpdate(BaseModel):
+    idx: int
+    own: bool = False
+    star: int = 0
+    awaken: int = 0
+
+
+class CardUpdate(BaseModel):
+    idx: int
+    own: bool = False
+    awaken: int = 0
+    level: int = 0
+
+
+class InventoryUpdate(BaseModel):
+    characters: List[CharaUpdate] = []
+    cards: List[CardUpdate] = []
+
+
+class CupPayload(BaseModel):
+    race_name: str = ""
+    venue: str = ""
+    distance: int = 2000
+    surface: str = "草地"
+    direction: str = "右"
+    weather: str = "晴"
+    condition: str = "良"
+    style: str = "差"
+    note: str = ""
+
+
+# ---------- 库存 ----------
+@router.get("/inventory")
+def get_inventory():
+    try:
+        state = inv_svc.read_state()
+    except Exception as exc:  # noqa: BLE001
+        raise HTTPException(status_code=500, detail="读取库存失败: %s" % exc)
+    _decorate(state)
+    n_own_c = sum(1 for c in state["characters"] if c["own"])
+    n_own_k = sum(1 for c in state["cards"] if c["own"])
+    return {**state, "counts": {"characters": len(state["characters"]),
+                                "cards": len(state["cards"]),
+                                "own_characters": n_own_c,
+                                "own_cards": n_own_k}}
+
+
+@router.post("/inventory")
+def update_inventory(payload: InventoryUpdate):
+    try:
+        res = inv_svc.apply_updates(
+            [u.dict() for u in payload.characters],
+            [u.dict() for u in payload.cards])
+    except Exception as exc:  # noqa: BLE001
+        raise HTTPException(status_code=500, detail="保存失败: %s" % exc)
+    return {"ok": True, "updated": res}
+
+
+# ---------- 大赛情报 ----------
+@router.get("/cup")
+def get_cup():
+    cup = CupInfo.load()
+    return json.loads(json.dumps(cup.__dict__, ensure_ascii=False)) if cup else None
+
+
+@router.post("/cup")
+def save_cup(payload: CupPayload):
+    cup = CupInfo(**payload.dict())
+    errs = cup.validate()
+    if errs:
+        raise HTTPException(status_code=422, detail="; ".join(errs))
+    cup.save()
+    return {"ok": True, "cup": cup.__dict__}
+
+
+@router.get("/races")
+def query_races(q: str = ""):
+    """比赛候选(前端 datalist 联想): [{name, venue, distance, surface, direction}]。"""
+    try:
+        from module.umamusume.asset import stud_planner
+        data = stud_planner.load_json("race_bwiki.json")
+    except Exception:
+        return []
+    out, seen = [], set()
+    for r in data.get("races", []):
+        names = [r.get("name")] or []
+        jp = r.get("jp_name")
+        if jp and jp != r.get("name"):
+            names.append(jp)
+        for n in names:
+            if not n or n in seen:
+                continue
+            seen.add(n)
+            out.append({
+                "name": n, "venue": r.get("venue", ""),
+                "distance": int(r.get("distance") or 0),
+                "surface": r.get("track", "草地"),
+                "direction": r.get("direction", "右"),
+            })
+    if q:
+        q = q.strip()
+        out = [x for x in out if q in x["name"]]
+    return sorted(out, key=lambda x: x["name"])[:200]
+
+
+# ---------- 规划 ----------
+class PlanPayload(BaseModel):
+    top: int = 5
+    style: str = ""   # 覆盖 cup.style
+
+
+@router.post("/plan")
+def run_plan(payload: PlanPayload):
+    cup = CupInfo.load()
+    if cup is None:
+        raise HTTPException(status_code=400,
+                            detail="尚未登记大赛情报, 请先填大赛标签页")
+    if payload.style:
+        cup.style = payload.style
+    try:
+        out = plan_svc.plan(cup, top=payload.top)
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc))
+    except Exception as exc:  # noqa: BLE001
+        raise HTTPException(status_code=500, detail="规划失败: %s" % exc)
+    return {"ok": True,
+            "summary": out["summary"],
+            "md": _read_tail(out["md_path"]),
+            "md_path": out["md_path"],
+            "json_path": out["json_path"]}
+
+
+def _read_tail(path: str, n: int = 2000) -> str:
+    try:
+        with open(path, encoding="utf-8") as f:
+            return f.read()[-n:]
+    except Exception:
+        return ""
+
+
+# ---------- 图片静态(限定文件名, 防穿越) ----------
+def _safe_media(img_dir: str, file: str):
+    if not file or ".." in file or "/" in file or "\\" in file:
+        raise HTTPException(status_code=400, detail="bad file name")
+    full = os.path.join(img_dir, file)
+    if not os.path.isfile(full):
+        raise HTTPException(status_code=404, detail="not found")
+    return full
+
+
+media_router = APIRouter()
+
+
+@media_router.get("/chara/{file}")
+def media_chara(file: str):
+    return FileResponse(_safe_media(_CHARA_IMG_DIR, file))
+
+
+@media_router.get("/card/{file}")
+def media_card(file: str):
+    return FileResponse(_safe_media(_CARD_IMG_DIR, file))

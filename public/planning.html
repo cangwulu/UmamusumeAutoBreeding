@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>赛马娘 · 库存与大赛规划</title>
+<style>
+:root{
+  --c1:#7a1f1f; --c2:#9c3a3a; --bg:#faf7f2; --panel:#ffffff; --line:#e6ddd0;
+  --ink:#2b2620; --sub:#8a7f6f; --ok:#2e7d32; --dirty:#b26a00;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Microsoft YaHei","PingFang SC",sans-serif;background:var(--bg);color:var(--ink);font-size:14px}
+header{background:linear-gradient(90deg,var(--c1),var(--c2));color:#fff;padding:10px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+header h1{font-size:17px;font-weight:600;letter-spacing:1px}
+.badges{display:flex;gap:8px;flex-wrap:wrap}
+.badge{background:rgba(255,255,255,.16);border-radius:12px;padding:2px 10px;font-size:12px}
+.badge b{font-size:13px}
+.toolbar{display:flex;gap:8px;margin-left:auto;align-items:center}
+.btn{border:none;border-radius:8px;padding:7px 16px;cursor:pointer;font-size:14px}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn-primary{background:#b8860b;color:#fff}
+.btn-primary:hover{background:#a3750a}
+.btn-ghost{background:rgba(255,255,255,.2);color:#fff}
+.btn-danger{background:#c62828;color:#fff}
+.btn-soft{background:#e8e0d2;color:#4a3f30}
+nav{display:flex;background:var(--panel);border-bottom:1px solid var(--line);padding:0 18px}
+nav button{border:none;background:none;padding:11px 18px;font-size:15px;color:var(--sub);cursor:pointer;border-bottom:3px solid transparent}
+nav button.active{color:var(--c1);border-bottom-color:var(--c1);font-weight:600}
+main{max-width:1180px;margin:0 auto;padding:14px 18px 40px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-top:14px}
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.filters input[type=text]{flex:1;min-width:180px;padding:7px 12px;border:1px solid var(--line);border-radius:8px;font-size:14px}
+.filters select,.cup input,.cup select{padding:6px 8px;border:1px solid var(--line);border-radius:8px;font-size:13px;background:#fff}
+.row{display:flex;align-items:center;gap:10px;padding:7px 8px;border-bottom:1px solid #f3ece0;flex-wrap:wrap}
+.row:hover{background:#fbf6ee}
+.row.owned{background:#fff8e6}
+.thumb{width:42px;height:42px;border-radius:8px;object-fit:cover;background:#f0e9dc;flex:none}
+.thumb.placeholder{display:flex;align-items:center;justify-content:center;font-size:16px;color:#a99c87}
+.info{flex:1;min-width:150px}
+.info .nm{font-weight:500}
+.info .sub{color:var(--sub);font-size:12px}
+.tag{font-size:11px;color:#fff;border-radius:5px;padding:1px 7px;margin-left:6px;vertical-align:1px}
+.tag.SSR{background:#c9a227}.tag.SR{background:#9a7b4f}.tag.R{background:#7a8b99}
+.ctrl{display:flex;gap:6px;align-items:center;flex:none}
+.ctrl label{font-size:12px;color:var(--sub)}
+.own-chk{width:18px;height:18px;accent-color:var(--c1);cursor:pointer}
+.dirty-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--dirty);margin-right:6px}
+.hint{color:var(--sub);font-size:13px}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin:10px 0}
+.stat{background:#fbf6ee;border:1px solid var(--line);border-radius:10px;padding:8px 10px;text-align:center}
+.stat .k{color:var(--sub);font-size:12px}
+.stat .v{font-size:17px;font-weight:600;color:var(--c1)}
+.cup-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:12px 0}
+.cup-grid label{display:block;font-size:12px;color:var(--sub);margin-bottom:3px}
+.cup-grid input,.cup-grid select{width:100%;padding:7px 9px;border:1px solid var(--line);border-radius:8px;font-size:14px}
+.cup-grid .wide{grid-column:1/-1}
+#raceList{list-style:none;max-height:160px;overflow:auto;border:1px solid var(--line);border-radius:8px;margin-top:6px;display:none}
+#raceList li{padding:6px 10px;cursor:pointer;font-size:13px}
+#raceList li:hover{background:#fbf0dc}
+.cand{display:flex;gap:12px;border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin-top:10px;background:#fdfbf7;align-items:center}
+.cand .rank{font-size:20px;font-weight:700;color:var(--c2);width:26px;text-align:center;flex:none}
+.cand .sc{text-align:right;flex:none;min-width:60px}
+.cand .sc b{font-size:20px;color:var(--c1)}
+.cand .gap{color:var(--sub);font-size:12px;flex:1;min-width:120px}
+.preview{background:#f4ede1;border-radius:10px;padding:12px;margin-top:14px;font-family:Consolas,monospace;font-size:12px;white-space:pre-wrap;max-height:380px;overflow:auto;color:#3a332a}
+.toast{position:fixed;right:18px;bottom:18px;background:#32302c;color:#fff;padding:10px 18px;border-radius:10px;font-size:14px;display:none;z-index:9}
+.toast.ok{background:#2e7d32}.toast.err{background:#c62828}
+#ownSummary{color:#ffe9a8}
+.empty{color:var(--sub);text-align:center;padding:30px 0}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid #fff4;border-top-color:#fff;border-radius:50%;animation:sp 0.8s linear infinite;vertical-align:-2px}
+@keyframes sp{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<header>
+  <h1>赛马娘 育种助手</h1>
+  <div class="badges">
+    <span class="badge">马娘 <b id="cntChara">0</b></span>
+    <span class="badge">已拥有 <b id="ownChara">0</b></span>
+    <span class="badge">协助卡 <b id="cntCard">0</b></span>
+    <span class="badge">已拥有 <b id="ownCard">0</b></span>
+    <span id="ownSummary" class="badge" style="display:none"></span>
+  </div>
+  <div class="toolbar">
+    <button class="btn btn-primary" id="btnSave" disabled>保存到 CSV</button>
+    <button class="btn btn-ghost" id="btnReload">重载</button>
+  </div>
+</header>
+<nav>
+  <button data-tab="chara" class="active">马娘</button>
+  <button data-tab="card">协助卡</button>
+  <button data-tab="cup">大赛与规划</button>
+</nav>
+
+<main>
+  <!-- 马娘 -->
+  <section id="tab-chara">
+    <div class="panel filters">
+      <input type="text" id="charaQ" placeholder="搜索形态/角色名…">
+      <select id="charaFilter"><option value="all">全部</option><option value="own">已拥有</option><option value="no">未拥有</option></select>
+      <span class="hint" id="charaStats"></span>
+    </div>
+    <div class="panel" id="charaList"><div class="empty">加载中…</div></div>
+  </section>
+  <!-- 协助卡 -->
+  <section id="tab-card" style="display:none">
+    <div class="panel filters">
+      <input type="text" id="cardQ" placeholder="搜索卡名/关联马娘…">
+      <select id="cardType"><option value="">全部类型</option></select>
+      <select id="cardRar"><option value="">全部稀有度</option><option value="SSR">SSR</option><option value="SR">SR</option><option value="R">R</option></select>
+      <select id="cardFilter"><option value="all">全部</option><option value="own">已拥有</option><option value="no">未拥有</option></select>
+      <span class="hint" id="cardStats"></span>
+    </div>
+    <div class="panel" id="cardList"><div class="empty">加载中…</div></div>
+  </section>
+  <!-- 大赛与规划 -->
+  <section id="tab-cup" style="display:none">
+    <div class="panel">
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <h3 style="font-size:15px">下次大赛情报</h3>
+        <button class="btn btn-soft" id="btnCupSave">保存大赛</button>
+        <span class="hint" id="cupSaved"></span>
+      </div>
+      <div class="cup-grid">
+        <div class="wide">
+          <label>比赛名（可输入联查, 选中自动带出赛道）</label>
+          <input type="text" id="cupRace" placeholder="如: 有馬記念 / 中山大奖赛 …">
+          <ul id="raceList"></ul>
+        </div>
+        <div><label>场地 venue</label><input type="text" id="cupVenue" placeholder="中山"></div>
+        <div><label>距离(米)</label><input type="number" id="cupDist" value="2000" min="1000" max="3600"></div>
+        <div><label>跑法(预判主流)</label>
+          <select id="cupStyle"><option>差</option><option>逃</option><option>先</option><option>追</option></select></div>
+        <div><label>场地类型</label>
+          <select id="cupSurface"><option>草地</option><option>泥地</option></select></div>
+        <div><label>方向</label>
+          <select id="cupDir"><option>右</option><option>左</option></select></div>
+        <div><label>天气</label>
+          <select id="cupWeather"><option>晴</option><option>阴</option><option>雨</option><option>雪</option><option>小雪</option><option>暴雨</option></select></div>
+        <div><label>马场状态</label>
+          <select id="cupCond"><option>良</option><option>稍重</option><option>重</option><option>不良</option></select></div>
+        <div class="wide"><label>备注（大赛日期/环境/BP 等）</label>
+          <input type="text" id="cupNote" placeholder="可选"></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <h3 style="font-size:15px">种马规划</h3>
+        <label class="hint">候选数 <select id="planTop" style="padding:4px">
+          <option value="5">5</option><option value="8">8</option><option value="10">10</option></select></label>
+        <button class="btn btn-primary" id="btnPlan">运行规划</button>
+        <span class="hint" id="planInfo"></span>
+      </div>
+      <div id="planResult"><div class="hint" style="margin-top:10px">保存大赛后可运行规划。</div></div>
+    </div>
+  </section>
+</main>
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+const $ = (id) => document.getElementById(id);
+let STATE = null;          // 服务端原值
+let DIRTY = {};            // "c{idx}" / "k{idx}" -> {fields}
+let RACES = [];            // 比赛候选
+let active = "chara";
+
+async function api(path, opt) {
+  const r = await fetch(path, opt);
+  if (!r.ok) {
+    let d = "请求失败";
+    try { d = (await r.json()).detail || d; } catch(e) {}
+    throw new Error(d);
+  }
+  return r.json();
+}
+function toast(msg, ok=true){
+  const t=$("toast"); t.textContent=msg; t.className="toast "+(ok?"ok":"err");
+  t.style.display="block"; clearTimeout(t._h); t._h=setTimeout(()=>t.style.display="none",2600);
+}
+function imgUrl(kind, f){ return f ? ("/media/" + kind + "/" + encodeURIComponent(f)) : ""; }
+function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+
+// ---------- 渲染 ----------
+function refreshBadges(){
+  const ch = STATE.characters, ca = STATE.cards;
+  const ownC = ch.filter(x=>x.own).length, ownK = ca.filter(x=>x.own).length;
+  $("cntChara").textContent = ch.length; $("ownChara").textContent = ownC;
+  $("cntCard").textContent = ca.length; $("ownCard").textContent = ownK;
+  const os = $("ownSummary");
+  if (ownC===0 && ownK===0) { os.style.display="none"; }
+  else { os.style.display=""; os.textContent = "可规划组合: " + (ownC>0?ownC+" 马娘":"") + (ownC>0&&ownK>0?" + ":"") + (ownK>0?ownK+" 卡":""); }
+  $("btnSave").disabled = Object.keys(DIRTY).length === 0;
+}
+function rowChara(c){
+  const d = DIRTY["c"+c.idx] || {};
+  const own = d.own !== undefined ? d.own : c.own;
+  const star = d.star !== undefined ? d.star : c.star;
+  const awk = d.awaken !== undefined ? d.awaken : c.awaken;
+  const url = imgUrl("chara", c.img);
+  const div = document.createElement("div");
+  div.className = "row" + (own ? " owned" : "");
+  div.innerHTML =
+    (url? `<img class="thumb" src="${esc(url)}" onerror="this.outerHTML='<div class=\\'thumb placeholder\\'>马</div>'">`
+        : `<div class="thumb placeholder">马</div>`) +
+    `<div class="info"><span class="nm">${esc(c.form)}</span>
+       ${d.own!==undefined||d.star!==undefined||d.awaken!==undefined?'<span class="dirty-dot"></span>':''}
+       <div class="sub">${esc(c.role)}${c.note?" · "+esc(c.note):""}</div></div>` +
+    `<div class="ctrl">
+       <label>拥有</label><input type="checkbox" class="own-chk" ${own?"checked":""}>
+       <label>星</label><select class="f-star">${[1,2,3,4,5].map(n=>`<option ${star===n?"selected":""}>${n}</option>`).join("")}</select>
+       <label>觉醒</label><select class="f-awk">${[0,1,2,3,4,5].map(n=>`<option ${awk===n?"selected":""}>${n}</option>`).join("")}</select>
+     </div>`;
+  const sync = () => {
+    const o = div.querySelector(".own-chk").checked;
+    const s = +div.querySelector(".f-star").value, a = +div.querySelector(".f-awk").value;
+    if (o!==c.own || s!==c.star || a!==c.awaken) {
+      DIRTY["c"+c.idx] = {own:o, star:o?s:0, awaken:o?a:0};
+    } else { delete DIRTY["c"+c.idx]; }
+    div.className = "row" + (o?" owned":"");
+    div.querySelectorAll(".dirty-dot").forEach(x=>x.remove());
+    if (DIRTY["c"+c.idx]) div.querySelector(".info").insertAdjacentHTML("afterbegin",'<span class="dirty-dot"></span>');
+    refreshBadges();
+  };
+  div.querySelector(".own-chk").onchange = sync;
+  div.querySelector(".f-star").onchange = sync;
+  div.querySelector(".f-awk").onchange = sync;
+  return div;
+}
+function rowCard(c){
+  const d = DIRTY["k"+c.idx] || {};
+  const own = d.own !== undefined ? d.own : c.own;
+  const awk = d.awaken !== undefined ? d.awaken : c.awaken;
+  const lv  = d.level !== undefined ? d.level : c.level;
+  const url = imgUrl("card", c.img);
+  const div = document.createElement("div");
+  div.className = "row" + (own ? " owned" : "");
+  div.innerHTML =
+    (url? `<img class="thumb" src="${esc(url)}" onerror="this.outerHTML='<div class=\\'thumb placeholder\\'>卡</div>'">`
+        : `<div class="thumb placeholder">卡</div>`) +
+    `<div class="info"><span class="nm">${esc(c.name)}</span>
+       <span class="tag ${esc(c.rarity)}">${esc(c.rarity)}</span>
+       ${d.own!==undefined?'<span class="dirty-dot"></span>':''}
+       <div class="sub">${esc(c.ctype)}卡${c.role?" · "+esc(c.role):""}</div></div>` +
+    `<div class="ctrl">
+       <label>拥有</label><input type="checkbox" class="own-chk" ${own?"checked":""}>
+       <label>突破</label><select class="f-awk">${[0,1,2,3,4].map(n=>`<option ${awk===n?"selected":""}>${n}</option>`).join("")}</select>
+       <label>等级</label><select class="f-lv">${[30,35,40,45,50].map(n=>`<option ${lv===n?"selected":""}>${n}</option>`).join("")}</select>
+     </div>`;
+  const sync = () => {
+    const o = div.querySelector(".own-chk").checked;
+    const a = +div.querySelector(".f-awk").value, l = +div.querySelector(".f-lv").value;
+    if (o!==c.own || a!==c.awaken || l!==c.level) {
+      DIRTY["k"+c.idx] = {own:o, awaken:o?a:0, level:o?l:0};
+    } else { delete DIRTY["k"+c.idx]; }
+    div.className = "row" + (o?" owned":"");
+    div.querySelectorAll(".dirty-dot").forEach(x=>x.remove());
+    if (DIRTY["k"+c.idx]) div.querySelector(".info").insertAdjacentHTML("afterbegin",'<span class="dirty-dot"></span>');
+    refreshBadges();
+  };
+  div.querySelector(".own-chk").onchange = sync;
+  div.querySelector(".f-awk").onchange = sync;
+  div.querySelector(".f-lv").onchange = sync;
+  return div;
+}
+function renderChara(){
+  const q = $("charaQ").value.trim(), f = $("charaFilter").value;
+  const list = $("charaList"); list.innerHTML = "";
+  let n = 0;
+  const frag = document.createDocumentFragment();
+  for (const c of STATE.characters) {
+    if (f==="own" && !c.own) continue;
+    if (f==="no" && c.own) continue;
+    if (q && !(c.form+q+" "+c.role).includes(q)) continue;
+    frag.appendChild(rowChara(c)); n++;
+  }
+  list.appendChild(frag);
+  if (!n) list.innerHTML = '<div class="empty">没有匹配的马娘</div>';
+  $("charaStats").textContent = "显示 " + n + " / " + STATE.characters.length;
+}
+function renderCard(){
+  const q = $("cardQ").value.trim(), t = $("cardType").value, r = $("cardRar").value, f = $("cardFilter").value;
+  const list = $("cardList"); list.innerHTML = "";
+  let n = 0;
+  const frag = document.createDocumentFragment();
+  for (const c of STATE.cards) {
+    if (t && c.ctype!==t) continue;
+    if (r && c.rarity!==r) continue;
+    if (f==="own" && !c.own) continue;
+    if (f==="no" && c.own) continue;
+    if (q && !(c.name+c.role).includes(q)) continue;
+    frag.appendChild(rowCard(c)); n++;
+  }
+  list.appendChild(frag);
+  if (!n) list.innerHTML = '<div class="empty">没有匹配的协助卡</div>';
+  $("cardStats").textContent = "显示 " + n + " / " + STATE.cards.length;
+}
+
+// ---------- 大赛 ----------
+function raceFill(item){
+  if (!item) return;
+  $("cupRace").value = item.name;
+  $("cupVenue").value = item.venue;
+  $("cupDist").value = item.distance;
+  $("cupSurface").value = item.surface==="泥地"?"泥地":"草地";
+  $("cupDir").value = item.direction;
+  $("raceList").style.display = "none";
+}
+async function cupLoad(){
+  try {
+    const c = await api("/api/cup");
+    if (c) {
+      $("cupRace").value = c.race_name||"";
+      $("cupVenue").value = c.venue||""; $("cupDist").value = c.distance||2000;
+      $("cupStyle").value = c.style||"差"; $("cupSurface").value = c.surface||"草地";
+      $("cupDir").value = c.direction||"右"; $("cupWeather").value = c.weather||"晴";
+      $("cupCond").value = c.condition||"良"; $("cupNote").value = c.note||"";
+      $("cupSaved").textContent = "已登记于 " + (c.updated_at||"");
+    }
+  } catch(e){}
+}
+async function raceQuery(){
+  const q = $("cupRace").value.trim();
+  const box = $("raceList");
+  if (!q) { box.style.display="none"; return; }
+  try {
+    RACES = await api("/api/races?q=" + encodeURIComponent(q));
+  } catch(e){ RACES = []; }
+  box.innerHTML = "";
+  if (RACES.length) {
+    for (const it of RACES.slice(0,30)) {
+      const li = document.createElement("li");
+      li.textContent = `${it.name}　${it.venue}${it.surface} ${it.distance}m ${it.direction}回`;
+      li.onclick = () => raceFill(it);
+      box.appendChild(li);
+    }
+    box.style.display = "block";
+  } else { box.style.display = "none"; }
+}
+async function cupSave(){
+  const payload = {
+    race_name: $("cupRace").value.trim(),
+    venue: $("cupVenue").value.trim(), distance: +$("cupDist").value,
+    surface: $("cupSurface").value, direction: $("cupDir").value,
+    weather: $("cupWeather").value, condition: $("cupCond").value,
+    style: $("cupStyle").value, note: $("cupNote").value.trim(),
+  };
+  try {
+    const r = await api("/api/cup", {method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify(payload)});
+    toast("大赛已保存"); $("cupSaved").textContent = "已登记于 " + (r.cup.updated_at||"");
+  } catch(e){ toast(e.message, false); }
+}
+
+// ---------- 规划 ----------
+async function runPlan(){
+  const b = $("btnPlan");
+  b.disabled = true; b.innerHTML = '<span class="spin"></span> 规划中';
+  $("planResult").innerHTML = '<div class="hint">正在计算（候选打分/因子缺口/配卡）…</div>';
+  try {
+    const r = await api("/api/plan", {method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({top: +$("planTop").value})});
+    renderPlan(r);
+  } catch(e){
+    $("planResult").innerHTML = '<div class="empty">' + esc(e.message) + "</div>";
+  } finally {
+    b.disabled = false; b.textContent = "运行规划";
+  }
+}
+function renderPlan(r){
+  const s = r.summary, el = $("planResult");
+  let h = "";
+  const st = s.stats_goal||{}, tr = s.track||{};
+  h += `<div class="panel" style="margin-top:10px"><b>${esc(tr.venue||"")}${esc(tr.surface||"")} ${tr.distance||""}m · ${esc(tr.race_name||"自定义")} · ${esc(s.style||"")}马</b>
+        <div class="stats-grid">`;
+  for (const [k,v] of Object.entries(st)) h += `<div class="stat"><div class="k">${esc(k)}</div><div class="v">${esc(v)}</div></div>`;
+  h += `</div><div class="hint">适性目标: ${Object.entries(s.apt_goal||{}).map(([k,v])=>esc(k)+" "+esc(v)).join(" / ") || "-"}</div></div>`;
+  const cands = s.candidate_top||[];
+  if (s.inventory_empty) {
+    h += '<div class="empty">库存为空 —— 先到「马娘 / 协助卡」页勾选拥有的角色再回来规划</div>';
+  } else if (!cands.length) {
+    h += '<div class="empty">没有符合条件的候选（库存太少或适性不合）</div>';
+  }
+  cands.forEach((c,i)=>{
+    const sc = c.score_detail||{};
+    const gap = c.factor_gap;
+    let gapTxt = "";
+    if (typeof gap === "string") gapTxt = gap;
+    else if (gap) gapTxt = Object.entries(gap).map(([k,v])=>k+":"+(typeof v==="object"?JSON.stringify(v):v)).join("  ");
+    h += `<div class="cand">
+      <div class="rank">${i+1}</div>
+      <div class="info"><span class="nm">${esc(c.name)}</span><div class="sub">${esc(c.card_name)}</div></div>
+      <div class="gap">${esc(gapTxt||"")}</div>
+      <div class="sc"><div style="font-size:12px;color:var(--sub)">综合</div><b>${c.total!=null?c.total:"-"}</b></div>
+    </div>`;
+  });
+  if (r.md) h += `<div class="preview">${esc(r.md)}</div>`;
+  el.innerHTML = h;
+  $("planInfo").textContent = r.md_path ? "报告: " + r.md_path : "";
+}
+
+// ---------- 保存 ----------
+async function saveAll(){
+  const ch=[], ca=[];
+  for (const key in DIRTY){
+    const d = DIRTY[key];
+    if (key[0]==="c") ch.push({idx:+key.slice(1), own:!!d.own, star:d.star||0, awaken:d.awaken||0});
+    else ca.push({idx:+key.slice(1), own:!!d.own, awaken:d.awaken||0, level:d.level||0});
+  }
+  const b = $("btnSave");
+  b.disabled = true; b.textContent = "保存中…";
+  try {
+    const r = await api("/api/inventory", {method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({characters: ch, cards: ca})});
+    toast(`已保存（马娘 ${r.updated.characters} 行 / 卡 ${r.updated.cards} 行）`);
+    await loadAll();   // 重新拉取, 清空脏标记
+  } catch(e){ toast(e.message, false); b.disabled=false; }
+  b.textContent = "保存到 CSV";
+}
+
+// ---------- 加载 ----------
+async function loadAll(){
+  try {
+    STATE = await api("/api/inventory");
+    refreshBadges();
+    renderChara();
+    const types = [...new Set(STATE.cards.map(c=>c.ctype).filter(Boolean))];
+    const sel = $("cardType"); sel.innerHTML = '<option value="">全部类型</option>' +
+      types.map(t=>`<option>${esc(t)}</option>`).join("");
+    renderCard();
+  } catch(e){
+    $("charaList").innerHTML = '<div class="empty">加载失败: ' + esc(e.message) + "</div>";
+  }
+}
+
+// ---------- 事件 ----------
+document.querySelectorAll("nav button").forEach(btn=>{
+  btn.onclick = () => {
+    document.querySelectorAll("nav button").forEach(x=>x.classList.remove("active"));
+    btn.classList.add("active");
+    active = btn.dataset.tab;
+    ["chara","card","cup"].forEach(t=>{ $("tab-"+t).style.display = t===active?"":"none"; });
+    if (t===active && t==="chara") renderChara(); // no-op
+  };
+});
+$("charaQ").oninput = renderChara;  $("charaFilter").onchange = renderChara;
+$("cardQ").oninput = renderCard; $("cardType").onchange = renderCard;
+$("cardRar").onchange = renderCard; $("cardFilter").onchange = renderCard;
+$("cupRace").oninput = raceQuery;
+$("btnCupSave").onclick = cupSave;
+$("btnPlan").onclick = runPlan;
+$("btnSave").onclick = saveAll;
+$("btnReload").onclick = () => { DIRTY={}; loadAll(); };
+
+loadAll();
+cupLoad();
+</script>
+</body>
+</html>
