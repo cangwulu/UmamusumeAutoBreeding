@@ -25,6 +25,8 @@ class TaskDetail:
     # 限时: 富士奇石的表演秀
     fujikiseki_show_mode: bool
     fujikiseki_show_difficulty: int
+    # 正在育成的马娘名（可选；学技能时用于剔除自带技能，见 cultivate.py P7）
+    cultivate_chara: str
 
 
 class EndTaskReason(Enum):
@@ -77,6 +79,8 @@ def build_task(task_execute_mode: TaskExecuteMode, task_type: int,
     # 限时: 富士奇石的表演秀
     td.fujikiseki_show_mode = attachment_data['fujikiseki_show_mode']
     td.fujikiseki_show_difficulty = attachment_data['fujikiseki_show_difficulty']
+    # 可选：正在育成的马娘名（老配置无此键时留空 = 不做自带技能过滤）
+    td.cultivate_chara = attachment_data.get('cultivate_chara', '')
     ut.detail = td
     return ut
 

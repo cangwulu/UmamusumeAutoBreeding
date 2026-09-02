@@ -548,6 +548,61 @@ def script_cultivate_finish(ctx: UmamusumeContext):
         ctx.ctrl.click_by_point(CULTIVATE_FINISH_CONFIRM)
 
 
+def _filter_owned_skills(ctx: UmamusumeContext,
+                         learn_skill_list: list) -> list:
+    """剔除待学技能里「该马娘已自带」的（固有/觉醒/初始），避免白花技能点(P7)。
+
+    需要 ctx.cultivate_detail.cultivate_chara 配置了马娘名才生效；
+    未配置 / 数据缺失 / 解析失败一律原样返回（不影响既有流程）。
+    用 name_resolver 把马娘名归一后走 chara_skills.suggest_not_to_learn。
+    """
+    chara = ""
+    try:
+        chara = (ctx.cultivate_detail.cultivate_chara or "").strip()
+    except Exception:
+        return learn_skill_list
+    if not chara:
+        return learn_skill_list
+    try:
+        from module.umamusume.asset import chara_skills as _cs_mod
+        # 按文件路径加载绕开 asset/__init__（其会 import cv2）
+        import importlib.util
+        import os as _os
+        _root = _os.path.dirname(_os.path.dirname(_os.path.dirname(
+            _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))))))
+        _spec = importlib.util.spec_from_file_location(
+            "_sp_chara_skills",
+            _os.path.join(_root, "module", "umamusume", "asset", "chara_skills.py"))
+        _mod = importlib.util.module_from_spec(_spec)
+        _spec.loader.exec_module(_mod)
+        cs = _mod
+        # 归一马娘名（国服/台服/日文 -> 角色）
+        from module.umamusume.name_resolver import get_resolver
+        key, _ = get_resolver().canonical(chara)
+        if key:
+            chara = key
+        out = []
+        dropped = []
+        for group in learn_skill_list:
+            if not group:
+                continue
+            keep, skip = cs.suggest_not_to_learn(chara, list(group))
+            if skip:
+                dropped.extend(skip)
+            if keep:
+                out.append(list(keep))
+        if dropped:
+            log.info("[P7] 剔除马娘[%s]自带技能（不学，省技能点）：%s",
+                     chara, "、".join(dropped))
+        # 全被剔光的组不保留；但若全部组都空则维持原列表避免误伤
+        if out:
+            return out
+        return learn_skill_list
+    except Exception as _e:
+        log.debug("[P7] 自带技能过滤不可用，维持原列表：%s", _e)
+        return learn_skill_list
+
+
 def script_cultivate_learn_skill(ctx: UmamusumeContext):
     # 如果指定育成结束后停留在学习技能页面:
     if ctx.cultivate_detail.cultivate_finish and ctx.task.detail.stop_at_skill_learn:
@@ -581,6 +636,9 @@ def script_cultivate_learn_skill(ctx: UmamusumeContext):
             return
         else:
             learn_skill_list = ctx.cultivate_detail.learn_skill_list
+
+    # P7：配置了马娘名时，剔除自带技能（固有/觉醒/初始），避免白花技能点
+    learn_skill_list = _filter_owned_skills(ctx, learn_skill_list)
 
     # 遍历整页, 找出所有可点的技能
     skill_list = []

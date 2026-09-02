@@ -30,6 +30,8 @@ class CultivateContextDetail:
     allow_recover_tp: int
     parse_factor_done: bool
     extra_weight: list
+    # 正在育成的马娘名（可选，配置后学技能会剔除自带技能避免白花技能点；P7）
+    cultivate_chara: str
 
     def __init__(self):
         self.expect_attribute = None
@@ -49,6 +51,7 @@ class CultivateContextDetail:
         self.allow_recover_tp = False
         self.parse_factor_done = False
         self.extra_weight = []
+        self.cultivate_chara = ""
 
     def reset_skill_learn(self):
         self.learn_skill_done = False
@@ -97,6 +100,8 @@ def build_context(task: UmamusumeTask, ctrl) -> UmamusumeContext:
         detail.learn_skill_only_user_provided = task.detail.learn_skill_only_user_provided
         detail.allow_recover_tp = task.detail.allow_recover_tp
         detail.extra_weight = task.detail.extra_weight
+        # P7：正在育成的马娘名（可选；学技能时剔除自带技能）
+        detail.cultivate_chara = getattr(task.detail, "cultivate_chara", "")
         ctx.cultivate_detail = detail
     return ctx
 
