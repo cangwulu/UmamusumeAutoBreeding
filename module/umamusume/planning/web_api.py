@@ -18,7 +18,7 @@ import sys
 from typing import List
 
 from fastapi import APIRouter, HTTPException
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from pydantic import BaseModel
 
 _PKG_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -310,6 +310,75 @@ def get_status():
     except Exception:
         pass
     return status
+
+
+# ---------- 库存模板 / 备份下载（hub 实用功能） ----------
+_TEMPLATE_KIND = {"characters": "my_characters.csv",
+                  "cards": "my_support_cards.csv",
+                  "studs": "my_studs.csv"}
+
+
+@router.get("/inventory/template")
+def download_template(kind: str = "cards"):
+    """下载一张「空白填报模板」CSV（不覆盖 my_inventory 里的真实文件）。
+
+    生成到系统临时目录后以附件返回；kind ∈ characters/cards/studs。
+    """
+    import tempfile
+
+    fname = _TEMPLATE_KIND.get(kind)
+    if fname is None:
+        raise HTTPException(status_code=400,
+                            detail="kind 必须是 characters/cards/studs")
+    tmp = tempfile.mkdtemp(prefix="uat_tpl_")
+    try:
+        sys.path.insert(0, os.path.join(_PROJECT_ROOT, "tools"))
+        import gen_inventory_template as gen
+        if kind == "characters":
+            gen.gen_characters(tmp, force=True)
+        elif kind == "cards":
+            gen.gen_cards(tmp, force=True)
+        else:
+            gen.gen_studs(tmp, force=True)
+        path = os.path.join(tmp, fname)
+        if not os.path.isfile(path):
+            raise HTTPException(status_code=500, detail="模板生成失败")
+        return FileResponse(path, filename=fname,
+                            media_type="text/csv")
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail="模板生成异常: %s" % exc)
+    finally:
+        try:
+            sys.path.remove(os.path.join(_PROJECT_ROOT, "tools"))
+        except ValueError:
+            pass
+
+
+@router.get("/inventory/backup")
+def download_inventory():
+    """把 my_inventory 下三个 CSV 打包返回（含已填内容，做本地备份）。"""
+    import tempfile
+    import zipfile
+
+    inv_dir = os.path.join(_PROJECT_ROOT, "my_inventory")
+    missing = [f for f in ("my_characters.csv", "my_support_cards.csv",
+                           "my_studs.csv")
+               if not os.path.isfile(os.path.join(inv_dir, f))]
+    tmp = os.path.join(tempfile.mkdtemp(prefix="uat_bak_"),
+                       "my_inventory.zip")
+    try:
+        with zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as zf:
+            for f in ("my_characters.csv", "my_support_cards.csv",
+                      "my_studs.csv"):
+                p = os.path.join(inv_dir, f)
+                if os.path.isfile(p):
+                    zf.write(p, f)
+        return FileResponse(tmp, filename="my_inventory.zip",
+                            media_type="application/zip")
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail="打包失败: %s" % exc)
 
 
 # ---------- 图片静态(限定文件名, 防穿越) ----------

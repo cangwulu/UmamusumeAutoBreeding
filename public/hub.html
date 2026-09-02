@@ -31,6 +31,8 @@ h2 .hint{font-size:12px;color:var(--sub);font-weight:400;border:0}
 .card .go{color:var(--c3);font-size:13px;font-weight:600}
 .card::after{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--c3)}
 .card.big{min-height:150px}
+button.card{width:100%;text-align:left;font-family:inherit;font-size:14px}
+button.card .go{color:var(--c3);font-size:13px;font-weight:600;margin-top:auto}
 .state-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:13px}
 .state-card .t{color:var(--sub);font-size:12px;margin-bottom:6px;display:flex;justify-content:space-between}
 .state-card .v{font-size:15px}
@@ -102,6 +104,25 @@ footer{text-align:center;color:var(--sub);font-size:12px;padding:20px 0}
     </div>
   </section>
 
+  <!-- ===== 库存工具 ===== -->
+  <section>
+    <h2>💾 库存工具 <span class="hint">模板 = 空白填报格式；备份 = 含你已填内容的压缩包</span></h2>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr))">
+      <button class="card dl" data-url="/api/inventory/template?kind=characters">
+        <h3>📄 马娘模板</h3><div class="desc">139 形态空白表（拥有/星级/觉醒）</div>
+        <div class="go">下载 CSV →</div></button>
+      <button class="card dl" data-url="/api/inventory/template?kind=cards">
+        <h3>🃏 协助卡模板</h3><div class="desc">316 张空白表（拥有/突破/等级）</div>
+        <div class="go">下载 CSV →</div></button>
+      <button class="card dl" data-url="/api/inventory/template?kind=studs">
+        <h3>🧬 种马模板</h3><div class="desc">已成品种马记录表</div>
+        <div class="go">下载 CSV →</div></button>
+      <button class="card dl" data-url="/api/inventory/backup">
+        <h3>📦 备份我的库存</h3><div class="desc">三个 CSV 打包 zip（换机/重装前下载）</div>
+        <div class="go">下载 zip →</div></button>
+    </div>
+  </section>
+
   <!-- ===== 数据资产 ===== -->
   <section>
     <h2>🗃️ 数据资产 <span class="hint">已内置入库 · 运行时不联网</span></h2>
@@ -162,6 +183,33 @@ document.querySelectorAll("button.copy").forEach(b => b.addEventListener("click"
   });
   const t = $("#toast"); t.textContent = "已复制：" + txt; t.classList.add("show");
   setTimeout(() => t.classList.remove("show"), 1600);
+}));
+
+// ---- 库存模板 / 备份下载 ----
+function dlName(url){
+  if(url.includes("backup")) return "my_inventory.zip";
+  if(url.includes("characters")) return "my_characters.csv";
+  if(url.includes("cards")) return "my_support_cards.csv";
+  return "my_studs.csv";
+}
+document.querySelectorAll("button.card.dl").forEach(b => b.addEventListener("click", async () => {
+  const url = b.dataset.url;
+  const t = $("#toast");
+  t.textContent = "下载中…"; t.classList.add("show");
+  try{
+    const r = await fetch(url);
+    if(!r.ok) throw new Error("HTTP " + r.status);
+    const blob = await r.blob();
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = dlName(url);
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    t.textContent = "已下载 " + dlName(url);
+  }catch(e){
+    t.textContent = "下载失败: " + e.message;
+  }
+  setTimeout(() => t.classList.remove("show"), 1800);
 }));
 
 // ---- 数据资产规模 ----
