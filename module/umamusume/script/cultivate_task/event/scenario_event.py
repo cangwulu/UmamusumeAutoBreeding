@@ -7,10 +7,18 @@ import bot.base.log as logger
 log = logger.get_logger(__name__)
 
 # 第一年新年事件
+def _current_operation(ctx: UmamusumeContext):
+    # turn_operation 是 TurnOperation 对象(types.py)，比较须用 .turn_operation_type
+    turn_op = ctx.cultivate_detail.turn_info.turn_operation
+    return turn_op.turn_operation_type if turn_op else None
+
+
 def scenario_event_1(ctx: UmamusumeContext) -> int:
-    if ctx.cultivate_detail.turn_info.turn_operation == TurnOperationType.TURN_OPERATION_TYPE_REST or \
-            ctx.cultivate_detail.turn_info.turn_operation == TurnOperationType.TURN_OPERATION_TYPE_MEDIC and ctx.cultivate_detail.turn_info.remain_stamina >= 50 or \
-            ctx.cultivate_detail.turn_info.turn_operation == TurnOperationType.TURN_OPERATION_TYPE_TRIP and ctx.cultivate_detail.turn_info.remain_stamina >= 50:
+    op = _current_operation(ctx)
+    stamina = ctx.cultivate_detail.turn_info.remain_stamina
+    if op == TurnOperationType.TURN_OPERATION_TYPE_REST or \
+            (op == TurnOperationType.TURN_OPERATION_TYPE_MEDIC and stamina >= 50) or \
+            (op == TurnOperationType.TURN_OPERATION_TYPE_TRIP and stamina >= 50):
         return 3
     else:
         return 2
@@ -18,9 +26,11 @@ def scenario_event_1(ctx: UmamusumeContext) -> int:
 
 # 第二年新年事件
 def scenario_event_2(ctx: UmamusumeContext) -> int:
-    if ctx.cultivate_detail.turn_info.turn_operation == TurnOperationType.TURN_OPERATION_TYPE_REST or \
-            ctx.cultivate_detail.turn_info.turn_operation == TurnOperationType.TURN_OPERATION_TYPE_MEDIC and ctx.cultivate_detail.turn_info.remain_stamina >= 40 or \
-            ctx.cultivate_detail.turn_info.turn_operation == TurnOperationType.TURN_OPERATION_TYPE_TRIP and ctx.cultivate_detail.turn_info.remain_stamina >= 50:
+    op = _current_operation(ctx)
+    stamina = ctx.cultivate_detail.turn_info.remain_stamina
+    if op == TurnOperationType.TURN_OPERATION_TYPE_REST or \
+            (op == TurnOperationType.TURN_OPERATION_TYPE_MEDIC and stamina >= 40) or \
+            (op == TurnOperationType.TURN_OPERATION_TYPE_TRIP and stamina >= 50):
         return 3
     else:
         return 1

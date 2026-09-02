@@ -13,7 +13,8 @@ server = FastAPI()
 server.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
+    # 通配源与 allow_credentials=True 是浏览器拒绝的无效组合；本服务无 cookie 认证
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -63,17 +64,22 @@ async def get_index():
     })
 
 
+# public 目录的绝对根，兜底路由只允许服务该目录内的文件（防 ../ 路径穿越）
+PUBLIC_ROOT = os.path.realpath("public")
+
+
 @server.get("/{whatever:path}")
 async def get_static_files_or_404(whatever):
-    # try open file for path
-    file_path = os.path.join("public", whatever)
     # 设置防缓存头
     no_cache_headers = {
         'Cache-Control': 'no-cache, no-store, must-revalidate',
         'Pragma': 'no-cache',
         'Expires': '0'
     }
-    
+    # 归一化后必须仍位于 public 目录内，否则拒绝（路径穿越防护）
+    file_path = os.path.realpath(os.path.join(PUBLIC_ROOT, whatever))
+    if not (file_path == PUBLIC_ROOT or file_path.startswith(PUBLIC_ROOT + os.sep)):
+        return FileResponse('public/index.html', headers=no_cache_headers)
     if os.path.isfile(file_path):
         if file_path.endswith((".js", ".mjs")):
             return FileResponse(file_path, media_type="application/javascript", headers=no_cache_headers)

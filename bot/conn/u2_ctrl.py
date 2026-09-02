@@ -127,9 +127,9 @@ class U2AndroidController(AndroidController):
 
     # ===== common =====
 
-    # execute_adb_shell 执行adb命令
+    # execute_adb_shell 执行adb命令 (device_name 来自配置, 加引号防 shell 逃逸)
     def execute_adb_shell(self, cmd, sync):
-        cmd = os.run_cmd(self.path + "adb -s " + self.config.device_name + " " + cmd)
+        cmd = os.run_cmd(self.path + "adb -s \"" + self.config.device_name + "\" " + cmd)
         if sync:
             cmd.communicate()
         else:
@@ -156,7 +156,7 @@ class U2AndroidController(AndroidController):
 
     # connect_to_device 连接至设备
     def connect_to_device(self):
-        p = os.run_cmd(self.path + "adb connect " + self.config.device_name).communicate()
+        p = os.run_cmd(self.path + "adb connect \"" + self.config.device_name + "\"").communicate()
         log.debug(p[0].decode())
 
     # kill_adb_server 停止adb-server

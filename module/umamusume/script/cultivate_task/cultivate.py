@@ -350,8 +350,8 @@ def script_cultivate_event(ctx: UmamusumeContext):
         img = ctx.ctrl.get_screen()
         event_name, selector_list = parse_cultivate_event(ctx, img)
         choice_index = get_event_choice(ctx, event_name)
-        # 意外情况容错
-        if choice_index - 1 > len(selector_list):
+        # 意外情况容错: 推荐项越界时回退到第 1 项（== len 时下标同样越界，需 >=）
+        if choice_index - 1 >= len(selector_list):
             choice_index = 1
         ctx.ctrl.click(selector_list[choice_index - 1][0], selector_list[choice_index - 1][1],
                        "事件选项-" + str(choice_index))

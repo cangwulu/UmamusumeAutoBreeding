@@ -63,6 +63,10 @@ class UmamusumeContext(BotContext):
         super().__init__(task, ctrl)
 
     def is_task_finish(self) -> bool:
+        # 结束契约(截至 M0): 育成各结局分支在 script 内直接调 ctx.task.end_task(...)
+        # (见 cultivate.py 255/282/554、info.py 等), executor 主循环检测到
+        # task_status != RUNNING 即 break, 故此钩子暂恒 False。
+        # 待 M2.2 引入"自然完成"状态机后在此实现。
         return False
 
 
