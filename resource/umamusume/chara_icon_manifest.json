@@ -1,0 +1,702 @@
+{
+ "updated": "2026-09-02",
+ "roles": {
+  "富士奇石": {
+   "page": "简/【流星歌剧】富士奇石",
+   "images": [
+    "resource\\umamusume\\chara_icon\\富士奇石_01.png",
+    "resource\\umamusume\\chara_icon\\富士奇石_02.png",
+    "resource\\umamusume\\chara_icon\\富士奇石_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\富士奇石_01.png"
+  },
+  "黄金船": {
+   "page": "简/【RUN！乱！发射！！】黄金船",
+   "images": [
+    "resource\\umamusume\\chara_icon\\黄金船_01.png",
+    "resource\\umamusume\\chara_icon\\黄金船_02.png",
+    "resource\\umamusume\\chara_icon\\黄金船_03.png",
+    "resource\\umamusume\\chara_icon\\黄金船_04.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\黄金船_01.png"
+  },
+  "丸善斯基": {
+   "page": "简/【绯红方程式】丸善斯基",
+   "images": [
+    "resource\\umamusume\\chara_icon\\丸善斯基_01.png",
+    "resource\\umamusume\\chara_icon\\丸善斯基_02.png",
+    "resource\\umamusume\\chara_icon\\丸善斯基_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\丸善斯基_01.png"
+  },
+  "东海帝王": {
+   "page": "简/【喜乐无边】东海帝王",
+   "images": [
+    "resource\\umamusume\\chara_icon\\东海帝王_01.png",
+    "resource\\umamusume\\chara_icon\\东海帝王_02.png",
+    "resource\\umamusume\\chara_icon\\东海帝王_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\东海帝王_01.png"
+  },
+  "伏特加": {
+   "page": "简/【不会结冰的生命之水】伏特加",
+   "images": [
+    "resource\\umamusume\\chara_icon\\伏特加_01.png",
+    "resource\\umamusume\\chara_icon\\伏特加_02.png",
+    "resource\\umamusume\\chara_icon\\伏特加_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\伏特加_01.png"
+  },
+  "小栗帽": {
+   "page": "简/【星光跃动】小栗帽",
+   "images": [
+    "resource\\umamusume\\chara_icon\\小栗帽_01.png",
+    "resource\\umamusume\\chara_icon\\小栗帽_02.png",
+    "resource\\umamusume\\chara_icon\\小栗帽_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\小栗帽_01.png"
+  },
+  "大和赤骥": {
+   "page": "简/【绯红的星月之夜】大和赤骥",
+   "images": [
+    "resource\\umamusume\\chara_icon\\大和赤骥_01.png",
+    "resource\\umamusume\\chara_icon\\大和赤骥_02.png",
+    "resource\\umamusume\\chara_icon\\大和赤骥_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\大和赤骥_01.png"
+  },
+  "菱亚马逊": {
+   "page": "简/【亚马逊青金石】菱亚马逊",
+   "images": [
+    "resource\\umamusume\\chara_icon\\菱亚马逊_01.png",
+    "resource\\umamusume\\chara_icon\\菱亚马逊_02.png",
+    "resource\\umamusume\\chara_icon\\菱亚马逊_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\菱亚马逊_01.png"
+  },
+  "目白麦昆": {
+   "page": "简/【优雅曲线】目白麦昆",
+   "images": [
+    "resource\\umamusume\\chara_icon\\目白麦昆_01.png",
+    "resource\\umamusume\\chara_icon\\目白麦昆_02.png",
+    "resource\\umamusume\\chara_icon\\目白麦昆_03.png",
+    "resource\\umamusume\\chara_icon\\目白麦昆_04.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\目白麦昆_01.png"
+  },
+  "特别周": {
+   "page": "简/【特别追梦者】特别周",
+   "images": [
+    "resource\\umamusume\\chara_icon\\特别周_01.png",
+    "resource\\umamusume\\chara_icon\\特别周_02.png",
+    "resource\\umamusume\\chara_icon\\特别周_03.png",
+    "resource\\umamusume\\chara_icon\\特别周_04.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\特别周_01.png"
+  },
+  "无声铃鹿": {
+   "page": "简/【无声无瑕】无声铃鹿",
+   "images": [
+    "resource\\umamusume\\chara_icon\\无声铃鹿_01.png",
+    "resource\\umamusume\\chara_icon\\无声铃鹿_02.png",
+    "resource\\umamusume\\chara_icon\\无声铃鹿_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\无声铃鹿_01.png"
+  },
+  "大树快车": {
+   "page": "简/【狂野前线】大树快车",
+   "images": [
+    "resource\\umamusume\\chara_icon\\大树快车_01.png",
+    "resource\\umamusume\\chara_icon\\大树快车_02.png",
+    "resource\\umamusume\\chara_icon\\大树快车_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\大树快车_01.png"
+  },
+  "神鹰": {
+   "page": "简/【羽蛇武斗家】神鹰",
+   "images": [
+    "resource\\umamusume\\chara_icon\\神鹰_01.png",
+    "resource\\umamusume\\chara_icon\\神鹰_02.png",
+    "resource\\umamusume\\chara_icon\\神鹰_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\神鹰_01.png"
+  },
+  "好歌剧": {
+   "page": "简/【O sole suo！】好歌剧",
+   "images": [
+    "resource\\umamusume\\chara_icon\\好歌剧_01.png",
+    "resource\\umamusume\\chara_icon\\好歌剧_02.png",
+    "resource\\umamusume\\chara_icon\\好歌剧_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\好歌剧_01.png"
+  },
+  "草上飞": {
+   "page": "简/【圣翠治愈师】草上飞",
+   "images": [
+    "resource\\umamusume\\chara_icon\\草上飞_01.png",
+    "resource\\umamusume\\chara_icon\\草上飞_02.png",
+    "resource\\umamusume\\chara_icon\\草上飞_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\草上飞_01.png"
+  },
+  "鲁道夫象征": {
+   "page": "简/【皇帝】鲁道夫象征",
+   "images": [
+    "resource\\umamusume\\chara_icon\\鲁道夫象征_01.png",
+    "resource\\umamusume\\chara_icon\\鲁道夫象征_02.png",
+    "resource\\umamusume\\chara_icon\\鲁道夫象征_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\鲁道夫象征_01.png"
+  },
+  "玉藻十字": {
+   "page": "简/【疾风迅雷】玉藻十字",
+   "images": [
+    "resource\\umamusume\\chara_icon\\玉藻十字_01.png",
+    "resource\\umamusume\\chara_icon\\玉藻十字_02.png",
+    "resource\\umamusume\\chara_icon\\玉藻十字_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\玉藻十字_01.png"
+  },
+  "成田白仁": {
+   "page": "简/【Maverick】成田白仁",
+   "images": [
+    "resource\\umamusume\\chara_icon\\成田白仁_01.png",
+    "resource\\umamusume\\chara_icon\\成田白仁_02.png",
+    "resource\\umamusume\\chara_icon\\成田白仁_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\成田白仁_01.png"
+  },
+  "美妙姿势": {
+   "page": "简/【Noble Seamair】美妙姿势",
+   "images": [
+    "resource\\umamusume\\chara_icon\\美妙姿势_01.png",
+    "resource\\umamusume\\chara_icon\\美妙姿势_02.png",
+    "resource\\umamusume\\chara_icon\\美妙姿势_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\美妙姿势_01.png"
+  },
+  "气槽": {
+   "page": "简/【橡木王冠】气槽",
+   "images": [
+    "resource\\umamusume\\chara_icon\\气槽_01.png",
+    "resource\\umamusume\\chara_icon\\气槽_02.png",
+    "resource\\umamusume\\chara_icon\\气槽_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\气槽_01.png"
+  },
+  "青云天空": {
+   "page": "简/【青云垂钓者】青云天空",
+   "images": [
+    "resource\\umamusume\\chara_icon\\青云天空_01.png",
+    "resource\\umamusume\\chara_icon\\青云天空_02.png",
+    "resource\\umamusume\\chara_icon\\青云天空_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\青云天空_01.png"
+  },
+  "目白莱恩": {
+   "page": "简/【玛格丽特拿铁】目白莱恩",
+   "images": [
+    "resource\\umamusume\\chara_icon\\目白莱恩_01.png",
+    "resource\\umamusume\\chara_icon\\目白莱恩_02.png",
+    "resource\\umamusume\\chara_icon\\目白莱恩_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\目白莱恩_01.png"
+  },
+  "重炮": {
+   "page": "简/【阳光花束】重炮",
+   "images": [
+    "resource\\umamusume\\chara_icon\\重炮_01.png",
+    "resource\\umamusume\\chara_icon\\重炮_02.png",
+    "resource\\umamusume\\chara_icon\\重炮_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\重炮_01.png"
+  },
+  "曼城茶座": {
+   "page": "简/【Creeping Black】曼城茶座",
+   "images": [
+    "resource\\umamusume\\chara_icon\\曼城茶座_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\曼城茶座_01.png"
+  },
+  "雪之美人": {
+   "page": "简/【可可爱爱的六出冰花】雪之美人",
+   "images": [
+    "resource\\umamusume\\chara_icon\\雪之美人_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\雪之美人_01.png"
+  },
+  "琵琶晨光": {
+   "page": "简/【pf.胜利公式】琵琶晨光",
+   "images": [
+    "resource\\umamusume\\chara_icon\\琵琶晨光_01.png",
+    "resource\\umamusume\\chara_icon\\琵琶晨光_02.png",
+    "resource\\umamusume\\chara_icon\\琵琶晨光_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\琵琶晨光_01.png"
+  },
+  "菱曙": {
+   "page": "简/【Buono☆时尚】菱曙",
+   "images": [
+    "resource\\umamusume\\chara_icon\\菱曙_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\菱曙_01.png"
+  },
+  "美浦波旁": {
+   "page": "简/【MB-19890425】美浦波旁",
+   "images": [
+    "resource\\umamusume\\chara_icon\\美浦波旁_01.png",
+    "resource\\umamusume\\chara_icon\\美浦波旁_02.png",
+    "resource\\umamusume\\chara_icon\\美浦波旁_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\美浦波旁_01.png"
+  },
+  "艾尼风神": {
+   "page": "简/【全时狂欢】艾尼风神",
+   "images": [
+    "resource\\umamusume\\chara_icon\\艾尼风神_01.png",
+    "resource\\umamusume\\chara_icon\\艾尼风神_02.png",
+    "resource\\umamusume\\chara_icon\\艾尼风神_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\艾尼风神_01.png"
+  },
+  "爱丽数码": {
+   "page": "简/【超级加急！全彩PP膜特殊加工】爱丽数码",
+   "images": [
+    "resource\\umamusume\\chara_icon\\爱丽数码_01.png",
+    "resource\\umamusume\\chara_icon\\爱丽数码_02.png",
+    "resource\\umamusume\\chara_icon\\爱丽数码_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\爱丽数码_01.png"
+  },
+  "胜利奖券": {
+   "page": "简/【梦想传递员】胜利奖券",
+   "images": [
+    "resource\\umamusume\\chara_icon\\胜利奖券_01.png",
+    "resource\\umamusume\\chara_icon\\胜利奖券_02.png",
+    "resource\\umamusume\\chara_icon\\胜利奖券_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\胜利奖券_01.png"
+  },
+  "爱慕织姬": {
+   "page": "简/【Starry Nocturne】爱慕织姬",
+   "images": [
+    "resource\\umamusume\\chara_icon\\爱慕织姬_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\爱慕织姬_01.png"
+  },
+  "米浴": {
+   "page": "简/【玫瑰之梦】米浴",
+   "images": [
+    "resource\\umamusume\\chara_icon\\米浴_01.png",
+    "resource\\umamusume\\chara_icon\\米浴_02.png",
+    "resource\\umamusume\\chara_icon\\米浴_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\米浴_01.png"
+  },
+  "爱丽速子": {
+   "page": "简/【Lunatic Lab】爱丽速子",
+   "images": [
+    "resource\\umamusume\\chara_icon\\爱丽速子_01.png",
+    "resource\\umamusume\\chara_icon\\爱丽速子_02.png",
+    "resource\\umamusume\\chara_icon\\爱丽速子_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\爱丽速子_01.png"
+  },
+  "空中神宫": {
+   "page": "简/【unsigned】空中神宫",
+   "images": [
+    "resource\\umamusume\\chara_icon\\空中神宫_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\空中神宫_01.png"
+  },
+  "稻荷一": {
+   "page": "简/【稻荷因缘江户紫】稻荷一",
+   "images": [
+    "resource\\umamusume\\chara_icon\\稻荷一_01.png",
+    "resource\\umamusume\\chara_icon\\稻荷一_02.png",
+    "resource\\umamusume\\chara_icon\\稻荷一_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\稻荷一_01.png"
+  },
+  "采珠": {
+   "page": "简/【Rocket☆Star】采珠",
+   "images": [
+    "resource\\umamusume\\chara_icon\\采珠_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\采珠_01.png"
+  },
+  "川上公主": {
+   "page": "简/【粉红公主】川上公主",
+   "images": [
+    "resource\\umamusume\\chara_icon\\川上公主_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\川上公主_01.png"
+  },
+  "新光风": {
+   "page": "简/【Wicked Punk】新光风",
+   "images": [
+    "resource\\umamusume\\chara_icon\\新光风_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\新光风_01.png"
+  },
+  "荣进闪耀": {
+   "page": "简/【Meisterschaft】荣进闪耀",
+   "images": [
+    "resource\\umamusume\\chara_icon\\荣进闪耀_01.png",
+    "resource\\umamusume\\chara_icon\\荣进闪耀_02.png",
+    "resource\\umamusume\\chara_icon\\荣进闪耀_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\荣进闪耀_01.png"
+  },
+  "真机伶": {
+   "page": "简/【闪电少女】真机伶",
+   "images": [
+    "resource\\umamusume\\chara_icon\\真机伶_01.png",
+    "resource\\umamusume\\chara_icon\\真机伶_02.png",
+    "resource\\umamusume\\chara_icon\\真机伶_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\真机伶_01.png"
+  },
+  "黄金城": {
+   "page": "简/【真我/1928】黄金城",
+   "images": [
+    "resource\\umamusume\\chara_icon\\黄金城_01.png",
+    "resource\\umamusume\\chara_icon\\黄金城_02.png",
+    "resource\\umamusume\\chara_icon\\黄金城_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\黄金城_01.png"
+  },
+  "东商变革": {
+   "page": "简/【悬铃木魔女】东商变革",
+   "images": [
+    "resource\\umamusume\\chara_icon\\东商变革_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\东商变革_01.png"
+  },
+  "荒漠英雄": {
+   "page": "简/【Heroic Author】荒漠英雄",
+   "images": [
+    "resource\\umamusume\\chara_icon\\荒漠英雄_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\荒漠英雄_01.png"
+  },
+  "樱花进王": {
+   "page": "简/【赤热☆队长】樱花进王",
+   "images": [
+    "resource\\umamusume\\chara_icon\\樱花进王_01.png",
+    "resource\\umamusume\\chara_icon\\樱花进王_02.png",
+    "resource\\umamusume\\chara_icon\\樱花进王_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\樱花进王_01.png"
+  },
+  "中山庆典": {
+   "page": "简/【死中求生】中山庆典",
+   "images": [
+    "resource\\umamusume\\chara_icon\\中山庆典_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\中山庆典_01.png"
+  },
+  "超级溪流": {
+   "page": "简/【雪纺丝带木乃伊】超级溪流",
+   "images": [
+    "resource\\umamusume\\chara_icon\\超级溪流_01.png",
+    "resource\\umamusume\\chara_icon\\超级溪流_02.png",
+    "resource\\umamusume\\chara_icon\\超级溪流_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\超级溪流_01.png"
+  },
+  "岛川乔丹": {
+   "page": "简/【潮流☆Joker】岛川乔丹",
+   "images": [
+    "resource\\umamusume\\chara_icon\\岛川乔丹_01.png",
+    "resource\\umamusume\\chara_icon\\岛川乔丹_02.png",
+    "resource\\umamusume\\chara_icon\\岛川乔丹_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\岛川乔丹_01.png"
+  },
+  "青竹回忆": {
+   "page": "简/【黑铁的壮志】青竹回忆",
+   "images": [
+    "resource\\umamusume\\chara_icon\\青竹回忆_01.png",
+    "resource\\umamusume\\chara_icon\\青竹回忆_02.png",
+    "resource\\umamusume\\chara_icon\\青竹回忆_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\青竹回忆_01.png"
+  },
+  "醒目飞鹰": {
+   "page": "简/【绝对☆LOVE】醒目飞鹰",
+   "images": [
+    "resource\\umamusume\\chara_icon\\醒目飞鹰_01.png",
+    "resource\\umamusume\\chara_icon\\醒目飞鹰_02.png",
+    "resource\\umamusume\\chara_icon\\醒目飞鹰_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\醒目飞鹰_01.png"
+  },
+  "成田大进": {
+   "page": "简/【Nevertheless】成田大进",
+   "images": [
+    "resource\\umamusume\\chara_icon\\成田大进_01.png",
+    "resource\\umamusume\\chara_icon\\成田大进_02.png",
+    "resource\\umamusume\\chara_icon\\成田大进_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\成田大进_01.png"
+  },
+  "美丽周日": {
+   "page": "简/【☆闪亮★心动☆雀跃∞美丽∞】美丽周日",
+   "images": [
+    "resource\\umamusume\\chara_icon\\美丽周日_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\美丽周日_01.png"
+  },
+  "西野花": {
+   "page": "简/【叠瓣花蕾】西野花",
+   "images": [
+    "resource\\umamusume\\chara_icon\\西野花_01.png",
+    "resource\\umamusume\\chara_icon\\西野花_02.png",
+    "resource\\umamusume\\chara_icon\\西野花_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\西野花_01.png"
+  },
+  "千明代表": {
+   "page": "简/【Clear Bliss】千明代表",
+   "images": [
+    "resource\\umamusume\\chara_icon\\千明代表_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\千明代表_01.png"
+  },
+  "待兼福来": {
+   "page": "简/【吉兆秋风】待兼福来",
+   "images": [
+    "resource\\umamusume\\chara_icon\\待兼福来_01.png",
+    "resource\\umamusume\\chara_icon\\待兼福来_02.png",
+    "resource\\umamusume\\chara_icon\\待兼福来_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\待兼福来_01.png"
+  },
+  "春乌菈菈": {
+   "page": "简/【明媚新春♪樱花绽放】春乌菈菈",
+   "images": [
+    "resource\\umamusume\\chara_icon\\春乌菈菈_01.png",
+    "resource\\umamusume\\chara_icon\\春乌菈菈_02.png",
+    "resource\\umamusume\\chara_icon\\春乌菈菈_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\春乌菈菈_01.png"
+  },
+  "优秀素质": {
+   "page": "简/【RUN＆WIN】优秀素质",
+   "images": [
+    "resource\\umamusume\\chara_icon\\优秀素质_01.png",
+    "resource\\umamusume\\chara_icon\\优秀素质_02.png",
+    "resource\\umamusume\\chara_icon\\优秀素质_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\优秀素质_01.png"
+  },
+  "目白多伯": {
+   "page": "简/【宛延曲线】目白多伯",
+   "images": [
+    "resource\\umamusume\\chara_icon\\目白多伯_01.png",
+    "resource\\umamusume\\chara_icon\\目白多伯_02.png",
+    "resource\\umamusume\\chara_icon\\目白多伯_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\目白多伯_01.png"
+  },
+  "名将怒涛": {
+   "page": "简/【苍蓝/怒涛】名将怒涛",
+   "images": [
+    "resource\\umamusume\\chara_icon\\名将怒涛_01.png",
+    "resource\\umamusume\\chara_icon\\名将怒涛_02.png",
+    "resource\\umamusume\\chara_icon\\名将怒涛_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\名将怒涛_01.png"
+  },
+  "大拓太阳神": {
+   "page": "简/【Fun☆Fun☆嗨翻天】大拓太阳神",
+   "images": [
+    "resource\\umamusume\\chara_icon\\大拓太阳神_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\大拓太阳神_01.png"
+  },
+  "目白善信": {
+   "page": "简/【Line Breakthrough】目白善信",
+   "images": [
+    "resource\\umamusume\\chara_icon\\目白善信_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\目白善信_01.png"
+  },
+  "天狼星象征": {
+   "page": "简/【Féroce】天狼星象征",
+   "images": [
+    "resource\\umamusume\\chara_icon\\天狼星象征_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\天狼星象征_01.png"
+  },
+  "待兼唐怀瑟": {
+   "page": "简/【碧蓝湍流】待兼唐怀瑟",
+   "images": [
+    "resource\\umamusume\\chara_icon\\待兼唐怀瑟_01.png",
+    "resource\\umamusume\\chara_icon\\待兼唐怀瑟_02.png",
+    "resource\\umamusume\\chara_icon\\待兼唐怀瑟_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\待兼唐怀瑟_01.png"
+  },
+  "里见光钻": {
+   "page": "简/【Natural Brilliance】里见光钻",
+   "images": [
+    "resource\\umamusume\\chara_icon\\里见光钻_01.png",
+    "resource\\umamusume\\chara_icon\\里见光钻_02.png",
+    "resource\\umamusume\\chara_icon\\里见光钻_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\里见光钻_01.png"
+  },
+  "帝王光辉": {
+   "page": "简/【洁白傲气的激励之服】帝王光辉",
+   "images": [
+    "resource\\umamusume\\chara_icon\\帝王光辉_01.png",
+    "resource\\umamusume\\chara_icon\\帝王光辉_02.png",
+    "resource\\umamusume\\chara_icon\\帝王光辉_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\帝王光辉_01.png"
+  },
+  "北部玄驹": {
+   "page": "简/【锦绣·溢彩盛典】北部玄驹",
+   "images": [
+    "resource\\umamusume\\chara_icon\\北部玄驹_01.png",
+    "resource\\umamusume\\chara_icon\\北部玄驹_02.png",
+    "resource\\umamusume\\chara_icon\\北部玄驹_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\北部玄驹_01.png"
+  },
+  "成田路": {
+   "page": "简/【The Proud Road】成田路",
+   "images": [
+    "resource\\umamusume\\chara_icon\\成田路_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\成田路_01.png"
+  },
+  "目白光明": {
+   "page": "简/【砺光韧线】目白光明",
+   "images": [
+    "resource\\umamusume\\chara_icon\\目白光明_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\目白光明_01.png"
+  },
+  "山人西风": {
+   "page": "简/【Fluttertail Spirit】山人西风",
+   "images": [
+    "resource\\umamusume\\chara_icon\\山人西风_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\山人西风_01.png"
+  },
+  "八重无敌": {
+   "page": "简/【四白流星之袭】八重无敌",
+   "images": [
+    "resource\\umamusume\\chara_icon\\八重无敌_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\八重无敌_01.png"
+  },
+  "樱花千代王": {
+   "page": "简/【举世无双·樱花耀夜】樱花千代王",
+   "images": [
+    "resource\\umamusume\\chara_icon\\樱花千代王_01.png",
+    "resource\\umamusume\\chara_icon\\樱花千代王_02.png",
+    "resource\\umamusume\\chara_icon\\樱花千代王_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\樱花千代王_01.png"
+  },
+  "目白雅丹": {
+   "page": "简/【墨绿柔线】目白雅丹",
+   "images": [
+    "resource\\umamusume\\chara_icon\\目白雅丹_01.png",
+    "resource\\umamusume\\chara_icon\\目白雅丹_02.png",
+    "resource\\umamusume\\chara_icon\\目白雅丹_03.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\目白雅丹_01.png"
+  },
+  "小林历奇": {
+   "page": "简/【阴阳八卦☆开运服】小林历奇",
+   "images": [
+    "resource\\umamusume\\chara_icon\\小林历奇_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\小林历奇_01.png"
+  },
+  "北幸樽前": {
+   "page": "简/【星辉之航】北幸樽前",
+   "images": [
+    "resource\\umamusume\\chara_icon\\北幸樽前_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\北幸樽前_01.png"
+  },
+  "阿斯顿真弓": {
+   "page": "简/【Flare】阿斯顿真弓",
+   "images": [
+    "resource\\umamusume\\chara_icon\\阿斯顿真弓_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\阿斯顿真弓_01.png"
+  },
+  "樱花桂冠": {
+   "page": "简/【Saisir le rêve】樱花桂冠",
+   "images": [
+    "resource\\umamusume\\chara_icon\\樱花桂冠_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\樱花桂冠_01.png"
+  },
+  "谷水琴蕾": {
+   "page": "简/【雷霆加身】谷水琴蕾",
+   "images": [
+    "resource\\umamusume\\chara_icon\\谷水琴蕾_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\谷水琴蕾_01.png"
+  },
+  "克里斯象征": {
+   "page": "简/【Onyx Soldier】克里斯象征",
+   "images": [
+    "resource\\umamusume\\chara_icon\\克里斯象征_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\克里斯象征_01.png"
+  },
+  "葛城荣主": {
+   "page": "简/【登龙之顶】葛城荣主",
+   "images": [
+    "resource\\umamusume\\chara_icon\\葛城荣主_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\葛城荣主_01.png"
+  },
+  "第一红宝": {
+   "page": "简/【华丽红玉】第一红宝",
+   "images": [
+    "resource\\umamusume\\chara_icon\\第一红宝_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\第一红宝_01.png"
+  },
+  "奇锐骏": {
+   "page": "简/【Butterfly Sting】奇锐骏",
+   "images": [
+    "resource\\umamusume\\chara_icon\\奇锐骏_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\奇锐骏_01.png"
+  },
+  "双涡轮": {
+   "page": "简/【狂奔！涡轮引擎】双涡轮",
+   "images": [
+    "resource\\umamusume\\chara_icon\\双涡轮_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\双涡轮_01.png"
+  },
+  "新宇宙": {
+   "page": "简/【Universe-Naut】新宇宙",
+   "images": [
+    "resource\\umamusume\\chara_icon\\新宇宙_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\新宇宙_01.png"
+  },
+  "菱奇宝": {
+   "page": "简/【奇迹装点！】菱奇宝",
+   "images": [
+    "resource\\umamusume\\chara_icon\\菱奇宝_01.png"
+   ],
+   "avatar": "resource\\umamusume\\chara_icon\\菱奇宝_01.png"
+  }
+ },
+ "count": 84,
+ "ok": 84
+}

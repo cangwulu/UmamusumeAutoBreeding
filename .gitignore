@@ -1,11 +1,31 @@
+# python
 *.pyc
 venv
-.idea
-userdata
+.venv
 **/__pycache__
-.vscode
-models/paddleocr
-.npm-cache-check
+.pytest_cache
+*.log
+requirements.lock.txt.bak
+
+# 个人库存与隐私数据（禁止入库! 含账号真实育成记录）
+my_inventory/
+userdata
 screenshots
+
+# 大体积图片资产(抓取脚本产物, 不入库; 入库的只是 tools 脚本与 manifest)
+resource/umamusume/chara_icon/
+resource/umamusume/support_card_img/
+
+# IDE / 工具
+.idea
+.vscode
+.npm-cache-check
 tools/.cache/
 .workbuddy/
+
+# OCR 模型(体积大, 按 README 另行下载)
+models/paddleocr
+
+# 环境残留
+NVIDIA Corporation/
+node_modules
