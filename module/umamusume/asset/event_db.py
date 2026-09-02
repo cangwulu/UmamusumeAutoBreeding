@@ -35,6 +35,7 @@ import threading
 from collections import defaultdict
 
 from bot.recog.fuzzy_match import cosine_sim
+from module.umamusume.name_resolver import get_resolver
 
 EVENT_DB_PATH = "resource/umamusume/data/event_db.json"
 # 国服译名 -> 上游译名的桥接表。上游 zh_CN.json 用繁中/台式译法（例：国服
@@ -78,6 +79,7 @@ class EventDB(object):
         self.aliases = {}                    # 国服译名 -> 上游译名
         self._name_map = defaultdict(list)   # 事件名 -> [event index]
         self._last_map = defaultdict(list)   # 末选项 -> [event index]
+        self._jp_map = defaultdict(list)     # 事件 JP 名 -> [event index]
 
     # ------------------------------------------------------------ 加载
 
@@ -97,8 +99,12 @@ class EventDB(object):
 
         self._name_map.clear()
         self._last_map.clear()
+        self._jp_map.clear()
         for i, ev in enumerate(self.events):
             self._name_map[ev.get("name", "")].append(i)
+            jp = ev.get("name_jp", "").strip()
+            if jp:
+                self._jp_map[jp].append(i)
             choices = ev.get("choices") or []
             if choices:
                 self._last_map[choices[-1].get("text", "")].append(i)
@@ -161,6 +167,23 @@ class EventDB(object):
 
         r_name = self._best_match(list(self._name_map.keys()), name_candidates, min_score)
         r_opt = self._best_match(list(self._last_map.keys()), last_option_candidates, min_score)
+
+        # 0) 统一解析层：事件名 OCR -> 事件 JP 规范键（resolver 已聚合 国服CN/上游CN/
+        #    event_alias 桥接源）。命中即直接以 JP 键查 _jp_map 返回；未命中或低置信则
+        #    保留下方 cosine 结果。last_option 指纹优先逻辑见下方，保持不变。
+        try:
+            rslv = get_resolver()
+            best_jp, best_score = None, 0.0
+            for cand in name_candidates:
+                jp_key, score = rslv.canonical(cand)
+                if jp_key and rslv.kind(jp_key) == "event" and score > best_score:
+                    best_jp, best_score = jp_key, score
+            if best_jp:
+                evs = self._events_of(best_jp, self._jp_map)
+                if evs:
+                    return EventMatch(evs[0], max(best_score, 0.9), "name", evs)
+        except Exception:
+            pass
 
         # 末选项指纹优先：命中且得分不低于事件名路
         if r_opt and r_opt[0] and (r_name is None or not r_name[0] or r_name[1] < r_opt[1]):

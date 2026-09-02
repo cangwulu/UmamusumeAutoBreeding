@@ -62,13 +62,14 @@ def main():
     by_key = {}        # jp_key -> {kind, chara, aliases:set}
     alias_to_key = {}  # surface -> jp_key
 
-    def add_alias(key, alias):
+    def add_alias(key, alias, kind=None):
         if not alias:
             return
         a = alias.strip()
         if not a:
             return
-        by_key.setdefault(key, {"kind": "form", "chara": "", "aliases": set()})
+        if key not in by_key:
+            by_key[key] = {"kind": kind or "form", "chara": "", "aliases": set()}
         by_key[key]["aliases"].add(a)
         # 已映射到其他键则不改（首个胜出，避免冲突覆盖）
         alias_to_key.setdefault(a, key)
@@ -157,6 +158,51 @@ def main():
         add_alias(key, jp)
         add_alias(key, cn)
 
+    # 5) event_db.json：事件级（name_jp 作规范键）
+    #    事件/比赛不在 pretty-derby db.json 体系内，故单独纳入；键用事件自身 JP 名，
+    #    别名覆盖 上游CN(name) + 国服CN(event_alias.json 桥接源)。
+    ed = _load(os.path.join(DATA, "event_db.json"))
+    for ev in ed.get("events", []):
+        jp = (ev.get("name_jp") or "").strip()
+        cn = (ev.get("name") or "").strip()
+        if not jp and not cn:
+            continue
+        key = jp or cn
+        by_key.setdefault(key, {"kind": "event", "chara": "", "aliases": set()})
+        add_alias(key, jp, "event")
+        add_alias(key, cn, "event")
+    # 把 event_alias.json 的国服CN -> 上游CN 桥接源，挂到对应事件键下
+    try:
+        ea = _load(os.path.join(DATA, "event_alias.json")).get("aliases", {})
+        cn2key = {}
+        for k, v in by_key.items():
+            if v["kind"] == "event":
+                for a in v["aliases"]:
+                    cn2key.setdefault(a, k)
+        for cn_src, cn_tgt in ea.items():
+            tgt_key = cn2key.get(cn_tgt)
+            if tgt_key:
+                add_alias(tgt_key, cn_src, "event")
+    except Exception:
+        pass
+
+    # 6) race_bwiki.json：比赛级（jp_name 作规范键）
+    #    别名覆盖 国服CN(name) / BWIKI中文(wiki_cn_name) / 台服(tw_name)。
+    rb = _load(os.path.join(DATA, "race_bwiki.json"))
+    for r in rb.get("races", []):
+        jp = (r.get("jp_name") or "").strip()
+        name = (r.get("name") or "").strip()
+        wiki_cn = (r.get("wiki_cn_name") or "").strip()
+        tw = (r.get("tw_name") or "").strip()
+        if not jp and not name:
+            continue
+        key = jp or name
+        by_key.setdefault(key, {"kind": "race", "chara": "", "aliases": set()})
+        add_alias(key, jp, "race")
+        add_alias(key, name, "race")
+        add_alias(key, wiki_cn, "race")
+        add_alias(key, tw, "race")
+
     # 序列化：set -> list
     out = {
         "version": 1,
@@ -184,6 +230,19 @@ def main():
     print("  【无声无瑕】无声铃鹿 ->", demo("【无声无瑕】无声铃鹿"))
     print("  无声铃鹿   ->", demo("无声铃鹿"), "(应为 サイレンススズカ)")
     print("  #LookatCurren ->", demo("#LookatCurren"))
+    # 事件/比赛抽样（需数据存在）
+    try:
+        ed0 = _load(os.path.join(DATA, "event_db.json")).get("events", [])[0]
+        if ed0.get("name_jp"):
+            print("  %s ->" % ed0.get("name"), demo(ed0.get("name")), "(kind=event)")
+    except Exception:
+        pass
+    try:
+        rb0 = _load(os.path.join(DATA, "race_bwiki.json")).get("races", [])[0]
+        if rb0.get("jp_name"):
+            print("  %s ->" % rb0.get("name"), demo(rb0.get("name")), "(kind=race)")
+    except Exception:
+        pass
 
 
 if __name__ == "__main__":

@@ -120,6 +120,21 @@ for surf, expect in resolver_cases:
     check("resolver.canonical(%s)=%s (got=%s,%.2f)" % (surf, expect, k, s),
           k == expect, "score=%.2f" % s)
 
+# ---------- event / race 覆盖（扩展后）----------
+resolver_event_race = [
+    ("#Curren找到了", "#Currenみつけた", "event"),
+    ("新年参拜", "初詣", "event"),
+    ("团队成员终于集结完毕!", "ついに集まったチームメンバー！", "event"),
+    ("二月锦标赛", "フェブラリーステークス", "race"),
+    ("皋月奖", "皐月賞", "race"),
+    ("菊花奖", "菊花賞", "race"),
+]
+for surf, expect, kind in resolver_event_race:
+    k, s = r.canonical(surf)
+    ok = (k == expect) and (r.kind(k) == kind)
+    check("resolver.canonical(%s)=%s/%s (got=%s/%s,%.2f)" % (surf, expect, kind, k, r.kind(k), s),
+          ok, "score=%.2f" % s)
+
 if failures:
     print("\nFAILED: %d" % len(failures))
     for f in failures:

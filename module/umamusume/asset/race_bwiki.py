@@ -41,6 +41,7 @@ if _PROJECT_ROOT not in sys.path:
     sys.path.insert(0, _PROJECT_ROOT)
 
 from bot.recog.fuzzy_match import cosine_sim
+from module.umamusume.name_resolver import get_resolver
 
 RACE_BWIKI_PATH = "resource/umamusume/data/race_bwiki.json"
 
@@ -121,6 +122,17 @@ class RaceDB(object):
         r = self._alias.get(name)
         if r:
             return r
+        # 统一解析层：任意表面名 -> 日文规范键 -> Race（resolver 已聚合多源译名，
+        # 含国服CN/上游CN/台服；命中即采用，否则退回下方全量 cosine 兜底）
+        try:
+            rslv = get_resolver()
+            jp_key, _ = rslv.canonical(name)
+            if jp_key and rslv.kind(jp_key) == "race":
+                r = self._alias.get(jp_key)
+                if r:
+                    return r
+        except Exception:
+            pass
         # 模糊兜底：全量暴力 cosine（勿用 FuzzyIndex，见 affinity.py 同款教训）
         best, score = None, 0.0
         for n in self._names:
