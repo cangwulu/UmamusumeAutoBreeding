@@ -30,6 +30,7 @@ import os
 import threading
 
 from bot.recog.fuzzy_match import FuzzyIndex, cosine_sim
+from module.umamusume.name_resolver import get_resolver
 
 SKILL_DB_PATH = "resource/umamusume/data/skill_db.json"
 SKILL_BWIKI_PATH = "resource/umamusume/data/skill_bwiki.json"
@@ -88,6 +89,7 @@ class SkillDB(object):
         self.skills = []            # pretty-derby 记录
         self.bwiki_skills = []      # BWIKI 简中记录
         self._by_name = {}          # pretty-derby 规范名 -> record
+        self._by_jp_name = {}       # pretty-derby 日文规范键 -> record
         self._by_bwiki_name = {}    # BWIKI 简中名 -> record
         self._name_index = None     # FuzzyIndex(pretty-derby 名)
         self._bwiki_index = None    # FuzzyIndex(BWIKI 简中名)
@@ -109,6 +111,8 @@ class SkillDB(object):
             data = json.load(f)
         self.skills = data.get("skills", [])
         self._by_name = {s.get("name", ""): s for s in self.skills if s.get("name")}
+        self._by_jp_name = {s.get("name_jp", ""): s for s in self.skills
+                            if s.get("name_jp")}
         self._name_index = FuzzyIndex(list(self._by_name.keys()))
         return self
 
@@ -149,7 +153,17 @@ class SkillDB(object):
                     rec = self._by_bwiki_name.get(entry)
                     if rec is not None:
                         return rec, real, "bwiki"
-        # 2) pretty-derby 兜底
+        # 2) pretty-derby 兜底：走统一名称解析层（derby 名/JP 名 -> 日文规范键 -> 记录）
+        try:
+            r = get_resolver()
+            jp_key, score = r.canonical(name)
+            if jp_key and r.kind(jp_key) == "skill" and score >= self._DERBY_ACCEPT:
+                rec = self._by_jp_name.get(jp_key)
+                if rec is not None:
+                    return rec, score, "derby"
+        except Exception:
+            pass
+        # 旧 derby 模糊索引（解析层未覆盖时的保底）
         res = self.name_index.query([name])
         if res and res[0] and res[1] >= self._DERBY_ACCEPT:
             rec = self._by_name.get(res[0])

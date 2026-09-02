@@ -47,6 +47,7 @@ if _PROJECT_ROOT not in sys.path:
     sys.path.insert(0, _PROJECT_ROOT)
 
 from bot.recog.fuzzy_match import FuzzyIndex, cosine_sim
+from module.umamusume.name_resolver import get_resolver
 
 CHARA_SKILLS_PATH = "resource/umamusume/data/chara_skills.json"
 
@@ -67,6 +68,8 @@ class CharaSkillDB(object):
         self._by_name = {}       # 中文角色名 -> 角色记录
         self._by_jp_name = {}    # 日文角色名 -> 角色记录
         self._by_card_name = {}  # 卡（形态）名 -> (角色记录, 卡记录)
+        self._by_chara_jp = {}   # 日文角色规范键 -> 角色记录
+        self._by_card_jp = {}    # 日文形态规范键 -> (角色记录, 卡记录)
         self._index = None       # FuzzyIndex(中文角色名 + 卡名)
 
     def load(self):
@@ -79,6 +82,8 @@ class CharaSkillDB(object):
         self.characters = data.get("characters", [])
         self._by_name = {}
         self._by_card_name = {}
+        self._by_chara_jp = {}
+        self._by_card_jp = {}
         for c in self.characters:
             nm = c.get("name") or ""
             if nm:
@@ -86,10 +91,14 @@ class CharaSkillDB(object):
             jp = c.get("name_jp") or ""
             if jp:
                 self._by_jp_name[jp] = c
+                self._by_chara_jp[jp] = c
             for card in c.get("cards", []):
                 cn = card.get("card_name") or ""
                 if cn:
                     self._by_card_name[cn] = (c, card)
+                cjp = card.get("card_jp") or ""
+                if cjp:
+                    self._by_card_jp[cjp] = (c, card)
         # 角色名与卡名一起建索引，便于直接查形态
         keys = list(self._by_name.keys()) + list(self._by_card_name.keys())
         self._index = FuzzyIndex(keys)
@@ -104,7 +113,10 @@ class CharaSkillDB(object):
     def match(self, name):
         """角色名 / 卡名模糊匹配。
 
-        先精确查中文名 -> 日文名 -> 卡名，都未命中再走模糊索引。
+        优先走统一名称解析层 name_resolver（任何表面名 -> 日文规范键），
+        再按规范键在本库索引里精确定位（角色级 / 形态级），从而让
+        BWIKI 中文形态名与 pretty-derby 中文形态名都能命中同一张卡。
+        解析层未命中才退回原有的精确 + 模糊匹配。
         :return: (chara_record, matched_name, score, card_record_or_None)
                  未命中返回 (None, None, 0.0, None)
         """
@@ -112,6 +124,22 @@ class CharaSkillDB(object):
             self.load()
         if not name:
             return None, None, 0.0, None
+        # 0) 统一名称解析层
+        try:
+            r = get_resolver()
+            jp_key, score = r.canonical(name)
+            if jp_key:
+                kind = r.kind(jp_key)
+                if kind == "chara":
+                    rec = self._by_chara_jp.get(jp_key)
+                    if rec is not None:
+                        return rec, rec.get("name", name), max(score, 0.9), None
+                elif kind == "form":
+                    pair = self._by_card_jp.get(jp_key)
+                    if pair is not None:
+                        return pair[0], name, max(score, 0.9), pair[1]
+        except Exception:
+            pass
         # 1) 精确：中文角色名
         rec = self._by_name.get(name)
         if rec is not None:
