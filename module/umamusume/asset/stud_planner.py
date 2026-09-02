@@ -153,7 +153,8 @@ def ensure_assets() -> Dict[str, object]:
     os.chdir(_PROJECT_ROOT)
     try:
         for name in ("skill_tierlist", "breeding_guide", "affinity",
-                     "route_planner", "chara_skills", "race_bwiki"):
+                     "route_planner", "chara_skills", "race_bwiki",
+                     "saddle"):
             try:
                 _ASSETS[name] = _load_asset(name)
             except Exception as exc:  # 单个资产失败不应拖垮整体
@@ -949,6 +950,27 @@ def plan_route(chara: Chara, mode: str = "rest:2") -> Dict[str, object]:
         return {}
 
 
+def _route_saddle(plan: Dict[str, object]) -> Dict[str, object]:
+    """从 plan_route 输出提取「胜鞍相关」摘要。
+
+    现行规则（2023-02-24 改版）：胜鞍仅计 G1，重合 +3pt/场，无金章加成。
+    返回 {'g1_count': 本马路线覆盖的去重 G1 数, 'g1_max_win': 全部 G1 数,
+          'note': 说明}；plan 无效/无 route 时返回带 fallback 的说明。
+    """
+    route = (plan or {}).get("route") or []
+    sd = _asset("saddle")
+    ids = []
+    if sd is not None:
+        try:
+            ids = sd.g1_ids_from_route(route)
+        except Exception:
+            ids = []
+    g1n = len(ids)
+    note = ("路线覆盖 %d 场去重 G1；与另一只种马重合的每场 +%d 相性分"
+            "（父辈间/祖辈间都算；金章不再加成）" % (g1n, 3))
+    return {"g1_count": g1n, "g1_ids": ids, "note": note}
+
+
 def gold_medal_hint() -> List[str]:
     """金章组合提示（用于对齐胜鞍 → 加相性分）。日文原名会译成简中权威名。"""
     bg = _asset("breeding_guide")
@@ -1151,6 +1173,7 @@ def breeding_plan(inv: Inventory, track: Track, style: str,
         ch = pick["chara"]
         used.append(ch.name)
         route = plan_route(ch, mode="rest:2")
+        saddle = _route_saddle(route)
         gens.append({
             "gen": len(gens) + 1,
             "role": "历战种马（G1 覆盖 + 胜鞍）",
@@ -1158,13 +1181,14 @@ def breeding_plan(inv: Inventory, track: Track, style: str,
             "score": pick,
             "focus": "比赛数量",
             "stat_target": {},
-            "stat_note": "属性不是重点：历战马比赛占训练回合，属性不会高，够赢就行", 
+            "stat_note": "属性不是重点：历战马比赛占训练回合，属性不会高，够赢就行",
             "apt_target": "适性越广能跑的比赛越多（广度 %d/4 档）" % pick["breadth"],
             "route": route.get("stats") or {},
-            "route_mode": "2 战 1 休；尽量覆盖 G1，对齐金章组合",
+            "route_mode": "2 战 1 休；尽量覆盖 G1（胜鞍按现行规则仅计 G1，重合 +3pt/场，无金章加成）",
             "deck": deck,
             "skills": white,
-            "output": "白因子（比赛/技能/剧本）+ 胜鞍分（相性加成）",
+            "saddle": saddle,
+            "output": "白因子（比赛/技能/剧本）+ 胜鞍分（仅 G1 重合，+3pt/场）",
         })
 
     # --- 最终代：成品参赛马 ---
@@ -1588,6 +1612,8 @@ def render_report(result: Dict[str, object], inv: Inventory) -> str:
                   % (len(uniq_g1), "、".join(uniq_g1[:16])))
         else:
             A("- 赛程：%s" % g["route_mode"])
+        if g.get("saddle"):
+            A("- 胜鞍口径：%s" % g["saddle"]["note"])
         if (g.get("deck") or {}).get("cards"):
             A("- 配卡（%s 流）：%s"
               % (g["deck"]["build"], "、".join(
@@ -1613,12 +1639,16 @@ def render_report(result: Dict[str, object], inv: Inventory) -> str:
         A("> 相性分 ≥151 双圈（⌾） / 51~150 单圈（〇） / <51 三角（△）。相性越高，第二、三次继承触发概率越高。")
         A(">")
         A("> ⚠ **固定相性分普遍偏低**（多数角色组合 <51，都是 △）—— 这是正常的。"
-          "真正拉开差距的是**胜鞍分**：种马与祖辈跑过相同比赛（每重合一场 +1pt，金章组合另计）。"
-          "所以历战代不是可选项，是相性分的主要来源 —— 借好友种马时也要挑赛程重合度高的。")
+          "真正拉开差距的是**胜鞍分**：现行规则（2023-02-24 改版）仅计 G1 重合，每场 +3pt，"
+          "父辈之间也计，无金章加成。所以历战代不是可选项，是相性分的主要来源 —— "
+          "借好友种马时也要挑 G1 赛程重合度高的。")
         A("")
     gm = gold_medal_hint()
     if gm:
-        A("### 金章组合（对齐胜鞍可加相性分）")
+        A("### 金章组合（育成内目标提醒，不再直接加相性分）")
+        A("")
+        A("> 2023-02-24 改版后胜鞍仅按 G1 重合计，金章不再提供额外相性分。"
+          "以下金章仍可作为历战/育成流程的里程碑参考：")
         A("")
         for g in gm[:12]:
             A(g if str(g).startswith("-") else "- %s" % g)
@@ -1694,7 +1724,10 @@ def print_summary(result: Dict[str, object], inv: Inventory, top: int = 5) -> No
         aff = ""
         if g.get("affinity"):
             aff = " 相性%d%s" % (g["affinity"]["score"], g["affinity"]["grade"])
-        print("  第%d代 %-12s %s%s%s" % (g["gen"], g["focus"], g["chara"].name, extra, aff))
+        sd = ""
+        if g.get("saddle"):
+            sd = " G1覆盖%d场" % g["saddle"]["g1_count"]
+        print("  第%d代 %-12s %s%s%s%s" % (g["gen"], g["focus"], g["chara"].name, extra, sd, aff))
         print("        → %s" % g["output"])
     if bp.get("partner_hint"):
         print("  高相性种马候选：%s" % "，".join(
