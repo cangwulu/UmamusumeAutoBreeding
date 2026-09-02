@@ -63,6 +63,7 @@
 > 从「下次大赛」倒推「我还差多远」→ 因子需求(蓝/粉/白/绿) → 多代养成计划 → 借位建议。
 
 - **CLI**：`python module/umamusume/asset/stud_planner.py --race 中山大奖赛`
+- **聚合入口页**：`public/hub.html` —— Web 服务根路径 `/` 打开，聚合育成 / 规划 / 库存 / 数据状态 / CLI 速查
 - **Web 点选页**：`public/planning.html` + `module/umamusume/planning/web_api.py` —— 浏览器点选拥有的马娘 / 协助卡（写回 `my_inventory/*.csv`）、登记大赛、运行规划
 - **红因子继承概率**（P2）：抄自 uma-tools 的 1★1%/2★3%/3★5% ×(1+相性/100) 模型，报告给出「A→S 概率段需几颗 1★红因子 / 期望育成次数」
 - 相性数据官方化 + 胜鞍按现行规则（P0/P1）
@@ -170,7 +171,8 @@ bot:
 
 双击 `run.ps1`。控制台出现 `UAT running on http://127.0.0.1:8071` 即启动成功，浏览器访问：
 
-- `/` —— 自动育成任务 Web UI（配置马娘 / 协助卡 / 技能 / 剧本后启动）
+- `/` —— **聚合入口页**（hub）：功能卡片 + 我的进度(大赛登记/库存勾选) + 数据资产规模 + CLI 速查
+- `/index.html` —— 自动育成任务 Web UI（配置马娘 / 协助卡 / 技能 / 剧本后启动）
 - `/planning.html` —— 库存点选 + 大赛登记 + 种马规划（读 `my_inventory/`）
 
 > 数据 / 规划工具也可以脱离模拟器单独用：`python module/umamusume/asset/stud_planner.py --race 中山大奖赛` 等 CLI 见各模块 docstring。
