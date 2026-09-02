@@ -110,7 +110,9 @@ def main():
     ed["events"].extend(new_events)
     ed.setdefault("meta", {})
     ed["meta"]["event_count"] = len(ed["events"])          # 总事件数同步
-    ed["meta"]["urarawin_support_merged"] = added
+    # urarawin_support_merged = 库中 ur_ 前缀事件总数（幂等：二次跑 added=0 也不回退）
+    ed["meta"]["urarawin_support_merged"] = sum(
+        1 for e in ed["events"] if str(e.get("id", "")).startswith("ur_"))
     ed["meta"]["support_events_total"] = sum(
         1 for e in ed["events"] if e.get("owner_type") == "support")
     with open(EVENT_DB, "w", encoding="utf-8") as f:
