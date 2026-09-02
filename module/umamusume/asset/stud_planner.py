@@ -77,8 +77,19 @@ RANK_APT = {v: k for k, v in APT_RANK.items()}
 
 # 粉因子：提升 N 阶段所需的累计星数（game_mechanics.json factors.pink.upgrade_cost）
 PINK_COST = {0: 0, 1: 1, 2: 4, 3: 7, 4: 10}
+# 粉因子：提升到第 N 阶段需要**几颗 1★ 红因子**（红因子只认颗数、不看等级；3★=1 颗）
+# 与 PINK_COST 同源（upgrade_cost 的差分），只是视角从「星级」换成「颗数」。
+PINK_STAGE_STARS = {0: 0, 1: 1, 2: 4, 3: 7, 4: 10}
 # 蓝因子价值
 BLUE_VALUE = {3: 21, 2: 12, 1: 5}
+
+# ---- 红因子继承概率模型（抄自 uma-tools SuccessionPlanner，2026-09-02） ----
+# 每颗 1★ 红因子的基础继承概率（1★ 1% / 2★ 3% / 3★ 5%），乘上相性加成 (1+相性/100)。
+# 相性分从 affinity.py 的固定相性分取（P0 已升级为官方 mdb 数据）；
+# 注：继承的实际成功率还叠加「胜鞍分」等，本模型是**可继承性**的下界估计。
+RED_FACTOR_BASE_PROB = {1: 0.01, 2: 0.03, 3: 0.05}
+# 每次继承判定时每颗红因子最多触发几次（第二/三次继承的机会）
+PINK_INHERIT_CHANCES = 2
 
 # 马场状态修正（game_mechanics.json track_condition）
 COND_MOD = {"良": (1.0, 1.0), "稍重": (1.05, 0.95),
@@ -679,13 +690,71 @@ def rank_candidates(inv: Inventory, track: Track, style: str,
 
 # ============================ 因子需求 ============================
 
-def pink_need(current: str, target: str) -> Dict[str, object]:
+# ---- 红因子继承概率模型（uma-tools SuccessionPlanner 移植） ----
+
+def red_factor_prob(stars: int, compat: int) -> float:
+    """单颗红因子单次继承判定的概率：base(星级) × (1 + 相性/100)。
+
+    uma-tools 口径：1★ 1% / 2★ 3% / 3★ 5%，相性加成 (1 + compat/100)，
+    上限 1.0。compat 通常用固定相性分（胜鞍分未计，属保守估计）。
+    """
+    base = RED_FACTOR_BASE_PROB.get(stars, 0.0)
+    return min(1.0, base * (1 + compat / 100.0))
+
+
+def red_factor_reach_prob(prob: float, chances: int = PINK_INHERIT_CHANCES) -> float:
+    """N 次独立继承判定中至少成功 1 次的概率（DP 聚合的简式）。
+
+    uma-tools probabilityOfReachingTargets 对每个因子给 2 次机会
+    （第二、三次继承），对「只要 1 颗就能升阶段」的情况即为 1-(1-p)^chances。
+    """
+    if chances <= 0:
+        return 0.0
+    return 1.0 - (1.0 - prob) ** chances
+
+
+def pink_prob_plan(prob_stages: int, compat: int,
+                   current: str = "", target: str = "S") -> Dict[str, object]:
+    """把「概率阶段」（初始继承到不了、只能靠二/三次继承）翻译成红因子计划。
+
+    输出（供 factor_requirements.pink / 报告展示）：
+      stage_up  需要几颗 1★ 红因子（PINK_STAGE_STARS 差分）
+      need_stars 把这段也当「一次性可继承」时需折算的★数（3★=1颗，2★≈0.5颗）
+      prob_reach 单颗红因子最终被继承到的概率（1★ × (1+相性/100)，2 次机会）
+      avg_rounds 期望要育成几次才能见到 1 颗成功继承（≈1/prob，保留 1 位）
+      chance_ok  好友/库存里已经有该因子的情形下「第 1 次就成功」的概率
+      note       一行人话总结
+    """
+    if prob_stages <= 0:
+        return {"stage_up": 0, "need_stars": 0.0, "prob_reach": None,
+                "avg_rounds": None, "chance_ok": None,
+                "note": "无概率阶段（初始继承即可到达）"}
+    stage_up = PINK_STAGE_STARS.get(prob_stages, 10)
+    # 3★ 视为 1 颗 1★；1★=1 颗，2★≈半颗 → need_stars 是「等效★数」，仅供直观参考
+    need_stars = round(stage_up * 1.0, 1)
+    prob = red_factor_prob(1, compat)
+    reach = red_factor_reach_prob(prob, PINK_INHERIT_CHANCES)
+    rounds = (1.0 / reach) if reach > 0 else float("inf")
+    if reach >= 1.0:
+        rounds = 1.0
+    note = ("需 %d 颗 1★红因子；1★单颗继承率 %.0f%%（相性 %d ×2 次机会），"
+            "预计约 %s 次育成成功 1 颗"
+            % (stage_up, reach * 100, compat,
+               ("%.1f" % rounds) if rounds < 999 else "很久"))
+    return {"stage_up": stage_up, "need_stars": need_stars,
+            "prob_reach": round(reach, 4), "avg_rounds": rounds,
+            "chance_ok": round(reach, 4), "note": note}
+
+
+def pink_need(current: str, target: str, compat: int = 0) -> Dict[str, object]:
     """粉因子需求：从 current 适性提到 target 需要多少星、能到哪。
 
     规则（docs/strategy_integrated.md C.2）：
       * 1 星粉 = +1 阶段；累计 4/7/10 星 = +2/+3/+4 阶段
       * 单项最高 +4 阶段
       * **初始继承封顶 A，到不了 S** —— S 只能靠第二/三次继承的概率触发
+
+    compat：与种马的固定相性分（影响概率性阶段被继承到的成功率，默认 0 = 保守）。
     """
     cur, tgt = APT_RANK.get(current, 0), APT_RANK.get(target, 0)
     need = tgt - cur
@@ -705,20 +774,27 @@ def pink_need(current: str, target: str) -> Dict[str, object]:
         if remaining > 0:
             note += "；剩余 %d 阶段（%s→%s）只能靠第二/三次继承概率触发" % (
                 remaining, initial_reach, target)
+    prob = pink_prob_plan(remaining, compat) if remaining > 0 else None
     return {"stages": need, "stars": stars, "initial_reach": initial_reach,
-            "initial_stages": initial_cap, "prob_stages": remaining, "note": note}
+            "initial_stages": initial_cap, "prob_stages": remaining, "note": note,
+            "prob": prob}
 
 
 def factor_requirements(chara: Chara, track: Track, style: str,
-                        stats_goal: Dict[str, int]) -> Dict[str, object]:
-    """分解一只主力马需要哪些因子。"""
+                        stats_goal: Dict[str, int],
+                        compat: int = 0) -> Dict[str, object]:
+    """分解一只主力马需要哪些因子。
+
+    compat：与目标种马（借位/自产）的固定相性分 —— 只影响「初始继承到不了、
+    需靠第二/三次继承」那几段的成功率估计；默认 0 = 保守（无相性加成）。
+    """
     dc = track.distance_class
     dist_map = (chara.adapt.get("距离适应性") or {})
     surf_map = (chara.adapt.get("场地适应性") or {})
     style_map = (chara.adapt.get("跑法适应性") or {})
 
     def _pn(label, cur):
-        r = pink_need(cur, "S")
+        r = pink_need(cur, "S", compat=compat)
         r["current"] = cur
         r["label"] = label
         return r
@@ -1051,6 +1127,32 @@ def _cn_race(name: str) -> str:
 
 # ============================ 主规划流程 ============================
 
+def _best_partner_compat(chara: "Chara", inv: "Inventory") -> int:
+    """与库存里可当种马的角色中固定相性分最高者的分数（P2 概率估算用）。
+
+    因子继承成功率随相性提高；计划阶段不知道用户最后会借谁，
+    用「现有库存里能配到的最高固定相性」作为乐观上界。
+    """
+    aff = _asset("affinity")
+    if aff is None:
+        return 0
+    try:
+        db = aff.AffinityDB.get()
+    except Exception:
+        return 0
+    best = 0
+    for other in getattr(inv, "characters", []) or []:
+        if getattr(other, "name", "") == chara.name:
+            continue
+        try:
+            s = db.pair_score(chara.name, other.name)
+        except Exception:
+            s = 0
+        if s and s > best:
+            best = s
+    return best
+
+
 def plan(track: Track, inv: Inventory, style: str = "差",
          top: int = 5) -> Dict[str, object]:
     stats_goal = target_stats(track, style)
@@ -1062,9 +1164,12 @@ def plan(track: Track, inv: Inventory, style: str = "差",
 
     details = []
     for c in cands:
-        req = factor_requirements(c["chara"], track, style, stats_goal)
+        compat = _best_partner_compat(c["chara"], inv)
+        req = factor_requirements(c["chara"], track, style, stats_goal,
+                                  compat=compat)
         deck = recommend_deck(inv, track.distance_class)
-        details.append({"score": c, "requirements": req, "deck": deck})
+        details.append({"score": c, "requirements": req, "deck": deck,
+                        "compat": compat})
 
     return {
         "track": track,
@@ -1210,7 +1315,7 @@ def breeding_plan(inv: Inventory, track: Track, style: str,
             "output": "参赛马",
         })
 
-    # --- 相性：目标马与各代种马的固定相性分 ---
+    # --- 相性：目标马与各代种马的固定相性分（喂给红因子继承概率） ---
     aff = _asset("affinity")
     partner_hint: List[Dict[str, object]] = []
     if aff is not None and target is not None:
@@ -1222,6 +1327,8 @@ def breeding_plan(inv: Inventory, track: Track, style: str,
                 s = db.pair_score(target.name, g["chara"].name)
                 g["affinity"] = {"score": s, "grade": db.grade(s),
                                  "note": "固定相性分（不含胜鞍分）"}
+                # 每代种马与目标马的相性 → 供最终代评估红因子继承成功率
+                g["compat"] = s
             owned = {c.name for c in inv.characters if c.name != target.name}
             scored = []
             for nm in owned:
@@ -1235,6 +1342,29 @@ def breeding_plan(inv: Inventory, track: Track, style: str,
             partner_hint = scored[:5]
         except Exception:
             pass
+
+    # --- 最终代：红因子继承概率（uma-tools 模型，相性=与前面种马的固定相性分） ---
+    # 每颗 1★ 红因子：单次判定 1%×(1+相性/100)，2 次继承机会 → 成功率 = 1-(1-p)^2。
+    # 数值极小属正常：2/24 改版后 A→S 阶段本来就极难，历战/借好友主要在补胜鞍相性。
+    target_compat = 0
+    if target is not None:
+        # 目标马继承时用「与其相性最高的种马」估算；成品代自己的 affinity 由上面补
+        gen_affs = [g.get("affinity") or {} for g in gens
+                    if g["chara"].name != target.name]
+        if gen_affs:
+            target_compat = max((a.get("score") or 0) for a in gen_affs)
+        for g in gens:
+            if g["chara"].name == target.name:
+                g["compat"] = target_compat
+                p1 = red_factor_prob(1, target_compat)
+                reach = red_factor_reach_prob(p1, PINK_INHERIT_CHANCES)
+                g["pink_inherit"] = {
+                    "compat": target_compat,
+                    "per_factor_prob": p1,
+                    "two_chance_prob": reach,
+                    "note": ("单颗 1★红因子继承成功率 ≈ %.1f%%（1★基础 1%% × "
+                             "(1+%d/100)，第二/三次继承共 2 次机会）。A→S 需 1 颗以上"
+                             % (reach * 100, target_compat))}
 
     return {"generations": gens, "target": target,
             "blue_order": [STAT_CN[k] for k in blue_order],
@@ -1510,6 +1640,30 @@ def render_report(result: Dict[str, object], inv: Inventory) -> str:
             A("| %s | %s | S | %d | %d | %s |"
               % (k, v.get("current", "—"), v["stages"], v["stars"], v["note"]))
         A("")
+        # 概率性阶段（初始继承到不了的部分，需第二/三次继承的概率触发）
+        prob_rows = []
+        for k, v in req["pink"].items():
+            pb = v.get("prob")
+            if not pb or not pb.get("stage_up"):
+                continue
+            prob_rows.append((k, v, pb))
+        if prob_rows:
+            A("**红因子继承概率**（按与库存内最佳种马的固定相性 %d 估算）" % d.get("compat", 0))
+            A("")
+            A("| 项目 | 需概率补的阶段 | 需 1★红因子 | 单颗最终继承率 | 期望育成次数 |")
+            A("|---|---:|---:|---:|---:|")
+            for k, v, pb in prob_rows:
+                reach = pb.get("prob_reach")
+                rounds = pb.get("avg_rounds")
+                rnd_txt = ("%.1f" % rounds) if isinstance(rounds, float) and rounds < 999 else "很久"
+                reach_txt = ("%.1f%%" % (reach * 100)) if isinstance(reach, float) else "—"
+                A("| %s | %d | %d | %s | %s |"
+                  % (k, v["prob_stages"], pb["stage_up"], reach_txt, rnd_txt))
+            A("")
+            A("> 模型抄自 uma-tools：单颗 1★红因子基础继承率 1%（2★ 3% / 3★ 5%），"
+              "乘相性加成 (1+相性/100)，第二/三次继承共 2 次机会；成功率 = 1-(1-p)²。"
+              "数值低是 2/24 改版后 A→S 的真实难度，靠历战/借好友补胜鞍相性来拉高。")
+            A("")
         if req["stat_gap"]:
             A("**属性缺口**：%s"
               % "，".join("%s +%d" % (k, v) for k, v in req["stat_gap"].items()))
@@ -1627,6 +1781,11 @@ def render_report(result: Dict[str, object], inv: Inventory) -> str:
             A("- 与目标马相性：%d 分（%s，%s）"
               % (g["affinity"]["score"], g["affinity"]["grade"],
                  g["affinity"]["note"]))
+        if g.get("pink_inherit"):
+            pi = g["pink_inherit"]
+            A("- 红因子继承概率：单颗 1★红因子 **%.1f%%**（相性 %d，2 次机会）"
+              % (pi["two_chance_prob"] * 100, pi["compat"]))
+            A("  - %s" % pi["note"])
         A("")
     if bp.get("partner_hint"):
         A("### 高相性种马候选（与目标马的固定相性分）")
@@ -1727,7 +1886,12 @@ def print_summary(result: Dict[str, object], inv: Inventory, top: int = 5) -> No
         sd = ""
         if g.get("saddle"):
             sd = " G1覆盖%d场" % g["saddle"]["g1_count"]
-        print("  第%d代 %-12s %s%s%s%s" % (g["gen"], g["focus"], g["chara"].name, extra, sd, aff))
+        pk = ""
+        if g.get("pink_inherit"):
+            pi = g["pink_inherit"]
+            pk = " 红因子继承率%.1f%%" % (pi["two_chance_prob"] * 100)
+        print("  第%d代 %-12s %s%s%s%s%s"
+              % (g["gen"], g["focus"], g["chara"].name, extra, sd, aff, pk))
         print("        → %s" % g["output"])
     if bp.get("partner_hint"):
         print("  高相性种马候选：%s" % "，".join(
