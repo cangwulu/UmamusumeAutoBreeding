@@ -353,6 +353,35 @@ async function cupSave(){
 }
 
 // ---------- 规划 ----------
+function renderPrep(p){
+  if (!p) return "";
+  let x = '<div class="panel" style="margin-top:10px"><b>行动清单（5 自产卡 + 1 借位 · 借 1 好友种马）</b><div style="margin-top:6px;font-size:13px;line-height:1.9">';
+  if (p.friend_card) x += `<div style="color:var(--dirty)">◎ 借位卡：好友 <b>${esc(p.friend_card.type)}</b>（满突满级，不占自己的养成资源）</div>`;
+  const miss = p.missing_slots || {};
+  if (Object.keys(miss).length) x += `<div class="hint">⚠ 自产卡缺口：${Object.entries(miss).map(([k,v])=>esc(k)+"×"+v).join("、")}（好友借位只能补 1 格）</div>`;
+  const upg = p.card_upgrades || [];
+  if (upg.length) {
+    x += '<div style="margin-top:4px"><b>协助卡升级：</b></div>';
+    upg.slice(0,8).forEach(c => {
+      x += `<div>· ${esc(c.name)}（${esc(c.state)}）→ <b>${esc(c.target)}</b>｜${esc(c.priority)}｜<span class="hint">${esc(c.reason)}</span></div>`;
+    });
+  } else if (!p.friend_card) {
+    x += '<div class="hint">库存没有协助卡 —— 先去「协助卡」页勾选拥有的卡。</div>';
+  }
+  const bs = p.borrow_studs || [];
+  if (bs.length) {
+    x += '<div style="margin-top:4px"><b>每代借位（好友种马该找啥）：</b></div>';
+    if (p.borrow_note) x += `<div class="hint" style="margin-bottom:4px">${esc(p.borrow_note)}</div>`;
+    bs.forEach(g => { x += `<div>· 第 ${g.gen} 代 · ${esc(g.role)}（${esc(g.chara)}）：${esc(g.need)}</div>`; });
+  }
+  const hs = p.horses || [];
+  if (hs.length) {
+    x += '<div style="margin-top:4px"><b>马娘养成状态：</b></div>';
+    hs.forEach(h => { x += `<div>· 第 ${h.gen} 代 · ${esc(h.role)}（${esc(h.chara)}，现 ${esc(h.state||"—")}）：${esc(h.advice||"")}</div>`; });
+  }
+  x += '</div></div>';
+  return x;
+}
 async function runPlan(){
   const b = $("btnPlan");
   b.disabled = true; b.innerHTML = '<span class="spin"></span> 规划中';
@@ -394,6 +423,7 @@ function renderPlan(r){
       <div class="sc"><div style="font-size:12px;color:var(--sub)">综合</div><b>${c.total!=null?c.total:"-"}</b></div>
     </div>`;
   });
+  if (s.prep) h += renderPrep(s.prep);
   if (r.md) h += `<div class="preview">${esc(r.md)}</div>`;
   el.innerHTML = h;
   $("planInfo").textContent = r.md_path ? "报告: " + r.md_path : "";

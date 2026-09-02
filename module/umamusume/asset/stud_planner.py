@@ -821,8 +821,43 @@ def card_score(card: Card) -> int:
     return base + card.limit * 12 + min(len(card.effects), 8) * 2
 
 
-def recommend_deck(inv: Inventory, dc: str, top_n: int = 6) -> Dict[str, object]:
-    """按距离档推荐配卡（从拥有的卡里挑）。"""
+# ---- 好友借位（育成可借 1 张协助卡 + 1 匹种马） ----
+FRIEND_LIMIT = 4      # 借来的好友卡默认按满突算
+FRIEND_LEVEL = 50     # 好友卡默认满级
+FRIEND_STAR = 3       # 借来的好友种马默认按 3 星蓝品质评估（实际要看好友，规划只按达标算）
+
+
+def _friend_score() -> int:
+    """好友满突满级 SSR 卡的质量分（作为「借位是否值得」的基准）。"""
+    return 100 + FRIEND_LIMIT * 12 + 8 * 2
+
+
+def _friend_card(ctype: str) -> Card:
+    """构造一张「借位」占位卡（不占你的养成资源）。"""
+    return Card(name="[借·好友]%s卡" % ctype, chara="", type=ctype,
+                rarity="SSR", limit=FRIEND_LIMIT, level=FRIEND_LEVEL,
+                effects=["好友满突满级"])
+
+
+def is_borrowed(card: Card) -> bool:
+    """这张卡是「借位占位卡」吗？"""
+    return bool(card and (card.name or "").startswith("[借·好友]"))
+
+
+def card_full(card: Card) -> bool:
+    """是否已练满（4 突破 / 50 级）。"""
+    return card.limit >= FRIEND_LIMIT and card.level >= FRIEND_LEVEL
+
+
+def recommend_deck(inv: Inventory, dc: str, top_n: int = 6,
+                   can_borrow: bool = True) -> Dict[str, object]:
+    """按距离档推荐配卡（最多 6 格，其中可留 1 格借好友）。
+
+    - 先按配比从**自己的卡**里挑（速3/力2/友1 等）；
+    - can_borrow 时：有类型缺口 → 借位补最缺的类型；类型都齐 →
+      用好友满突满级 SSR 替换自产里最弱的一格（净提升最大）；
+    - 返回含 friend 字段（None=没借，否则 {type, card}）。
+    """
     build = DIST_BUILD.get(dc, "速智")
     mix = TYPE_MIX.get(build, {"速度": 3, "智力": 2, "友人": 1})
     pool = sorted(inv.cards, key=lambda c: -card_score(c))
@@ -840,7 +875,59 @@ def recommend_deck(inv: Inventory, dc: str, top_n: int = 6) -> Dict[str, object]
                 picked.append(c)
             if len(picked) >= top_n:
                 break
-    return {"build": build, "mix": mix, "cards": picked[:top_n], "missing": missing}
+
+    friend: Optional[Dict[str, object]] = None
+    if can_borrow:
+        friend_type = None
+        # 1) 有类型缺口 → 借位补第一个缺口类型
+        for ctype in mix:
+            if missing.get(ctype, 0) > 0:
+                friend_type = ctype
+                break
+        # 2) 类型全齐 → 挑「自产最弱、借来提升最大」的 mix 内类型
+        if friend_type is None:
+            type_best: Dict[str, int] = {}
+            for c in picked:
+                type_best[c.type] = max(type_best.get(c.type, -1), card_score(c))
+            best_gap = 0
+            for ctype in mix:
+                s = type_best.get(ctype)
+                if s is None:
+                    continue
+                gap = _friend_score() - s
+                if gap > best_gap:
+                    best_gap, friend_type = gap, ctype
+        # 3) 一张自己的卡都没有 → 借友人卡（通常好友友人卡价值最高）
+        if friend_type is None and not picked:
+            friend_type = "友人"
+        if friend_type:
+            fcard = _friend_card(friend_type)
+            same = [c for c in picked if c.type == friend_type]
+            if missing.get(friend_type, 0) > 0:
+                # 缺口类型直接补位；超 6 格就丢最不重要的自产
+                picked.append(fcard)
+                if len(picked) > top_n:
+                    noncore = [c for c in picked
+                               if c.type not in mix and not is_borrowed(c)]
+                    if noncore:
+                        picked.remove(noncore[-1])   # pool 已按分降序, 取最弱
+                    else:
+                        weakest = min([c for c in picked if not is_borrowed(c)],
+                                      key=card_score)
+                        picked.remove(weakest)
+                if missing.get(friend_type, 0) > 0:
+                    missing[friend_type] -= 1
+            elif same and max(card_score(c) for c in same) < _friend_score():
+                # 补强替换：丢该类型最弱一张，换成好友同类型满突卡
+                picked.remove(min(same, key=card_score))
+                picked.append(fcard)
+            elif not same and len(picked) < top_n:
+                picked.append(fcard)
+            friend = {"type": friend_type, "card": fcard}
+
+    missing = {k: v for k, v in missing.items() if v > 0}
+    return {"build": build, "mix": mix, "cards": picked[:top_n],
+            "missing": missing, "friend": friend}
 
 
 def plan_route(chara: Chara, mode: str = "rest:2") -> Dict[str, object]:
@@ -1131,6 +1218,184 @@ def breeding_plan(inv: Inventory, track: Track, style: str,
             "partner_hint": partner_hint}
 
 
+# ============================ 行动清单（升级目标 / 借位 / 状态建议） ============================
+# 育成规则（docs/strategy_integrated.md C 节 + 游戏机制）：
+#   * 每次育成可借 1 匹好友种马（2 个父母位中 1 个用好友）+ 1 张好友协助卡（6 卡位中 1 个）
+#   * 好友种马按「品质达标、啥都能借」估算 → 计划只要求你自己真正要产的那几匹
+#   * 好友协助卡默认满突满级（FRIEND_LIMIT / FRIEND_LEVEL）
+# 本节的产出：告诉用户「每代练谁练到什么状态 / 每张卡升到什么程度 / 借位找什么」。
+
+
+def _card_cur_state(card: Card) -> str:
+    return "%s·%d破/%d级" % (card.rarity.upper(), card.limit, card.level)
+
+
+def _card_upgrade_row(card: Card, deck: Dict[str, object]) -> Dict[str, str]:
+    """单张自产卡的目标状态 / 优先级 / 理由。"""
+    mix = deck.get("mix") or {}
+    need = mix.get(card.type, 0)
+    full = card_full(card)
+    if full:
+        prio, target, reason = "已达标", "—", "已是满突满级，无需再升"
+    elif card.type == "友人":
+        prio, target, reason = ("P2·可缓", "突破4/等级50",
+                                "友人卡通常靠好友借位覆盖；自己这张有价值再慢慢练")
+    elif need:
+        if card.rarity.upper() == "SSR":
+            prio = "P1·主力卡"
+            reason = "%s流核心 %s卡，突破/等级直接加面板与技能等级" % (deck["build"], card.type)
+        else:
+            prio = "P1·过渡卡"
+            reason = ("当前 %s 位缺高稀有度 %s 卡才用你；有同类型 SSR 后优先替换"
+                      % (deck["build"], card.type))
+        target = "突破4/等级50"
+    else:
+        prio, target, reason = ("P2·备选", "突破4/等级50",
+                                "不在当前 %s 配比里，有余力再升" % deck["build"])
+    return {"name": card.name, "type": card.type, "rarity": card.rarity.upper(),
+            "state": _card_cur_state(card), "target": target,
+            "priority": prio, "reason": reason}
+
+
+def _chara_awakening_hint(name: str, recommend_names) -> Dict[str, object]:
+    """目标马觉醒建议：若其觉醒技能命中推荐技能组则点名，否则给通用建议。"""
+    hint = {"advice": "", "matched": []}
+    try:
+        cs = _asset("chara_skills")
+        if cs is None:
+            return hint
+        aws = list(cs.awakening_skills_of(name) or [])
+        gold = [s.get("name", "") for s in aws if (s.get("rare") or "") == "レア"]
+        wanted = set(n for n in (recommend_names or []) if n)
+        matched = [s.get("name", "") for s in aws if s.get("name", "") in wanted]
+        hint["matched"] = matched
+        if matched:
+            hint["advice"] = ("觉醒技『%s』命中推荐技能组 → 建议把觉醒拉到能解锁它的等级"
+                              % "、".join(matched))
+        elif gold:
+            hint["advice"] = ("觉醒技含金技『%s』 → 实战/因子面都建议把觉醒练到解锁它"
+                              % "、".join(gold[:2]))
+    except Exception:
+        pass
+    return hint
+
+
+def build_action_items(result: Dict[str, object], inv: Inventory,
+                       bp: Optional[Dict[str, object]] = None) -> Dict[str, object]:
+    """行动清单（JSON 友好）：
+      deck 视角（5 自产 + 1 借）、每张卡的升级目标、每代种马借位需求、马娘状态建议。
+    """
+    t: Track = result["track"]
+    style = result["style"]
+    dc = t.distance_class
+    bp = bp or breeding_plan(inv, t, style, result)
+    deck = recommend_deck(inv, dc, top_n=6)
+    mix = deck.get("mix") or {}
+
+    matrix_names = []
+    for m in (result.get("skills") or {}).get("matrix") or []:
+        if isinstance(m, dict):
+            matrix_names.append(m.get("name", ""))
+        else:
+            matrix_names.append(str(m))
+
+    items: Dict[str, object] = {
+        "build": deck["build"],
+        "friend_card": {"type": deck["friend"]["type"]} if deck.get("friend") else None,
+        "missing_slots": dict(deck.get("missing") or {}),
+        "borrow_note": ("借种马用种马检索站找别人挂出的（如 game.bilibili.com/tool/pd/）；"
+                        "条件通常很高且搜索不完美 —— 目标是高配，搜不到 3★ 就降 2★/1★ 先跑，"
+                        "缺口由后续代补"),
+        "card_upgrades": [],
+        "borrow_studs": [],
+        "horses": [],
+    }
+
+    for c in deck["cards"]:
+        if is_borrowed(c):
+            continue
+        items["card_upgrades"].append(_card_upgrade_row(c, deck))
+
+    target: Optional[Chara] = bp.get("target")
+    final_blue = "、".join((bp.get("blue_order") or [])[:2]) or "耐力/力量"
+    for g in bp.get("generations", []):
+        ch = g.get("chara")
+        role = g.get("role") or ""
+        chara_name = getattr(ch, "name", "") or ""
+        if "蓝因子种马" in role:
+            need = ("1 借位父母：带 %s 3★蓝因子（同属性叠加初始继承，帮本马冲 1100 出 3★），"
+                    "适性/相性尽量与本马接近" % (g.get("focus") or ""))
+        elif "历战" in role:
+            need = ("1 借位父母：速度/耐力 3★蓝 + G1 胜鞍广、固定相性高的好友种马"
+                    "（本代产出白因子/比赛因子，属性只用来赢 G1）")
+        else:
+            need = ("1 借位父母：补自产覆盖不到的缺口 —— 优先 %s 蓝因子；"
+                    "挑与目标马固定相性高 + 胜鞍重合多的（继承概率看相性）" % final_blue)
+        items["borrow_studs"].append({"gen": g.get("gen"), "role": role,
+                                      "chara": chara_name, "need": need})
+        advice = ""
+        if "成品参赛马" in role and target is not None:
+            hint = _chara_awakening_hint(target.name, matrix_names)
+            parts = [p for p in (hint["advice"],) if p]
+            if getattr(target, "awakening", 0) < 4:
+                parts.append("觉醒建议 ≥4（解锁全部觉醒技，育成白嫖、省技能点）")
+            parts.append("星级不影响因子质量，不必为规划追高")
+            advice = "；".join(parts)
+        elif ch is not None:
+            advice = ("按上面「属性/适性目标」练；觉醒按需 —— 主要看是否顺带学到要产出的白技能"
+                      if "蓝因子种马" in role else
+                      "属性够赢 G1 即可，不必追求上限；觉醒按需")
+        items["horses"].append({"gen": g.get("gen"), "role": role,
+                                "chara": chara_name,
+                                "state": ("★%d 觉醒%d" % (getattr(ch, "star", 3),
+                                                          getattr(ch, "awakening", 0))
+                                          if ch is not None else ""),
+                                "advice": advice})
+    return items
+
+
+def render_action_items(items: Dict[str, object], deck: Dict[str, object]) -> List[str]:
+    """把 build_action_items 渲染成 md 段落行（供 render_report 复用）。"""
+    L: List[str] = []
+    A = L.append
+    friend = items.get("friend_card")
+    A("### 每代借位一览（每次育成：1 自产父母 + 1 借好友父母 + 可借 1 张好友卡）")
+    A("")
+    A("> 借种马靠种马检索站找别人挂出的（如 https://game.bilibili.com/tool/pd/ ）；"
+      "下面给的是**目标档位**，检索要求往往很高且搜索不完美 —— 搜不到 3★ 就降 2★/1★ 先跑，"
+      "缺口由后面的代补，别卡在『完美种马』上。")
+    A("")
+    for g in items.get("borrow_studs", []):
+        A("- **第 %s 代 · %s**（%s）：%s"
+          % (g["gen"], g["role"], g["chara"], g["need"]))
+    A("")
+    A("### 协助卡升级目标（按你库存算的推荐配卡，最多 5 自产 + 1 借）")
+    A("")
+    upg = items.get("card_upgrades") or []
+    if friend:
+        A("- 借位卡：**%s**（好友满突满级 SSR，不占你的养成资源）"
+          % (friend.get("type") or ""))
+    miss = items.get("missing_slots") or {}
+    if miss:
+        A("- ⚠ 自产卡还有缺口：%s —— 借位只能补 1 格，其余要抽/刷到对应类型"
+          % "，".join("%s×%d" % (k, v) for k, v in miss.items()))
+    if not upg and not friend:
+        A("- 未检测到自产协助卡（库存没填）。先到「协助卡」页勾选拥有的卡。")
+    for c in upg:
+        A("- **%s**：%s → %s｜%s｜%s"
+          % (c["name"], c["state"], c["target"], c["priority"], c["reason"]))
+    A("")
+    A("### 马娘养成状态建议")
+    A("")
+    A("> 状态列 = 你当前库存里的 星级/觉醒（星级不影响因子质量；觉醒影响能白嫖哪些觉醒技）。")
+    A("")
+    for h in items.get("horses", []):
+        A("- **第 %d 代 · %s**（%s，现 %s）：%s"
+          % (h["gen"], h["role"], h["chara"], h.get("state") or "—", h.get("advice") or ""))
+    A("")
+    return L
+
+
 def other_styles_snapshot(track: Track, inv: Inventory) -> List[Dict[str, object]]:
     """其他跑法的最佳候选速查。"""
     out = []
@@ -1246,7 +1511,7 @@ def render_report(result: Dict[str, object], inv: Inventory) -> str:
                   for c in deck["cards"])))
             if deck.get("missing"):
                 A("")
-                A("  ⚠ 缺卡：%s（用其他类型补齐或借好友）"
+                A("  ⚠ 仍缺卡（好友借位只能用 1 格）：%s —— 其余缺口要抽/刷补上"
                   % "，".join("%s ×%d" % (k, v) for k, v in deck["missing"].items()))
         A("")
 
@@ -1359,12 +1624,20 @@ def render_report(result: Dict[str, object], inv: Inventory) -> str:
             A(g if str(g).startswith("-") else "- %s" % g)
         A("")
 
-    A("## 六、下一步")
+    A("## 六、行动清单（借什么 / 把什么练到什么状态）")
     A("")
-    A("1. 填 `my_inventory/my_characters.csv`（拥有列填 1，星级/觉醒等级可选）")
-    A("2. 填 `my_inventory/my_support_cards.csv`（拥有列填 1，突破数建议填）")
-    A("3. 重跑本工具，即可得到针对你库存的候选排名与配卡方案")
-    A("4. 每练出一只种马，往 `my_studs.csv` 补一行，缺口会逐代收敛")
+    A("> 育成规则：每次育成可借 **1 匹好友种马**（父母位用 1 个好友）+ **1 张好友协助卡**"
+      "（6 卡位用 1 格，按满突满级估算）。好友种马假定品质达标 → 下表只要求你自己真正要产的部分。")
+    A("")
+    deck0 = recommend_deck(inv, t.distance_class, top_n=6)
+    action_items = build_action_items(result, inv, bp=bp)
+    L.extend(render_action_items(action_items, deck0))
+
+    A("## 七、下一步")
+    A("")
+    A("1. 按「六、行动清单」把该练的卡/该练的状态安排上（借位找好友即可）")
+    A("2. 每练出一只种马，往 `my_studs.csv` 补一行，缺口会逐代收敛")
+    A("3. 重跑本工具，即可得到收敛后的下一轮建议")
     A("")
     return "\n".join(L)
 
@@ -1426,6 +1699,19 @@ def print_summary(result: Dict[str, object], inv: Inventory, top: int = 5) -> No
     if bp.get("partner_hint"):
         print("  高相性种马候选：%s" % "，".join(
             "%s %d分" % (p["name"], p["score"]) for p in bp["partner_hint"][:3]))
+    print("")
+    _items = build_action_items(result, inv, bp=bp)
+    print("【借位 / 升级建议】")
+    _f = _items.get("friend_card")
+    if _f:
+        print("  借卡：好友%s卡（满突满级，不占自己的养成资源）" % _f["type"])
+    _upg = _items.get("card_upgrades") or []
+    for _c in _upg[:4]:
+        print("  卡·%-22s %-12s → %-12s %s" % (_c["name"], _c["state"], _c["target"], _c["priority"]))
+    if not _upg and not _f:
+        print("  （库存没有协助卡 → 先到网页「协助卡」页勾选拥有的卡）")
+    for _g in (_items.get("borrow_studs") or [])[:3]:
+        print("  第%d代借位（%s）：%s" % (_g["gen"], _g["chara"], _g["need"][:60]))
     print("")
     sup = result["supply"]
     if sup["count"] == 0:

@@ -34,7 +34,8 @@ def ensure_import():
         raise RuntimeError("无法导入 asset/stud_planner: %r" % (_IMPORT_ERR,))
 
 
-def _result_to_summary(result: Dict[str, object], inv_dir: str) -> Dict[str, object]:
+def _result_to_summary(result: Dict[str, object], inv_dir: str,
+                       inv=None) -> Dict[str, object]:
     """把 plan() 返回(含 Chara/Track 等对象)压成可 JSON 序列化的摘要。"""
     ensure_import()
     track = result["track"]
@@ -50,7 +51,7 @@ def _result_to_summary(result: Dict[str, object], inv_dir: str) -> Dict[str, obj
             "score_detail": {k: v for k, v in score.items() if k != "chara"},
             "factor_gap": req.get("summary") or req.get("gaps") or {},
         })
-    return {
+    summary = {
         "generated_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
         "inventory_dir": inv_dir,
         "track": {
@@ -66,6 +67,13 @@ def _result_to_summary(result: Dict[str, object], inv_dir: str) -> Dict[str, obj
         "candidate_top": candidates,
         "inventory_empty": result["inventory_empty"],
     }
+    # 行动清单：借位 / 卡升级 / 马娘状态（5 自产 + 1 借 口径）
+    if inv is not None:
+        try:
+            summary["prep"] = stud_planner.build_action_items(result, inv)
+        except Exception as exc:  # 建议是附加信息, 失败不应拖垮主结果
+            summary["prep"] = {"_error": str(exc)}
+    return summary
 
 
 def plan(cup: CupInfo, inv_dir: str = None, top: int = 5,
@@ -91,7 +99,7 @@ def plan(cup: CupInfo, inv_dir: str = None, top: int = 5,
         f.write(stud_planner.render_report(result, inv))
 
     json_path = os.path.join(out_dir, "plan_%s.json" % stamp)
-    summary = _result_to_summary(result, inv_dir)
+    summary = _result_to_summary(result, inv_dir, inv=inv)
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
 
