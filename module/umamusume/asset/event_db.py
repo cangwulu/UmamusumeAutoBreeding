@@ -34,7 +34,7 @@ import os
 import threading
 from collections import defaultdict
 
-from bot.recog.fuzzy_match import FuzzyIndex
+from bot.recog.fuzzy_match import cosine_sim
 
 EVENT_DB_PATH = "resource/umamusume/data/event_db.json"
 # 国服译名 -> 上游译名的桥接表。上游 zh_CN.json 用繁中/台式译法（例：国服
@@ -78,8 +78,6 @@ class EventDB(object):
         self.aliases = {}                    # 国服译名 -> 上游译名
         self._name_map = defaultdict(list)   # 事件名 -> [event index]
         self._last_map = defaultdict(list)   # 末选项 -> [event index]
-        self._name_index = None
-        self._last_index = None
 
     # ------------------------------------------------------------ 加载
 
@@ -105,21 +103,7 @@ class EventDB(object):
             if choices:
                 self._last_map[choices[-1].get("text", "")].append(i)
 
-        self._name_index = FuzzyIndex(list(self._name_map.keys()))
-        self._last_index = FuzzyIndex(list(self._last_map.keys()))
         return self
-
-    @property
-    def name_index(self):
-        if self._name_index is None:
-            self.load()
-        return self._name_index
-
-    @property
-    def last_index(self):
-        if self._last_index is None:
-            self.load()
-        return self._last_index
 
     def __len__(self):
         if not self.events:
@@ -130,6 +114,26 @@ class EventDB(object):
 
     def _events_of(self, entry, mapping):
         return [self.events[i] for i in mapping.get(entry, ())]
+
+    @staticmethod
+    def _best_match(keys, candidates, min_score=0.0):
+        """在 keys 池里对多个 OCR 候选暴力 cosine，返回 (best_key, best_score)。
+
+        取代原先的 FuzzyIndex：FuzzyIndex 单命中返回的是「递减阈值」而非真实相似度，
+        排序/接受判定不可靠；这里用全量 cosine 取真实最高分（与 affinity/race_bwiki 同款）。
+        """
+        if not candidates or not keys:
+            return None
+        best_key, best_score = None, 0.0
+        for cand in candidates:
+            for k in keys:
+                s = cosine_sim(cand, k)
+                if s > best_score:
+                    best_score = s
+                    best_key = k
+        if best_key is None or best_score < min_score:
+            return None
+        return (best_key, best_score)
 
     def search(self, name_candidates, last_option_candidates=None,
                min_score=0.0):
@@ -155,13 +159,8 @@ class EventDB(object):
                     extra.append(mapped)
             name_candidates = name_candidates + extra
 
-        r_name = self._name_index.query(name_candidates) if name_candidates else None
-        r_opt = self._last_index.query(last_option_candidates) if last_option_candidates else None
-
-        if r_name is not None and r_name[0] and r_name[1] < min_score:
-            r_name = None
-        if r_opt is not None and r_opt[0] and r_opt[1] < min_score:
-            r_opt = None
+        r_name = self._best_match(list(self._name_map.keys()), name_candidates, min_score)
+        r_opt = self._best_match(list(self._last_map.keys()), last_option_candidates, min_score)
 
         # 末选项指纹优先：命中且得分不低于事件名路
         if r_opt and r_opt[0] and (r_name is None or not r_name[0] or r_name[1] < r_opt[1]):
