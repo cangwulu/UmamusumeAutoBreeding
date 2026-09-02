@@ -57,7 +57,8 @@ def stop_bot():
 
 @server.get("/")
 async def get_index():
-    return FileResponse('public/index.html', headers={
+    # 聚合入口页（功能卡片 + 库存/数据状态）；原自动育成 UI 仍可 /index.html 访问
+    return FileResponse('public/hub.html', headers={
         'Cache-Control': 'no-cache, no-store, must-revalidate',
         'Pragma': 'no-cache',
         'Expires': '0'

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>赛马娘 · 自动育成与规划中心</title>
+<style>
+:root{
+  --c1:#7a1f1f; --c2:#9c3a3a; --c3:#b8860b;
+  --bg:#faf7f2; --panel:#ffffff; --line:#e6ddd0;
+  --ink:#2b2620; --sub:#8a7f6f; --ok:#2e7d32; --warn:#b26a00;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Microsoft YaHei","PingFang SC",sans-serif;background:var(--bg);color:var(--ink);font-size:14px;line-height:1.6}
+header{background:linear-gradient(120deg,var(--c1),var(--c2) 55%,#8a2b2b);color:#fff;padding:14px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+header h1{font-size:19px;letter-spacing:1px}
+header h1 small{font-weight:400;font-size:12px;opacity:.8;margin-left:10px}
+.badges{display:flex;gap:8px;flex-wrap:wrap}
+.badge{background:rgba(255,255,255,.15);border-radius:12px;padding:2px 10px;font-size:12px}
+.badge b{font-size:13px;color:#ffd9a0}
+main{max-width:1120px;margin:0 auto;padding:18px 22px 60px}
+section{margin-bottom:26px}
+h2{font-size:16px;color:var(--c1);border-left:4px solid var(--c3);padding-left:10px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+h2 .hint{font-size:12px;color:var(--sub);font-weight:400;border:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px;cursor:pointer;transition:transform .12s,box-shadow .12s;text-decoration:none;color:var(--ink);position:relative;overflow:hidden}
+.card:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(122,31,31,.12)}
+.card .ico{font-size:30px}
+.card h3{font-size:16px}
+.card .desc{font-size:13px;color:var(--sub);flex:1}
+.card .go{color:var(--c3);font-size:13px;font-weight:600}
+.card::after{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--c3)}
+.card.big{min-height:150px}
+.state-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:13px}
+.state-card .t{color:var(--sub);font-size:12px;margin-bottom:6px;display:flex;justify-content:space-between}
+.state-card .v{font-size:15px}
+.state-card .v small{font-size:12px;color:var(--sub);margin-left:6px}
+.meter{height:8px;background:#eee3d3;border-radius:4px;overflow:hidden;margin-top:8px}
+.meter i{display:block;height:100%;background:linear-gradient(90deg,var(--c3),var(--c1));width:0;transition:width .5s}
+.mini-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.mini{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.mini .n{font-size:18px;font-weight:700;color:var(--c1)}
+.mini .l{font-size:12px;color:var(--sub)}
+.row-cmd{display:flex;gap:10px;align-items:center;background:#f1eadf;border:1px dashed var(--line);border-radius:10px;padding:8px 14px;margin-bottom:8px;flex-wrap:wrap}
+.row-cmd code{flex:1;font-family:Consolas,Menlo,monospace;font-size:13px;color:#3a2f22;white-space:nowrap;overflow-x:auto}
+.row-cmd .d{font-size:12px;color:var(--sub);flex-basis:100%}
+button.copy{border:none;background:var(--c3);color:#fff;border-radius:7px;padding:5px 14px;cursor:pointer;font-size:12px}
+button.copy:hover{background:#a3750a}
+.pills{display:flex;gap:8px;flex-wrap:wrap}
+.pill{background:#efe7d8;border-radius:14px;padding:3px 12px;font-size:12px;color:#5a4a33}
+.status-line{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:8px;font-size:13px;color:var(--sub)}
+.status-line .ok{color:var(--ok)}
+.status-line .warn{color:var(--warn)}
+footer{text-align:center;color:var(--sub);font-size:12px;padding:20px 0}
+.muted{color:var(--sub);font-size:12px}
+#toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);background:#3a2f22;color:#fff;padding:8px 20px;border-radius:8px;opacity:0;transition:opacity .25s;font-size:13px;z-index:9;pointer-events:none}
+#toast.show{opacity:.95}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🏇 赛马娘 · 自动育成与规划中心 <small>国服 / UmamusumeAutoTrainer</small></h1>
+  <div class="badges" id="svcBadges"></div>
+</header>
+
+<main>
+
+  <!-- ===== 常用功能 ===== -->
+  <section>
+    <h2>⚡ 常用功能 <span class="hint">点击进入</span></h2>
+    <div class="grid">
+      <a class="card big" href="/index.html">
+        <div class="ico">🎮</div>
+        <h3>自动育成 Web UI</h3>
+        <div class="desc">配置马娘 / 协助卡 / 目标属性 / 剧本后启动，画面识别全自动训练·比赛·休息·学技能·处理事件。</div>
+        <div class="go">进入育成配置 →</div>
+      </a>
+      <a class="card big" href="/planning.html">
+        <div class="ico">📋</div>
+        <h3>库存点选 &amp; 种马规划</h3>
+        <div class="desc">浏览器点选拥有的马娘 / 协助卡，登记下次大赛，一键跑种马缺口规划（多代养成计划）。</div>
+        <div class="go">进入规划工作台 →</div>
+      </a>
+      <div class="card big" style="cursor:default">
+        <div class="ico">ℹ️</div>
+        <h3>Quick Start</h3>
+        <div class="desc">
+          ① 先在「库存点选」勾选拥有的马娘与协助卡（写入 <code>my_inventory/*.csv</code>）<br>
+          ② 登记大赛（或用下排 CLI 直接跑）<br>
+          ③ 返回「自动育成」页建任务开跑
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 我的进度 ===== -->
+  <section>
+    <h2>📈 我的进度</h2>
+    <div class="grid" id="progressGrid">
+      <div class="state-card"><div class="t">正在加载…</div></div>
+    </div>
+  </section>
+
+  <!-- ===== 数据资产 ===== -->
+  <section>
+    <h2>🗃️ 数据资产 <span class="hint">已内置入库 · 运行时不联网</span></h2>
+    <div class="mini-grid" id="assetGrid"></div>
+    <p class="muted" style="margin-top:8px">国服更新后可用
+      <code>python tools/update_assets.py</code> 一键刷新（马娘 / 协助卡 / 事件 / 名称索引），详见仓库 tools 说明。</p>
+  </section>
+
+  <!-- ===== CLI 速查 ===== -->
+  <section>
+    <h2>⌨️ CLI 速查 <span class="hint">无需模拟器即可用（数据 / 规划线）</span></h2>
+    <div class="row-cmd"><code>python module/umamusume/asset/stud_planner.py --race 中山大奖赛 --style 差</code>
+      <button class="copy" data-cmd="python module/umamusume/asset/stud_planner.py --race 中山大奖赛 --style 差">复制</button>
+      <span class="d">种马缺口规划：候选马娘 → 因子需求(蓝/粉/白/绿) → 多代养成计划 → 行动清单</span></div>
+    <div class="row-cmd"><code>python tools/gen_inventory_template.py</code>
+      <button class="copy" data-cmd="python tools/gen_inventory_template.py">复制</button>
+      <span class="d">生成 / 刷新 my_inventory 填报模板（马娘 139 形态 / 协助卡 316 张，只填 拥有/星级/觉醒）</span></div>
+    <div class="row-cmd"><code>python tools/update_assets.py --dry-run</code>
+      <button class="copy" data-cmd="python tools/update_assets.py --dry-run">复制</button>
+      <span class="d">国服更新后一键刷新数据（--dry-run 先预览步骤；全量 / --chars-only / --cards-only）</span></div>
+    <div class="row-cmd"><code>python tools/regress_name_resolver.py</code>
+      <button class="copy" data-cmd="python tools/regress_name_resolver.py">复制</button>
+      <span class="d">名称解析回归；其余回归测试见 tests/（事件 / 技能 / 相性 / 规划）</span></div>
+    <div class="row-cmd"><code>python module/umamusume/asset/stud_planner.py --race 中山大奖赛 --top 3</code>
+      <button class="copy" data-cmd="python module/umamusume/asset/stud_planner.py --race 中山大奖赛 --top 3">复制</button>
+      <span class="d">只列出 Top 候选与缺口（快速版）；比赛名可用简中权威名（如 有马纪念 → 中山大奖赛）</span></div>
+  </section>
+
+  <!-- ===== 使用提示 ===== -->
+  <section>
+    <h2>💡 小贴士</h2>
+    <div class="pills">
+      <span class="pill">本工具专为国服（简体中文）</span>
+      <span class="pill">模拟器需 720×1280 竖屏 DPI180，mumu 勿开后台保活</span>
+      <span class="pill">数据已内置，联网仅更新时用</span>
+      <span class="pill">事件 / 技能 / 相性均有回归测试保护</span>
+    </div>
+  </section>
+
+</main>
+
+<div id="toast"></div>
+<footer>UmamusumeAutoTrainer · 仅供学习研究 · 游戏内容版权归 Cygames / 哔哩哔哩所有</footer>
+
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g,
+  c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+// ---- 复制命令 ----
+document.querySelectorAll("button.copy").forEach(b => b.addEventListener("click", () => {
+  const txt = b.dataset.cmd;
+  (navigator.clipboard ? navigator.clipboard.writeText(txt)
+    : Promise.reject()).catch(() => {
+    const ta = document.createElement("textarea"); ta.value = txt;
+    document.body.appendChild(ta); ta.select();
+    document.execCommand("copy"); ta.remove();
+  });
+  const t = $("#toast"); t.textContent = "已复制：" + txt; t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 1600);
+}));
+
+// ---- 数据资产规模 ----
+const ASSET_LABEL = {
+  event_db:"事件库(含协助卡)", support_events:"协助卡事件(卡)", chara_events:"角色事件(角色)",
+  chara_skills:"马娘技能归属", character_bwiki:"马娘图鉴(形态)", support_cards:"协助卡",
+  races:"比赛", name_index:"名称索引键", affinity:"相性(角色)",
+};
+async function loadStatus(){
+  try{
+    const r = await fetch("/api/status"); if(!r.ok) throw 0;
+    const st = await r.json();
+    // 徽章
+    $("#svcBadges").innerHTML =
+      '<span class="badge">服务运行中 <b>●</b></span>' +
+      (st.cup ? '<span class="badge">大赛已登记</span>'
+              : '<span class="badge" style="background:#d08a00">大赛未登记</span>');
+    // 数据资产
+    const ag = $("#assetGrid"); ag.innerHTML = "";
+    for(const [k, v] of Object.entries(st.assets || {})){
+      const el = document.createElement("div"); el.className = "mini";
+      el.innerHTML = '<div class="n">' + (v ?? "–") + '</div><div class="l">' + esc(ASSET_LABEL[k]||k) + "</div>";
+      ag.appendChild(el);
+    }
+    // 我的进度
+    renderProgress(st);
+  }catch(e){
+    $("#svcBadges").innerHTML = '<span class="badge" style="background:#c62828">服务状态获取失败</span>';
+    $("#progressGrid").innerHTML =
+      '<div class="state-card"><div class="t">无法连接 /api/status —— 请确认 Web 服务已启动（run.ps1）</div></div>';
+  }
+}
+
+function renderProgress(st){
+  const inv = (st.inventory || {});
+  const chOwn = inv.chara_owned ?? 0, chAll = inv.characters ?? 0;
+  const cdOwn = inv.card_owned ?? 0, cdAll = inv.cards ?? 0;
+  const pct = (a,b)=> b? Math.round(a/b*100):0;
+  const card = (t,v,sub,own,all)=>`<div class="state-card">
+    <div class="t"><span>${t}</span>${sub?'<span class="muted">'+esc(sub)+'</span>':''}</div>
+    <div class="v">${esc(v ?? "–")}</div>
+    ${(typeof own==="number")?`<div class="meter"><i style="width:${pct(own,all)}%"></i></div>
+     <div class="muted">已勾选 ${own} / ${all}</div>`:""}</div>`;
+  const cupTxt = st.cup ? esc(st.cup.label) + ' <small>登记于 ' + esc(st.cup.updated_at||"") + '</small>'
+                        : '尚未登记 —— 去「库存点选」的大赛标签页填';
+  $("#progressGrid").innerHTML =
+    card("🎯 下次大赛", null, cupTxt) +
+    card("🐴 我的马娘", inv.chara_hint ?? "", "", chOwn, chAll) +
+    card("🃏 我的协助卡", "", "", cdOwn, cdAll) +
+    card("🧬 成品种马", inv.stud_hint ?? "", (inv.stud_count!==undefined)?'已登记 '+inv.stud_count+' 只':'');
+  // 空库提示
+  if(!chOwn && !cdOwn){
+    const g = $("#progressGrid");
+    g.innerHTML += '<div class="state-card" style="grid-column:1/-1"><div class="t" style="color:#b26a00">⚠️ 库存还是空的</div>' +
+      '<div class="v">先去 <a href="/planning.html">库存点选</a> 勾选拥有的马娘与协助卡，规划器才能给出针对你账号的结果。</div></div>';
+  }
+}
+
+loadStatus();
+</script>
+</body>
+</html>

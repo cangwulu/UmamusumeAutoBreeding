@@ -229,6 +229,89 @@ def _read_tail(path: str, n: int = 2000) -> str:
         return ""
 
 
+# ---------- 汇总状态（供 hub 入口页展示） ----------
+@router.get("/status")
+def get_status():
+    """轻量聚合：数据资产规模 + 我的库存进度 + 大赛登记 + 版本。
+
+    只读，任何文件缺失都静默降级（hub 页显示占位）。
+    """
+    import datetime
+
+    data_dir = os.path.join(_PROJECT_ROOT, "resource", "umamusume", "data")
+
+    def _size(name, key=None, sub=None):
+        p = os.path.join(data_dir, name)
+        try:
+            with open(p, encoding="utf-8") as f:
+                obj = json.load(f)
+            if key:
+                obj = obj.get(key, obj)
+            if sub:
+                obj = obj.get(sub, obj)
+            if isinstance(obj, list):
+                return len(obj)
+            if isinstance(obj, dict):
+                # by_key 类结构（name_index）
+                if "by_key" in obj:
+                    return len(obj["by_key"])
+                return len(obj)
+        except Exception:
+            return None
+        return None
+
+    status = {
+        "server_time": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "assets": {
+            "event_db": _size("event_db.json", "events"),
+            "support_events": _size("support_events.json", "cards"),
+            "chara_events": _size("chara_events.json", "characters"),
+            "chara_skills": _size("chara_skills.json", "characters"),
+            "character_bwiki": _size("character_bwiki.json", "characters"),
+            "support_cards": _size("support_card_bwiki.json", "cards"),
+            "races": _size("race_bwiki.json", "races"),
+            "name_index": _size("name_index.json"),
+            "affinity": _size("affinity.json", "characters"),
+        },
+        "cup": None,
+        "inventory": inv_svc.check(),
+    }
+    try:
+        cup = CupInfo.load()
+        if cup is not None:
+            status["cup"] = {
+                "label": cup.label() if hasattr(cup, "label") else str(cup),
+                "updated_at": getattr(cup, "updated_at", ""),
+            }
+    except Exception:
+        pass
+    # 补充「拥有」计数（CSV 拥有(1/0) 列），供 hub 进度条
+    try:
+        import csv as _csv
+
+        def _owned_csv(fname, own_col):
+            p = os.path.join(_PROJECT_ROOT, "my_inventory", fname)
+            if not os.path.isfile(p):
+                return 0
+            with open(p, encoding="utf-8-sig", newline="") as f:
+                rows = list(_csv.reader(f))
+            if len(rows) < 2:
+                return 0
+            hdr = rows[0]
+            idx = next((i for i, h in enumerate(hdr) if "拥有" in h), own_col)
+            n = 0
+            for r in rows[1:]:
+                if len(r) > idx and str(r[idx]).strip() in ("1", "是", "✓", "有"):
+                    n += 1
+            return n
+
+        status["inventory"]["chara_owned"] = _owned_csv("my_characters.csv", 2)
+        status["inventory"]["card_owned"] = _owned_csv("my_support_cards.csv", 4)
+    except Exception:
+        pass
+    return status
+
+
 # ---------- 图片静态(限定文件名, 防穿越) ----------
 def _safe_media(img_dir: str, file: str):
     if not file or ".." in file or "/" in file or "\\" in file:
