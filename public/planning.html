@@ -272,7 +272,7 @@ function renderChara(){
   for (const c of STATE.characters) {
     if (f==="own" && !c.own) continue;
     if (f==="no" && c.own) continue;
-    if (q && !(c.form+q+" "+c.role).includes(q)) continue;
+    if (q && !(c.form + " " + c.role).includes(q)) continue;
     frag.appendChild(rowChara(c)); n++;
   }
   list.appendChild(frag);
@@ -439,14 +439,27 @@ document.querySelectorAll("nav button").forEach(btn=>{
     document.querySelectorAll("nav button").forEach(x=>x.classList.remove("active"));
     btn.classList.add("active");
     active = btn.dataset.tab;
-    ["chara","card","cup"].forEach(t=>{ $("tab-"+t).style.display = t===active?"":"none"; });
-    if (t===active && t==="chara") renderChara(); // no-op
+    ["chara","card","cup"].forEach(tab=>{ $("tab-"+tab).style.display = tab===active?"":"none"; });
   };
 });
-$("charaQ").oninput = renderChara;  $("charaFilter").onchange = renderChara;
-$("cardQ").oninput = renderCard; $("cardType").onchange = renderCard;
-$("cardRar").onchange = renderCard; $("cardFilter").onchange = renderCard;
+function bindFilter(elId, render){
+  const el = $(elId);
+  if (!el) return;
+  // input + 键盘 + 中文输入法组合结束 都触发筛选, 并做 120ms 防抖
+  let timer = null;
+  const run = () => { clearTimeout(timer); timer = setTimeout(render, 120); };
+  el.addEventListener("input", run);
+  el.addEventListener("compositionend", run);
+  el.addEventListener("keyup", run);
+}
+bindFilter("charaQ", renderChara);
+bindFilter("cardQ", renderCard);
+$("charaFilter").onchange = renderChara;
+$("cardType").onchange = renderCard;
+$("cardRar").onchange = renderCard;
+$("cardFilter").onchange = renderCard;
 $("cupRace").oninput = raceQuery;
+$("cupRace").addEventListener("compositionend", raceQuery);
 $("btnCupSave").onclick = cupSave;
 $("btnPlan").onclick = runPlan;
 $("btnSave").onclick = saveAll;
