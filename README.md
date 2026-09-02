@@ -1,76 +1,101 @@
 # UmamusumeAutoTrainer
 
-> 国服 / 简体中文版《闪耀！优俊少女》（赛马娘）自动育成工具。
-> 本仓库是 [shiokaze/UmamusumeAutoTrainer](https://github.com/shiokaze/UmamusumeAutoTrainer) 的衍生品，在原有自动育成能力之上，构建了完整的**数据资产层**（技能 / 比赛 / 角色 / 事件 / 相性 / 评分）、**攻略知识层**（游戏机制 / 种马育成 / 凯旋门剧本 / 技能分级）与**目标构筑（种马）骨架**。
+> 国服 / 简体中文版《闪耀！优俊少女》（赛马娘）自动育成 + 数据规划工具。
+> 本仓库是 [shiokaze/UmamusumeAutoTrainer](https://github.com/shiokaze/UmamusumeAutoTrainer) 的衍生品。在原有「画面识别 + 自动训练/比赛/休息/学技能」能力之上，构建了完整的**数据资产层**（技能 / 比赛 / 角色 / 事件 / 相性 / 评分）、**攻略知识层**（游戏机制 / 种马育成 / 凯旋门剧本 / 技能分级）、**名称统一解析层**、**种马缺口规划器**与 **Web 点选 / 规划界面**。
 
 > 当前维护仓库：https://github.com/cangwulu/UmamusumeAutoBreeding
 
 ---
 
-## 📌 关于本项目
+## 📌 定位
 
 - **上游原项目**：[shiokaze/UmamusumeAutoTrainer](https://github.com/shiokaze/UmamusumeAutoTrainer)，作者 [@shiokaze](https://github.com/shiokaze)
-- **本仓库定位**：基于上游持续演进的独立项目，重点扩展**数据资产层**（BWIKI 技能 / 比赛 / 角色 / 事件 / 相性 / 评分）、**攻略知识层**（游戏机制 / 种马育成 / 凯旋门剧本 / 技能分级 / 支援卡事件）与**目标构筑（种马）**能力，作为可长期维护的项目存在。
-- ⚠️ 目前仅支持**国服 / 简体中文版**，不支持其他版本（含国际服）。
+- **两条能力线**：
+  1. **自动育成**（继承上游）：OCR + 模板匹配识别画面，自动训练 / 比赛 / 休息 / 学技能 / 处理事件；
+  2. **数据与规划**（本仓库重点）：把国服权威数据（BWIKI）+ 上游拆包数据（pretty-derby）+ 民间数据库（urarawin）结构化沉淀，提供查表 API 与**从大赛倒推种马缺口**的规划器。
+- ⚠️ 仅支持**国服 / 简体中文版**，不支持国际服等其他版本。
 
 ---
 
-## 🆕 本仓库新增与增强功能
+## ✨ 核心能力一览
 
-### 数据资产层（`module/umamusume/asset/` + `resource/umamusume/data/`）
+### 1. 自动育成（`module/umamusume/script/cultivate_task/`）
 
-| 模块 | 文件 | 说明 |
-|------|------|------|
-| **技能排序** | `skill_order.py` | 基于 BWIKI 评价分对候选技能排序，供育成主循环贪心选技 |
-| **马娘自带技能** | `chara_skills.py` | 查询固有 / 觉醒 / 初始技能；`suggest_not_to_learn()` 剔除已自带技能 |
-| **相性查询** | `affinity.py` | `pair_score` / `triple_score` / `inherit_scores` / `best_partners`，84 角色 / 792 关系组 |
-| **评分计算** | `rating.py` | 五维分段线性 + 技能评价分 × 适性倍率 + 评级表 G~UB；1200+ 高斜率系数 |
-| **比赛查询** | `race_bwiki.py` | `resolve` 任意别名→简中权威名；313 场含 lane 内 / 外圈 |
-| **三年赛程** | `race_schedule.py` | `ScheduleDB.at(year,month,half)` / `available(fan=)` 粉丝门槛筛选；316 条赛程 |
-| **历战路线** | `route_planner.py` | 时间槽贪心，等级权重 × 适性契合，G1 永不跳 |
-| **角色目标** | `chara_targets.py` | 81 角色 / 744 育成目标（含时间 / 粉丝门槛 / 比赛描述） |
-| **角色事件** | `chara_events.py` | 81 角色 / 2213 有分支事件（含选项 + 效果中文） |
-| **支援卡事件** | `support_events.py` | 283 卡 / 757 事件（源自 urarawin，角色名中日文均可搜） |
-| **事件库** | `event_db.py` | 事件数据结构与匹配逻辑 |
+| 能力 | 说明 |
+|------|------|
+| **主循环** | 画面识别驱动：训练 / 休息 / 比赛 / 学技能 / 事件 / 剧本分支全自动 |
+| **学技能** | 技能点超阈值自动进技能页；数据驱动排序（`skill_order` 综合分在同级桶内细分）；**剔除减益技能**（负分红技）与**马娘自带技能**（`suggest_not_to_learn`，P7） |
+| **事件识别** | 马娘个人 / 协助卡 / 剧本三类事件画面统一路由 → OCR 事件名 → **事件库智能选层**（P2）：硬编码规则 → event_db(5330 条) 命中按上下文打分 → 默认选项 1 |
+| **优选策略** | `event/strategy.py` 是事件选层的唯一策略入口，调养马策略只改这一个文件（P3） |
+| **剧本** | URA / 青春杯 / 凯旋门三类剧本场景脚本 |
+| **目标构筑（实验）** | `target_build.py` 按 `BuildSpec` 规格决策，已以默认关闭的 per-turn 钩子接入主循环 |
 
-### 攻略知识层（查询模块 + 结构化 JSON）
+### 2. 数据资产层（`module/umamusume/asset/` + `resource/umamusume/data/`）
 
-| 模块 | 文件 | 说明 |
-|------|------|------|
-| **游戏机制** | `game_mechanics.py` | 心情倍率 / 训练副属性 / 距离分类 / 巅峰杯商店 36 种道具 / 因子继承规则 / 三剧本机制 / 相性避坑 |
-| **种马育成** | `breeding_guide.py` | 5 步流水线 / 因子优先级 / 技能 T1-T2 / 金章比赛 / 2025 现代实践 |
-| **凯旋门剧本** | `larc_guide.py` | 群星槽 / SS 对决 / 魔咒 / 远征 / 配卡 / 属性目标 / 时间线 |
-| **技能分级** | `skill_tierlist.py` | 7 大类 S-F 分级 + 距离 × 跑法矩阵 + 选择原则 |
+| 模块 | 数据规模 | 说明 |
+|------|---------|------|
+| `skill_order.py` + `skill_bwiki.json` | **1000 技能** | BWIKI 评价分排序；OCR 名模糊匹配（简中主库 + derby 兜底） |
+| `chara_skills.py` + `chara_skills.json` | 130 角色 | 固有 / 觉醒 / 初始技能归属（pretty-derby 源）；`suggest_not_to_learn` 剔自带 |
+| `skill_tierlist.py` | 7 大类 S-F | 技能分级 + 距离×跑法矩阵 |
+| `affinity.py` + `affinity.json` | **95 角色 / 1259 关系组** | 官方拆包相性数据（master.mdb）；对拍 uma-tools 完全一致 |
+| `saddle.py` | — | 胜鞍分（2023-02-24 现行规则：仅 G1 重合 +3pt/场，父辈间计入） |
+| `race_bwiki.py` + `race_bwiki.json` | **313 场** | 任意别名 → 简中权威名；含 lane 内 / 外圈 |
+| `race_schedule.py` | 316 条 | 三年赛程 `ScheduleDB.at(year,month,half)` |
+| `route_planner.py` | — | 历战路线生成（时间槽贪心，G1 永不跳） |
+| `chara_targets.py` | 81 角色 / 744 目标 | 育成目标比赛表 |
+| `event_db.py` + `event_db.json` | **5330 事件** | 双路检索（事件名 + 末选项指纹）；`support` 协助卡 538 条含 urarawin 补全 |
+| `chara_events.py` | 81 角色 / 2213 事件 | BWIKI 角色事件（含选项 + 中文效果） |
+| `support_events.py` | 283 卡 / 757 事件 | 协助卡事件（urarawin 源，按卡组织） |
+| `rating.py` | 五维+技能+评级 | 最终评分全公式 |
+| `game_mechanics.py` / `breeding_guide.py` / `larc_guide.py` | JSON 结构化 | 机制 / 种马方法论 / 凯旋门攻略 |
 
-### 目标构筑（种马）
+### 3. 名称统一解析层（`module/umamusume/name_resolver.py`）
 
-| 模块 | 文件 | 说明 |
-|------|------|------|
-| **目标构筑** | `target_build.py` | `BuildSpec` + `TargetBuildPlanner` 决策核心，已以"默认关闭的 per-turn 钩子"接入 `cultivate.py` 主循环 |
+> 任何「表面名」（国服简中 / BWIKI 中文 / 台服 / 日文 / pretty-derby 译名）→ 日文规范键，是**全项目名字匹配的唯一入口**。
 
-### 数据抓取脚本（`tools/`，不参与运行时）
+- `name_index.json`：**5483 规范键 / 约 1.2 万别名**，覆盖 马娘(152)/形态(204)/协助卡(316)/技能(819)/事件(3679)/比赛(313) 六类
+- 角色事件简中名桥接：命中率 55% → **97%**（P4）
+- 词面跨类冲突（如「一往无前」既是角色称号又是技能名）用 `canonical(prefer=...)` 按目标类型解析（P5）
+- 详见 `docs/NAME_RESOLVER_OVERVIEW.md`
 
-仅用于重建 / 更新数据资产：
+### 4. 种马缺口规划器（`stud_planner.py` + Web 界面）
 
-- `fetch_bwiki_skills.py` — 抓取 BWIKI 技能速查表（`#jn-json` 容器）
-- `fetch_bwiki_extra.py` — 抓取事件 / 马娘 HTML 表格
-- `build_chara_skills.py` — 由 pretty-derby `db.json` 构建马娘 → 技能归属库
-- `build_affinity.py` — 抓取 BWIKI 相性计算器 → `affinity.json`
-- `build_rating_data.py` — 抓取 BWIKI 评分计算器 → `rating.py` + `skill_upgrade.json`
-- `build_race_data.py` — 抓取 BWIKI 比赛 + 简中比赛页 → `race_bwiki.json` + 比赛横幅图
-- `build_race_schedule.py` — 解析 NGA 三年赛程 → `race_schedule.json` + 交叉比对 + `--patch` 增强
-- `build_chara_targets.py` — 抓取 BWIKI 角色子页 → `chara_targets.json`
-- `build_chara_events.py` — SMW 查询角色事件子页 → `chara_events.json`
-- `build_guide.py` — 抓取大赛攻略页 → 图文整合 HTML
-- `integrate_urarawin.py` — urarawin 数据库集成 → `support_events.json`
+> 从「下次大赛」倒推「我还差多远」→ 因子需求(蓝/粉/白/绿) → 多代养成计划 → 借位建议。
+
+- **CLI**：`python module/umamusume/asset/stud_planner.py --race 中山大奖赛`
+- **Web 点选页**：`public/planning.html` + `module/umamusume/planning/web_api.py` —— 浏览器点选拥有的马娘 / 协助卡（写回 `my_inventory/*.csv`）、登记大赛、运行规划
+- **红因子继承概率**（P2）：抄自 uma-tools 的 1★1%/2★3%/3★5% ×(1+相性/100) 模型，报告给出「A→S 概率段需几颗 1★红因子 / 期望育成次数」
+- 相性数据官方化 + 胜鞍按现行规则（P0/P1）
+- 输入是你在 `my_inventory/` 填的库存（模板由 `tools/gen_inventory_template.py` 生成）
+
+### 5. 数据抓取 / 更新脚本（`tools/`，不参与运行时）
+
+**国服更新后一键刷新**：`python tools/update_assets.py`（马娘线 / 协助卡线 / 全量 / dry-run / 自动备份，详见脚本头部）。
+
+| 脚本 | 抓取 / 构建 |
+|------|------------|
+| `fetch_bwiki_extra.py` | BWIKI 马娘一览（成长率 / 适性）与通用事件 |
+| `fetch_support_cards.py` | BWIKI 简中协助卡图鉴（316 卡） |
+| `fetch_bwiki_skills.py` | BWIKI 技能速查表（`#jn-json` 容器） |
+| `fetch_upstream.py` | pretty-derby `db.json` + `zh_CN.json`（增量 + 镜像回退） |
+| `build_chara_skills.py` + `enrich_chara_skills_jp.py` | 上游 → 马娘技能归属（按名对齐形态） |
+| `build_event_db.py` | 上游 → 中文事件库（全量重建） |
+| `build_chara_targets.py` / `build_chara_events.py` | BWIKI SMW → 育成目标 / 角色事件 |
+| `integrate_urarawin.py` + `merge_urarawin_support_events.py` | urarawin 协助卡事件 → 补进事件库 |
+| `build_affinity_from_mdb.py` | 官方 master.mdb → 相性数据 |
+| `build_name_index.py` | 全部译名 → 统一名称索引（产物 `name_index.json`） |
+| `build_race_data.py` / `build_race_schedule.py` / `build_rating_data.py` 等 | 比赛 / 赛程 / 评分数据 |
+
+⚠️ 数据产物 JSON 一律**提交进仓库**，运行时不联网；只有更新才需要联网抓取。
 
 ---
 
-## 📖 术语说明：本文的「种马」
+## 📖 术语：本文的「种马」
 
-本仓库提到的"养种马 / 种马"，指**游戏内已经育成结束、可被后代继承因子的马娘**（每次育成可选 2 位种马）。这是游戏内真实的因子继承机制：蓝（属性）/ 粉（适性改造）/ 绿（继承固有）/ 白（比赛 / 技能 / 剧本因子）四种因子，继承 3 次（初始 / 第二年 4 月 / 第三年 4 月），后两次概率继承且看相性。
+本仓库的「养种马 / 种马」指**游戏内已育成结束、可被后代继承因子的马娘**（每次育成可选 2 位），非外部规格。因子分四种：蓝（属性）/ 粉（适性改造，初始继承封顶 A）/ 绿（继承固有）/ 白（比赛 / 技能 / 剧本因子）；继承 3 次（初始 / 第 2 年 4 月 / 第 3 年 4 月），后两次概率触发且看相性。
 
-对应代码模块为 `target_build.py`（目标构筑），命名保留 `target_build` 避免与未来真正的配种继承 `breeding` 冲突。完整机制见 `docs/strategy_integrated.md`。
+> 规划口径：属性缺口主要靠配卡训练补（9 蓝理想配置单属性最多 +63）；A→S 只能靠概率性继承；固定相性分普遍偏低、真正拉开差距的是**胜鞍分**（G1 重合，历战是主引擎）。
+> 完整机制见 `docs/strategy_integrated.md`。
 
 ---
 
@@ -78,49 +103,33 @@
 
 ```
 UmamusumeAutoTrainer/
-├── main.py / run.ps1 / install.ps1      # 启动入口与安装脚本
-├── config.yaml                         # 模拟器 / 育成配置
-├── bot/                                # 底层：adb、OCR、图像识别、模糊匹配
+├── main.py / run.ps1 / install.ps1    # 启动入口与安装脚本
+├── config.yaml                        # 模拟器 / 育成配置
+├── bot/                               # 底层：adb、OCR、图像识别、模糊匹配
 ├── module/umamusume/
-│   ├── asset/                          # 数据资产层 + 攻略知识层
-│   │   ├── skill_order.py              # 技能排序（评价分）
-│   │   ├── chara_skills.py             # 马娘自带技能查询
-│   │   ├── affinity.py                 # 相性查询（固定相性分）
-│   │   ├── rating.py                   # 评分计算（五维+技能+评级）
-│   │   ├── race_bwiki.py               # 比赛查询（简中权威译名）
-│   │   ├── race_schedule.py            # 三年完整赛程查询
-│   │   ├── route_planner.py            # 历战路线生成器
-│   │   ├── chara_targets.py            # 角色育成目标查询
-│   │   ├── chara_events.py             # 角色自带事件查询
-│   │   ├── support_events.py           # 支援卡事件查询（urarawin）
-│   │   ├── game_mechanics.py           # 游戏核心机制查询
-│   │   ├── breeding_guide.py           # 种马育成方法论查询
-│   │   ├── larc_guide.py               # 凯旋门剧本攻略查询
-│   │   ├── skill_tierlist.py           # 技能推荐分级查询
-│   │   ├── event_db.py / point.py / template.py / ui.py
-│   │   └── __init__.py                 # import cv2，测试时需注意
-│   ├── scenario/                       # 各剧本（URA / 青春杯 / 凯旋门）
-│   └── script/cultivate_task/          # 育成主循环
-│       ├── cultivate.py                # 主循环（含 target_build 挂接点，默认关闭）
-│       └── target_build.py             # 目标构筑（可按规格练马，默认关闭）
-├── resource/umamusume/data/            # 运行时 JSON 数据（20 个文件）
-│   ├── skill_bwiki.json                # 1000 技能（含评价分）
-│   ├── race_bwiki.json                 # 313 场比赛（含 lane 内/外圈）
-│   ├── race_schedule.json              # 316 条三年赛程
-│   ├── affinity.json                   # 84 角色 / 792 关系组
-│   ├── chara_events.json               # 81 角色 / 2213 事件
-│   ├── support_events.json             # 283 卡 / 757 事件
-│   ├── game_mechanics.json             # 心情/训练/商店/因子/剧本
-│   ├── breeding_guide.json             # 种马育成 5 步流水线
-│   ├── larc_guide.json                 # 凯旋门剧本完整攻略
-│   ├── skill_tierlist.json             # 7 大类 S-F 技能分级
-│   └── ...                             # 其余数据文件
-├── tools/                             # 一次性构建 / 抓取脚本（不参与运行时）
+│   ├── name_resolver.py               # 统一名称解析层（无 cv2 依赖）
+│   ├── asset/                         # 数据资产层 + 攻略知识层（stud_planner 等）
+│   ├── scenario/                      # 剧本（URA / 青春杯 / 凯旋门）
+│   ├── script/cultivate_task/         # 育成主循环
+│   │   ├── cultivate.py               # 主循环（技能/事件/剧本分支）
+│   │   ├── ai.py / parse.py           # 决策与画面解析
+│   │   ├── event/                     # 事件模块（P2/P3）
+│   │   │   ├── manifest.py            # 编排：硬编码 → 查库 → 问策略 → 兜底
+│   │   │   ├── strategy.py            # ★ 优选策略唯一入口（调策略只改这里）
+│   │   │   ├── event_choice.py        # 效果解析 + 上下文打分（纯工具）
+│   │   │   └── scenario_event.py      # 硬编码事件规则（新年/青春杯队名）
+│   │   └── target_build.py            # 目标构筑（实验，默认关闭）
+│   └── planning/                      # 规划 API + CLI（cup/inventory/web_api）
+├── resource/umamusume/data/           # 运行时 JSON（全部入库，运行时不联网）
+├── my_inventory/                      # ★ 你的库存填报 CSV（stud_planner 输入）
+├── tools/                             # 抓取 / 构建 / 更新脚本（不参与运行时）
+│   └── update_assets.py               # 国服更新一键刷新入口
+├── tests/                             # 回归测试（含 uat 集成冒烟）
 └── docs/                              # 设计文档 + 攻略
-    ├── strategy_integrated.md          # 整合策略（比赛×凯旋门×种马）
-    ├── guide_game_mechanics.md         # 游戏机制完全攻略
-    ├── guide_tournament.html           # 大赛攻略图文整合
-    └── race_gallery.html               # 313 场比赛图文图鉴
+    ├── strategy_integrated.md         # 整合策略（比赛×凯旋门×种马/因子）
+    ├── NAME_RESOLVER_OVERVIEW.md      # 名称解析层设计
+    ├── research_umalator_succession_planner.md  # uma-tools/巴哈调研（P0-P3 来源）
+    └── ...
 ```
 
 ---
@@ -140,9 +149,7 @@ cd UmamusumeAutoTrainer
 2. 双击运行 `install.ps1`（若用记事本打开，请右键 → 打开方式 → PowerShell 运行；运行时当前目录不能有 `venv` 文件夹）
    - 非中国大陆 / 不需要国内镜像时，可将 `install.ps1` 中 pip 命令改为 `pip install --upgrade -r requirements.txt`
 
-### 3. 配置
-
-修改 `config.yaml`：
+### 3. 配置 `config.yaml`
 
 ```yaml
 bot:
@@ -153,18 +160,35 @@ bot:
     cpu_alloc: 4 # 分配的 cpu 数量
 ```
 
-常见模拟器端口：
-- （推荐）**mumu12**：`127.0.0.1:16384`
-- **雷电 / 蓝叠**：`emulator-5554`
+常见模拟器端口：**mumu12** `127.0.0.1:16384`（推荐）；**雷电 / 蓝叠** `emulator-5554`
 
 ### 4. 模拟器设置
 
-- 分辨率 **720 × 1280**，DPI **180**（竖屏）
-- mumu 模拟器**不能开启后台保活**
+- 分辨率 **720 × 1280**，DPI **180**（竖屏）；mumu 模拟器**不能开启后台保活**
 
 ### 5. 启动
 
-双击 `run.ps1`。控制台出现 `UAT running on http://127.0.0.1:8071` 即启动成功，浏览器访问该地址通过 Web UI 配置任务并启动。
+双击 `run.ps1`。控制台出现 `UAT running on http://127.0.0.1:8071` 即启动成功，浏览器访问：
+
+- `/` —— 自动育成任务 Web UI（配置马娘 / 协助卡 / 技能 / 剧本后启动）
+- `/planning.html` —— 库存点选 + 大赛登记 + 种马规划（读 `my_inventory/`）
+
+> 数据 / 规划工具也可以脱离模拟器单独用：`python module/umamusume/asset/stud_planner.py --race 中山大奖赛` 等 CLI 见各模块 docstring。
+
+---
+
+## 🧪 回归测试
+
+```bash
+python tests/test_event_choice.py          # 事件打分(managed py)
+python tests/test_event_choice_db.py       # 事件库端到端(真实 5330 条)
+python tests/test_event_strategy.py        # 优选策略入口
+python tests/test_name_index_alias.py      # 名称索引/别名(P4/P5)
+python tests/test_skill_order.py           # 技能库匹配/排序(P6)
+python tests/test_stud_pink_factor.py      # 红因子概率模型(P2)
+python tests/test_owned_skill_filter.py    # 学技能剔除自带(P7, 需 uat 环境)
+python tools/regress_name_resolver.py      # 名称解析回归
+```
 
 ---
 
@@ -172,33 +196,37 @@ bot:
 
 1. 游戏内画面选项必须是**标准版**，不能是简易版
 2. 含自选赛事 / 粉丝数要求的育成（如小栗帽第三年 G1、乌拉拉粉丝目标），需用对应马娘预设或自定义赛程
-3. 目标属性尽量与支援卡类型比例匹配
-4. 暂不支持选择育成马娘和种马，启动时使用游戏内上次记录；无记录需先手动选择
-5. 不推荐携带友人卡（暂无友人卡专属策略）
+3. 目标属性尽量与协助卡类型比例匹配（`expect_attribute` 与配卡联动）
+4. 自动育成暂不支持自动选马娘 / 种马，启动时使用游戏内上次记录；无记录需先手动选择
+5. 学技能「剔除马娘自带」需在任务配置里填**当前育成马娘**（attachment `cultivate_chara`），可选
 6. 启动脚本时处于主菜单或任意育成界面
 
 异常排查与常见问题见[上游原仓库说明](https://github.com/shiokaze/UmamusumeAutoTrainer)对应章节。
 
 ---
 
-## 🗺️ 路线图 / TODO
+## 🗺️ 路线图
 
-### 已完成
+### ✅ 已完成
 
-- [x] **数据资产层**：技能排序 / 马娘自带技能 / 相性 / 评分 / 比赛 / 三年赛程 / 历战路线 / 角色目标 / 角色事件 / 支援卡事件
-- [x] **攻略知识层**：游戏机制 / 种马育成方法论 / 凯旋门剧本攻略 / 技能推荐分级
-- [x] **目标构筑决策逻辑草稿**：`target_build.py` 实现 `choose_training` / `choose_skills_to_learn` / `spec_met` / `next_action`，复用 `chara_skills.suggest_not_to_learn()` 跳过自带技能
-- [x] **接入育成主循环（默认关闭）**：`cultivate.py` 新增 per-turn 钩子，异常自动回退原 RACE 流程
-- [x] **比赛数据增强**：115 场 lane 内 / 外圈补全（从 NGA 赛程数据交叉比对）
+- **数据资产层**：技能排序 / 马娘自带技能 / 官方相性(2133组) / 胜鞍现行规则 / 评分 / 比赛 / 三年赛程 / 历战路线 / 角色目标 / 角色事件 / 协助卡事件(urarawin 并入 event_db)
+- **名称统一解析层**：5483 键 / 6 类覆盖 / 事件简中名桥接(P4) / 跨类冲突 prefer 解析(P5)
+- **事件识别接入主循环**（P2）：马娘/协助卡/剧本事件统一走事件库智能选层
+- **优选策略模块**（P3）：`event/strategy.py` 唯一入口
+- **红因子继承概率模型**（P2 规划线）：uma-tools 模型抄入 stud_planner，报告含概率表
+- **种马缺口规划器**：CLI + Web 点选/规划页 + 多代养成计划 + 行动清单(借位/升级)
+- **目标构筑决策逻辑**：`target_build.py` + 主循环钩子（默认关闭，异常自动回退）
+- **国服更新一键刷新**：`tools/update_assets.py`
+- **回归测试**：11 个测试文件 + name_resolver 回归
 
-### 待完成
+### 🔜 待推进
 
-- [ ] 将 `chara_skills.suggest_not_to_learn()` 接入技能学习循环，避免重复学习自带技能
-- [ ] 将 `skill_tierlist` 分级引入 `cultivate.py` 技能学习贪心逻辑做优先级参考
-- [ ] 事件选项支持配置
-- [ ] 自动完成每日金币 / 支援点 / JJC
-- [ ] 凯旋门剧本完善与优化（`larc_guide` 机制已结构化，待接入 `kaisen_scenario.py`）
-- [ ] 育成中 AI 逻辑优化（含定时执行任务）
+- [ ] 事件选择接入真实育成验证（需要跑一轮完整育成观察命中率与打分质量）
+- [ ] `skill_tierlist` 分级进一步参与技能贪心优先级
+- [ ] 育成 AI 逻辑优化（含定时执行 / 自动完成每日金币 / 支援点 / JJC）
+- [ ] 凯旋门剧本完善（`larc_guide` 已结构化，待与 `kaisen_scenario.py` 深度联动）
+- [ ] 借马推荐 6 槽亲代建模 + 相性逐项明细展示
+- [ ] Web 界面补「当前育成马娘」输入以启用 P7 自带技能剔除
 
 ---
 
@@ -208,8 +236,8 @@ bot:
 
 - **上游原项目**：作者 [@shiokaze](https://github.com/shiokaze)。上游**未指定开源许可证**，其原始代码的所有权利由原作者保留。
 - **本仓库新增与修改的代码**：采用 [MIT License](LICENSE) 开源协议。
-- **使用与再分发**：基于本仓库进行二次开发或再分发时，请保留本声明，就新增部分遵守 MIT 协议，并尊重上游原作者 @shiokaze 的贡献与权利。
-- **数据来源**：[BWIKI（biligame 赛马娘 wiki）](https://wiki.biligame.com/umamusume)、[pretty-derby db](https://github.com/uma-meow/pretty-derby)、[urarawin.com](https://urarawin.com)、[NGA 玩家社区](https://bbs.nga.cn)。游戏内容版权归 Cygames / 哔哩哔哩所有。
+- **使用与再分发**：基于本仓库二次开发或再分发时，请保留本声明，就新增部分遵守 MIT 协议，并尊重上游原作者 @shiokaze 的贡献与权利。
+- **数据来源**：[BWIKI](https://wiki.biligame.com/umamusume)、[pretty-derby db](https://github.com/uma-meow/pretty-derby)、[urarawin.com](https://urarawin.com)、[NGA 玩家社区](https://bbs.nga.cn)、[巴哈姆特攻略](https://forum.gamer.com.tw/)。游戏内容版权归 Cygames / 哔哩哔哩所有。
 
 ---
 
