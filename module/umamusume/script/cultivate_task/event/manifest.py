@@ -3,7 +3,6 @@ from typing import Union
 from bot.recog.ocr import find_similar_text
 from module.umamusume.context import UmamusumeContext
 from module.umamusume.script.cultivate_task.event.scenario_event import *
-from module.umamusume.script.cultivate_task.event.event_choice import pick_best_choice
 import bot.base.log as logger
 
 log = logger.get_logger(__name__)
@@ -54,7 +53,12 @@ def _load_event_db():
 
 
 def _smart_choice(ctx: UmamusumeContext, event_name: str) -> int:
-    """事件库智能选层：命中库 → 按育成上下文打分；未命中/无收益 → 0 表示放弃。"""
+    """事件库智能选层：命中库 → 问优选策略(strategy.choose_option)。
+
+    决策链（实现计划第四节）：
+        硬编码 → 查库 → 问策略(strategy.py) → 兜底选项 1
+    """
+    from module.umamusume.script.cultivate_task.event.strategy import choose_option
     mod = _load_event_db()
     if not mod:
         return 0
@@ -65,9 +69,9 @@ def _smart_choice(ctx: UmamusumeContext, event_name: str) -> int:
             log.debug("未知事件[%s]，事件库未命中，走默认", event_name)
             return 0
         ev = match.event
-        log.info("事件库命中[%s]（相似 %.2f），按上下文打分选优",
+        log.info("事件库命中[%s]（相似 %.2f），问优选策略",
                  match.name, match.score)
-        return pick_best_choice(ctx, ev)
+        return choose_option(ctx, event_name, ev) or 0
     except Exception as exc:
         log.warning("事件库智能选择异常：%s", exc)
         return 0
