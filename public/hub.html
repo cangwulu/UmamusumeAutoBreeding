@@ -57,6 +57,14 @@ footer{text-align:center;color:var(--sub);font-size:12px;padding:20px 0}
 .muted{color:var(--sub);font-size:12px}
 #toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);background:#3a2f22;color:#fff;padding:8px 20px;border-radius:8px;opacity:0;transition:opacity .25s;font-size:13px;z-index:9;pointer-events:none}
 #toast.show{opacity:.95}
+.modal-mask{position:fixed;inset:0;background:rgba(30,20,10,.5);z-index:20;display:none;align-items:flex-start;justify-content:center;padding:4vh 4vw}
+.modal-mask.show{display:flex}
+.modal{background:#fffdf8;border-radius:14px;max-width:980px;width:100%;max-height:88vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.modal .mh{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:linear-gradient(90deg,var(--c1),var(--c2));color:#fff}
+.modal .mh h3{font-size:15px}
+.modal .mh button{border:none;background:rgba(255,255,255,.2);color:#fff;border-radius:6px;padding:4px 12px;cursor:pointer;font-size:13px}
+.modal .mb{overflow:auto;padding:16px 20px;font-family:Consolas,Menlo,monospace;font-size:12px;line-height:1.7;white-space:pre-wrap;color:#3a332a}
+#planCard:hover{background:#fdf6ea}
 </style>
 </head>
 <body>
@@ -101,6 +109,14 @@ footer{text-align:center;color:var(--sub);font-size:12px;padding:20px 0}
     <h2>📈 我的进度</h2>
     <div class="grid" id="progressGrid">
       <div class="state-card"><div class="t">正在加载…</div></div>
+    </div>
+  </section>
+
+  <!-- ===== 最近规划结果 ===== -->
+  <section>
+    <h2>📊 最近规划结果 <span class="hint">上次在「库存点选 → 规划」里跑的报告</span></h2>
+    <div id="planCard" class="state-card" style="cursor:pointer" onclick="openPlanModal()">
+      <div class="t">正在检查…</div>
     </div>
   </section>
 
@@ -165,6 +181,13 @@ footer{text-align:center;color:var(--sub);font-size:12px;padding:20px 0}
 </main>
 
 <div id="toast"></div>
+<div class="modal-mask" id="planModal" onclick="if(event.target===this)closePlanModal()">
+  <div class="modal">
+    <div class="mh"><h3>📊 最近规划报告 <span id="planMeta" style="font-weight:400;font-size:12px"></span></h3>
+      <button onclick="closePlanModal()">关闭 ✕</button></div>
+    <div class="mb" id="planBody">加载中…</div>
+  </div>
+</div>
 <footer>UmamusumeAutoTrainer · 仅供学习研究 · 游戏内容版权归 Cygames / 哔哩哔哩所有</footer>
 
 <script>
@@ -268,7 +291,44 @@ function renderProgress(st){
   }
 }
 
+// ---- 最近规划报告（卡片 + modal）----
+let _planCache = null;
+async function loadRecentPlan(){
+  const card = $("#planCard");
+  try{
+    const r = await fetch("/api/plan/recent?n=20000");
+    if(!r.ok) throw 0;
+    const d = await r.json();
+    _planCache = d;
+    if(!d.exists){
+      card.innerHTML = '<div class="t">还没有规划报告</div>' +
+        '<div class="v">去「库存点选」页点「运行规划」生成第一份；或先登记大赛。</div>' +
+        '<div class="muted">（命令行：python module/umamusume/asset/stud_planner.py --race 中山大奖赛）</div>';
+      return;
+    }
+    card.innerHTML = '<div class="t"><span>📄 ' + esc(d.file) + '</span>' +
+      '<span class="muted">' + esc(d.mtime) + ' · ' + d.length + ' 字符</span></div>' +
+      '<div class="v">点击查看完整报告 →</div>';
+    // 摘要首行（md 含 # 标题）
+    const first = (d.md || "").split("\n").find(l => l.startsWith("# "));
+    if(first) card.innerHTML += '<div class="muted">' + esc(first.replace(/^#+\s*/,"")) + '</div>';
+  }catch(e){
+    card.innerHTML = '<div class="t" style="color:#b26a00">报告检查失败（服务未就绪？）</div>';
+  }
+}
+function openPlanModal(){
+  const m = $("#planModal"), b = $("#planBody"), meta = $("#planMeta");
+  if(!_planCache || !_planCache.exists){ $("#toast").textContent = "暂无规划报告"; $("#toast").classList.add("show");
+    setTimeout(()=>$("#toast").classList.remove("show"),1500); return; }
+  meta.textContent = "(" + _planCache.file + " · " + _planCache.mtime + ")";
+  b.textContent = _planCache.md || "(空报告)";
+  m.classList.add("show");
+}
+function closePlanModal(){ $("#planModal").classList.remove("show"); }
+document.addEventListener("keydown", e => { if(e.key === "Escape") closePlanModal(); });
+
 loadStatus();
+loadRecentPlan();
 </script>
 </body>
 </html>

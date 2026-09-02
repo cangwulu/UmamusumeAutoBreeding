@@ -200,6 +200,38 @@ class PlanPayload(BaseModel):
     style: str = ""   # 覆盖 cup.style
 
 
+# ---------- 最近规划报告（hub 预览用） ----------
+@router.get("/plan/recent")
+def recent_plan(n: int = 6000):
+    """找 my_inventory 下最近一次 Web 规划的 plan_*.md，返回摘要 + 尾部文本。"""
+    import datetime
+
+    inv_dir = os.path.join(_PROJECT_ROOT, "my_inventory")
+    try:
+        cands = []
+        for f in os.listdir(inv_dir):
+            if f.startswith("plan_") and f.endswith(".md"):
+                p = os.path.join(inv_dir, f)
+                cands.append((os.path.getmtime(p), p, f))
+    except Exception:
+        return {"exists": False, "reason": "无法读取 my_inventory"}
+    if not cands:
+        return {"exists": False}
+    cands.sort(reverse=True)
+    _, path, fname = cands[0]
+    try:
+        with open(path, encoding="utf-8") as fh:
+            text = fh.read()
+    except Exception as exc:
+        return {"exists": False, "reason": str(exc)}
+    return {"exists": True,
+            "file": fname,
+            "mtime": datetime.datetime.fromtimestamp(
+                os.path.getmtime(path)).strftime("%Y-%m-%d %H:%M"),
+            "length": len(text),
+            "md": text[-n:]}
+
+
 @router.post("/plan")
 def run_plan(payload: PlanPayload):
     cup = CupInfo.load()
