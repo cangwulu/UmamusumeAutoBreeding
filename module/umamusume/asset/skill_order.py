@@ -156,8 +156,10 @@ class SkillDB(object):
         # 2) pretty-derby 兜底：走统一名称解析层（derby 名/JP 名 -> 日文规范键 -> 记录）
         try:
             r = get_resolver()
-            jp_key, score = r.canonical(name)
-            if jp_key and r.kind(jp_key) == "skill" and score >= self._DERBY_ACCEPT:
+            # prefer="skill"：同名既作角色又作技能时（如「一往无前」=目白莱恩称号
+            # 同时是技能ひたむき前進的国服名），技能检索必须命中技能键
+            jp_key, score = r.canonical(name, prefer="skill")
+            if jp_key and score >= self._DERBY_ACCEPT:
                 rec = self._by_jp_name.get(jp_key)
                 if rec is not None:
                     return rec, score, "derby"

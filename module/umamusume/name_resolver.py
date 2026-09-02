@@ -54,40 +54,72 @@ class NameResolver(object):
         self.by_key = data.get("by_key", {})
         return self
 
-    def canonical(self, surface):
-        """表面名 → (规范键, 置信度)。未命中返回 (None, 0.0)。"""
+    def canonical(self, surface, prefer=None):
+        """表面名 → (规范键, 置信度)。未命中返回 (None, 0.0)。
+
+        :param prefer: 期望的键类型（"chara"/"form"/"card"/"skill"/"event"/"race"）。
+            词面冲突时（同表面名既是角色又是技能，如「一往无前」），alias_to_key
+            只存首个键，可能指向错误类型。prefer 传入后：
+              - 精确命中但 kind 不符 → 在同 kind 别名池里重找（先精确后 cosine）
+              - 仍无 → 返回 (None, 高分) 而非错键
+            不传（默认）保持原行为，兼容既有调用。
+        """
         if not surface:
             return None, 0.0
         s = surface.strip()
         if not s:
             return None, 0.0
-        cached = self._cache.get(s)
+        cache_key = (s, prefer)
+        cached = self._cache.get(cache_key)
         if cached is not None:
             return cached
+
+        def kind_of(key):
+            return self.by_key.get(key, {}).get("kind", "")
+
         # 1) 精确别名
         if s in self.alias_to_key:
-            out = (self.alias_to_key[s], 1.0)
-            self._cache[s] = out
-            return out
-        # 2) 模糊兜底：全量 cosine 比对（别名约 3k，非热路径下开销可忽略，
-        #    且比 FuzzyIndex 的奇怪召回更可靠——它曾对「无声铃路」返回非键「无声铃」）。
+            key = self.alias_to_key[s]
+            if prefer is None or kind_of(key) == prefer:
+                out = (key, 1.0)
+                self._cache[cache_key] = out
+                return out
+            # kind 不符：在同 kind 别名池里找同表面名（可能有多键挂同别名）
+            for k, v in self.by_key.items():
+                if v.get("kind") == prefer and s in v.get("aliases", set()):
+                    out = (k, 1.0)
+                    self._cache[cache_key] = out
+                    return out
+            # 同 kind 无精确别名 → 落到模糊兜底（下方循环）
+
+        # 2) 模糊兜底：全量 cosine 比对（prefer 时只比同 kind 别名）
         best_key = None
         best_score = 0.0
-        for alias in self.alias_to_key:
-            sc = cosine_sim(s, alias)
-            if sc > best_score:
-                best_score = sc
-                best_key = self.alias_to_key[alias]
+        if prefer is None:
+            for alias in self.alias_to_key:
+                sc = cosine_sim(s, alias)
+                if sc > best_score:
+                    best_score = sc
+                    best_key = self.alias_to_key[alias]
+        else:
+            for k, v in self.by_key.items():
+                if v.get("kind") != prefer:
+                    continue
+                for alias in v.get("aliases", set()):
+                    sc = cosine_sim(s, alias)
+                    if sc > best_score:
+                        best_score = sc
+                        best_key = k
         if best_key is None or best_score < _ACCEPT:
             out = (None, best_score)
         else:
             out = (best_key, best_score)
-        self._cache[s] = out
+        self._cache[cache_key] = out
         return out
 
-    def resolve(self, surface):
+    def resolve(self, surface, prefer=None):
         """便捷函数：只返回规范键（或 None）。"""
-        key, _ = self.canonical(surface)
+        key, _ = self.canonical(surface, prefer=prefer)
         return key
 
     def kind(self, key):

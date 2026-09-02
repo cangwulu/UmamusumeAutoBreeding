@@ -186,6 +186,36 @@ def main():
     except Exception:
         pass
 
+    # 5b) chara_events.json：角色事件「国服简中名」桥接（P4 扩源）
+    #     BWIKI 角色子页的每个事件 meta 同时带 简中名 + 事件名(日文)。
+    #     event_db 用 name_jp 作规范键；OCR 识别国服简中名。凡日文名已挂
+    #     事件键的，把简中名也挂上去 → resolver 国服名→JP 键直接命中。
+    #     排除占位（未实装）与空名。
+    _JUNK = ("（未实装）", "(未实装)", "未实装", "无选项", "（无）")
+    try:
+        ce = _load(os.path.join(DATA, "chara_events.json"))
+        jp_key_set = {k for k, v in by_key.items() if v["kind"] == "event"}
+        bridged = 0
+        for c in ce.get("characters", []):
+            for ev in c.get("events", []):
+                meta = ev.get("meta") or {}
+                cn = (meta.get("简中名") or meta.get("中文名") or "").strip()
+                jp = (meta.get("事件名") or "").strip()
+                if not cn or not jp:
+                    continue
+                if any(w in cn for w in _JUNK) or cn == "（未实装）":
+                    continue
+                if jp in jp_key_set:
+                    # 该事件的日文名已有规范键 → 简中名挂为别名
+                    by_key[jp]["aliases"].add(cn)
+                    alias_to_key.setdefault(cn, jp)
+                    bridged += 1
+        if bridged:
+            print("  事件简中名桥接: +%d 别名" % bridged)
+    except Exception as exc:
+        print("  [warn] chara_events 桥接跳过: %s" % exc)
+
+
     # 6) race_bwiki.json：比赛级（jp_name 作规范键）
     #    别名覆盖 国服CN(name) / BWIKI中文(wiki_cn_name) / 台服(tw_name)。
     rb = _load(os.path.join(DATA, "race_bwiki.json"))
