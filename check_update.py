@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# DEPRECATED (2026-09-02, M0): 本项目已切换到 origin/main 主干工作流，
+# 而本脚本要求当前分支为 dev(旧 fork 工作流遗留), 会持续误报。
+# run.ps1 已不再调用本脚本; 保留文件仅避免外部引用断裂。可安全删除。
 import os
 import sys
 import shutil

@@ -7,9 +7,10 @@ from module.umamusume.manifest import UmamusumeManifest
 from uvicorn import run
 
 if __name__ == '__main__':
-    if sys.version_info.minor != 10 or sys.version_info.micro != 9:
+    # 版本门禁: 3.10 <= v < 3.13 (paddlepaddle==2.6.2 无 cp312+ 稳定依赖, 推荐 3.11)
+    if not (sys.version_info.major == 3 and 10 <= sys.version_info.minor <= 12):
         print("\033[33m{}\033[0m".format("注意：python 版本号不正确，可能无法正常运行"))
-        print("建议python版本：3.10.9 当前：" + sys.version)
+        print("建议python版本：3.10~3.12 当前：" + sys.version)
     register_app(UmamusumeManifest)
     scheduler_thread = threading.Thread(target=scheduler.init, args=())
     scheduler_thread.start()

@@ -1,65 +1,47 @@
+# ============================================================
+# UmamusumeAutoTrainer 依赖清单（顶层约束）
+# 目标解释器: Python 3.11.x (64位, Windows)
+# 说明:
+#   1) 本文件记录"版本意图"，可直接被 pip 安装。
+#   2) 首次安装完成后, install.ps1 会自动生成全量锁定快照
+#      requirements.lock.txt（含全部传递依赖），此后安装以它为准，
+#      保证可复现。lock 文件应随本文件一起入库。
+#   3) 不要在本文件里放开 numpy>=2: paddlepaddle==2.6.2 是 numpy 1.x 时代产物。
+# ============================================================
+
 # 必须先装老版 setuptools，否则 adbutils 会因 pkg_resources 缺失报错
 setuptools<70
 
-# ========== 核心依赖（项目代码直接 import）==========
+# ========== OCR 全家桶（定海神针，勿动版本组合）==========
+paddlepaddle==2.6.2
+# paddleocr 2.x 线（3.x 要求 paddle>=3.0，与本项目锁定组合冲突）
+paddleocr>=2.7,<3
+# numpy 显式限制: paddle 2.6.2 依赖 numpy 1.x API
+numpy>=1.21,<2
+# 图像库: opencv-contrib-python 是主库超集（含 SIFT 等 extra）。
+# paddleocr 可能同时解析进 opencv-python，两者文件级共存时以 contrib 覆盖 cv2，
+# 因此此处显式钉版本防止漂移。
+opencv-contrib-python==4.8.1.78
+Pillow
+
+# ========== Android 控制 / 设备 ==========
+uiautomator2
 adbutils
+psutil
+plyer
+
+# ========== Web 服务 / 调度 ==========
 fastapi
 uvicorn
-numpy
-opencv-python
-opencv-contrib-python
-paddleocr
-paddlepaddle==2.6.2
-Pillow
-PyYAML
-requests
-uiautomator2
-
-# ========== OCR / 图像处理相关 ==========
-imgaug
-matplotlib
-scikit-image
-scipy
-Shapely
-pyclipper
-PyMuPDF
-
-# ========== Web / 异步相关间接依赖 ==========
-aiohttp
 pydantic
 starlette
-
-# ========== 工具包 ==========
-pandas
-psutil
-tqdm
-
-# ========== 其他运行时可能需要的包 ==========
-beautifulsoup4
-Cython
-deprecation
-fire
-fonttools
-imageio
-importlib-metadata
-jarowinkler
-kiwisolver
-logzero
-lxml
-networkx
-packaging>=24.0
-protobuf
-pycryptodome
-pyparsing
-python-dateutil
+croniter
+colorlog
+colorama
 pytz
-rapidfuzz
-retry
-six
-termcolor
-tifffile
-typing_extensions>=4.6.0
-urllib3
-websockets
-xmltodict
-zipp
+
+# ========== 网络 / 数据 ==========
+PyYAML
+
+# 注: 代码真实依赖已按 import 扫描精简 (2026-09-02 M0)。
+# 工具脚本(tools/*.py)与 BWIKI 抓取均用标准库 urllib, 无需 requests/bs4/lxml。
