@@ -12,17 +12,14 @@
 # 必须先装老版 setuptools，否则 adbutils 会因 pkg_resources 缺失报错
 setuptools<70
 
-# ========== OCR 全家桶（定海神针，勿动版本组合）==========
+# ========== OCR 全家桶（定海神针，精确钉死=本机 conda uat 验证过的组合，勿动）==========
+# 注意: paddleocr 用 >=2.7,<3 会被 pip 解析到 2.10 并触发大量依赖回溯升级(albumentations/
+# scipy/opencv-headless...), 故精确钉死 ==2.7.0.2; opencv 同样钉死本机版本防升级。
 paddlepaddle==2.6.2
-# paddleocr 2.x 线（3.x 要求 paddle>=3.0，与本项目锁定组合冲突）
-paddleocr>=2.7,<3
-# numpy 显式限制: paddle 2.6.2 依赖 numpy 1.x API
+paddleocr==2.7.0.2
 numpy>=1.21,<2
-# 图像库: opencv-contrib-python 是主库超集（含 SIFT 等 extra）。
-# paddleocr 可能同时解析进 opencv-python，两者文件级共存时以 contrib 覆盖 cv2，
-# 因此此处显式钉版本防止漂移。
-opencv-contrib-python==4.8.1.78
-Pillow
+opencv-contrib-python==4.6.0.66
+Pillow==10.0.0
 
 # ========== Android 控制 / 设备 ==========
 uiautomator2

@@ -26,6 +26,9 @@ tools/.cache/
 # OCR 模型(体积大, 按 README 另行下载)
 models/paddleocr
 
+# 运行时解释器路径记录(install.ps1 写入, 供 run.ps1 使用)
+.runtime_python
+
 # 环境残留
 NVIDIA Corporation/
 node_modules
