@@ -78,5 +78,29 @@ finally:
     web_api.inv_svc.read_studs = _orig_read
     shutil.rmtree(tmp, ignore_errors=True)
 
+# ---- /api/races：grade 过滤 + lang=cn 只出中文（种马 G1 快选数据源）----
+import re
+_kana = re.compile(r"[ぁ-んァ-ヶ]")
+
+def _races(params):
+    r = client.get("/api/races?" + params)
+    check(r.status_code == 200, "GET /api/races?%s 状态码 %s" % (params, r.status_code))
+    return r.json()
+
+g1_cn = _races("grade=G1&lang=cn")
+check(len(g1_cn) == 50, "grade=G1&lang=cn 应返回 50 场，实际 %d" % len(g1_cn))
+check(not any(_kana.search(x["name"]) for x in g1_cn), "grade=G1&lang=cn 混入了日文名: %s" %
+      [x["name"] for x in g1_cn if _kana.search(x["name"])][:3])
+print("  GET /api/races?grade=G1&lang=cn -> %d 场（全中文）" % len(g1_cn))
+
+g1_all = _races("grade=G1")   # 默认 lang=''：中+日双份
+check(len(g1_all) > len(g1_cn), "默认 lang 应中+日双份，数量应 > 纯中文，实际 cn=%d all=%d" %
+      (len(g1_cn), len(g1_all)))
+check(any(_kana.search(x["name"]) for x in g1_all), "默认 lang 应含日文名用于联想，实际没有")
+
+# 非 G1 分级同样可按 lang=cn 过滤
+g2_cn = _races("grade=G2&lang=cn")
+check(g2_cn and not any(_kana.search(x["name"]) for x in g2_cn), "grade=G2&lang=cn 应非空且全中文")
+
 print("PASS %d / FAIL %d" % (PASS, FAIL))
 sys.exit(1 if FAIL else 0)

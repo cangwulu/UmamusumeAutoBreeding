@@ -172,6 +172,9 @@ main{max-width:1180px;margin:0 auto;padding:14px 18px 40px}
         <button class="btn btn-soft" id="btnStudAdd">＋ 添加一行</button>
         <button class="btn btn-primary" id="btnStudSave">保存种马</button>
         <span class="hint" id="studSaved"></span>
+        <select id="studG1Pick" style="margin-left:10px;max-width:220px" title="选中一项即追加到光标所在的「跑过的G1」格">
+          <option value="">G1 快选…（加载中）</option>
+        </select>
         <span class="hint" style="margin-left:auto">蓝因子格式如 <code>耐力3星,速度2星</code>；粉因子如 <code>中距离3星</code>；G1 用逗号分隔比赛名</span>
       </div>
     </div>
@@ -184,8 +187,10 @@ main{max-width:1180px;margin:0 auto;padding:14px 18px 40px}
         <tbody id="studBody"></tbody>
       </table>
       <div class="hint" style="margin-top:8px">说明：每次育成结束选 2 只种马 + 各自祖辈共 6 匹；把已养成的马娘记在这里，重跑规划会按真实库存收敛缺口。留空则该马不计入。</div>
+      <div class="hint" style="margin-top:4px">「种马角色名」支持联想（取自库存马娘表，形态名/角色名皆可）；「跑过的G1」点上方 G1 快选可追加到光标所在格 —— 名字写错规划器会匹配不上，建议用联想/快选而不是手打。</div>
     </div>
   </section>
+  <datalist id="studNames"></datalist>
 </main>
 <div class="toast" id="toast"></div>
 
@@ -484,6 +489,7 @@ async function loadAll(){
   try {
     STATE = await api("/api/inventory");
     refreshBadges();
+    fillStudNameList();
     renderChara();
     const types = [...new Set(STATE.cards.map(c=>c.ctype).filter(Boolean))];
     const sel = $("cardType"); sel.innerHTML = '<option value="">全部类型</option>' +
@@ -495,14 +501,15 @@ async function loadAll(){
 }
 
 // ---------- 事件 ----------
+function switchTab(t){
+  if (!["chara","card","stud","cup"].includes(t)) return;
+  document.querySelectorAll("nav button").forEach(x=>x.classList.toggle("active", x.dataset.tab===t));
+  active = t;
+  ["chara","card","stud","cup"].forEach(x=>{ $("tab-"+x).style.display = x===active?"":"none"; });
+  if (active === "stud") renderStuds();
+}
 document.querySelectorAll("nav button").forEach(btn=>{
-  btn.onclick = () => {
-    document.querySelectorAll("nav button").forEach(x=>x.classList.remove("active"));
-    btn.classList.add("active");
-    active = btn.dataset.tab;
-    ["chara","card","stud","cup"].forEach(t=>{ $("tab-"+t).style.display = t===active?"":"none"; });
-    if (active === "stud") renderStuds();
-  };
+  btn.onclick = () => switchTab(btn.dataset.tab);
 });
 function bindFilter(elId, render){
   const el = $(elId);
@@ -538,7 +545,9 @@ function studRowHtml(rec, idx){
     const v = rec && rec[k] !== undefined ? rec[k] : "";
     const ph = (k.includes("蓝因子")||k.includes("白因子")||k.includes("G1")||k.includes("粉因子"))
       ? 'placeholder="' + (k.includes("蓝因子")?"耐力3星,速度2星":k.includes("粉因子")?"中距离3星":k.includes("G1")?"皋月奖,日本德比":k.includes("白因子")?"地固,弧线教授":"") + '"' : "";
-    return `<td><input class="si" data-k="${esc(k)}" data-i="${idx}" value="${esc(v)}" ${ph}></td>`;
+    // 角色名联想（库存马娘表），避免手打错名导致规划器匹配不上
+    const dl = (k === "种马角色名") ? ' list="studNames"' : "";
+    return `<td><input class="si" data-k="${esc(k)}" data-i="${idx}" value="${esc(v)}" ${ph}${dl}></td>`;
   }).join("");
   return `<tr data-i="${idx}">${cells}<td><button class="btn btn-ghost stud-del" data-i="${idx}" style="background:#c62828;color:#fff;padding:3px 10px">删</button></td></tr>`;
 }
@@ -580,6 +589,55 @@ async function refreshStudCount(){
   if (active === "stud") renderStuds();
 }
 $("btnStudAdd").onclick = () => { STUDS.push({}); renderStuds(); };
+
+// ---------- 种马：名字联想 + G1 快选 ----------
+// 角色名联想源 = 库存马娘表的形态名/角色名（与规划器解析口径一致）
+function fillStudNameList(){
+  const dl = $("studNames"); if (!dl) return;
+  const names = new Set();
+  ((STATE && STATE.characters) || []).forEach(c => {
+    if (c.form) names.add(c.form);
+    if (c.role) names.add(c.role);
+  });
+  dl.innerHTML = [...names].map(n => `<option value="${esc(n)}"></option>`).join("");
+}
+// G1 快选只出 G1（胜鞍分按现行规则只算 G1 重合，填非 G1 无效）
+async function loadG1List(){
+  const sel = $("studG1Pick"); if (!sel) return;
+  try{
+    // 服务端按 grade 过滤（前端过滤会被 200 条截断坑掉一半，且混进日文名）
+    const all = await api("/api/races?grade=G1&lang=cn");
+    const g1 = (all || []).map(x => x.name);
+    sel.innerHTML = '<option value="">G1 快选…（' + g1.length + ' 场）</option>' +
+      g1.map(n => `<option value="${esc(n)}">${esc(n)}</option>`).join("");
+  }catch(e){
+    sel.innerHTML = '<option value="">G1 列表加载失败</option>';
+  }
+}
+let _lastG1 = null;   // 最近聚焦过的「跑过的G1」输入框
+function focusG1Target(){
+  if (_lastG1 && document.contains(_lastG1)) return _lastG1;
+  const all = document.querySelectorAll('#studBody input[data-k*="G1"]');
+  return all.length ? all[all.length - 1] : null;   // 没聚焦过就落到最后一行
+}
+// 事件委托：行会被反复重渲染，不能逐行绑定
+$("studBody").addEventListener("focusin", e => {
+  const t = e.target;
+  if (t && t.classList && t.classList.contains("si") && (t.dataset.k || "").includes("G1")) _lastG1 = t;
+});
+$("studG1Pick").onchange = () => {
+  const sel = $("studG1Pick"), v = sel.value;
+  sel.value = "";
+  if (!v) return;
+  const inp = focusG1Target();
+  if (!inp){ toast("先切到种马页再加一行", false); return; }
+  const parts = inp.value.split(/[,，]/).map(s => s.trim()).filter(Boolean);
+  if (parts.includes(v)) { toast("已经加过了：" + v); return; }
+  parts.push(v);
+  inp.value = parts.join(",");
+  inp.focus();
+};
+
 $("studBody").addEventListener("click", e => {
   const b = e.target.closest(".stud-del"); if (!b) return;
   const i = +b.dataset.i;
@@ -588,9 +646,18 @@ $("studBody").addEventListener("click", e => {
 });
 $("btnStudSave").onclick = studsSave;
 
+// 支持 /planning.html#chara|#card|#stud|#cup 直达指定标签页（hub 的「去登记」链接用）
+function applyHash(){
+  const h = (location.hash || "").replace("#", "").trim();
+  if (h) switchTab(h);
+}
+window.addEventListener("hashchange", applyHash);
+
 loadAll();
 cupLoad();
 refreshStudCount();
+loadG1List();
+applyHash();
 </script>
 </body>
 </html>

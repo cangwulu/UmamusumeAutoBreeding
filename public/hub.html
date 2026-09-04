@@ -271,18 +271,23 @@ function renderProgress(st){
   const chOwn = inv.chara_owned ?? 0, chAll = inv.characters ?? 0;
   const cdOwn = inv.card_owned ?? 0, cdAll = inv.cards ?? 0;
   const pct = (a,b)=> b? Math.round(a/b*100):0;
-  const card = (t,v,sub,own,all)=>`<div class="state-card">
-    <div class="t"><span>${t}</span>${sub?'<span class="muted">'+esc(sub)+'</span>':''}</div>
+  // subHtml: 已转义的安全 HTML（放链接用）；与 sub 二选一
+  const card = (t,v,sub,own,all,subHtml)=>`<div class="state-card">
+    <div class="t"><span>${t}</span>${subHtml?'<span class="muted">'+subHtml+'</span>':(sub?'<span class="muted">'+esc(sub)+'</span>':'')}</div>
     <div class="v">${esc(v ?? "–")}</div>
     ${(typeof own==="number")?`<div class="meter"><i style="width:${pct(own,all)}%"></i></div>
      <div class="muted">已勾选 ${own} / ${all}</div>`:""}</div>`;
   const cupTxt = st.cup ? esc(st.cup.label) + ' <small>登记于 ' + esc(st.cup.updated_at||"") + '</small>'
-                        : '尚未登记 —— 去「库存点选」的大赛标签页填';
+                        : '尚未登记 —— <a href="/planning.html#cup">去大赛标签页填 →</a>';
+  // /api/status 的 inventory.studs = 规划器实际解析到的成品种马数（示例行已剔除）
+  const studN = inv.studs ?? 0;
+  const studSub = studN ? ('已登记 ' + studN + ' 只 · <a href="/planning.html#stud">管理 →</a>')
+                        : '<a href="/planning.html#stud">去登记 →</a>';
   $("#progressGrid").innerHTML =
-    card("🎯 下次大赛", null, cupTxt) +
+    card("🎯 下次大赛", null, null, null, null, cupTxt) +
     card("🐴 我的马娘", inv.chara_hint ?? "", "", chOwn, chAll) +
     card("🃏 我的协助卡", "", "", cdOwn, cdAll) +
-    card("🧬 成品种马", inv.stud_hint ?? "", (inv.stud_count!==undefined)?'已登记 '+inv.stud_count+' 只':'');
+    card("🧬 成品种马", "", null, null, null, studSub);
   // 空库提示
   if(!chOwn && !cdOwn){
     const g = $("#progressGrid");

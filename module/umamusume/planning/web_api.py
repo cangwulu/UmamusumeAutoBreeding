@@ -187,8 +187,14 @@ def save_cup(payload: CupPayload):
 
 
 @router.get("/races")
-def query_races(q: str = ""):
-    """比赛候选(前端 datalist 联想): [{name, venue, distance, surface, direction}]。"""
+def query_races(q: str = "", grade: str = "", lang: str = ""):
+    """比赛候选(联想/快选): [{name, venue, distance, surface, direction, grade, lang}]。
+
+    q      —— 名字子串过滤（空=不过滤）
+    grade  —— G1/G2/G3/OP/Pre-OP，按分级过滤（种马「跑过的G1」快选用 grade=G1）
+    lang   —— cn/jp：只留国服名或日文名（同一场比赛两条记录，快选一般只想要 cn）
+    注意：过滤必须在截断之前做，否则按名字排序会先切掉一半（日文名排在前面）。
+    """
     try:
         from module.umamusume.asset import stud_planner
         data = stud_planner.load_json("race_bwiki.json")
@@ -196,11 +202,11 @@ def query_races(q: str = ""):
         return []
     out, seen = [], set()
     for r in data.get("races", []):
-        names = [r.get("name")] or []
+        cands = [(r.get("name"), "cn")]
         jp = r.get("jp_name")
         if jp and jp != r.get("name"):
-            names.append(jp)
-        for n in names:
+            cands.append((jp, "jp"))
+        for n, lg in cands:
             if not n or n in seen:
                 continue
             seen.add(n)
@@ -209,11 +215,20 @@ def query_races(q: str = ""):
                 "distance": int(r.get("distance") or 0),
                 "surface": r.get("track", "草地"),
                 "direction": r.get("direction", "右"),
+                # 种马「跑过的G1」只应出 G1 —— 胜鞍分按现行规则只算 G1 重合
+                "grade": r.get("grade", ""),
+                "lang": lg,
             })
     if q:
         q = q.strip()
         out = [x for x in out if q in x["name"]]
-    return sorted(out, key=lambda x: x["name"])[:200]
+    if grade:
+        grade = grade.strip().upper()
+        out = [x for x in out if str(x["grade"]).upper() == grade]
+    if lang:
+        lang = lang.strip().lower()
+        out = [x for x in out if x["lang"] == lang]
+    return sorted(out, key=lambda x: x["name"])[:500]
 
 
 # ---------- 规划 ----------
