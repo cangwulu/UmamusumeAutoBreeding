@@ -15,6 +15,14 @@ if _PROJECT_ROOT not in sys.path:
     sys.path.insert(0, _PROJECT_ROOT)
 
 try:
+    from module.umamusume import card_level
+except Exception as exc:  # pragma: no cover - card_level 只依赖标准库, 理论上不会失败
+    card_level = None
+    _CARD_LEVEL_ERR = exc
+else:
+    _CARD_LEVEL_ERR = None
+
+try:
     from module.umamusume.asset import stud_planner
 except Exception as exc:  # pragma: no cover
     stud_planner = None
@@ -138,7 +146,7 @@ def apply_updates(char_updates: list, card_updates: list,
 
     只改指定列, 其余(备注/角色名等)原样保留。
     """
-    n = {"characters": 0, "cards": 0}
+    n = {"characters": 0, "cards": 0, "clamped": 0}
     if char_updates:
         rows = _read_csv_rows(os.path.join(directory, "my_characters.csv"))
         header = rows[0] if rows else []
@@ -166,7 +174,7 @@ def apply_updates(char_updates: list, card_updates: list,
     if card_updates:
         rows = _read_csv_rows(os.path.join(directory, "my_support_cards.csv"))
         header = rows[0] if rows else []
-        k_own, k_awk, k_lv = 4, 5, 6
+        k_own, k_awk, k_lv, k_rar = 4, 5, 6, 3
         for i, h in enumerate(header):
             if "拥有" in h:
                 k_own = i
@@ -174,15 +182,25 @@ def apply_updates(char_updates: list, card_updates: list,
                 k_awk = i
             elif "等级" in h:
                 k_lv = i
+            elif "稀有度" in h:
+                k_rar = i
         for u in card_updates:
             idx = int(u.get("idx", -1))
             if 0 <= idx < len(rows) - 1:
                 r = rows[idx + 1]
-                while len(r) <= max(k_own, k_awk, k_lv):
+                while len(r) <= max(k_own, k_awk, k_lv, k_rar):
                     r.append("")
-                r[k_own] = "1" if u.get("own") else ""
-                r[k_awk] = str(u.get("awaken", "")) if u.get("own") else ""
-                r[k_lv] = str(u.get("level", "")) if u.get("own") else ""
+                own = bool(u.get("own"))
+                rarity = (r[k_rar].strip() if len(r) > k_rar else "")
+                raw_awk = u.get("awaken", 0)
+                raw_lv = u.get("level", 0)
+                awk = _norm_awaken(raw_awk)
+                lv = _clamp_level(raw_lv, rarity, awk)
+                if own and (_as_int(raw_awk) != awk or _as_int(raw_lv) != lv):
+                    n["clamped"] += 1
+                r[k_own] = "1" if own else ""
+                r[k_awk] = str(awk) if own else ""
+                r[k_lv] = str(lv) if own else ""
                 n["cards"] += 1
         _write_csv_rows(os.path.join(directory, "my_support_cards.csv"), rows)
     return n
@@ -252,6 +270,37 @@ def save_studs(studs_rows: list, directory: str = DEFAULT_INVENTORY) -> int:
     rows = [header] + body
     _write_csv_rows(p, rows)
     return len(body)
+
+
+def _as_int(value):
+    """尽力转 int；失败返回 None（用于判断「服务端是否改过这个值」）。"""
+    try:
+        return int(str(value if value is not None else "").strip())
+    except (TypeError, ValueError):
+        return None
+
+
+def _norm_awaken(awaken) -> int:
+    """突破数归一到 0-4（规则见 module/umamusume/card_level.py）。"""
+    if card_level is not None:
+        return card_level.normalize_awaken(awaken)
+    try:
+        return max(0, min(4, int(awaken)))
+    except (TypeError, ValueError):
+        return 0
+
+
+def _clamp_level(level, rarity, awaken) -> int:
+    """等级钳制到 [1, 稀有度基准 + 5×突破]（单一数据源: card_level）。
+
+    SSR 30+5a / SR 25+5a / R 20+5a；稀有度未知时按 SSR 降级。
+    """
+    if card_level is not None:
+        return card_level.clamp_level(level, rarity, awaken)
+    try:
+        return max(1, min(50, int(level)))
+    except (TypeError, ValueError):
+        return 50
 
 
 def _clean_int(r, i) -> int:

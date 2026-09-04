@@ -22,11 +22,18 @@ _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if _PROJECT_ROOT not in sys.path:
     sys.path.insert(0, _PROJECT_ROOT)
 
+from module.umamusume.card_level import (LEVEL_HEADER, AWAKEN_HEADER,
+                                         RARITY_BASE_LEVEL, LEVEL_PER_AWAKEN,
+                                         MAX_AWAKEN, KNOWN_RARITIES)
+
 DATA = os.path.join(_PROJECT_ROOT, "resource", "umamusume", "data")
 DEFAULT_OUT = os.path.join(_PROJECT_ROOT, "my_inventory")
 
 CHAR_HEADERS = ["形态名", "角色名", "拥有(1/0)", "星级(1-5)", "觉醒等级(0-5)", "备注"]
-CARD_HEADERS = ["卡名", "关联马娘", "类型", "稀有度", "拥有(1/0)", "突破数(0-4)", "等级(1-50)", "备注"]
+# 等级上限随「稀有度 + 突破数」变化（规则见 module/umamusume/card_level.py），
+# 所以表头不再写死「等级(1-50)」。老表头仍可被读取（向后兼容）。
+CARD_HEADERS = ["卡名", "关联马娘", "类型", "稀有度", "拥有(1/0)",
+                AWAKEN_HEADER, LEVEL_HEADER, "备注"]
 STUD_HEADERS = ["种马角色名", "速度", "耐力", "力量", "根性", "智力",
                 "蓝因子(如:速度3星,耐力2星)", "粉因子(如:中距离3星)",
                 "白因子技能(逗号分隔)", "绿因子(继承固有)", "跑过的G1(逗号分隔)", "备注"]
@@ -111,6 +118,9 @@ def main(argv=None):
     print("\n填写说明：")
     print("  1) my_characters.csv    —— 在「拥有(1/0)」列填 1；星级/觉醒等级可选填")
     print("  2) my_support_cards.csv —— 在「拥有(1/0)」列填 1；突破数(0-4)建议填，影响配卡推荐质量")
+    print("       等级上限 = 稀有度基准(%(base)s) + %(per)d × 突破数（上限随突破数涨，最高 %(max)d 级）"
+          % {"base": "/".join("%s %d" % (r, RARITY_BASE_LEVEL[r]) for r in KNOWN_RARITIES),
+             "per": LEVEL_PER_AWAKEN, "max": max(RARITY_BASE_LEVEL.values()) + LEVEL_PER_AWAKEN * MAX_AWAKEN})
     print("  3) my_studs.csv         —— 已成品种马记录；没有就删掉示例行留空（规划器按从零规划跑）")
     return 0
 

@@ -36,6 +36,7 @@ import re
 import sys
 from dataclasses import dataclass, field
 
+from module.umamusume import card_level
 from module.umamusume.name_resolver import get_resolver
 from typing import Dict, List, Optional, Tuple
 
@@ -343,13 +344,18 @@ def load_inventory(directory: str = DEFAULT_INVENTORY) -> Inventory:
             for row in csv.DictReader(f):
                 if _norm(row.get("拥有(1/0)")).lower() in ("1", "y", "yes", "是", "true"):
                     src = card_data.get(_norm(row.get("卡名")), {})
+                    # 等级/突破列兼容新旧表头（老: 等级(1-50) / 新: 等级(1-上限)）
+                    rarity = _norm(row.get("稀有度")) or src.get("rarity", "")
+                    limit = _to_int(card_level.pick_cell(row, card_level.AWAKEN_HEADERS))
+                    level = _to_int(card_level.pick_cell(row, card_level.LEVEL_HEADERS), 1) or 1
                     inv.cards.append(Card(
                         name=_norm(row.get("卡名")),
                         chara=_norm(row.get("关联马娘")) or src.get("chara", ""),
                         type=_norm(row.get("类型")) or src.get("type", ""),
-                        rarity=_norm(row.get("稀有度")) or src.get("rarity", ""),
-                        limit=_to_int(row.get("突破数(0-4)")),
-                        level=_to_int(row.get("等级(1-50)"), 1) or 1,
+                        rarity=rarity,
+                        limit=card_level.normalize_awaken(limit),
+                        # 历史脏数据（例: R 卡填了 50 级）按「稀有度基准 + 5×突破」钳制
+                        level=card_level.clamp_level(level, rarity, limit),
                         effects=(src.get("extra") or {}).get("support_effects", [])))
 
     # 已成品种马
@@ -922,8 +928,13 @@ def is_borrowed(card: Card) -> bool:
 
 
 def card_full(card: Card) -> bool:
-    """是否已练满（4 突破 / 50 级）。"""
-    return card.limit >= FRIEND_LIMIT and card.level >= FRIEND_LEVEL
+    """是否已练满（4 突破 + 该稀有度的等级上限）。
+
+    等级上限随稀有度变化（SSR 50 / SR 45 / R 40，见 card_level），
+    不能一律按 50 判 —— 否则 SR/R 卡永远「练不满」。
+    """
+    return (card.limit >= card_level.MAX_AWAKEN
+            and card.level >= card_level.level_cap(card.rarity, card.limit))
 
 
 def recommend_deck(inv: Inventory, dc: str, top_n: int = 6,
@@ -1389,10 +1400,13 @@ def _card_upgrade_row(card: Card, deck: Dict[str, object]) -> Dict[str, str]:
     mix = deck.get("mix") or {}
     need = mix.get(card.type, 0)
     full = card_full(card)
+    # 目标等级按稀有度上限给（SSR 50 / SR 45 / R 40），别一律写 50
+    target = "突破%d/等级%d" % (card_level.MAX_AWAKEN,
+                              card_level.max_level_cap(card.rarity))
     if full:
         prio, target, reason = "已达标", "—", "已是满突满级，无需再升"
     elif card.type == "友人":
-        prio, target, reason = ("P2·可缓", "突破4/等级50",
+        prio, target, reason = ("P2·可缓", target,
                                 "友人卡通常靠好友借位覆盖；自己这张有价值再慢慢练")
     elif need:
         if card.rarity.upper() == "SSR":
@@ -1402,9 +1416,8 @@ def _card_upgrade_row(card: Card, deck: Dict[str, object]) -> Dict[str, str]:
             prio = "P1·过渡卡"
             reason = ("当前 %s 位缺高稀有度 %s 卡才用你；有同类型 SSR 后优先替换"
                       % (deck["build"], card.type))
-        target = "突破4/等级50"
     else:
-        prio, target, reason = ("P2·备选", "突破4/等级50",
+        prio, target, reason = ("P2·备选", target,
                                 "不在当前 %s 配比里，有余力再升" % deck["build"])
     return {"name": card.name, "type": card.type, "rarity": card.rarity.upper(),
             "state": _card_cur_state(card), "target": target,

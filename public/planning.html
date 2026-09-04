@@ -52,6 +52,8 @@ main{max-width:1180px;margin:0 auto;padding:14px 18px 40px}
 .tag.SSR{background:#c9a227}.tag.SR{background:#9a7b4f}.tag.R{background:#7a8b99}
 .ctrl{display:flex;gap:6px;align-items:center;flex:none}
 .ctrl label{font-size:12px;color:var(--sub)}
+.ctrl .lv-cap{font-size:12px;color:var(--sub);min-width:48px;cursor:help;white-space:nowrap}
+.ctrl .lv-cap.unknown{color:var(--dirty)}
 .own-chk{width:18px;height:18px;accent-color:var(--c1);cursor:pointer}
 .dirty-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--dirty);margin-right:6px}
 .hint{color:var(--sub);font-size:13px}
@@ -120,6 +122,7 @@ main{max-width:1180px;margin:0 auto;padding:14px 18px 40px}
       <select id="cardRar"><option value="">全部稀有度</option><option value="SSR">SSR</option><option value="SR">SR</option><option value="R">R</option></select>
       <select id="cardFilter"><option value="all">全部</option><option value="own">已拥有</option><option value="no">未拥有</option></select>
       <span class="hint" id="cardStats"></span>
+      <div class="hint" id="cardLvHint" style="width:100%"></div>
     </div>
     <div class="panel" id="cardList"><div class="empty">加载中…</div></div>
   </section>
@@ -219,6 +222,91 @@ function imgUrl(kind, f){ return f ? ("/media/" + kind + "/" + encodeURIComponen
 function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
 
 // ---------- 渲染 ----------
+// ---------- 协助卡等级上限 ----------
+// 规则由后端 GET /api/inventory 的 card_level_rules 下发（唯一数据源:
+// module/umamusume/card_level.py）。前端只做「基准 + per_awaken × 突破数」这一层算术，
+// 绝不自己写死 [30,35,40,45,50] —— 上限是与稀有度/突破数联动的。
+const LV_RULES_FALLBACK = {base:{SSR:30,SR:25,R:20}, per_awaken:5, min_level:1,
+                           min_awaken:0, max_awaken:4, default_rarity:"SSR",
+                           rarity_order:["SSR","SR","R"]};
+let LV_RULES = LV_RULES_FALLBACK;
+const _lvOptCache = new Map();   // "min|cap|sel" -> options HTML（316 张卡反复重绘时省解析）
+
+function lvRules(){
+  const r = LV_RULES || LV_RULES_FALLBACK;
+  const base = (r.base && typeof r.base === "object") ? r.base : LV_RULES_FALLBACK.base;
+  return {
+    base: base,
+    per:  (r.per_awaken != null ? +r.per_awaken : 5),
+    min:  (r.min_level  != null ? +r.min_level  : 1),
+    aMin: (r.min_awaken != null ? +r.min_awaken : 0),
+    aMax: (r.max_awaken != null ? +r.max_awaken : 4),
+    defRar: (base[r.default_rarity] != null ? r.default_rarity : "SSR")
+  };
+}
+function lvNormRarity(rarity){
+  const R = lvRules();
+  const key = String(rarity == null ? "" : rarity).trim().toUpperCase();
+  if (R.base[key] != null) return key;
+  const compact = key.replace(/[^A-Z0-9]/g, "");
+  if (R.base[compact] != null) return compact;
+  return R.defRar;                 // 稀有度缺失/未知 -> 按 SSR 降级，不抛异常
+}
+function lvIsKnown(rarity){
+  const R = lvRules();
+  return R.base[String(rarity == null ? "" : rarity).trim().toUpperCase()] != null;
+}
+function lvClampAwaken(awk){
+  const R = lvRules();
+  let a = parseInt(awk, 10);
+  if (!isFinite(a)) a = R.aMin;
+  return Math.max(R.aMin, Math.min(R.aMax, a));
+}
+function lvCapOf(rarity, awk){
+  const R = lvRules();
+  return R.base[lvNormRarity(rarity)] + R.per * lvClampAwaken(awk);
+}
+// 等级钳制到 [min, cap]；未填(0)/脏数据直接给到上限（与旧版默认选中一致）
+function lvClamp(lv, cap){
+  const R = lvRules();
+  let n = parseInt(lv, 10);
+  if (!isFinite(n) || n <= 0) return cap;
+  return Math.max(R.min, Math.min(cap, n));
+}
+function lvOptionsHtml(cap, sel){
+  const min = lvRules().min;
+  const key = min + "|" + cap + "|" + sel;
+  let s = _lvOptCache.get(key);
+  if (s === undefined){
+    s = "";
+    for (let n = min; n <= cap; n++) s += "<option" + (n === sel ? " selected" : "") + ">" + n + "</option>";
+    _lvOptCache.set(key, s);
+  }
+  return s;
+}
+function awkOptionsHtml(awk){
+  const R = lvRules();
+  let s = "";
+  for (let n = R.aMin; n <= R.aMax; n++) s += "<option" + (n === awk ? " selected" : "") + ">" + n + "</option>";
+  return s;
+}
+function lvCapTitle(rarity){
+  const R = lvRules();
+  const key = lvNormRarity(rarity);
+  const known = lvIsKnown(rarity);
+  return "等级上限 = 稀有度基准(" + key + " " + R.base[key] + (known ? "" : "，未知稀有度按 " + R.defRar + " 处理")
+       + ") + " + R.per + " × 突破数";
+}
+function renderLvRuleHint(){
+  const el = $("cardLvHint");
+  if (!el) return;
+  const R = lvRules();
+  const order = (LV_RULES && LV_RULES.rarity_order && LV_RULES.rarity_order.length)
+    ? LV_RULES.rarity_order : Object.keys(R.base);
+  el.textContent = "等级上限 = 稀有度基准("
+    + order.filter(r => R.base[r] != null).map(r => r + " " + R.base[r]).join(" / ")
+    + ") + " + R.per + " × 突破数 —— 改「突破」会自动重算可选等级，并把超限的等级钳回上限";
+}
 function refreshBadges(){
   const ch = STATE.characters, ca = STATE.cards;
   const ownC = ch.filter(x=>x.own).length, ownK = ca.filter(x=>x.own).length;
@@ -282,11 +370,20 @@ function rowCard(c){
     `<div class="ctrl">
        <label>拥有</label><input type="checkbox" class="own-chk" ${own?"checked":""}>
        <label>突破</label><select class="f-awk">${[0,1,2,3,4].map(n=>`<option ${awk===n?"selected":""}>${n}</option>`).join("")}</select>
-       <label>等级</label><select class="f-lv">${[30,35,40,45,50].map(n=>`<option ${lv===n?"selected":""}>${n}</option>`).join("")}</select>
+       <label>等级</label><select class="f-lv" title="${esc(lvCapTitle(c.rarity))}">${lvOptionsHtml(lvCapOf(c.rarity, awk), lvClamp(lv, lvCapOf(c.rarity, awk)))}</select>
      </div>`;
   const sync = () => {
     const o = div.querySelector(".own-chk").checked;
-    const a = +div.querySelector(".f-awk").value, l = +div.querySelector(".f-lv").value;
+    const a = +div.querySelector(".f-awk").value;
+    const lvSel = div.querySelector(".f-lv");
+    const cap = lvCapOf(c.rarity, a);
+    const curLv = +lvSel.value;
+    const clamped = lvClamp(curLv, cap);
+    // 突破数变化(上限变)或等级越界 -> 重建下拉并把超限值钳回上限
+    if (clamped !== curLv || lvSel.options.length !== (cap - lvRules().min + 1)) {
+      lvSel.innerHTML = lvOptionsHtml(cap, clamped);
+    }
+    const l = +lvSel.value;
     if (o!==c.own || a!==c.awaken || l!==c.level) {
       DIRTY["k"+c.idx] = {own:o, awaken:o?a:0, level:o?l:0};
     } else { delete DIRTY["k"+c.idx]; }
@@ -488,6 +585,8 @@ async function saveAll(){
 async function loadAll(){
   try {
     STATE = await api("/api/inventory");
+    if (STATE && STATE.card_level_rules) LV_RULES = STATE.card_level_rules;
+    renderLvRuleHint();
     refreshBadges();
     fillStudNameList();
     renderChara();

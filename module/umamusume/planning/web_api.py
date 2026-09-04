@@ -26,6 +26,7 @@ _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(_PKG_DIR)))
 if _PROJECT_ROOT not in sys.path:
     sys.path.insert(0, _PROJECT_ROOT)
 
+from module.umamusume import card_level
 from module.umamusume.planning import inventory as inv_svc
 from module.umamusume.planning import planner as plan_svc
 from module.umamusume.planning.cup_info import (CONDITIONS, DIRECTIONS,
@@ -152,10 +153,13 @@ def get_inventory():
     _decorate(state)
     n_own_c = sum(1 for c in state["characters"] if c["own"])
     n_own_k = sum(1 for c in state["cards"] if c["own"])
-    return {**state, "counts": {"characters": len(state["characters"]),
-                                "cards": len(state["cards"]),
-                                "own_characters": n_own_c,
-                                "own_cards": n_own_k}}
+    # 协助卡等级上限规则（唯一数据源 card_level）—— 前端据此联动「突破 -> 等级」下拉，
+    # 不再自己写死 [30,35,40,45,50]；保存时服务端用同一份规则钳制。
+    return {**state, "card_level_rules": card_level.rules_payload(),
+            "counts": {"characters": len(state["characters"]),
+                       "cards": len(state["cards"]),
+                       "own_characters": n_own_c,
+                       "own_cards": n_own_k}}
 
 
 @router.post("/inventory")

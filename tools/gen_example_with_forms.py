@@ -10,6 +10,8 @@ import tempfile
 import csv
 import importlib.util
 
+from module.umamusume.card_level import LEVEL_HEADER, AWAKEN_HEADER
+
 PROJ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if PROJ not in sys.path:
     sys.path.insert(0, PROJ)
@@ -68,7 +70,7 @@ def main():
     p = os.path.join(d, "my_support_cards.csv")
     with open(p, "w", encoding="utf-8-sig", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["卡名", "关联马娘", "类型", "稀有度", "拥有(1/0)", "突破数(0-4)", "等级(1-50)", "备注"])
+        w.writerow(["卡名", "关联马娘", "类型", "稀有度", "拥有(1/0)", AWAKEN_HEADER, LEVEL_HEADER, "备注"])
         for nm, ch, tp, rr in CARDS:
             w.writerow([nm, ch, tp, rr, 1, 0, 1, ""])
     # 种马
