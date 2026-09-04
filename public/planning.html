@@ -393,7 +393,13 @@ function rowCard(c){
     refreshBadges();
   };
   div.querySelector(".own-chk").onchange = sync;
-  div.querySelector(".f-awk").onchange = sync;
+  div.querySelector(".f-awk").onchange = () => {
+    // 突破数变了 -> 等级默认直接跳到「当前突破对应的上限」(练满)，不用手动填
+    const lvSel = div.querySelector(".f-lv");
+    const cap = lvCapOf(c.rarity, +div.querySelector(".f-awk").value);
+    lvSel.innerHTML = lvOptionsHtml(cap, cap);
+    sync();
+  };
   div.querySelector(".f-lv").onchange = sync;
   return div;
 }
