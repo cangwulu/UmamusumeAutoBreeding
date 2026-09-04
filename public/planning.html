@@ -29,6 +29,14 @@ nav button{border:none;background:none;padding:11px 18px;font-size:15px;color:va
 nav button.active{color:var(--c1);border-bottom-color:var(--c1);font-weight:600}
 main{max-width:1180px;margin:0 auto;padding:14px 18px 40px}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-top:14px}
+.stud-table{border-collapse:collapse;width:100%;font-size:12px}
+.stud-table th{background:#f1eadf;color:#6a5a44;padding:6px 8px;border:1px solid var(--line);white-space:nowrap;font-weight:600}
+.stud-table td{border:1px solid var(--line);padding:2px;vertical-align:top}
+.stud-table input.si{width:100%;min-width:70px;border:1px solid transparent;background:transparent;padding:5px 6px;font-size:12px;border-radius:4px}
+.stud-table input.si:focus{border-color:var(--c3);background:#fff;outline:none}
+.stud-table tr:nth-child(odd) td{background:#fbf7ef}
+.stud-table td:first-child input.si{min-width:110px;font-weight:600;color:var(--c1)}
+.stud-table .btn-ghost{padding:4px 9px;font-size:12px;border-radius:5px;border:none;cursor:pointer}
 .filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .filters input[type=text]{flex:1;min-width:180px;padding:7px 12px;border:1px solid var(--line);border-radius:8px;font-size:14px}
 .filters select,.cup input,.cup select{padding:6px 8px;border:1px solid var(--line);border-radius:8px;font-size:13px;background:#fff}
@@ -90,6 +98,7 @@ main{max-width:1180px;margin:0 auto;padding:14px 18px 40px}
 <nav>
   <button data-tab="chara" class="active">马娘</button>
   <button data-tab="card">协助卡</button>
+  <button data-tab="stud">种马</button>
   <button data-tab="cup">大赛与规划</button>
 </nav>
 
@@ -153,6 +162,28 @@ main{max-width:1180px;margin:0 auto;padding:14px 18px 40px}
         <span class="hint" id="planInfo"></span>
       </div>
       <div id="planResult"><div class="hint" style="margin-top:10px">保存大赛后可运行规划。</div></div>
+    </div>
+  </section>
+  <!-- 种马登记 -->
+  <section id="tab-stud" style="display:none">
+    <div class="panel">
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <h3 style="font-size:15px">已成品种马登记（喂给规划器算供给缺口）</h3>
+        <button class="btn btn-soft" id="btnStudAdd">＋ 添加一行</button>
+        <button class="btn btn-primary" id="btnStudSave">保存种马</button>
+        <span class="hint" id="studSaved"></span>
+        <span class="hint" style="margin-left:auto">蓝因子格式如 <code>耐力3星,速度2星</code>；粉因子如 <code>中距离3星</code>；G1 用逗号分隔比赛名</span>
+      </div>
+    </div>
+    <div class="panel" style="overflow-x:auto">
+      <table id="studTable" class="stud-table">
+        <thead><tr>
+          <th>种马角色名</th><th>速度</th><th>耐力</th><th>力量</th><th>根性</th><th>智力</th>
+          <th>蓝因子</th><th>粉因子</th><th>白因子技能</th><th>绿因子</th><th>跑过的G1</th><th>备注</th><th></th>
+        </tr></thead>
+        <tbody id="studBody"></tbody>
+      </table>
+      <div class="hint" style="margin-top:8px">说明：每次育成结束选 2 只种马 + 各自祖辈共 6 匹；把已养成的马娘记在这里，重跑规划会按真实库存收敛缺口。留空则该马不计入。</div>
     </div>
   </section>
 </main>
@@ -469,7 +500,8 @@ document.querySelectorAll("nav button").forEach(btn=>{
     document.querySelectorAll("nav button").forEach(x=>x.classList.remove("active"));
     btn.classList.add("active");
     active = btn.dataset.tab;
-    ["chara","card","cup"].forEach(tab=>{ $("tab-"+tab).style.display = tab===active?"":"none"; });
+    ["chara","card","stud","cup"].forEach(t=>{ $("tab-"+t).style.display = t===active?"":"none"; });
+    if (active === "stud") renderStuds();
   };
 });
 function bindFilter(elId, render){
@@ -495,8 +527,70 @@ $("btnPlan").onclick = runPlan;
 $("btnSave").onclick = saveAll;
 $("btnReload").onclick = () => { DIRTY={}; loadAll(); };
 
+// ---------- 种马登记 ----------
+const STUD_KEYS = ["种马角色名","速度","耐力","力量","根性","智力",
+  "蓝因子(如:速度3星,耐力2星)","粉因子(如:中距离3星)",
+  "白因子技能(逗号分隔)","绿因子(继承固有)","跑过的G1(逗号分隔)","备注"];
+let STUDS = [];   // 服务端读回的种马行
+
+function studRowHtml(rec, idx){
+  const cells = STUD_KEYS.map(k => {
+    const v = rec && rec[k] !== undefined ? rec[k] : "";
+    const ph = (k.includes("蓝因子")||k.includes("白因子")||k.includes("G1")||k.includes("粉因子"))
+      ? 'placeholder="' + (k.includes("蓝因子")?"耐力3星,速度2星":k.includes("粉因子")?"中距离3星":k.includes("G1")?"皋月奖,日本德比":k.includes("白因子")?"地固,弧线教授":"") + '"' : "";
+    return `<td><input class="si" data-k="${esc(k)}" data-i="${idx}" value="${esc(v)}" ${ph}></td>`;
+  }).join("");
+  return `<tr data-i="${idx}">${cells}<td><button class="btn btn-ghost stud-del" data-i="${idx}" style="background:#c62828;color:#fff;padding:3px 10px">删</button></td></tr>`;
+}
+function renderStuds(){
+  const body = $("studBody");
+  if (!STUDS.length) STUDS = [{}];
+  body.innerHTML = STUDS.map((r,i)=>studRowHtml(r,i)).join("");
+  $("studSaved").textContent = "共 " + STUDS.length + " 只（已存 " + (STATE && STATE._stud_count !== undefined ? STATE._stud_count : "?") + "）";
+}
+function collectStuds(){
+  const rows = [];
+  document.querySelectorAll("#studBody tr").forEach(tr=>{
+    const rec = {};
+    tr.querySelectorAll("input.si").forEach(inp => rec[inp.dataset.k] = inp.value.trim());
+    rows.push(rec);
+  });
+  return rows;
+}
+async function studsSave(){
+  const rows = collectStuds().filter(r => r["种马角色名"]);
+  const btn = $("btnStudSave");
+  if (btn) btn.disabled = true;
+  try{
+    const d = await api("/api/studs", {method:"POST",
+      headers:{"Content-Type":"application/json"}, body: JSON.stringify({rows})});
+    toast("已保存 " + d.saved + " 只种马 ✓");
+    await refreshStudCount();
+  }catch(e){ toast("保存失败：" + e.message, false); }
+  finally{ if (btn) btn.disabled = false; }
+}
+async function refreshStudCount(){
+  try{
+    // /api/inventory 不返回种马明细，直接读 /api/studs
+    const s = await api("/api/studs");
+    STUDS = (s.rows||[]).slice();
+  }catch(e){ STUDS = STUDS || []; }
+  if (STATE) STATE._stud_count = STUDS.length;
+  // 只有处在种马 tab 时才重渲染，避免打断其它 tab 的输入
+  if (active === "stud") renderStuds();
+}
+$("btnStudAdd").onclick = () => { STUDS.push({}); renderStuds(); };
+$("studBody").addEventListener("click", e => {
+  const b = e.target.closest(".stud-del"); if (!b) return;
+  const i = +b.dataset.i;
+  // 重排：从 DOM 收集后删除该行再渲染
+  const rows = collectStuds(); rows.splice(i, 1); STUDS = rows.length ? rows : [{}]; renderStuds();
+});
+$("btnStudSave").onclick = studsSave;
+
 loadAll();
 cupLoad();
+refreshStudCount();
 </script>
 </body>
 </html>

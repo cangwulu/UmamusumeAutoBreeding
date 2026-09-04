@@ -108,6 +108,28 @@ class InventoryUpdate(BaseModel):
     cards: List[CardUpdate] = []
 
 
+class StudsSave(BaseModel):
+    """种马登记：全量替换数据行（键=my_studs.csv 表头名）。"""
+    rows: List[dict] = []
+
+
+# ---------- 种马登记 ----------
+@router.get("/studs")
+def get_studs():
+    """读已成品种马记录（供 planning 种马 tab 渲染）。"""
+    return inv_svc.read_studs()
+
+
+@router.post("/studs")
+def save_studs(payload: StudsSave):
+    """全量保存种马记录（示例行/空行自动剔除）。"""
+    try:
+        n = inv_svc.save_studs(payload.rows)
+    except Exception as exc:  # noqa: BLE001
+        raise HTTPException(status_code=500, detail="保存失败: %s" % exc)
+    return {"ok": True, "saved": n}
+
+
 class CupPayload(BaseModel):
     race_name: str = ""
     venue: str = ""

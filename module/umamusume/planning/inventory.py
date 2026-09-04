@@ -188,6 +188,72 @@ def apply_updates(char_updates: list, card_updates: list,
     return n
 
 
+# ---------------- 种马登记（成品种马 my_studs.csv，行少→全量替换） ----------------
+
+STUD_HEADERS = ["种马角色名", "速度", "耐力", "力量", "根性", "智力",
+                "蓝因子(如:速度3星,耐力2星)", "粉因子(如:中距离3星)",
+                "白因子技能(逗号分隔)", "绿因子(继承固有)", "跑过的G1(逗号分隔)", "备注"]
+
+
+def _stud_col(header, name, default):
+    for i, h in enumerate(header):
+        if name in h:
+            return i
+    return default
+
+
+def read_studs(directory: str = DEFAULT_INVENTORY) -> Dict[str, object]:
+    """读 my_studs.csv 为行记录(list[dict]，键=表头)，供网页登记 tab 渲染。"""
+    p = os.path.join(directory, "my_studs.csv")
+    if not os.path.isfile(p):
+        return {"exists": False, "rows": []}
+    rows = _read_csv_rows(p)
+    if not rows:
+        return {"exists": True, "rows": []}
+    header = rows[0]
+    out = []
+    for r in rows[1:]:
+        if not r or not r[0].strip():
+            continue
+        rec = {}
+        for i, h in enumerate(header):
+            val = (r[i].strip() if len(r) > i else "")
+            if h == "种马角色名" and (val.startswith("示例") or not val):
+                break
+            rec[h] = val
+        else:
+            out.append(rec)
+    return {"exists": True, "rows": out}
+
+
+def save_studs(studs_rows: list, directory: str = DEFAULT_INVENTORY) -> int:
+    """全量替换 my_studs.csv 的数据行（表头固定，保留）。
+
+    studs_rows: list[dict]，键为表头名（未知键丢弃）。空角色名行会被跳过。
+    """
+    header = STUD_HEADERS
+    # 兼容读回时已存在的表头顺序（若文件已有则沿用其表头，否则用模板表头）
+    p = os.path.join(directory, "my_studs.csv")
+    if os.path.isfile(p):
+        try:
+            existing = _read_csv_rows(p)
+            if existing:
+                header = existing[0]
+        except Exception:
+            pass
+    body = []
+    for rec in studs_rows or []:
+        if not isinstance(rec, dict):
+            continue
+        nm = str(rec.get("种马角色名", "")).strip()
+        if not nm or nm.startswith("示例"):
+            continue
+        body.append([str(rec.get(h, "")).strip() for h in header])
+    rows = [header] + body
+    _write_csv_rows(p, rows)
+    return len(body)
+
+
 def _clean_int(r, i) -> int:
     try:
         return int(r[i].strip()) if len(r) > i and r[i].strip() else 0

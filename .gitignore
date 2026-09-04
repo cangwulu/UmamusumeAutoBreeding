@@ -21,6 +21,7 @@ resource/umamusume/support_card_img/
 .vscode
 .npm-cache-check
 tools/.cache/
+.cache/
 .workbuddy/
 
 # OCR 模型(体积大, 按 README 另行下载)
